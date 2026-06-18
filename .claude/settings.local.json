@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which rsvg-convert *)",
+      "Bash(qlmanage -t -s 800 -o /tmp \"Chopping.svg\")",
+      "Read(//tmp/**)"
+    ]
+  }
+}
