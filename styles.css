@@ -52,7 +52,7 @@ a{color:inherit;text-decoration:none}
   align-items:center;justify-content:center;gap:24px;transition:opacity .6s ease,visibility .6s ease}
 .loader.hide{opacity:0;visibility:hidden;pointer-events:none}
 .loader__strip{position:absolute;left:0;top:0;width:100%;height:34px;
-  background:url("Pattern/_paper/Hounds-red-w.svg") center/cover}
+  background:#fff url("Pattern/_paper/PatternNEW-red.svg") center/cover}
 .loader__strip.b{top:auto;bottom:0}
 .loader__logo{width:min(380px,74%);height:auto;animation:loaderpop .7s cubic-bezier(.2,.8,.2,1)}
 .loader__bar{width:220px;height:12px;border:2px solid var(--red);border-radius:999px;overflow:hidden}
@@ -64,7 +64,7 @@ a{color:inherit;text-decoration:none}
 /* ===================== NAV ===================== */
 .nav{position:sticky;top:0;z-index:50;background:#fff;overflow:visible}
 .nav__bar{position:relative;height:104px;display:flex;align-items:center;justify-content:space-between;padding:0 44px}
-.nav__hounds{position:absolute;inset:0;background:url("Pattern/_paper/Hounds-red-w.svg") center/cover;-webkit-mask:none;mask:none}
+.nav__hounds{position:absolute;inset:0;background:#fff url("Pattern/_paper/PatternNEW-red.svg") center/cover;-webkit-mask:none;mask:none}
 .chips{position:relative;z-index:2;display:flex;gap:10px}
 .chip{display:inline-flex;align-items:center;padding:9px 18px;background:#fff;border:2px solid var(--red);
   border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--red)}
@@ -103,8 +103,8 @@ a{color:inherit;text-decoration:none}
 .products{color:var(--purple);--c:var(--purple)}
 .prow{display:flex;gap:20px;justify-content:center;max-width:var(--maxw);margin:0 auto;flex-wrap:wrap}
 .card{width:270px;display:flex;flex-direction:column}
-.card__photo{position:relative;height:360px;border-radius:18px;background:#fff;border:2px dashed #B6A3C2;
-  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card__photo{position:relative;height:380px;background:none;border:none;
+  display:flex;align-items:center;justify-content:center}
 .card__photo .ill{color:var(--purple);width:120px;height:150px}
 .card__bag{height:90%;width:auto;object-fit:contain;filter:drop-shadow(0 10px 16px rgba(105,64,120,.25))}
 .pick-title{width:min(560px,82%);height:auto;display:block;margin:16px auto 0}
@@ -140,13 +140,18 @@ a{color:inherit;text-decoration:none}
 .why__item h3{font-size:1.6rem;text-transform:uppercase}
 .why__item p{font-size:1.05rem;line-height:1.5;max-width:42ch}
 
+/* ===================== BLUE HOUNDSTOOTH BAND ===================== */
+.band{width:100%;height:292px;background:#fff url("Pattern/_paper/PatternNEW-blue.svg") center/cover}
+
 /* ===================== STORY (photo) ===================== */
 .story{position:relative;height:600px;overflow:hidden;display:flex;align-items:flex-end}
 .story__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .story::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,rgba(20,16,10,.12),rgba(20,16,10,.6))}
 .story__copy{position:relative;z-index:2;padding:64px;max-width:820px}
-.story__title{font-size:58px;line-height:1.02;color:#fff}
+.story__title{font-family:"Control Upright",sans-serif;font-weight:500;font-size:58px;line-height:60px;color:#fff}
 .story .btn{margin-top:28px;background:#fff;color:var(--red);border-color:#fff;box-shadow:0 7px 0 var(--red)}
+.story__btn{color:var(--ink);border-color:#fff;box-shadow:none}
+.story__btn:hover{transform:none}
 .story__card{position:absolute;z-index:2;top:44px;right:44px;width:288px;padding:20px;border-radius:18px;
   background:rgba(20,16,10,.42);border:1.5px solid rgba(255,255,255,.65);color:#fff;
   display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
@@ -186,6 +191,68 @@ a{color:inherit;text-decoration:none}
 .footer__tag{font-size:clamp(1rem,2vw,1.4rem);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--red);text-align:center}
 .footer__fine{font-size:13px;letter-spacing:.04em;color:var(--red);text-align:center}
 
+/* ===================== PRODUCT PAGE (PDP) ===================== */
+.pdp{--c:var(--purple);color:var(--purple)}
+.pdp__hero{display:flex;flex-direction:row;align-items:stretch;width:100%}
+.pdp__media{position:relative;display:flex;align-items:center;justify-content:center;
+  width:50%;min-height:720px;background:#ECE4F3 url("pdp-hero.png") center/cover;overflow:hidden}
+.pdp__bag{height:80%;width:auto;filter:drop-shadow(0 18px 30px rgba(105,64,120,.30))}
+.pdp__info{width:50%;padding:64px 72px;justify-content:center}
+.pdp__badge{position:absolute;top:26px;right:26px;width:104px;height:104px;border-radius:999px;
+  background:#fff;border:2px solid var(--purple);box-shadow:5px 5px 0 var(--purple);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(8deg);
+  font-weight:700;font-size:13px;letter-spacing:.02em;text-transform:uppercase;color:var(--purple);line-height:1.1;text-align:center}
+.pdp__thumbs{display:flex;gap:12px;margin-top:16px}
+.pdp__thumb{width:78px;height:90px;border-radius:12px;background:#F0EAF4;border:2px solid transparent;
+  display:flex;align-items:center;justify-content:center;cursor:pointer}
+.pdp__thumb.sel{border-color:var(--purple)}
+.pdp__thumb img{height:78%;width:auto}
+.pdp__info{display:flex;flex-direction:column;align-items:flex-start}
+.pdp__desc{display:inline-block;padding:6px 16px;border:2px solid var(--purple);border-radius:999px;
+  font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--purple)}
+.pdp__title{font-size:clamp(2.6rem,5vw,4rem);line-height:.98;margin-top:18px}
+.pdp__stars{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:14px;letter-spacing:.02em}
+.pdp__stars b{font-size:16px;letter-spacing:0}
+.pdp__price{font-family:"Sita Serif",serif;font-style:italic;font-size:34px;margin-top:14px}
+.pdp__lede{font-size:1.1rem;line-height:1.5;margin-top:14px;max-width:46ch;color:var(--ink)}
+.pdp__opts{display:flex;flex-direction:column;gap:12px;width:100%;margin-top:26px}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;
+  border:2px solid var(--purple);border-radius:14px;cursor:pointer;background:#fff}
+.opt.sel{box-shadow:0 0 0 2px var(--purple) inset}
+.opt__l{display:flex;flex-direction:column;gap:3px}
+.opt__t{font-weight:500;font-size:15px;letter-spacing:.03em;text-transform:uppercase}
+.opt__s{font-family:"Sita Serif",serif;font-style:italic;font-size:14px;color:var(--ink)}
+.opt__p{font-weight:500;font-size:18px}
+.opt__save{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#fff;
+  background:var(--purple);border-radius:999px;padding:4px 10px;margin-left:8px}
+.pdp__cart{width:100%;justify-content:center;margin-top:20px;font-size:16px;padding:18px 30px}
+.pdp__feat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 20px;margin-top:28px;width:100%}
+.pdp__feat div{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:.03em;text-transform:uppercase}
+.pdp__feat .dot{width:10px;height:10px;border-radius:999px;background:var(--purple);flex-shrink:0}
+/* stat band */
+.statband{background:var(--purple);color:#fff;display:flex;justify-content:center;gap:0;flex-wrap:wrap;padding:0}
+.statband .stat{flex:1;min-width:240px;padding:56px 32px;text-align:center;border-right:1px solid rgba(255,255,255,.25)}
+.statband .stat:last-child{border-right:none}
+.statband .big{font-size:clamp(2.4rem,4vw,3.4rem);line-height:.95;text-transform:uppercase;letter-spacing:-.01em}
+.statband .lbl{margin-top:10px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+/* made-for callout */
+.madefor{--c:var(--purple);color:var(--purple);padding:80px 48px;border-bottom:2px solid var(--purple)}
+.madefor__grid{max-width:980px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.madefor .ill{color:var(--purple);width:240px;height:300px}
+.madefor h2{font-size:clamp(2rem,4vw,3rem);line-height:1;text-transform:uppercase}
+.madefor p{margin-top:1rem;font-size:1.08rem;line-height:1.5;color:var(--ink);max-width:46ch}
+.madefor .skew{display:inline-block;transform:skewX(-12deg);font-family:"Sita Serif",serif;font-style:italic;
+  font-size:1.5rem;margin-top:1.2rem;color:var(--purple)}
+/* reviews */
+.prev{--c:var(--purple);color:var(--purple);padding:80px 48px;border-bottom:2px solid var(--purple);text-align:center}
+.prev__top{font-size:clamp(2rem,4vw,2.8rem);text-transform:uppercase}
+.prev__sub{margin-top:8px;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.prev__row{max-width:var(--maxw);margin:36px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prev__card{border:2px solid var(--purple);border-radius:16px;padding:24px;text-align:left}
+.prev__card .s{color:var(--purple);letter-spacing:2px}
+.prev__card p{font-family:"Sita Serif",serif;font-style:italic;font-size:1.1rem;line-height:1.4;margin:10px 0}
+.prev__card cite{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-style:normal}
+
 /* ===================== RESPONSIVE ===================== */
 @media(max-width:900px){
   .why__grid{grid-template-columns:1fr;gap:32px}
@@ -195,4 +262,10 @@ a{color:inherit;text-decoration:none}
   .facts__art .ill{width:160px;height:300px}
   .sampler__photo{width:100%;max-width:560px;height:320px}
   .nav__logo{width:230px}
+  .pdp__hero{grid-template-columns:1fr;gap:32px}
+  .pdp__media{height:440px}
+  .madefor__grid{grid-template-columns:1fr;gap:24px;text-align:center}
+  .madefor .ill{margin:0 auto}
+  .prev__row{grid-template-columns:1fr}
+  .pdp__feat{grid-template-columns:1fr}
 }
