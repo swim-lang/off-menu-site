@@ -65,6 +65,9 @@ a{color:inherit;text-decoration:none}
 .nav{position:sticky;top:0;z-index:50;background:#fff;overflow:visible}
 .nav__bar{position:relative;height:104px;display:flex;align-items:center;justify-content:space-between;padding:0 44px}
 .nav__hounds{position:absolute;inset:0;background:#fff url("Pattern/_paper/PatternNEW-red.svg") center/cover;-webkit-mask:none;mask:none}
+/* grape-purple nav variant (product page) */
+.nav--grape .nav__hounds{background:#fff url("Pattern/_paper/PatternNEW-purple.svg") center/cover}
+.nav--grape .chip{border-color:var(--purple);color:var(--purple)}
 .chips{position:relative;z-index:2;display:flex;gap:10px}
 .chip{display:inline-flex;align-items:center;padding:9px 18px;background:#fff;border:2px solid var(--red);
   border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--red)}
