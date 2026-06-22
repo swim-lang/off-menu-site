@@ -139,14 +139,37 @@
 <section class="facts">
   <div class="facts__grid">
     <div class="facts__art"><span class="ill" style="--art:url('Illustrations/what%3F.svg')"></span></div>
-    <div>
-      <span class="facts__label serif">Fun facts —</span>
-      <h2 class="facts__big">Most people get about <em class="serif-i">half</em> the fiber they actually need.</h2>
-      <p class="facts__body">Chef Chewy finds that personally offensive. One daily chew is a quiet way to close the gap — no green powder, no horse-pill, no lecture.</p>
-      <p class="facts__tag serif-i">If it tastes better, you'll take it more often.</p>
+    <div class="facts__module">
+      <span class="facts__kicker">Did you know?</span>
+      <h2 class="facts__header">Chef Chewy's<br>Fun Facts</h2>
+      <div class="fact-card">
+        <span class="fact-label" id="factLabel">Fact 01 · Gut health</span>
+        <span class="fact-text" id="factText">Your gut is home to about 100 trillion microbes — more than there are stars in the Milky Way.</span>
+      </div>
+      <div class="fact-controls">
+        <button class="fact-arrow" id="factPrev" aria-label="Previous fact">←</button>
+        <button class="fact-arrow" id="factNext" aria-label="Next fact">→</button>
+        <span class="fact-counter" id="factCounter">01 / 05</span>
+      </div>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  var facts=[
+    {l:"Fact 01 · Gut health",t:"Your gut is home to about 100 trillion microbes — more than there are stars in the Milky Way."},
+    {l:"Fact 02 · Immunity",t:"Roughly 70% of your immune system lives in your gut."},
+    {l:"Fact 03 · Mood",t:"Your gut makes about 95% of your body's serotonin — the feel-good chemical."},
+    {l:"Fact 04 · The gap",t:"Most adults get only half the fiber they actually need each day."},
+    {l:"Fact 05 · Fuel",t:"Fiber feeds your good gut bacteria — they're the real chefs down there."}
+  ];
+  var i=0, lbl=document.getElementById('factLabel'), txt=document.getElementById('factText'), cnt=document.getElementById('factCounter');
+  function pad(n){return String(n).padStart(2,'0');}
+  function render(){lbl.textContent=facts[i].l;txt.textContent=facts[i].t;cnt.textContent=pad(i+1)+' / '+pad(facts.length);}
+  document.getElementById('factPrev').addEventListener('click',function(){i=(i-1+facts.length)%facts.length;render();});
+  document.getElementById('factNext').addEventListener('click',function(){i=(i+1)%facts.length;render();});
+})();
+</script>
 
 <!-- ===== CTA ===== -->
 <section class="cta">

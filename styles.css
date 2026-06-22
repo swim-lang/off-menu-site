@@ -168,11 +168,16 @@ a{color:inherit;text-decoration:none}
 .facts__grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:center}
 .facts__art{display:flex;justify-content:center}
 .facts__art .ill{color:#1F5F68;width:250px;height:490px}
-.facts__label{display:inline-block;font-size:20px;color:#1F5F68;padding-bottom:14px}
-.facts__big{font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1.02;text-transform:uppercase}
-.facts__big em{text-transform:none}
-.facts__body{margin-top:1.2rem;font-size:1.08rem;line-height:1.45;max-width:50ch;color:var(--ink)}
-.facts__tag{margin-top:1.2rem;font-size:1.4rem}
+.facts__module{display:flex;flex-direction:column;align-items:flex-start}
+.facts__kicker{font-family:"Sita Serif",serif;font-style:italic;font-size:22px;color:#1F5F68}
+.facts__header{font-family:"Control Upright",sans-serif;font-weight:700;font-size:46px;line-height:44px;letter-spacing:-.01em;text-transform:uppercase;color:#1F5F68;padding-top:8px}
+.fact-card{display:flex;flex-direction:column;align-items:flex-start;gap:12px;max-width:500px;padding:26px 30px;background:#fff;border:2px solid #1F5F68;border-radius:16px;box-shadow:6px 6px 0 #1F5F68;transform:rotate(-1.5deg);margin-top:26px}
+.fact-label{font-family:"Control Upright",sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#1F5F68}
+.fact-text{font-family:"Sita Serif",serif;font-weight:500;font-size:23px;line-height:30px;color:#1F5F68}
+.fact-controls{display:flex;align-items:center;gap:16px;margin-top:26px}
+.fact-arrow{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:999px;background:#fff;border:2px solid #1F5F68;box-shadow:0 4px 0 #1F5F68;color:#1F5F68;font-size:20px;font-family:"Control Upright",sans-serif;cursor:pointer;transition:transform .1s ease,box-shadow .1s ease}
+.fact-arrow:active{transform:translateY(4px);box-shadow:0 0 0 #1F5F68}
+.fact-counter{font-family:"Control Upright",sans-serif;font-size:15px;letter-spacing:.08em;color:#1F5F68}
 
 /* ===================== CTA ===================== */
 .cta{position:relative;background:url("cta-candy.jpg") center/cover;padding:88px 48px;display:flex;justify-content:center;border-bottom:2px solid var(--magenta)}
