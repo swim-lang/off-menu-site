@@ -122,15 +122,15 @@ a{color:inherit;text-decoration:none}
 .products__cta{display:flex;justify-content:center;margin-top:40px}
 
 /* ===================== SAMPLER (flat block) ===================== */
-.sampler{background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;gap:64px;padding:88px 64px;flex-wrap:wrap}
-.sampler__copy{width:430px}
-.sampler__kicker{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
-.sampler__kicker b{font-size:18px}
-.sampler__title-img{width:380px;height:auto;display:block;padding-top:14px}
-.sampler__sub{font-size:16px;letter-spacing:.02em;padding-top:20px;max-width:40ch}
-.sampler .btn{background:#fff;color:var(--green);border-color:#fff;box-shadow:0 7px 0 #2F6A26;margin-top:32px}
-.sampler__photo{width:600px;height:460px;border-radius:20px;overflow:hidden}
-.sampler__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.sampler-feat{position:relative;display:flex;align-items:center;justify-content:space-between;gap:56px;width:100%;padding:80px 56px;overflow:hidden;background:#fff}
+.sampler-feat__hounds{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.sampler-feat__copy{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;width:430px;flex-shrink:0}
+.sampler-feat__title{width:430px;height:auto;display:block}
+.sampler-feat__card{background:#fff;border-radius:10px;outline:3px solid #C1130A;padding:16px;margin-top:20px;max-width:430px}
+.sampler-feat__card span{font-family:"Control Upright",sans-serif;font-weight:500;font-size:16px;letter-spacing:.04em;color:#C1130A}
+.sampler-feat__btn{display:inline-flex;align-items:center;margin-top:32px;padding:16px 40px;border-radius:999px;background:#fff;border:3px solid #C1130A;box-shadow:0 7px 0 #C1130A;font-family:"Control Upright",sans-serif;font-weight:500;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#C1130A;cursor:pointer}
+.sampler-feat__photo{position:relative;z-index:1;width:620px;height:480px;flex-shrink:0;border:3px solid #C1130A;border-radius:20px;overflow:hidden}
+.sampler-feat__photo img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* ===================== WHY FIBER (sticky scroll) ===================== */
 .why{--c:#1F32B9;color:#1F32B9;padding:96px 48px;border-bottom:2px solid #1F32B9}
@@ -192,12 +192,14 @@ a{color:inherit;text-decoration:none}
 .signup .btn{background:#fff;color:var(--magenta);border-color:var(--magenta);box-shadow:0 7px 0 var(--magenta)}
 
 /* ===================== FOOTER ===================== */
-.footer{background:#fff;border-top:2px solid var(--red);padding:60px 48px;display:flex;flex-direction:column;align-items:center;gap:26px}
+.footer{background:#fff;border-top:2px solid #D27400;padding:60px 48px;display:flex;flex-direction:column;align-items:center;gap:36px}
 .footer__links{display:flex;gap:30px;flex-wrap:wrap;justify-content:center}
-.footer__links a{font-size:14px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
-.footer__logo{width:min(1080px,92%)}
-.footer__tag{font-size:clamp(1rem,2vw,1.4rem);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--red);text-align:center}
-.footer__fine{font-size:13px;letter-spacing:.04em;color:var(--red);text-align:center}
+.footer__links a{font-size:14px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#D27400}
+.footer__logo{width:min(1080px,90%)}
+.footer__pill{width:min(760px,82%);height:auto;display:block}
+.footer__icons{display:flex;gap:38px;align-items:center;flex-wrap:wrap;justify-content:center}
+.footer__icons .ill{color:#D27400;width:42px;height:42px}
+.footer__fine{font-size:13px;letter-spacing:.04em;color:#D27400;text-align:center}
 
 /* ===================== PRODUCT PAGE (PDP) ===================== */
 .pdp{--c:var(--purple);color:var(--purple)}
