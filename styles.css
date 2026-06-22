@@ -279,3 +279,13 @@ a{color:inherit;text-decoration:none}
   .prev__row{grid-template-columns:1fr}
   .pdp__feat{grid-template-columns:1fr}
 }
+
+/* ===================== VINTAGE PRESS — buttons push in on hover ===================== */
+.btn:hover{transform:translateY(7px);box-shadow:0 0 0 var(--c,var(--red))}
+.chip{box-shadow:0 5px 0 var(--red);transition:transform .1s ease,box-shadow .1s ease;cursor:pointer}
+.chip:hover{transform:translateY(5px);box-shadow:0 0 0 var(--red)}
+.sampler-feat__btn{transition:transform .1s ease,box-shadow .1s ease}
+.sampler-feat__btn:hover{transform:translateY(7px);box-shadow:0 0 0 #C1130A}
+.fact-arrow:hover{transform:translateY(4px);box-shadow:0 0 0 #1F5F68}
+.story__btn{box-shadow:0 6px 0 var(--ink);transition:transform .1s ease,box-shadow .1s ease}
+.story__btn:hover{transform:translateY(6px);box-shadow:0 0 0 var(--ink)}
