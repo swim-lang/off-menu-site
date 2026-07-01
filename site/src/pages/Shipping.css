@@ -11,7 +11,7 @@
 }
 
 /* REASSURANCE CALLOUT */
-.ship-reassure { display: flex; justify-content: center; background: #fff; padding: 10px 48px 18px; }
+.ship-reassure { display: flex; justify-content: center; background: #fff; padding: 10px 48px 52px; }
 .ship-reassure__card { max-width: 620px; text-align: center; background: #fff; border: 2.5px solid var(--c); border-radius: 18px; box-shadow: 6px 7px 0 var(--c); padding: 30px 40px 34px; display: flex; flex-direction: column; gap: 10px; }
 .ship-reassure__title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--c); }
 .ship-reassure__body { font-weight: 500; font-size: 16px; line-height: 1.55; color: #221F20; }
@@ -151,7 +151,7 @@
 .ship-fruit--watermelon { top: 220px; left: 40px; transform: rotate(-10deg); }
 .ship-seal--gotyou   { top: 500px;  right: 42px; }
 .ship-fruit--strawberry { top: 880px; right: 70px; transform: rotate(10deg); }
-.ship-fruit--grape   { top: 1060px; left: 36px; transform: rotate(-8deg); }
+.ship-fruit--grape   { top: 952px; left: 36px; transform: rotate(-8deg); }
 
 /* "Keep it moving" pill — white fill, blue border + text, blue offset shadow */
 .ship-pill {

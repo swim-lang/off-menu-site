@@ -63,7 +63,7 @@ export default function Shipping() {
       {/* REASSURANCE */}
       <section className="ship-reassure" style={{ color: C }}>
         <Reveal className="ship-reassure__card">
-          <h2 className="ship-reassure__title">Something off?</h2>
+          <h2 className="ship-reassure__title u-skew">Something off?</h2>
           <p className="ship-reassure__body">If your order arrives damaged, incorrect, or missing, send us a note. We'll take a look and help make it right.</p>
         </Reveal>
       </section>
