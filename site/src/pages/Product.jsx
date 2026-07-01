@@ -235,6 +235,41 @@ export default function Product() {
         </div>
       </section>
 
+      {/* ===== SUBSCRIBE & SAVE ===== */}
+      <section className="pdp-sub">
+        <div className="pdp-sub__inner">
+          <div className="pdp-sub__left">
+            <Reveal as="span" className="pdp-sub__eyebrow">Subscribe &amp; save</Reveal>
+            <Reveal as="h2" v={riseBig} className="pdp-sub__head">Make it the usual.</Reveal>
+            <Reveal as="p" className="pdp-sub__body">Fiber works best when it becomes part of your routine. Subscribe so the chews keep showing up before you have to think about it.</Reveal>
+          </div>
+          <motion.div className="pdp-sub__card"
+            initial={{ opacity: 0, y: 24, rotate: -1.5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: -1.5 }}
+            viewport={inView}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="pdp-sub__price-row">
+              <span className="pdp-sub__price">$20</span>
+              <span className="pdp-sub__mo">/ month</span>
+              <span className="pdp-sub__was">$24</span>
+            </div>
+            <div className="pdp-sub__rule" />
+            <ul className="pdp-sub__benefits">
+              {['Save 15%', 'Ships monthly', 'Skip, pause, or cancel anytime'].map((b) => (
+                <li key={b} className="pdp-sub__benefit">
+                  <span className="pdp-sub__bcheck">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 5.5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+            <button className="pdp-sub__cta" type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Subscribe &amp; save →</button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ===== RELATED ===== */}
       <section className="pdp-related" style={{ color: C }}>
         <Reveal as="span" className="pdp-related__eyebrow">More from the menu</Reveal>
