@@ -59,6 +59,15 @@ export default function Ingredients() {
         <Reveal as="p" className="ing-hero__cap serif">A pantry's worth of inspiration — not a candy aisle.</Reveal>
       </section>
 
+      {/* ===== FLAVOR PROFILE INTRO ===== */}
+      <section className="ing-intro" style={{ color: C }}>
+        <Reveal as="h2" v={riseBig} className="ing-intro__head">More menu than candy aisle.</Reveal>
+        <Reveal as="p" className="ing-intro__body">
+          Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to
+          make fiber complicated. It is to make it taste like someone thought about it.
+        </Reveal>
+      </section>
+
       {/* ===== FLAVOR SLIDESHOW ===== */}
       <section className="ing-flav" style={{ color: C }}>
         <Reveal as="span" className="ing-eyebrow">On the menu</Reveal>
@@ -103,11 +112,15 @@ export default function Ingredients() {
         </div>
       </section>
 
-      {/* ===== INGREDIENT NOTE ===== */}
+      {/* ===== INGREDIENT / COMPARISON NOTES ===== */}
       <section className="ing-note" style={{ color: C }}>
         <div className="ing-note__inner">
           <span className="ing-eyebrow" style={{ opacity: 0.7 }}>Ingredient note</span>
           <p>Flavor names describe taste profiles. They do not always mean the product contains whole fruits, vegetables, herbs, or spices named in the flavor. See the ingredients list for full details.</p>
+        </div>
+        <div className="ing-note__inner">
+          <span className="ing-eyebrow" style={{ opacity: 0.7 }}>Fiber comparisons</span>
+          <p>Fiber comparisons are approximate and based on total dietary fiber per serving. They are meant to make the amount easier to picture, not suggest whole-food equivalency.</p>
         </div>
       </section>
     </Page>

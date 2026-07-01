@@ -18,6 +18,10 @@
 .ing-math__body { max-width: 560px; font-size: 18px; line-height: 1.5; color: var(--ink); }
 
 /* ===== Slideshow ===== */
+.ing-intro { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 58px 40px 6px; }
+.ing-intro__head { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.6vw, 52px); line-height: 1.05; letter-spacing: -0.01em; }
+.ing-intro__body { max-width: 620px; font-size: 18px; line-height: 1.6; color: var(--ink); }
+
 .ing-flav { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 70px 40px 96px; }
 .ing-flav__title { font-size: clamp(44px, 7vw, 68px); text-transform: uppercase; letter-spacing: -0.015em; padding-top: 14px; }
 .ing-flav__sub { max-width: 560px; font-size: 18px; line-height: 1.5; color: var(--ink); padding-top: 16px; }
@@ -69,7 +73,7 @@
 .ing-chip:hover { transform: translateY(-2px); }
 .ing-chip.is-on { font-weight: 700; box-shadow: 0 4px 0 var(--c); }
 
-.ing-note { display: flex; justify-content: center; padding: 8px 40px 80px; }
+.ing-note { display: flex; flex-direction: column; align-items: center; gap: 34px; padding: 8px 40px 80px; }
 .ing-note__inner { max-width: 680px; text-align: center; border-top: 1px solid color-mix(in srgb, var(--c) 40%, #fff); padding-top: 28px; display: flex; flex-direction: column; gap: 8px; }
 .ing-note__inner p { font-size: 14px; line-height: 1.6; color: color-mix(in srgb, var(--c) 70%, #000); }
 
