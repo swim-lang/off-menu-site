@@ -7,8 +7,14 @@
   text-align: center;
   width: 100%;
   background: #fff;
-  padding: 76px 48px 46px;
+  padding: 116px 48px 46px;
 }
+
+/* REASSURANCE CALLOUT */
+.ship-reassure { display: flex; justify-content: center; background: #fff; padding: 10px 48px 18px; }
+.ship-reassure__card { max-width: 620px; text-align: center; background: #fff; border: 2.5px solid var(--c); border-radius: 18px; box-shadow: 6px 7px 0 var(--c); padding: 30px 40px 34px; display: flex; flex-direction: column; gap: 10px; }
+.ship-reassure__title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--c); }
+.ship-reassure__body { font-weight: 500; font-size: 16px; line-height: 1.55; color: #221F20; }
 
 .ship-eyebrow {
   font-family: var(--sans);

@@ -19,10 +19,21 @@
 
 /* ===== Slideshow ===== */
 .ing-intro { display: flex; justify-content: center; padding: 8px 40px 64px; }
-.ing-intro__card { position: relative; max-width: 720px; background: var(--c); color: #FCEFE0; border-radius: 22px; box-shadow: 9px 11px 0 color-mix(in srgb, var(--c) 62%, #000); padding: 46px 52px 50px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; cursor: default; }
-.ing-intro__eyebrow { font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFF6EA; background: rgba(0, 0, 0, 0.16); padding: 7px 16px; border-radius: 999px; transform: rotate(-1.5deg); }
-.ing-intro__head { font-family: var(--serif); font-weight: 500; font-size: clamp(36px, 4.8vw, 56px); line-height: 1.02; letter-spacing: -0.01em; color: #FFF9F0; }
-.ing-intro__body { max-width: 560px; font-weight: 500; font-size: 17.5px; line-height: 1.6; color: #FCEFE0; opacity: 0.92; }
+.ing-intro__menu {
+  position: relative; max-width: 680px; background: #fff; border: 2px solid var(--c); border-radius: 6px;
+  box-shadow: 0 11px 0 var(--c); padding: 46px 56px 50px; transform: rotate(-1deg);
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.ing-intro__menu:hover { transform: rotate(-1deg) translateY(7px); box-shadow: 0 4px 0 var(--c); }
+.ing-intro__menu::before { content: ''; position: absolute; inset: 9px; border: 1px solid var(--c); border-radius: 3px; pointer-events: none; }
+.ing-intro__crest { font-family: var(--serif); font-style: italic; font-size: 15px; letter-spacing: 0.05em; color: var(--c); }
+.ing-intro__eyebrow { font-family: var(--sans); font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c); }
+.ing-intro__head { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.6vw, 50px); line-height: 1.04; letter-spacing: -0.01em; color: var(--c); }
+.ing-intro__rule { display: flex; align-items: center; gap: 10px; width: 180px; margin: 4px 0 2px; }
+.ing-intro__rule::before, .ing-intro__rule::after { content: ''; flex: 1; height: 1.5px; background: var(--c); }
+.ing-intro__rule-dot { flex: 0 0 auto; width: 8px; height: 8px; background: var(--c); transform: rotate(45deg); }
+.ing-intro__body { max-width: 540px; font-weight: 500; font-size: 17.5px; line-height: 1.6; color: var(--ink); }
 
 .ing-flav { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 70px 40px 96px; }
 .ing-flav__title { font-size: clamp(44px, 7vw, 68px); text-transform: uppercase; letter-spacing: -0.015em; padding-top: 14px; }

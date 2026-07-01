@@ -103,20 +103,17 @@ export default function Ingredients() {
         </div>
       </section>
 
-      {/* ===== MORE MENU THAN CANDY AISLE ===== */}
+      {/* ===== MORE MENU THAN CANDY AISLE — menu card ===== */}
       <section className="ing-intro" style={{ '--c': C, color: C }}>
-        <motion.div
-          className="ing-intro__card"
-          initial={{ opacity: 0, y: 26, rotate: -1.5 }}
-          whileInView={{ opacity: 1, y: 0, rotate: -1.5 }}
-          viewport={inView}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          whileHover={{ rotate: -0.4, y: -4 }}
-        >
-          <span className="ing-intro__eyebrow">★ On the menu, not the shelf</span>
-          <h2 className="ing-intro__head">More menu than candy aisle.</h2>
-          <p className="ing-intro__body">Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to make fiber complicated — it's to make it taste like someone thought about it.</p>
-        </motion.div>
+        <Reveal className="ing-intro__wrap">
+          <div className="ing-intro__menu">
+            <span className="ing-intro__crest">✦ On the menu · Est. in the kitchen ✦</span>
+            <span className="ing-intro__eyebrow">Flavor, plated</span>
+            <h2 className="ing-intro__head">More menu than candy aisle.</h2>
+            <div className="ing-intro__rule"><span className="ing-intro__rule-dot" /></div>
+            <p className="ing-intro__body">Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to make fiber complicated — it's to make it taste like someone thought about it.</p>
+          </div>
+        </Reveal>
       </section>
 
       {/* ===== INGREDIENT / COMPARISON NOTES ===== */}

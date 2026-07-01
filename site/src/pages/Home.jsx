@@ -154,16 +154,16 @@ export default function Home() {
       <section className="lead" style={{ '--c': C, color: C }}>
         <div className="lead__text">
           <Reveal as="span" className="lead__eyebrow">Sound familiar?</Reveal>
-          <Reveal as="h2" v={riseBig} className="lead__head">Ever feel bloated after eating and wonder what your gut is trying to tell you?</Reveal>
+          <Reveal as="h2" v={riseBig} className="lead__head">Ever feel fine in the morning, then weirdly puffy by lunch?</Reveal>
           <Reveal as="p" className="lead__body">
-            We have all tried to fix that heavy, sluggish feeling with more water, cleaner meals, another green
-            thing, or just pretending it will sort itself out.
+            We have all tried to solve that heavy, bloated feeling with more water, cleaner meals, another green
+            thing, or just pretending our jeans did not fit differently two hours ago.
           </Reveal>
           <Reveal as="p" className="lead__body">
             Sometimes the simple answer is the one we overlook. A little more fiber, taken consistently, can help
-            support digestion, regularity, fullness, and the daily rhythm of your gut.
+            support digestion, regularity, fullness, and the daily rhythm of how you feel after eating.
           </Reveal>
-          <Reveal as="p" className="lead__kicker serif">Small habit. Better rhythm.</Reveal>
+          <Reveal as="p" className="lead__kicker serif">Small habit. Less bloat.</Reveal>
         </div>
         <motion.div className="lead__art" variants={stickerPop} initial="hidden" whileInView="show" viewport={inView} custom={-4}>
           <Ill src="Illustrations/Walking.svg" w={460} h={460} />
@@ -239,7 +239,7 @@ export default function Home() {
                 >
                   <span className="foryou__box">
                     <svg className="foryou__check" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                      <path pathLength="1" d="M5 21 C 7.5 24, 10 27.5, 14 32.5 C 21.5 20, 31 8, 43 -3" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
+                      <path pathLength="1" d="M5 21 C 7.5 24, 10 27.5, 14 32.5 C 22 19, 33 5, 50 -9" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                   <span className="foryou__ctext">{q}</span>

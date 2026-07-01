@@ -51,6 +51,11 @@ body {
 img, svg, video { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* Vintage per-page arrow cursor: every element inherits the page-shell's
+   colored cursor, except text fields which keep their I-beam. */
+.page-shell *:not(input):not(textarea) { cursor: inherit; }
+.page-shell input:not([type="submit"]):not([type="button"]), .page-shell textarea { cursor: text; }
 h1, h2, h3, h4, p { margin: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
 

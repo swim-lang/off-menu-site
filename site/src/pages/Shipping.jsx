@@ -60,6 +60,14 @@ export default function Shipping() {
         </Reveal>
       </section>
 
+      {/* REASSURANCE */}
+      <section className="ship-reassure" style={{ color: C }}>
+        <Reveal className="ship-reassure__card">
+          <h2 className="ship-reassure__title">Something off?</h2>
+          <p className="ship-reassure__body">If your order arrives damaged, incorrect, or missing, send us a note. We'll take a look and help make it right.</p>
+        </Reveal>
+      </section>
+
       {/* CONTENT */}
       <section className="ship-content" style={{ color: C }}>
         {/* Decorative vintage seals + fruit in the wide margins */}
