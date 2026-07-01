@@ -1,0 +1,78 @@
+/* ===== Fonts (real weights — Control Upright Regular/Medium/Bold, Sita Serif Medium/Bold + italics) ===== */
+@font-face { font-family: 'Control Upright'; src: url('/Fonts/ControlUpright-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Control Upright'; src: url('/Fonts/ControlUpright-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Control Upright'; src: url('/Fonts/ControlUpright-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Sita Serif'; src: url('/Fonts/SitaSerif-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Sita Serif'; src: url('/Fonts/SitaSerif-MediumItalic.otf') format('opentype'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Sita Serif'; src: url('/Fonts/SitaSerif-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Sita Serif'; src: url('/Fonts/SitaSerif-BoldItalic.otf') format('opentype'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Sita Serif'; src: url('/Fonts/SitaSerif-Italic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+
+/* ===== Tokens ===== */
+:root {
+  --paper: #ffffff;
+  --ink: #221f20;
+
+  /* brand palette */
+  --red: #c11209;
+  --brand-red: #b12a1d;
+  --purple: #694078;
+  --blue: #1f33b9;
+  --green: #4c9e3c;
+  --teal: #3fa3a5;
+  --magenta: #86335f;
+  --orange: #d27400;
+  --brown: #72441e;
+
+  /* --c is the active page/section color; set per page or per section */
+  --c: var(--red);
+
+  --sans: 'Control Upright', system-ui, sans-serif;
+  --serif: 'Sita Serif', Georgia, serif;
+
+  --maxw: 1200px;
+}
+
+/* ===== Reset / base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img, svg, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+h1, h2, h3, h4, p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* shared helpers */
+.seal { position: relative; } /* default; pages can override to position: absolute via their own class */
+.u-upper { text-transform: uppercase; }
+.u-skew { display: inline-block; transform: skewX(-9deg); }
+
+/* vintage sticker button: white fill, colored text + border, offset shadow that
+   presses down on hover (the brand's signature button feel) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--c);
+  background: var(--paper);
+  border: 2px solid var(--c);
+  border-radius: 999px;
+  padding: 16px 30px;
+  box-shadow: 0 7px 0 var(--c);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn:hover, .btn:active { transform: translateY(7px); box-shadow: 0 0 0 var(--c); }

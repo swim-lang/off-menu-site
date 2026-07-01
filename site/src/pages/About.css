@@ -1,0 +1,230 @@
+/* About / Our Story — color-on-white (orange #D27400). White bg, C illustrations,
+   headings & borders; ink body. Pills/seals = white fill + C border/text + C shadow. */
+
+.ab {
+  --ink: #221F20;
+  background: #fff;
+}
+
+.ab section {
+  position: relative;
+  background: #fff;
+  overflow: visible;
+}
+
+/* ---- shared type ---- */
+.ab-kicker {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--c, #D27400);
+  margin: 0;
+}
+.ab-kicker--wide { letter-spacing: 0.18em; }
+
+.ab-h2 {
+  margin: 14px 0 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(30px, 4.6vw, 40px);
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+  text-transform: uppercase;
+  color: var(--c, #D27400);
+}
+.ab-h2--big { font-size: clamp(40px, 6vw, 56px); line-height: 1; margin-top: 12px; }
+
+.ab-body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--ink);
+}
+.ab-lead { margin: 0; font-family: var(--sans); font-weight: 500; font-size: 17px; line-height: 27px; color: var(--ink); }
+.ab-pull {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 27px;
+  color: var(--c, #D27400);
+}
+.ab-center { text-align: center; }
+
+/* ---- pill sticker ---- */
+.ab-pill {
+  position: absolute;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid var(--c, #D27400);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--c, #D27400);
+  padding: 10px 18px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--c, #D27400);
+  white-space: nowrap;
+  z-index: 4;
+}
+
+/* =================== HERO =================== */
+.ab-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  padding: 120px 64px 64px;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.ab-hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  width: 660px;
+  flex-shrink: 0;
+}
+.ab-hero__lockup { display: block; width: min(460px, 100%); height: auto; padding-top: 16px; }
+.ab-hero__body { display: flex; flex-direction: column; gap: 14px; max-width: 560px; padding-top: 24px; }
+.ab-hero__art { flex: 1 1 0; display: flex; align-items: center; justify-content: center; color: var(--c, #D27400); }
+
+.ab-hero__pill { left: 56%; top: 70%; transform: rotate(6deg); }
+.ab-hero__seal-replated { position: absolute; left: 50%; top: 32%; z-index: 4; }
+.ab-hero__seal-batch { position: absolute; right: 60px; top: 100px; z-index: 4; }
+
+/* =================== POV =================== */
+.ab-pov {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  padding: 88px 64px;
+}
+.ab-pov__art { flex: 0.8 1 0; display: flex; align-items: center; justify-content: center; }
+.ab-illbox {
+  width: 300px;
+  height: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px dashed var(--c, #D27400);
+  border-radius: 18px;
+}
+.ab-illbox__label {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c, #D27400);
+}
+.ab-illbox__sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 14px; color: #C79A6E; }
+
+.ab-pov__text { display: flex; flex-direction: column; align-items: flex-start; width: 620px; flex-shrink: 0; }
+.ab-pov__copy { display: flex; flex-direction: column; gap: 13px; max-width: 540px; padding-top: 22px; }
+.ab-pov__copy .ab-pull { margin-top: 5px; }
+
+.ab-pov__pill { left: 27%; top: 84px; transform: rotate(7deg); }
+.ab-pov__seal { position: absolute; left: 6%; bottom: 64px; z-index: 4; }
+
+/* =================== WHY OFF MENU =================== */
+.ab-why {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 88px 64px;
+  text-align: center;
+}
+.ab-why__quote {
+  margin: 16px 0 0;
+  max-width: 880px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(30px, 4.8vw, 46px);
+  line-height: 1.1;
+  text-align: center;
+  color: var(--c, #D27400);
+}
+.ab-why__body { max-width: 640px; padding-top: 22px; }
+
+.ab-why__seal-batch { position: absolute; right: 5%; top: 22px; z-index: 4; }
+.ab-why__pill { left: 64px; top: 40px; transform: rotate(-8deg); }
+
+/* =================== CHEF CHEWY =================== */
+.ab-chef {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 72px;
+  padding: 84px 64px;
+}
+.ab-chef__art { flex: 0.8 1 0; display: flex; align-items: center; justify-content: center; color: var(--c, #D27400); }
+.ab-chef__text { display: flex; flex-direction: column; align-items: flex-start; width: 600px; flex-shrink: 0; }
+.ab-chef__copy { display: flex; flex-direction: column; gap: 13px; max-width: 520px; padding-top: 22px; }
+
+.ab-says {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 26px;
+  padding: 18px 24px;
+  background: #fff;
+  border: 2px solid var(--c, #D27400);
+  border-radius: 14px;
+  box-shadow: 5px 5px 0 var(--c, #D27400);
+  transform: rotate(-1.5deg);
+}
+.ab-says__label {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: var(--c, #D27400);
+}
+.ab-says__quote { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 26px; line-height: 32px; color: var(--c, #D27400); }
+
+.ab-chef__pill { right: 96px; top: 110px; transform: rotate(6deg); }
+.ab-chef__seal { position: absolute; left: 96px; bottom: 64px; z-index: 4; }
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 860px) {
+  .ab-hero, .ab-pov, .ab-chef {
+    flex-direction: column;
+    gap: 40px;
+    padding: 72px 24px;
+  }
+  .ab-hero { padding-top: 96px; }
+  .ab-hero__text, .ab-pov__text, .ab-chef__text { width: 100%; }
+  .ab-hero__logo { width: 100%; }
+  .ab-pov { flex-direction: column-reverse; }
+  .ab-why { padding: 72px 24px; }
+
+  /* float stickers back into view, scaled down, non-overlapping */
+  .ab-hero__pill, .ab-pov__pill, .ab-chef__pill { position: static; display: inline-flex; margin-top: 8px; }
+  .ab-hero__seal-replated, .ab-hero__seal-batch,
+  .ab-pov__seal, .ab-why__seal-batch, .ab-why__pill,
+  .ab-chef__seal {
+    display: none;
+  }
+}

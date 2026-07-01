@@ -1,0 +1,185 @@
+/* Shipping & Returns — color-on-white (blue #1F33B9 accents, #221F20 ink) */
+
+.ship-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  background: #fff;
+  padding: 76px 48px 46px;
+}
+
+.ship-eyebrow {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.ship-title {
+  margin: 16px 0 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 62px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.ship-sub {
+  margin: 16px 0 0;
+  max-width: 540px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #221F20;
+}
+
+/* CONTENT */
+.ship-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #fff;
+  padding: 10px 48px 80px;
+}
+
+.ship-col {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.ship-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ship-section__head {
+  padding-bottom: 6px;
+  border-bottom: 2px solid currentColor;
+}
+
+.ship-section__title {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.ship-section__body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 27px;
+  color: #221F20;
+}
+
+.ship-list {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ship-list__item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.ship-list__bullet {
+  flex-shrink: 0;
+  font-size: 17px;
+  line-height: 22px;
+  color: currentColor;
+}
+
+.ship-list__text {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+  color: #221F20;
+}
+
+/* DECORATIVE MARGIN STICKERS / FRUIT
+   Positioned within the centered content area; pushed into the wide left/right
+   margins so they sit beside the ~600px column, never over the text. */
+.ship-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ship-seal,
+.ship-fruit,
+.ship-pill {
+  position: absolute;
+  pointer-events: auto;
+}
+
+.ship-seal--ships    { top: 20px;   right: 48px; }
+.ship-fruit--watermelon { top: 220px; left: 40px; transform: rotate(-10deg); }
+.ship-seal--gotyou   { top: 500px;  right: 42px; }
+.ship-fruit--strawberry { top: 880px; right: 70px; transform: rotate(10deg); }
+.ship-fruit--grape   { top: 1060px; left: 36px; transform: rotate(-8deg); }
+
+/* "Keep it moving" pill — white fill, blue border + text, blue offset shadow */
+.ship-pill {
+  top: 770px;
+  left: 48px;
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid currentColor;
+  box-shadow: 4px 4px 0 currentColor;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: currentColor;
+  white-space: nowrap;
+  transform: rotate(-8deg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ship-pill:hover {
+  transform: rotate(-8deg) translate(2px, 2px);
+  box-shadow: 2px 2px 0 currentColor;
+}
+
+@media (max-width: 860px) {
+  .ship-header { padding: 56px 24px 36px; }
+  .ship-title { font-size: 40px; }
+  .ship-sub { font-size: 18px; }
+  .ship-content { padding: 8px 24px 56px; }
+  /* hide margin decor on narrow screens — no room beside the column */
+  .ship-decor { display: none; }
+}

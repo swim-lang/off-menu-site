@@ -1,0 +1,36 @@
+.vt { padding: 84px 0 96px; background: #fff; }
+.vt-head { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 48px; }
+.vt-eyebrow { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+.vt-title { font-weight: 700; font-size: clamp(40px, 6vw, 64px); line-height: 1; text-transform: uppercase; letter-spacing: -0.015em; padding-top: 14px; }
+.vt-sub { font-size: 18px; line-height: 1.5; color: var(--ink); padding-top: 14px; }
+.vt-arrows { display: flex; gap: 12px; padding-top: 22px; }
+.vt-arrow {
+  width: 56px; height: 56px; border-radius: 999px; background: #fff; border: 2px solid var(--c); color: var(--c);
+  font-size: 22px; line-height: 1; box-shadow: 0 5px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.vt-arrow:hover { transform: translateY(5px); box-shadow: 0 0 0 var(--c); }
+
+/* drag-to-scroll rail */
+.vt-row {
+  display: flex; gap: 26px; overflow-x: auto; margin-top: 44px;
+  padding: 6px 48px 24px; scroll-snap-type: x proximity; cursor: grab;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.vt-row::-webkit-scrollbar { display: none; }
+.vt-row.is-grabbing { cursor: grabbing; }
+
+.vt-card { flex: 0 0 auto; width: 300px; scroll-snap-align: center; user-select: none; }
+.vt-media {
+  position: relative; width: 300px; height: 420px; border-radius: 20px; overflow: hidden;
+  background-size: cover; background-position: center; border: 2px solid var(--c);
+  display: flex; align-items: center; justify-content: center;
+}
+.vt-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,10,0.28) 0%, rgba(20,16,10,0) 28%, rgba(20,16,10,0) 70%, rgba(20,16,10,0.45) 100%); }
+.vt-handle { position: absolute; top: 14px; left: 14px; z-index: 1; background: #fff; color: var(--c); border-radius: 999px; padding: 6px 12px; font-weight: 700; font-size: 12px; letter-spacing: 0.02em; box-shadow: 0 3px 0 var(--c); }
+.vt-play { position: relative; z-index: 1; width: 66px; height: 66px; border-radius: 999px; background: #fff; color: var(--c); display: flex; align-items: center; justify-content: center; font-size: 22px; padding-left: 4px; box-shadow: 0 5px 0 var(--c); transition: transform 0.15s ease; }
+.vt-card:hover .vt-play { transform: scale(1.08); }
+.vt-dur { position: absolute; bottom: 12px; right: 14px; z-index: 1; color: #fff; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; }
+.vt-cap { padding: 16px 4px 0; }
+.vt-name { font-weight: 700; font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase; }
+.vt-quote { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.35; color: var(--ink); padding-top: 6px; }
+.vt-media img, .vt-card { -webkit-user-drag: none; }

@@ -1,0 +1,178 @@
+/* ===== Product PDP — Concord Verjus Grape (purple #694078) ===== */
+.serif { font-family: var(--serif); font-style: italic; }
+
+/* ---------- HERO / BUY BOX ---------- */
+.pdp-hero { display: flex; width: 100%; background: #fff; align-items: stretch; }
+.pdp-hero__media { position: relative; width: 50%; flex-shrink: 0; min-height: 760px; }
+.pdp-hero__photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+}
+.pdp-hero__ph {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: #fff; border: 2px solid var(--c); border-radius: 999px; padding: 14px 30px;
+  font-weight: 700; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase;
+  box-shadow: 0 5px 0 var(--c);
+}
+.pdp-hero__ph em { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 13px; letter-spacing: 0; text-transform: none; }
+.pdp-hero__seal {
+  position: absolute; top: 34px; right: 34px; width: 108px; height: 108px;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  border-radius: 999px; background: #fff; border: 2px solid var(--c);
+  box-shadow: 5px 5px 0 var(--c); transform: rotate(8deg);
+}
+.pdp-hero__seal span {
+  font-weight: 700; font-size: 13px; letter-spacing: 0.02em; line-height: 1.15;
+  text-transform: uppercase; color: var(--c); padding: 0 10px;
+}
+
+.pdp-hero__info { width: 50%; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 64px 72px; }
+.pdp-pill {
+  display: inline-flex; align-items: center; border: 2px solid var(--c); border-radius: 999px;
+  padding: 6px 16px; font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.pdp-hero__title { font-style: normal; font-family: var(--serif); font-weight: 500; font-size: clamp(40px, 5vw, 58px); line-height: 0.97; padding-top: 18px; }
+.pdp-hero__rating { display: flex; align-items: center; gap: 10px; padding-top: 14px; }
+.pdp-stars { font-family: var(--sans); letter-spacing: 2px; font-size: 16px; }
+.pdp-stars--sm { font-size: 14px; }
+.pdp-hero__rcount { color: var(--ink); font-weight: 500; font-size: 15px; }
+.pdp-hero__price { font-style: italic; font-family: var(--serif); font-weight: 500; font-size: 34px; line-height: 1.25; padding-top: 14px; }
+.pdp-hero__desc { max-width: 430px; color: var(--ink); font-weight: 500; font-size: 17px; line-height: 1.55; padding-top: 14px; }
+
+.pdp-plans { display: flex; flex-direction: column; width: 100%; max-width: 576px; gap: 12px; padding-top: 26px; }
+.pdp-plan {
+  display: flex; align-items: center; justify-content: space-between; text-align: left;
+  border: 2px solid var(--c); border-radius: 14px; padding: 16px 20px; background: #fff;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.pdp-plan:hover { transform: translateY(-2px); }
+.pdp-plan.is-on { box-shadow: inset 0 0 0 2px var(--c); }
+.pdp-plan__left { display: flex; flex-direction: column; gap: 3px; }
+.pdp-plan__head { display: flex; align-items: center; gap: 8px; }
+.pdp-plan__label { font-weight: 500; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--c); }
+.pdp-plan__badge { background: var(--c); color: #fff; border-radius: 999px; padding: 4px 10px; font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+.pdp-plan__sub { font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 14px; }
+.pdp-plan__price { font-weight: 500; font-size: 18px; color: var(--c); }
+
+.pdp-cart {
+  display: flex; align-items: center; justify-content: center; width: 100%; max-width: 576px;
+  margin-top: 20px; border: 2px solid var(--c); border-radius: 999px; padding: 18px 30px; background: #fff;
+  color: var(--c); font-weight: 500; font-size: 16px; letter-spacing: 0.05em; text-transform: uppercase;
+  box-shadow: 0 7px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.pdp-cart:hover { transform: translateY(7px); box-shadow: 0 0 0 var(--c); }
+
+.pdp-bullets { display: flex; flex-wrap: wrap; width: 100%; max-width: 576px; gap: 14px 20px; padding-top: 28px; }
+.pdp-bullet { display: flex; align-items: center; gap: 10px; width: 260px; font-weight: 500; font-size: 13px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--c); }
+.pdp-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 999px; background: var(--c); }
+
+/* ---------- STAT BAND ---------- */
+.pdp-stats { display: flex; width: 100%; background: var(--purple); }
+.pdp-stat { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 56px 32px; border-right: 1px solid rgba(255,255,255,0.25); }
+.pdp-stat:last-child { border-right: none; }
+.pdp-stat__big { font-weight: 700; font-size: clamp(38px, 5vw, 54px); line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase; color: #fff; }
+.pdp-stat__label { padding-top: 10px; opacity: 0.85; font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; }
+
+/* ---------- MADE FOR YOUR GUT ---------- */
+.pdp-made { display: flex; justify-content: center; background: #fff; border-bottom: 2px solid var(--c); padding: 84px 48px; }
+.pdp-made__inner { display: flex; align-items: center; gap: 56px; width: 100%; max-width: 980px; }
+.pdp-made__text { flex: 1.2; }
+.pdp-made__head { font-weight: 700; font-size: clamp(44px, 6.5vw, 80px); line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; }
+.pdp-made__body { max-width: 46ch; padding-top: 18px; color: var(--ink); font-weight: 500; font-size: 17px; line-height: 1.55; }
+.pdp-made__serif { font-style: normal; font-family: var(--serif); font-weight: 500; padding-top: 20px; font-size: 24px; line-height: 1.25; }
+.pdp-made__art { flex: 0.8; display: flex; justify-content: center; }
+
+/* ---------- THE SCIENCE — Chef Chewy's class ---------- */
+.pdp-science { display: flex; flex-direction: column; align-items: center; background: #fff; border-bottom: 2px solid var(--c); padding: 92px 56px 86px; }
+.pdp-science__inner { display: flex; gap: 72px; width: 100%; max-width: 1160px; align-items: flex-start; }
+.pdp-science__head-wrap { flex: 0 0 44%; max-width: 470px; text-align: left; }
+.pdp-science__eyebrow { font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+.pdp-science__head { font-weight: 700; font-size: clamp(42px, 5.4vw, 66px); line-height: 1; letter-spacing: -0.015em; text-transform: uppercase; padding-top: 14px; }
+.pdp-science__intro { color: var(--ink); font-size: 17px; line-height: 1.6; padding-top: 18px; }
+
+/* Chef Chewy in the left column */
+.pdp-science__chef { display: flex; align-items: flex-end; gap: 16px; margin-top: 36px; }
+.pdp-science__chef-img { flex: 0 0 auto; }
+.pdp-science__bubble { position: relative; background: #fff; border: 2px solid var(--c); border-radius: 16px; padding: 13px 17px; box-shadow: 0 4px 0 var(--c); margin-bottom: 18px; }
+.pdp-science__bubble::after { content: ''; position: absolute; left: -8px; bottom: 16px; width: 13px; height: 13px; background: #fff; border-left: 2px solid var(--c); border-bottom: 2px solid var(--c); transform: rotate(45deg); }
+.pdp-science__bubble-name { display: block; font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--c); }
+.pdp-science__bubble-text { font-size: 14px; line-height: 1.4; color: var(--ink); padding-top: 3px; }
+
+/* click-through lesson viewer */
+.pdp-science__viewer { flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 460px; border: 2px solid var(--c); border-radius: 26px; padding: 40px 40px 48px; background: color-mix(in srgb, var(--c) 5%, #fff); }
+.pdp-science__tabs { display: flex; gap: 10px; }
+.pdp-science__tab { width: 50px; height: 50px; border-radius: 999px; border: 2px solid var(--c); background: #fff; color: var(--c); font-family: var(--serif); font-style: italic; font-size: 21px; box-shadow: 0 4px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease; }
+.pdp-science__tab:hover { transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
+.pdp-science__tab.is-on { background: var(--c); color: #fff; transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
+.pdp-science__panel { /* content sits at the bottom of the box via the viewer's space-between */ }
+.pdp-science__num { display: block; font-style: italic; font-size: clamp(76px, 9vw, 120px); line-height: 0.78; color: var(--c); }
+.pdp-science__t { font-weight: 700; font-size: clamp(24px, 3vw, 34px); line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; padding-top: 14px; }
+.pdp-science__b { color: var(--ink); font-size: 18px; line-height: 1.6; padding-top: 12px; max-width: 46ch; }
+.pdp-science__fine { max-width: 760px; text-align: center; margin-top: 60px; font-size: 12px; line-height: 1.5; color: var(--ink); opacity: 0.6; }
+
+/* ---------- RELATED ---------- */
+.pdp-related { display: flex; flex-direction: column; align-items: center; background: #fff; padding: 78px 48px 90px; gap: 38px; }
+.pdp-related__eyebrow { font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
+.pdp-related__grid { display: flex; align-items: flex-start; justify-content: center; width: 100%; max-width: 1100px; gap: 30px; }
+.pdp-card { display: flex; flex-direction: column; align-items: flex-start; flex: 1; max-width: 270px; transition: transform 0.16s ease; }
+.pdp-card:hover { transform: translateY(-6px); }
+.pdp-card__media { display: flex; align-items: center; justify-content: center; width: 100%; height: 360px; }
+.pdp-card__img { width: auto; max-height: 340px; object-fit: contain; }
+.pdp-card__meta { display: flex; align-items: baseline; flex-wrap: wrap; padding-top: 14px; gap: 9px; }
+.pdp-card__tag { font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.pdp-card__quote { font-family: var(--serif); font-style: italic; font-size: 21px; }
+.pdp-card__ct { font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.pdp-card__name { font-family: var(--serif); font-style: normal; font-weight: 500; font-size: 26px; line-height: 1.2; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; padding-top: 6px; }
+.pdp-card:hover .pdp-card__name { text-decoration-color: var(--c); }
+.pdp-card__note { font-weight: 500; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; padding-top: 6px; }
+.pdp-related__cta-wrap { display: flex; justify-content: center; width: 100%; }
+
+.pdp-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 2px solid var(--c); border-radius: 999px; padding: 16px 36px; background: #fff;
+  color: var(--c); font-weight: 500; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;
+  box-shadow: 0 7px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.pdp-btn:hover { transform: translateY(7px); box-shadow: 0 0 0 var(--c); }
+.pdp-btn--wide { width: 100%; max-width: 1100px; }
+
+/* ---------- REVIEWS ---------- */
+.pdp-reviews { display: flex; flex-direction: column; align-items: center; text-align: center; background: #fff; border-bottom: 2px solid var(--c); padding: 80px 48px; }
+.pdp-reviews__head { font-weight: 700; font-size: clamp(34px, 4.4vw, 44px); line-height: 1; text-transform: uppercase; }
+.pdp-reviews__sub { padding-top: 10px; font-weight: 500; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+.pdp-reviews__grid { display: flex; width: 100%; max-width: 1200px; padding-top: 36px; gap: 18px; }
+.pdp-review { flex: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: left; border: 2px solid var(--c); border-radius: 16px; padding: 24px; transition: transform 0.16s ease; }
+.pdp-review:hover { transform: translateY(-5px); }
+.pdp-review__quote { font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 18px; line-height: 1.4; padding: 12px 0; }
+.pdp-review__who { font-weight: 500; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ---------- PRODUCT FAQ ---------- */
+.pdp-faq { display: flex; flex-direction: column; align-items: center; background: #fff; padding: 80px 48px 88px; }
+.pdp-faq__eyebrow { font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; padding-bottom: 16px; }
+.pdp-faq__head { font-weight: 700; font-size: clamp(28px, 4vw, 36px); line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; padding-bottom: 36px; }
+.pdp-faq__list { display: flex; flex-direction: column; width: 100%; max-width: 760px; gap: 12px; }
+.pdp-faq__item { border: 2px solid var(--c); border-radius: 14px; overflow: hidden; }
+.pdp-faq__q {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%;
+  padding: 22px 24px; text-align: left; font-weight: 700; font-size: 18px; letter-spacing: -0.005em; color: var(--c);
+}
+.pdp-faq__sign { flex-shrink: 0; font-weight: 700; font-size: 24px; line-height: 1; }
+.pdp-faq__a-wrap { overflow: hidden; }
+.pdp-faq__a { padding: 0 24px 22px; max-width: 660px; color: var(--ink); font-weight: 500; font-size: 15px; line-height: 1.6; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .pdp-hero { flex-direction: column; }
+  .pdp-hero__media { width: 100%; min-height: 420px; }
+  .pdp-hero__info { width: 100%; padding: 48px 28px; }
+  .pdp-plans, .pdp-cart, .pdp-bullets { max-width: 100%; }
+  .pdp-bullet { width: 100%; }
+  .pdp-stats { flex-direction: column; }
+  .pdp-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.25); }
+  .pdp-stat:last-child { border-bottom: none; }
+  .pdp-made__inner { flex-direction: column; gap: 32px; }
+  .pdp-made__art { order: -1; }
+  .pdp-related__grid { flex-direction: column; align-items: center; }
+  .pdp-card { max-width: 340px; width: 100%; }
+  .pdp-reviews__grid { flex-direction: column; }
+}

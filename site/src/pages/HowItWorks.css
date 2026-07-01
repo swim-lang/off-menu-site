@@ -1,0 +1,50 @@
+.hiw-eyebrow { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+.serif { font-family: var(--serif); font-style: italic; }
+
+.hiw-hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 84px 40px 60px; }
+.hiw-hero__lockup { width: min(740px, 94%); height: auto; display: block; margin-inline: auto; }
+.hiw-hero__whisk { width: min(380px, 76%); height: auto; }
+.hiw-hero__head { font-size: clamp(26px, 3.4vw, 44px); line-height: 1.05; text-transform: uppercase; letter-spacing: -0.015em; max-width: 16ch; }
+.hiw-hero__sub { font-size: 18px; line-height: 1.5; color: var(--ink); max-width: 520px; }
+.hiw-splash__chef { width: min(360px, 78%); height: auto; margin-top: 36px; position: relative; left: 26px; }
+
+.hiw-route { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 70px 40px 90px; }
+.hiw-route__title { font-size: clamp(40px, 6vw, 60px); text-transform: uppercase; letter-spacing: -0.01em; padding-top: 14px; }
+.hiw-route__sub { font-size: 18px; color: var(--ink); padding-top: 14px; }
+
+.hiw-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; width: 100%; max-width: 1080px; margin-top: 60px; }
+.hiw-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; background: #fff; border: 2px solid var(--c); border-radius: 20px; padding: 44px 32px 48px; box-shadow: 0 8px 0 var(--c); transition: box-shadow 0.16s ease; }
+.hiw-step:hover { box-shadow: 0 16px 0 var(--c); }
+.hiw-step__ill { margin: 6px 0 8px; transition: transform 0.18s ease; }
+.hiw-step:hover .hiw-step__ill { transform: scale(1.09) rotate(-3deg); }
+.hiw-num { display: block; font-weight: 700; font-size: clamp(120px, 13vw, 176px); line-height: 0.82; letter-spacing: -0.02em; }
+.hiw-kicker { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; }
+.hiw-step__title { font-size: clamp(22px, 2.4vw, 28px); text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; padding-top: 4px; }
+.hiw-step__body { font-size: 15px; line-height: 1.6; color: var(--ink); }
+
+/* FORMAT MENU */
+.hiw-menu-sec { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 64px 56px 88px; }
+.hiw-menu__head { font-size: clamp(34px, 5.5vw, 56px); line-height: 1.05; text-transform: uppercase; letter-spacing: -0.01em; max-width: 16ch; }
+.hiw-menu__intro { font-size: 18px; line-height: 1.5; color: var(--ink); max-width: 600px; padding-top: 16px; }
+.hiw-card { position: relative; width: 100%; max-width: 1200px; margin-top: 46px; border: 2px solid var(--c); border-radius: 14px; padding: 50px 60px 56px; background: #fff; box-shadow: 0 24px 56px -18px rgba(20, 16, 10, 0.3); }
+.hiw-card::before { content: ''; position: absolute; inset: 11px; border: 1px solid var(--c); border-radius: 8px; pointer-events: none; }
+.hiw-card__title { text-align: center; font-size: 24px; padding-bottom: 12px; }
+.hiw-rule { height: 0; border-top: 1px solid var(--c); margin: 8px 0; }
+.hiw-row { display: flex; align-items: flex-end; gap: 14px; padding: 16px 0; }
+.hiw-item { font-weight: 700; font-size: 22px; white-space: nowrap; }
+.hiw-row--off .hiw-item { color: var(--ink); text-decoration: line-through; text-decoration-color: var(--c); text-decoration-thickness: 3px; }
+.hiw-row--off .hiw-desc { color: var(--ink); }
+.hiw-dots { flex: 1; border-bottom: 2px dotted var(--c); margin-bottom: 6px; }
+.hiw-desc { font-size: 15px; font-weight: 500; white-space: nowrap; }
+.hiw-row--special { flex-direction: column; align-items: stretch; gap: 16px; padding-top: 22px; }
+.hiw-special-item { display: flex; align-items: flex-end; gap: 14px; }
+.hiw-tag { display: block; width: 100%; text-align: center; background: var(--c); color: #fff; border: 2px solid var(--c); border-radius: 999px; padding: 11px 18px; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.hiw-item--big { font-size: 30px; }
+.hiw-desc--on { font-weight: 700; font-size: 16px; }
+
+.hiw-splash { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 50px 40px 88px; }
+.hiw-splash__head { font-size: clamp(34px, 5.5vw, 58px); line-height: 1.04; text-transform: uppercase; letter-spacing: -0.01em; max-width: 18ch; }
+
+@media (max-width: 860px) {
+  .hiw-steps { grid-template-columns: 1fr; max-width: 420px; }
+}

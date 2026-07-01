@@ -1,3 +1,20 @@
+# OS / editor
 .DS_Store
 **/.DS_Store
 .claude/
+
+# dependencies & build output
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+
+# Vercel
+.vercel
+
+# scratch / review
+_review/
+
+# unused stock videos (keep only the hero video the site uses)
+brand-assets/video/*.mp4
+!brand-assets/video/8626671-uhd_3840_2160_25fps.mp4
