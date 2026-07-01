@@ -156,6 +156,53 @@ export function playScribble() {
   } catch (e) { /* audio unavailable — fail silently */ }
 }
 
+// Pencil check-mark — a few quick, dry graphite strokes. Higher, scratchier and
+// tighter than playScribble so it reads as ticking a box, not shading a shape.
+export function playPencil() {
+  try {
+    const ac = audioCtx()
+    if (!ac) return
+    const now = ac.currentTime
+    const total = 0.3
+    const buf = ac.createBuffer(1, Math.floor(ac.sampleRate * total), ac.sampleRate)
+    const data = buf.getChannelData(0)
+    for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1
+
+    const master = ac.createGain()
+    master.gain.value = 0.5
+    master.connect(ac.destination)
+
+    // 4–5 short strokes: dry, high friction, each pitch rising a touch (scritch)
+    let t = now + 0.005
+    while (t < now + total - 0.04) {
+      const src = ac.createBufferSource()
+      src.buffer = buf
+      const bp = ac.createBiquadFilter()
+      bp.type = 'bandpass'
+      const f = 2600 + Math.random() * 2200 // higher/drier than the soft scribble
+      bp.frequency.setValueAtTime(f, t)
+      bp.frequency.linearRampToValueAtTime(f + 700, t + 0.05)
+      bp.Q.value = 3.0 // tighter = scratchier graphite
+      const hp = ac.createBiquadFilter()
+      hp.type = 'highpass'
+      hp.frequency.value = 1600
+      const g = ac.createGain()
+      src.connect(bp)
+      bp.connect(hp)
+      hp.connect(g)
+      g.connect(master)
+      const stroke = 0.035 + Math.random() * 0.03
+      const peak = 0.11 + Math.random() * 0.05
+      g.gain.setValueAtTime(0.0001, t)
+      g.gain.exponentialRampToValueAtTime(peak, t + 0.004)
+      g.gain.exponentialRampToValueAtTime(0.0001, t + stroke)
+      const offset = Math.random() * (total - stroke - 0.01)
+      src.start(t, offset, stroke + 0.02)
+      t += stroke + 0.006 + Math.random() * 0.02
+    }
+  } catch (e) { /* audio unavailable — fail silently */ }
+}
+
 // Crisp little "click" — a short bright transient with a tiny switch-snap. No long thock.
 export function playKey() {
   try {

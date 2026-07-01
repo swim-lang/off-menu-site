@@ -7,7 +7,7 @@ import Ill from '../components/Ill'
 import Seal from '../components/Seal'
 import Testimonials from '../components/Testimonials'
 import { fadeUp, riseBig, stagger, stickerPop, inView } from '../lib/motion'
-import { playBellHit, playScribble } from '../lib/sfx'
+import { playBellHit, playScribble, playPencil } from '../lib/sfx'
 import './Home.css'
 
 const C = '#C11209'
@@ -30,6 +30,12 @@ const QUALIFIERS = [
   'Prefer flavor over chalky obligation',
   'Want something easy to keep on the counter, in a bag, or at work',
 ]
+
+// Slower, gentler row entrance than the shared fadeUp.
+const rowRise = {
+  hidden: { opacity: 0, y: 22 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+}
 
 const MYTHS = [
   { m: '“Fiber is for old people.”', r: "Most adults aren't getting enough fiber. It affects digestion, energy, fullness, gut health, and how you feel every day — not just when you're older." },
@@ -98,16 +104,15 @@ function MythRow({ pair, i }) {
 
 export default function Home() {
   const [fi, setFi] = useState(0)
-  const [checked, setChecked] = useState(0)
+  const [checked, setChecked] = useState(() => new Set())
   const f = FACTS[fi]
 
-  // Write up the "order" — scribble each box checked one-by-one, in step
-  // with the row stagger so the text lands then the pencil ticks it off.
-  const ringUp = () => {
-    if (checked > 0) return
-    QUALIFIERS.forEach((_, i) => {
-      setTimeout(() => { setChecked((c) => Math.max(c, i + 1)); playScribble() }, 470 + i * 160)
-    })
+  // Hover a box to check it off — a quick pencil scribble tick. Persists once
+  // checked so the finished guest check reads like a filled-in order.
+  const check = (i) => {
+    if (checked.has(i)) return
+    playPencil()
+    setChecked((prev) => new Set(prev).add(i))
   }
 
   return (
@@ -224,10 +229,14 @@ export default function Home() {
             </div>
             <div className="foryou__tear" />
             <motion.div className="foryou__tk-rows"
-              variants={stagger(0.16, 0.25)} initial="hidden" whileInView="show"
-              viewport={inView} onViewportEnter={ringUp}>
+              variants={stagger(0.28, 0.3)} initial="hidden" whileInView="show" viewport={inView}>
               {QUALIFIERS.map((q, i) => (
-                <motion.div className={`foryou__crow ${i < checked ? 'is-checked' : ''}`} key={q} variants={fadeUp}>
+                <motion.div
+                  className={`foryou__crow ${checked.has(i) ? 'is-checked' : ''}`}
+                  key={q}
+                  variants={rowRise}
+                  onMouseEnter={() => check(i)}
+                >
                   <span className="foryou__box">
                     <svg className="foryou__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M4 12.5 L9.5 18 L20 5.5" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
