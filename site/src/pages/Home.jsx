@@ -164,6 +164,39 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* INTRO — vintage menu card */}
+      <section className="intro" style={{ '--c': C, color: C }}>
+        <motion.div
+          className="intro__menu"
+          variants={stickerPop}
+          initial="hidden"
+          whileInView="show"
+          viewport={inView}
+          custom={-1}
+        >
+          <span className="intro__crest serif">✶ Daily Fiber · Est. in the kitchen ✶</span>
+          <span className="intro__eyebrow">Why Off Menu</span>
+          <h2 className="intro__head">Fiber, made easier to come back to.</h2>
+          <div className="intro__rule"><span className="intro__rule-dot" /></div>
+          <p className="intro__body">Most fiber supplements make the habit feel like work. Powders, scoops, chalky citrus, and giant tubs with no respect for your counter space.</p>
+          <p className="intro__body">Off Menu takes a simpler route: 2g fiber in a soft chew with chef-inspired flavor, made to feel less like a chore and more like something you might actually remember.</p>
+        </motion.div>
+      </section>
+
+      {/* PRODUCTS */}
+      <section id="products" className="products" style={{ '--c': C, color: C }}>
+        <Reveal as="div" className="products__head">
+          <img className="products__title" src="raw/pick-your-chew.svg" alt="Pick your chew" />
+          <span className="eyebrow">The lineup · daily fiber chews</span>
+        </Reveal>
+        {[0, 1].map((row) => (
+          <motion.div className="products__row" key={row} variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView}>
+            {PRODUCTS.map((p) => <Card key={p.name + row} p={p} />)}
+          </motion.div>
+        ))}
+        <Reveal><Link className="products__shop" to="/shop">Shop all 10 flavors →</Link></Reveal>
+      </section>
+
       {/* MADE FOR PEOPLE WHO — guest check */}
       <section className="foryou" style={{ '--c': C, color: C }}>
         <motion.div className="foryou__inner" onViewportEnter={ringUp} viewport={{ once: true, amount: 0.4 }}>
@@ -205,50 +238,6 @@ export default function Home() {
             </div>
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* INTRO — vintage menu card */}
-      <section className="intro" style={{ '--c': C, color: C }}>
-        <motion.div
-          className="intro__menu"
-          variants={stickerPop}
-          initial="hidden"
-          whileInView="show"
-          viewport={inView}
-          custom={-1}
-        >
-          <span className="intro__crest serif">✶ Daily Fiber · Est. in the kitchen ✶</span>
-          <span className="intro__eyebrow">Why Off Menu</span>
-          <h2 className="intro__head">Fiber, made easier to come back to.</h2>
-          <div className="intro__rule"><span className="intro__rule-dot" /></div>
-          <p className="intro__body">Most fiber supplements make the habit feel like work. Powders, scoops, chalky citrus, and giant tubs with no respect for your counter space.</p>
-          <p className="intro__body">Off Menu takes a simpler route: 2g fiber in a soft chew with chef-inspired flavor, made to feel less like a chore and more like something you might actually remember.</p>
-        </motion.div>
-      </section>
-
-      {/* PRODUCTS */}
-      <section id="products" className="products" style={{ '--c': C, color: C }}>
-        <Reveal as="div" className="products__head">
-          <img className="products__title" src="raw/pick-your-chew.svg" alt="Pick your chew" />
-          <span className="eyebrow">The lineup · daily fiber chews</span>
-        </Reveal>
-        {[0, 1].map((row) => (
-          <motion.div className="products__row" key={row} variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView}>
-            {PRODUCTS.map((p) => <Card key={p.name + row} p={p} />)}
-          </motion.div>
-        ))}
-        <Reveal><Link className="products__shop" to="/shop">Shop all 10 flavors →</Link></Reveal>
-      </section>
-
-      {/* SAMPLER */}
-      <section className="sampler" style={{ color: C }}>
-        <img className="sampler__bg" src="raw/section1-hounds.svg" alt="" />
-        <div className="sampler__copy">
-          <img className="sampler__title" src="raw/sampler-title.svg" alt="The sampler box" />
-          <div className="sampler__card">All ten flavors, one box. The chef's orders — taste the whole menu before you commit.</div>
-          <a className="sampler__btn">Shop the sampler</a>
-        </div>
-        <div className="sampler__photo"><img src="raw/sampler-photo.png" alt="Holding Off Menu chews" /></div>
       </section>
 
       {/* WHY FIBER */}
