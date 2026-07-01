@@ -168,7 +168,7 @@ export function playPencil() {
       const src = ac.createBufferSource()
       src.buffer = s.buffer
       const g = ac.createGain()
-      g.gain.value = 0.42
+      g.gain.value = 0.2
       src.connect(g)
       g.connect(ac.destination)
       src.start(now, s.onset)
