@@ -59,15 +59,6 @@ export default function Ingredients() {
         <Reveal as="p" className="ing-hero__cap serif">A pantry's worth of inspiration — not a candy aisle.</Reveal>
       </section>
 
-      {/* ===== FLAVOR PROFILE INTRO ===== */}
-      <section className="ing-intro" style={{ color: C }}>
-        <Reveal as="h2" v={riseBig} className="ing-intro__head">More menu than candy aisle.</Reveal>
-        <Reveal as="p" className="ing-intro__body">
-          Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to
-          make fiber complicated. It is to make it taste like someone thought about it.
-        </Reveal>
-      </section>
-
       {/* ===== FLAVOR SLIDESHOW ===== */}
       <section className="ing-flav" style={{ color: C }}>
         <Reveal as="span" className="ing-eyebrow">On the menu</Reveal>
@@ -110,6 +101,22 @@ export default function Ingredients() {
             <button key={k} className={`ing-chip ${k === i ? 'is-on' : ''}`} onClick={() => setI(k)}>{fl.name}</button>
           ))}
         </div>
+      </section>
+
+      {/* ===== MORE MENU THAN CANDY AISLE ===== */}
+      <section className="ing-intro" style={{ '--c': C, color: C }}>
+        <motion.div
+          className="ing-intro__card"
+          initial={{ opacity: 0, y: 26, rotate: -1.5 }}
+          whileInView={{ opacity: 1, y: 0, rotate: -1.5 }}
+          viewport={inView}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ rotate: -0.4, y: -4 }}
+        >
+          <span className="ing-intro__eyebrow">★ On the menu, not the shelf</span>
+          <h2 className="ing-intro__head">More menu than candy aisle.</h2>
+          <p className="ing-intro__body">Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to make fiber complicated — it's to make it taste like someone thought about it.</p>
+        </motion.div>
       </section>
 
       {/* ===== INGREDIENT / COMPARISON NOTES ===== */}

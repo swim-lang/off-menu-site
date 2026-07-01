@@ -238,8 +238,8 @@ export default function Home() {
                   onMouseEnter={() => check(i)}
                 >
                   <span className="foryou__box">
-                    <svg className="foryou__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M4 12.5 L9.5 18 L20 5.5" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <svg className="foryou__check" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                      <path pathLength="1" d="M5 21 C 7.5 24, 10 27.5, 14 32.5 C 21.5 20, 31 8, 43 -3" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                   <span className="foryou__ctext">{q}</span>
