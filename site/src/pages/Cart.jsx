@@ -136,9 +136,9 @@ export default function Cart() {
             {/* Subscribe & save banner */}
             <motion.div className="cart-sub" variants={fadeUp}>
               <div className="cart-sub__copy">
-                <span className="cart-sub__title">Make it the usual</span>
+                <span className="cart-sub__title">Make it the usual.</span>
                 <span className="cart-sub__note">
-                  Daily fiber works best as a habit. Ship on your schedule — skip, pause, or cancel anytime.
+                  Daily fiber works best as a habit. Set it up once, then let the chews show up on schedule.
                 </span>
               </div>
               <button
@@ -178,6 +178,22 @@ export default function Cart() {
           {/* ===== RIGHT: ORDER SUMMARY ===== */}
           <Reveal as="div" className="cart-summary" v={fadeUp}>
             <h2 className="cart-summary__head">Order Summary</h2>
+
+            {totals.shipFree ? (
+              <div className="cart-ship cart-ship--done">
+                <span className="cart-ship__msg"><strong>Free shipping unlocked.</strong> The kitchen's fully stocked.</span>
+                <div className="cart-ship__bar"><span style={{ width: '100%' }} /></div>
+              </div>
+            ) : (
+              <div className="cart-ship">
+                <span className="cart-ship__msg">
+                  <strong>You're {money(SHIP_THRESHOLD - totals.subtotal)} away from free shipping.</strong> Add another bag and keep the kitchen stocked.
+                </span>
+                <div className="cart-ship__bar">
+                  <span style={{ width: `${Math.min((totals.subtotal / SHIP_THRESHOLD) * 100, 100)}%` }} />
+                </div>
+              </div>
+            )}
 
             <div className="cart-row">
               <span className="cart-row__label">Subtotal</span>

@@ -291,6 +291,36 @@
   text-transform: uppercase;
   color: var(--c);
 }
+.cart-ship {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 13px 15px;
+  margin-bottom: 18px;
+  background: color-mix(in srgb, var(--c) 9%, #fff);
+  border-radius: 10px;
+}
+.cart-ship__msg {
+  font-weight: 500;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--c) 78%, #000);
+}
+.cart-ship__msg strong { color: var(--c); font-weight: 700; }
+.cart-ship__bar {
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--c) 20%, #fff);
+  overflow: hidden;
+}
+.cart-ship__bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--c);
+  transition: width 0.45s ease;
+}
+.cart-ship--done { background: color-mix(in srgb, var(--c) 13%, #fff); }
 .cart-row {
   display: flex;
   justify-content: space-between;
