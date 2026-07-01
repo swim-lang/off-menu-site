@@ -11,14 +11,15 @@ const C = '#694078'
 
 const PLANS = {
   once: { label: 'One-time', sub: '30 chews · one bag', price: 24, badge: null },
-  sub: { label: 'Subscribe & save', sub: '30 chews · ships monthly, skip anytime', price: 20, badge: 'Save 15%' },
+  sub: { label: 'Subscribe & save', sub: 'Ships monthly · skip or cancel anytime', price: 20, badge: 'Save 15%' },
 }
 
 const BULLETS = [
-  '2g fiber in one daily chew',
-  'Made to support digestion and regularity',
-  'Chef-inspired flavor, not chalky powder',
-  '30 individually wrapped chews',
+  'Secure checkout',
+  'Ships in 3–5 business days',
+  '30 daily chews',
+  'Skip or cancel anytime',
+  'Questions? support@offmenu.com',
 ]
 
 const FORYOU = [
@@ -111,6 +112,12 @@ export default function Product() {
             ))}
           </Reveal>
 
+          {plan === 'sub' && (
+            <p className="pdp-subnote">
+              <strong>Make it the usual.</strong> Fiber works best when it becomes part of your routine — subscribe so the chews keep showing up before you have to think about it.
+            </p>
+          )}
+
           <motion.button
             className="pdp-cart"
             type="button"
@@ -120,9 +127,19 @@ export default function Product() {
           </motion.button>
 
           <Reveal as="ul" className="pdp-bullets">
-            {BULLETS.map((b) => (
-              <li key={b} className="pdp-bullet"><span className="pdp-dot" />{b}</li>
-            ))}
+            {BULLETS.map((b) => {
+              const at = b.indexOf('@')
+              if (at === -1) return <li key={b} className="pdp-bullet"><span className="pdp-dot" />{b}</li>
+              const sp = b.lastIndexOf(' ', at)
+              const label = b.slice(0, sp + 1)
+              const email = b.slice(sp + 1)
+              return (
+                <li key={b} className="pdp-bullet">
+                  <span className="pdp-dot" />{label}
+                  <a className="pdp-bullet__email" href={`mailto:${email}`}>{email}</a>
+                </li>
+              )
+            })}
           </Reveal>
         </div>
       </section>
@@ -204,6 +221,14 @@ export default function Product() {
           </div>
         </div>
 
+        <Reveal className="pdp-honest">
+          <h3 className="pdp-honest__title serif">A small daily fiber habit.</h3>
+          <p className="pdp-honest__body">
+            Each chew adds 2g fiber to your day. It's not here to replace fruits, vegetables, grains, nuts, or seeds —
+            it's here to make getting a little more fiber feel easier, better-tasting, and more repeatable.
+          </p>
+        </Reveal>
+
         <Reveal as="p" className="pdp-science__fine">
           These statements describe the role of dietary fiber generally and have not been evaluated by the FDA. Off Menu
           is a supplement to a balanced diet, not a treatment, cure, or replacement for whole foods.
@@ -231,41 +256,6 @@ export default function Product() {
             custom={-3}
           >
             <Ill src="Illustrations/tummy.svg" w={360} h={304} />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ===== SUBSCRIBE & SAVE ===== */}
-      <section className="pdp-sub">
-        <div className="pdp-sub__inner">
-          <div className="pdp-sub__left">
-            <Reveal as="span" className="pdp-sub__eyebrow">Subscribe &amp; save</Reveal>
-            <Reveal as="h2" v={riseBig} className="pdp-sub__head">Make it the usual.</Reveal>
-            <Reveal as="p" className="pdp-sub__body">Fiber works best when it becomes part of your routine. Subscribe so the chews keep showing up before you have to think about it.</Reveal>
-          </div>
-          <motion.div className="pdp-sub__card"
-            initial={{ opacity: 0, y: 24, rotate: -1.5 }}
-            whileInView={{ opacity: 1, y: 0, rotate: -1.5 }}
-            viewport={inView}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="pdp-sub__price-row">
-              <span className="pdp-sub__price">$20</span>
-              <span className="pdp-sub__mo">/ month</span>
-              <span className="pdp-sub__was">$24</span>
-            </div>
-            <div className="pdp-sub__rule" />
-            <ul className="pdp-sub__benefits">
-              {['Save 15%', 'Ships monthly', 'Skip, pause, or cancel anytime'].map((b) => (
-                <li key={b} className="pdp-sub__benefit">
-                  <span className="pdp-sub__bcheck">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 5.5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </span>
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-            <button className="pdp-sub__cta" type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Subscribe &amp; save →</button>
           </motion.div>
         </div>
       </section>
