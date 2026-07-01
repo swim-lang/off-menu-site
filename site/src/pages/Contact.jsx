@@ -4,7 +4,7 @@ import Reveal from '../components/Reveal'
 import { fadeUp, riseBig, stagger, inView } from '../lib/motion'
 import './Contact.css'
 
-const C = '#3FA3A5'
+const C = '#1F5F68'
 
 const HELP_TOPICS = [
   'Order status',

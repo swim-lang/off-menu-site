@@ -9,7 +9,7 @@ export const PAGES = {
   about:       { path: '/about',        label: 'Our story',           c: '#D27400', slug: 'orange' },
   faq:         { path: '/faq',          label: 'FAQ',                 c: '#86335F', slug: 'magenta' },
   shipping:    { path: '/shipping',     label: 'Shipping & returns',  c: '#1F33B9', slug: 'blue' },
-  contact:     { path: '/contact',      label: 'Contact & support',   c: '#3FA3A5', slug: 'teal' },
+  contact:     { path: '/contact',      label: 'Contact & support',   c: '#1F5F68', slug: 'teal' },
   cart:        { path: '/cart',         label: 'Cart & checkout',     c: '#4C9E3C', slug: 'green' },
 }
 
