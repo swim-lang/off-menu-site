@@ -101,11 +101,12 @@ export default function Home() {
   const [checked, setChecked] = useState(0)
   const f = FACTS[fi]
 
-  // Ring up the "order" — tick each box one-by-one with the order bell.
+  // Write up the "order" — scribble each box checked one-by-one, in step
+  // with the row stagger so the text lands then the pencil ticks it off.
   const ringUp = () => {
     if (checked > 0) return
     QUALIFIERS.forEach((_, i) => {
-      setTimeout(() => { setChecked((c) => Math.max(c, i + 1)); playBellHit() }, 340 + i * 260)
+      setTimeout(() => { setChecked((c) => Math.max(c, i + 1)); playScribble() }, 470 + i * 160)
     })
   }
 
@@ -199,7 +200,7 @@ export default function Home() {
 
       {/* MADE FOR PEOPLE WHO — guest check */}
       <section className="foryou" style={{ '--c': C, color: C }}>
-        <motion.div className="foryou__inner" onViewportEnter={ringUp} viewport={{ once: true, amount: 0.4 }}>
+        <div className="foryou__inner">
           <div className="foryou__left">
             <Reveal as="span" className="foryou__eyebrow">Who it's for</Reveal>
             <Reveal as="h2" v={riseBig} className="foryou__head">Made for<br />people <em>who…</em></Reveal>
@@ -208,10 +209,10 @@ export default function Home() {
           </div>
 
           <motion.div className="foryou__ticket"
-            initial={{ opacity: 0, y: 28, rotate: -2.5 }}
-            whileInView={{ opacity: 1, y: 0, rotate: -2.5 }}
+            initial={{ opacity: 0, y: 28, rotate: 2.5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: 2.5 }}
             viewport={inView}
-            whileHover={{ y: -5, rotate: -3.4 }}
+            whileHover={{ y: -5, rotate: 3.4 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="foryou__tk-head">
@@ -222,18 +223,20 @@ export default function Home() {
               <span className="foryou__tk-sub">Off Menu · Daily Fiber · Order No. 010</span>
             </div>
             <div className="foryou__tear" />
-            <div className="foryou__tk-rows">
+            <motion.div className="foryou__tk-rows"
+              variants={stagger(0.16, 0.25)} initial="hidden" whileInView="show"
+              viewport={inView} onViewportEnter={ringUp}>
               {QUALIFIERS.map((q, i) => (
-                <div className={`foryou__crow ${i < checked ? 'is-checked' : ''}`} key={q}>
+                <motion.div className={`foryou__crow ${i < checked ? 'is-checked' : ''}`} key={q} variants={fadeUp}>
                   <span className="foryou__box">
                     <svg className="foryou__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M4 12.5 L9.5 18 L20 5.5" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                   <span className="foryou__ctext">{q}</span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
             <div className="foryou__tear" />
             <div className="foryou__tk-foot">
               <div className="foryou__total-row">
@@ -243,7 +246,7 @@ export default function Home() {
               <span className="foryou__foot-note">Checked even one box? Consider that a yes — this one's for you.</span>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* WHY FIBER */}
