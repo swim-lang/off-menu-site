@@ -66,12 +66,16 @@
 .pdp-bullet { display: flex; align-items: center; gap: 10px; width: 260px; font-weight: 500; font-size: 13px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--c); }
 .pdp-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 999px; background: var(--c); }
 
-/* ---------- STAT BAND ---------- */
-.pdp-stats { display: flex; width: 100%; background: var(--purple); }
-.pdp-stat { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 56px 32px; border-right: 1px solid rgba(255,255,255,0.25); }
-.pdp-stat:last-child { border-right: none; }
-.pdp-stat__big { font-weight: 700; font-size: clamp(38px, 5vw, 54px); line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase; color: #fff; }
-.pdp-stat__label { padding-top: 10px; opacity: 0.85; font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; }
+/* ---------- "FOR YOU IF" TICKER ---------- */
+.pdp-ticker { width: 100%; background: var(--purple); overflow: hidden; padding: 26px 0; border-top: 2px solid rgba(255,255,255,0.28); border-bottom: 2px solid rgba(255,255,255,0.28); }
+.pdp-ticker__track { display: flex; width: max-content; animation: pdp-ticker 46s linear infinite; }
+.pdp-ticker__group { display: flex; align-items: center; }
+.pdp-ticker__cell { display: inline-flex; align-items: center; gap: 24px; padding: 0 24px; }
+.pdp-ticker__star { color: #fff; opacity: 0.5; font-size: 15px; }
+.pdp-ticker__txt { font-weight: 500; font-size: 20px; letter-spacing: 0.01em; color: #fff; white-space: nowrap; }
+.pdp-ticker__lead { font-weight: 600; font-size: 22px; color: #fff; white-space: nowrap; }
+@keyframes pdp-ticker { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .pdp-ticker__track { animation-play-state: paused; } }
 
 /* ---------- MADE FOR YOUR GUT ---------- */
 .pdp-made { display: flex; justify-content: center; background: #fff; border-bottom: 2px solid var(--c); padding: 84px 48px; }
@@ -167,9 +171,8 @@
   .pdp-hero__info { width: 100%; padding: 48px 28px; }
   .pdp-plans, .pdp-cart, .pdp-bullets { max-width: 100%; }
   .pdp-bullet { width: 100%; }
-  .pdp-stats { flex-direction: column; }
-  .pdp-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.25); }
-  .pdp-stat:last-child { border-bottom: none; }
+  .pdp-ticker__txt { font-size: 17px; }
+  .pdp-ticker__lead { font-size: 19px; }
   .pdp-made__inner { flex-direction: column; gap: 32px; }
   .pdp-made__art { order: -1; }
   .pdp-related__grid { flex-direction: column; align-items: center; }

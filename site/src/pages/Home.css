@@ -187,9 +187,47 @@
 .facts__arrow:hover { transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
 .facts__counter { font-weight: 500; font-size: 15px; letter-spacing: 0.08em; }
 
+/* MADE FOR PEOPLE WHO — guest check */
+.foryou { background: #fff; padding: 116px 40px; }
+.foryou__inner { max-width: 1220px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 88px; }
+.foryou__left { width: 480px; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.foryou__eyebrow { font-weight: 500; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); }
+.foryou__head { font-family: var(--serif); font-weight: 500; font-size: 64px; line-height: 60px; letter-spacing: -0.015em; color: #1A1207; }
+.foryou__head em { font-style: italic; color: var(--c); }
+.foryou__support { font-weight: 500; font-size: 18px; line-height: 27px; color: #4A4038; max-width: 400px; }
+.foryou__sticker { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; background: var(--c); color: #fff; padding: 11px 18px 12px; border-radius: 999px; transform: rotate(-4deg); box-shadow: 4px 4px 0 rgba(26,18,7,0.18); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; transition: transform 0.2s ease; }
+.foryou__sticker:hover { transform: rotate(-2deg) scale(1.04); }
+
+.foryou__ticket { width: 560px; flex-shrink: 0; background: #fff; border: 2.5px solid var(--c); border-radius: 6px; box-shadow: 8px 8px 0 var(--c); transform: rotate(-2.5deg); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.foryou__ticket:hover { transform: rotate(-2.5deg) translate(-2px, -4px); box-shadow: 12px 13px 0 var(--c); }
+.foryou__tk-head { padding: 32px 40px 20px; display: flex; flex-direction: column; gap: 6px; }
+.foryou__tk-row { display: flex; align-items: baseline; justify-content: space-between; }
+.foryou__tk-title { font-weight: 700; font-size: 26px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); }
+.foryou__tk-table { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 20px; color: #1A1207; }
+.foryou__tk-sub { font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6E635A; }
+.foryou__tear { height: 0; border-top: 2px dashed rgba(193, 18, 9, 0.53); }
+.foryou__tk-rows { padding: 26px 40px; display: flex; flex-direction: column; gap: 22px; }
+.foryou__crow { display: flex; align-items: flex-start; gap: 16px; }
+.foryou__box { width: 26px; height: 26px; flex-shrink: 0; border: 2.5px solid var(--c); border-radius: 5px; display: flex; align-items: center; justify-content: center; }
+.foryou__check { width: 17px; height: 17px; opacity: 0; transform: scale(0.4); transition: opacity 0.24s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.foryou__check path { stroke: var(--c); fill: none; }
+.foryou__crow.is-checked .foryou__check { opacity: 1; transform: scale(1); }
+.foryou__ctext { font-weight: 500; font-size: 20px; line-height: 26px; color: #1A1207; }
+.foryou__tk-foot { padding: 22px 40px 32px; display: flex; flex-direction: column; gap: 10px; }
+.foryou__total-row { display: flex; align-items: baseline; justify-content: space-between; }
+.foryou__total-l { font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); }
+.foryou__total-r { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 24px; color: #1A1207; }
+.foryou__foot-note { font-weight: 500; font-size: 14px; line-height: 19px; color: #6E635A; }
+@media (prefers-reduced-motion: reduce) { .foryou__check { transition: none; } }
+
 @media (max-width: 1000px) {
   .sampler, .facts__grid { flex-direction: column; gap: 40px; }
   .sampler__copy, .sampler__photo { width: 100%; max-width: 560px; }
   .why { padding-left: 40px; }
   .story__head { max-width: 80%; }
+  .foryou__inner { flex-direction: column; gap: 48px; }
+  .foryou__left { width: 100%; max-width: 480px; align-items: center; text-align: center; }
+  .foryou__head { font-size: 54px; line-height: 52px; }
+  .foryou__support { max-width: 460px; }
+  .foryou__ticket { width: 100%; max-width: 480px; }
 }

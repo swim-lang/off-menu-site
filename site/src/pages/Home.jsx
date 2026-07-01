@@ -23,6 +23,14 @@ const PRODUCTS = [
   { img: 'raw/1.png', kicker: 'Bright', q: 'Strawberry', name: 'Strawberry Fig Leaf', note: 'Ripe strawberry, green fig leaf, soft almond.' },
 ]
 
+const QUALIFIERS = [
+  'Feel bloated after meals',
+  'Know they need more fiber but hate powder',
+  'Want a daily habit that does not feel like homework',
+  'Prefer flavor over chalky obligation',
+  'Want something easy to keep on the counter, in a bag, or at work',
+]
+
 const MYTHS = [
   { m: '“Fiber is for old people.”', r: "Most adults aren't getting enough fiber. It affects digestion, energy, fullness, gut health, and how you feel every day — not just when you're older." },
   { m: '“I eat pretty healthy, so I\'m probably getting enough.”', r: "Most people fall short of their daily fiber goal, even when they're eating well." },
@@ -90,7 +98,16 @@ function MythRow({ pair, i }) {
 
 export default function Home() {
   const [fi, setFi] = useState(0)
+  const [checked, setChecked] = useState(0)
   const f = FACTS[fi]
+
+  // Ring up the "order" — tick each box one-by-one with the order bell.
+  const ringUp = () => {
+    if (checked > 0) return
+    QUALIFIERS.forEach((_, i) => {
+      setTimeout(() => { setChecked((c) => Math.max(c, i + 1)); playBellHit() }, 340 + i * 260)
+    })
+  }
 
   return (
     <Page page="home">
@@ -144,6 +161,49 @@ export default function Home() {
         </div>
         <motion.div className="lead__art" variants={stickerPop} initial="hidden" whileInView="show" viewport={inView} custom={-4}>
           <Ill src="Illustrations/Walking.svg" w={460} h={460} />
+        </motion.div>
+      </section>
+
+      {/* MADE FOR PEOPLE WHO — guest check */}
+      <section className="foryou" style={{ '--c': C, color: C }}>
+        <motion.div className="foryou__inner" onViewportEnter={ringUp} viewport={{ once: true, amount: 0.4 }}>
+          <div className="foryou__left">
+            <Reveal as="span" className="foryou__eyebrow">Who it's for</Reveal>
+            <Reveal as="h2" v={riseBig} className="foryou__head">Made for<br />people <em>who…</em></Reveal>
+            <Reveal as="p" className="foryou__support">No two guts are the same. But if any of these sound like you, pull up a stool — you're in the right place.</Reveal>
+            <Reveal><span className="foryou__sticker">★ Table for one? Perfect.</span></Reveal>
+          </div>
+
+          <motion.div className="foryou__ticket" variants={fadeUp} initial="hidden" whileInView="show" viewport={inView}>
+            <div className="foryou__tk-head">
+              <div className="foryou__tk-row">
+                <span className="foryou__tk-title">Guest Check</span>
+                <span className="foryou__tk-table">Table — You</span>
+              </div>
+              <span className="foryou__tk-sub">Off Menu · Daily Fiber · Order No. 010</span>
+            </div>
+            <div className="foryou__tear" />
+            <div className="foryou__tk-rows">
+              {QUALIFIERS.map((q, i) => (
+                <div className={`foryou__crow ${i < checked ? 'is-checked' : ''}`} key={q}>
+                  <span className="foryou__box">
+                    <svg className="foryou__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M4 12.5 L9.5 18 L20 5.5" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span className="foryou__ctext">{q}</span>
+                </div>
+              ))}
+            </div>
+            <div className="foryou__tear" />
+            <div className="foryou__tk-foot">
+              <div className="foryou__total-row">
+                <span className="foryou__total-l">Total</span>
+                <span className="foryou__total-r">1 daily chew</span>
+              </div>
+              <span className="foryou__foot-note">Checked even one box? Consider that a yes — this one's for you.</span>
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 

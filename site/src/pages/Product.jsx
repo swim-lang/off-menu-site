@@ -21,10 +21,12 @@ const BULLETS = [
   '30 individually wrapped chews',
 ]
 
-const STATS = [
-  { big: '10', label: 'Chef-inspired flavors' },
-  { big: '2g', label: 'Fiber per serving' },
-  { big: '30', label: 'Daily chews per bag' },
+const FORYOU = [
+  'You feel bloated, sluggish, or off after meals',
+  'You want more fiber but hate powders',
+  'You want something easier than mixing, measuring, or remembering another capsule',
+  'You care about taste as much as the habit',
+  'You want a small daily step that is easy to repeat',
 ]
 
 const SCIENCE = [
@@ -125,14 +127,24 @@ export default function Product() {
         </div>
       </section>
 
-      {/* ===== STAT BAND ===== */}
-      <section className="pdp-stats">
-        {STATS.map((s, i) => (
-          <Reveal as="div" key={s.label} className="pdp-stat" style={{ transitionDelay: `${i * 40}ms` }}>
-            <div className="pdp-stat__big">{s.big}</div>
-            <div className="pdp-stat__label">{s.label}</div>
-          </Reveal>
-        ))}
+      {/* ===== "FOR YOU IF" TICKER ===== */}
+      <section className="pdp-ticker" aria-label="This chew is for you if…">
+        <div className="pdp-ticker__track">
+          {[0, 1].map((dup) => (
+            <div className="pdp-ticker__group" key={dup} aria-hidden={dup === 1}>
+              <span className="pdp-ticker__cell pdp-ticker__cell--lead">
+                <span className="pdp-ticker__star" aria-hidden="true">✦</span>
+                <span className="pdp-ticker__lead serif">This chew is for you if…</span>
+              </span>
+              {FORYOU.map((t, i) => (
+                <span className="pdp-ticker__cell" key={i}>
+                  <span className="pdp-ticker__star" aria-hidden="true">✦</span>
+                  <span className="pdp-ticker__txt">{t}</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ===== THE SCIENCE — class with Chef Chewy ===== */}
