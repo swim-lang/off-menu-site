@@ -134,23 +134,36 @@ export default function Cart() {
             ))}
 
             {/* Subscribe & save banner */}
-            <motion.div className="cart-sub" variants={fadeUp}>
+            <motion.div className={`cart-sub ${subscribe ? 'is-active' : ''}`} variants={fadeUp}>
               <div className="cart-sub__copy">
-                <span className="cart-sub__title">Make it the usual.</span>
+                <div className="cart-sub__head">
+                  <span className="cart-sub__title">Make it the usual.</span>
+                  <span className="cart-sub__badge">Save 15%</span>
+                </div>
                 <span className="cart-sub__note">
                   Daily fiber works best as a habit. Set it up once, then let the chews show up on schedule.
                 </span>
               </div>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={subscribe}
-                aria-label="Subscribe and save"
-                className={`cart-toggle ${subscribe ? 'is-on' : ''}`}
-                onClick={() => setSubscribe((s) => !s)}
-              >
-                <span className="cart-toggle__knob" />
-              </button>
+              <div className="cart-sub__control">
+                <span className="cart-sub__state">
+                  {subscribe && (
+                    <svg className="cart-sub__statecheck" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M4 12.5 L9.5 18 L20 5.5" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                  {subscribe ? 'Subscribing' : 'One-time'}
+                </span>
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={subscribe}
+                  aria-label="Subscribe and save 15%"
+                  className={`cart-toggle ${subscribe ? 'is-on' : ''}`}
+                  onClick={() => setSubscribe((s) => !s)}
+                >
+                  <span className="cart-toggle__knob" />
+                </button>
+              </div>
             </motion.div>
 
             {/* Promo code */}
