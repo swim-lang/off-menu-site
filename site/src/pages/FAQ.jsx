@@ -20,11 +20,11 @@ const PRODUCT = [
   },
   {
     q: 'How much fiber does it have?',
-    a: 'Each serving gives you 1g of fiber to help support digestive health, regularity, and fullness.',
+    a: 'Each serving gives you 2g of fiber to help support digestive health, regularity, and fullness.',
   },
   {
     q: 'How often should I take it?',
-    a: 'Take one chew daily as part of your routine. Consistency is what makes fiber work — the habit matters more than the dose.',
+    a: 'Take one chew daily as part of your routine. Consistency is what makes fiber work — the habit matters.',
   },
   {
     q: 'When should I take it?',
@@ -55,7 +55,7 @@ const PRODUCT = [
 const FLAVOR = [
   {
     q: 'Is it made with real fruit?',
-    a: 'Our chef-inspired flavors are built to taste like real food — bright, fruit-forward, and made to be something you actually look forward to.',
+    a: 'Our chef-inspired flavors are built around taste profiles. Flavor names may describe inspiration rather than whole-fruit ingredients, so always check the label for the full ingredient list.',
   },
   {
     q: 'Why chef-inspired flavors?',

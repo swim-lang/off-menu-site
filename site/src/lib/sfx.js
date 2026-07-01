@@ -9,6 +9,52 @@ function audioCtx() {
   return _ac
 }
 
+// Load + decode an audio file once, and find where the sound actually starts
+// (so we can crop the silent front on playback). Cached per URL.
+const _samples = {}
+function loadSample(url) {
+  if (_samples[url]) return _samples[url]
+  const ac = audioCtx()
+  if (!ac) return Promise.resolve(null)
+  const p = fetch(url)
+    .then((r) => r.arrayBuffer())
+    .then((buf) => ac.decodeAudioData(buf))
+    .then((audioBuffer) => {
+      const data = audioBuffer.getChannelData(0)
+      let onset = 0
+      for (let i = 0; i < data.length; i++) {
+        if (Math.abs(data[i]) > 0.015) { onset = i / audioBuffer.sampleRate; break }
+      }
+      return { buffer: audioBuffer, onset: Math.max(0, onset - 0.004) }
+    })
+    .catch(() => null)
+  _samples[url] = p
+  return p
+}
+
+// Play the real recorded bell hit — front silence cropped, tail capped so it
+// stays snappy on hover.
+export function playBellHit() {
+  try {
+    const ac = audioCtx()
+    if (!ac) return
+    loadSample('sounds/bell-hit.mp3').then((s) => {
+      if (!s) return
+      const now = ac.currentTime
+      const src = ac.createBufferSource()
+      src.buffer = s.buffer
+      const g = ac.createGain()
+      g.gain.value = 0.5
+      src.connect(g)
+      g.connect(ac.destination)
+      const dur = 1.9 // how much of the ring to play
+      src.start(now, s.onset, dur)
+      g.gain.setValueAtTime(0.5, now + dur - 0.18)
+      g.gain.exponentialRampToValueAtTime(0.0001, now + dur) // soft fade at the cut
+    })
+  } catch (e) { /* audio unavailable — fail silently */ }
+}
+
 // Classic diner "order up!" call-bell — a tapped vintage dome bell.
 export function playBell() {
   try {
@@ -221,7 +267,7 @@ export function playCheer() {
 // product/bag cards, nav and content links — is intentionally left out (no click sound).
 const SFX_SEL =
   'button:not(.pdp-faq__q):not(.faq-card__btn):not(.pdp-science__tab):not(.faq-q), [role="button"], input[type="submit"], input[type="button"], ' +
-  'a.btn, a.hero__btn, a.sampler__btn, a.story__btn, a.products__shop, a.pdp-btn, a.cart-btn'
+  'a.btn, a.hero__btn, a.sampler__btn, a.story__btn, a.products__shop, a.pdp-btn, a.cart-btn, a.nav__chip'
 let _sfxHovered = null
 export function installButtonSfx() {
   if (typeof document === 'undefined' || document.__sfxInstalled) return

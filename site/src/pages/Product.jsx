@@ -15,24 +15,24 @@ const PLANS = {
 }
 
 const BULLETS = [
-  '1g fiber per serving',
-  'Supports digestive health & regularity',
-  'Helps support fullness',
+  '2g fiber in one daily chew',
+  'Made to support digestion and regularity',
+  'Chef-inspired flavor, not chalky powder',
   '30 individually wrapped chews',
 ]
 
 const STATS = [
-  { big: '10', label: 'Chef-led flavors' },
-  { big: '100%', label: 'Real fruit & botanicals' },
-  { big: 'Small batch', label: 'Made fresh, never sterile' },
+  { big: '10', label: 'Chef-inspired flavors' },
+  { big: '2g', label: 'Fiber per serving' },
+  { big: '30', label: 'Daily chews per bag' },
 ]
 
 const SCIENCE = [
-  { t: 'Digestion & regularity', b: 'Fiber adds bulk and helps move things through — the foundation of comfortable, regular digestion.' },
-  { t: 'A fed gut microbiome', b: 'Prebiotic fibers feed the beneficial bacteria in your gut, which researchers increasingly link to whole-body health.' },
-  { t: 'Fullness & appetite', b: 'Soluble fiber slows digestion, helping you feel full and steadier between meals instead of running on empty.' },
-  { t: 'Steadier energy', b: 'By slowing how quickly sugars are absorbed, fiber helps smooth out the spikes and crashes across your day.' },
-  { t: 'Heart & cholesterol', b: 'Soluble fiber is among the most-studied nutrients for supporting already-healthy cholesterol as part of a balanced diet.' },
+  { t: 'Digestion and regularity', b: 'Fiber helps support the daily rhythm of digestion, so things feel less stuck and more consistent.' },
+  { t: 'A fed gut microbiome', b: 'Some fibers act as food for the good bacteria in your gut, which is one reason fiber keeps showing up in the gut health conversation.' },
+  { t: 'Fullness and appetite', b: 'Fiber can help you feel fuller, which makes it a useful part of a daily routine instead of another random supplement.' },
+  { t: 'Steadier days', b: 'Fiber helps slow digestion, which can support a steadier feeling between meals.' },
+  { t: 'The long game', b: 'Fiber is not flashy. It is foundational, which is exactly why it deserves a better format.' },
 ]
 
 const RELATED = [
@@ -42,20 +42,20 @@ const RELATED = [
 ]
 
 const REVIEWS = [
-  { quote: "The first fiber I've ever wanted to eat. The grape one is genuinely dangerous.", who: '— Dana R.' },
-  { quote: 'Replaced three sad cabinet supplements with one bag I\'m excited about.', who: '— Marcus L.' },
-  { quote: 'Looks like something off a deli wall and tastes like a treat. Sold.', who: '— Priya N.' },
+  { quote: 'The first fiber I have ever wanted to eat. The grape one is genuinely dangerous.', who: '— Dana R.' },
+  { quote: 'I finally stopped pretending I was going to use the powder.', who: '— Marcus L.' },
+  { quote: 'Tastes like something I would buy for the flavor first. The fiber is the win.', who: '— Priya N.' },
 ]
 
 const FAQS = [
   {
     q: 'What is it?',
-    a: 'Off Menu Daily Fiber is a soft chew supplement with 1g fiber per serving, made to help support digestive health, regularity, and fullness as part of your daily routine.',
+    a: 'Off Menu Daily Fiber is a soft chew supplement with 2g fiber per serving, made to help support digestive health, regularity, and fullness as part of your daily routine.',
   },
-  { q: 'How do I take it?', a: 'Take one chew daily. No scoop, no shaker, no water required — just unwrap and eat.' },
-  { q: 'When should I take it?', a: 'Any time that fits your routine. Many people pair it with breakfast or an evening wind-down.' },
-  { q: 'What does it taste like?', a: 'Concord grape with a little verjus — chef-developed for real flavor, not a punishment.' },
-  { q: 'Is this a candy?', a: 'No. It is a fiber supplement that happens to taste good. Flavor names describe taste, not candy.' },
+  { q: 'How do I take it?', a: 'Take one chew daily. No scoop, no shaker, no mixing. Just unwrap and eat.' },
+  { q: 'When should I take it?', a: 'Any time that fits your routine. A lot of people pair it with breakfast, lunch, or an evening wind-down.' },
+  { q: 'What does it taste like?', a: 'Concord grape with a little verjus. It is chef-developed for real flavor, not that chalky supplement thing.' },
+  { q: 'Is this a candy?', a: 'No. It is a fiber supplement that happens to taste good.' },
   {
     q: 'Does it replace fruits and vegetables?',
     a: 'No. It is a supplement to support a balanced diet, not a substitute for whole fruits and vegetables.',
@@ -85,8 +85,8 @@ export default function Product() {
           </Reveal>
           <Reveal as="div" className="pdp-hero__price serif">${price}</Reveal>
           <Reveal as="p" className="pdp-hero__desc">
-            1g fiber in one chef-inspired soft chew — concord grape with a little verjus — made for daily use
-            without the powder, scoop, shaker, or orange tub.
+            A chef-inspired soft chew with 2g fiber for the days your gut feels bloated, sluggish, or just a little
+            off. Less powder routine. More small daily habit you can actually stick with.
           </Reveal>
 
           <Reveal as="div" className="pdp-plans">
@@ -142,8 +142,8 @@ export default function Product() {
             <Reveal as="span" className="pdp-science__eyebrow">Fiber class with Chef Chewy</Reveal>
             <Reveal as="h2" v={riseBig} className="pdp-science__head">Fiber, demystified.</Reveal>
             <Reveal as="p" className="pdp-science__intro">
-              Fiber is one of the most-studied nutrients in nutrition science, and the research keeps pointing the same
-              way: most of us don't get enough, and getting more — consistently — supports how we feel from head to gut.
+              Fiber is one of those simple things that can make a real difference when you take it consistently. Most
+              of us do not get enough, and that can show up as bloating, sluggish digestion, and feeling off after meals.
             </Reveal>
             <motion.div
               className="pdp-science__chef"
@@ -156,7 +156,7 @@ export default function Product() {
               <Ill src="Illustrations/Arms-Crossed.svg" w={150} h={228} className="pdp-science__chef-img" />
               <div className="pdp-science__bubble">
                 <span className="pdp-science__bubble-name serif">Chef Chewy</span>
-                <p className="pdp-science__bubble-text">Pull up a stool — class is in session.</p>
+                <p className="pdp-science__bubble-text">Pull up a stool. We'll keep this simple.</p>
               </div>
             </motion.div>
           </div>
@@ -202,13 +202,13 @@ export default function Product() {
       <section className="pdp-made" style={{ color: C }}>
         <div className="pdp-made__inner">
           <div className="pdp-made__text">
-            <Reveal as="h2" v={riseBig} className="pdp-made__head">Made for your gut, not the cabinet.</Reveal>
+            <Reveal as="h2" v={riseBig} className="pdp-made__head">Made for the days you feel off.</Reveal>
             <Reveal as="p" className="pdp-made__body">
-              Most fiber supplements taste like a punishment, so they end up forgotten in a drawer. We re-plated
-              the whole thing: chef-developed recipes, real ingredients, and a chew you'll actually want to take.
-              Two a day keeps the kitchen moving.
+              Bloating, sluggish digestion, and that heavy after-meal feeling are easy to ignore until they become
+              part of your routine. Off Menu makes fiber easier to work into the day with chef-inspired flavor, a
+              soft chew format, and none of the powder drama.
             </Reveal>
-            <Reveal as="p" className="pdp-made__serif serif">A little order for your insides.</Reveal>
+            <Reveal as="p" className="pdp-made__serif serif">A little easier on the gut. A lot easier to take.</Reveal>
           </div>
           <motion.div
             className="pdp-made__art"
@@ -295,8 +295,8 @@ export default function Product() {
 
       {/* ===== REVIEWS ===== */}
       <section className="pdp-reviews" style={{ color: C }}>
-        <Reveal as="h2" v={riseBig} className="pdp-reviews__head">People are talking taste.</Reveal>
-        <Reveal as="p" className="pdp-reviews__sub">★ 4.9 / 5 · 1,204 reviews · 98% would recommend</Reveal>
+        <Reveal as="h2" v={riseBig} className="pdp-reviews__head">Early notes on taste.</Reveal>
+        <Reveal as="p" className="pdp-reviews__sub">First-batch feedback from people who tried the chew.</Reveal>
         <motion.div
           className="pdp-reviews__grid"
           variants={stagger(0.08)}

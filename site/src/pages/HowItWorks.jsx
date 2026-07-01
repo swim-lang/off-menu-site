@@ -3,18 +3,18 @@ import Page from '../components/Page'
 import Reveal from '../components/Reveal'
 import Ill from '../components/Ill'
 import { fadeUp, riseBig, inView } from '../lib/motion'
-import { playCheer } from '../lib/sfx'
+import { playBellHit } from '../lib/sfx'
 import './HowItWorks.css'
 
 const C = '#C42E6A'
 
-// Every step uses the little "yay" cheer on hover.
-const STEP_SOUNDS = [playCheer, playCheer, playCheer]
+// Every step plays the recorded bell hit on hover.
+const STEP_SOUNDS = [playBellHit, playBellHit, playBellHit]
 
 const STEPS = [
-  { n: '01', kicker: 'Step', title: 'Take one chew daily.', body: 'No mixing. No measuring. No orange dust cloud on your counter. Just unwrap, chew, and keep it moving.', ill: 'apple' },
-  { n: '02', kicker: 'Step', title: 'Get real fiber.', body: 'Each serving gives you fiber to help support digestive health, regularity, and fullness — a small daily move that supports the bigger rhythm of your routine.', ill: 'spinach' },
-  { n: '03', kicker: 'Step', title: 'Come back tomorrow.', body: "That's the point. A supplement doesn't matter much if you hate taking it. Off Menu is designed to make fiber easier to repeat.", ill: 'grape' },
+  { n: '01', kicker: 'Step', title: 'Take one chew daily.', body: 'No mixing, no measuring, no orange dust on your counter. Just unwrap, chew, and move on with your day.', ill: 'apple' },
+  { n: '02', kicker: 'Step', title: 'Add a little fiber.', body: 'Each serving gives you 2g fiber to help support digestive health, regularity, and fullness as part of your daily routine.', ill: 'spinach' },
+  { n: '03', kicker: 'Step', title: 'Come back tomorrow.', body: 'That is the whole point. A supplement does not matter much if you hate taking it, so we made fiber easier to repeat.', ill: 'grape' },
 ]
 
 function Step({ s, i }) {
@@ -45,7 +45,7 @@ export default function HowItWorks() {
         <Reveal v={riseBig}><img className="hiw-hero__lockup" src="raw/one-chew-lockup.svg" alt="One chew. Daily fiber." /></Reveal>
         <Reveal v={fadeUp}><img className="hiw-hero__whisk" src="raw/chef-whisk.svg" alt="" /></Reveal>
         <Reveal as="h1" v={riseBig} className="hiw-hero__head">Better odds you'll actually take it.</Reveal>
-        <Reveal as="p" className="hiw-hero__sub">Fiber works best when it becomes a habit. So we made the habit easier. Three small moves, on repeat — that's the whole routine.</Reveal>
+        <Reveal as="p" className="hiw-hero__sub">Fiber works best when it becomes a habit. So we made the habit easier, softer, and a lot more enjoyable to taste. Three small moves, on repeat.</Reveal>
       </section>
 
       {/* ROUTE */}
@@ -59,7 +59,7 @@ export default function HowItWorks() {
       <section className="hiw-menu-sec" style={{ color: C }}>
         <Reveal as="span" className="hiw-eyebrow">Why a chew</Reveal>
         <Reveal as="h2" v={riseBig} className="hiw-menu__head">Two formats, crossed off the menu.</Reveal>
-        <Reveal as="p" className="hiw-menu__intro">The habit was hard because the format was bad. So we took the worst offenders off the menu — and kept the one built for daily use.</Reveal>
+        <Reveal as="p" className="hiw-menu__intro">The habit was hard because the format was bad. So we took the worst offenders off the menu and kept the one that fits into an actual day.</Reveal>
         <Reveal className="hiw-card">
           <div className="hiw-card__title serif">✦ The Format Menu ✦</div>
           <div className="hiw-rule" />
@@ -80,7 +80,7 @@ export default function HowItWorks() {
       {/* SPLASH */}
       <section className="hiw-splash" style={{ color: C }}>
         <Reveal as="span" className="hiw-eyebrow">The Off Menu rule</Reveal>
-        <Reveal as="h2" v={riseBig} className="hiw-splash__head u-skew">Function gets you to buy it. Flavor gets you to come back.</Reveal>
+        <Reveal as="h2" v={riseBig} className="hiw-splash__head u-skew">Make the thing you should take taste like the thing you want.</Reveal>
         <Reveal v={fadeUp}><img className="hiw-splash__chef" src="raw/chef-chop.svg" alt="" /></Reveal>
       </section>
     </Page>

@@ -9,21 +9,28 @@ import './Ingredients.css'
 const C = '#72441E'
 
 const FLAVORS = [
-  { name: 'Apple Ume Ginger', note: 'Bright apple, tart ume, and a little ginger warmth — familiar fruit with a quiet, considered twist.' },
-  { name: 'Blueberry Meyer Lemon', note: 'Ripe blueberry lifted by bright Meyer lemon.' },
-  { name: 'Pear Cardamom', note: 'Soft pear and warm, aromatic cardamom.' },
-  { name: 'Pomegranate Hibiscus', note: 'Tart pomegranate with a floral hibiscus edge.' },
-  { name: 'Strawberry Shiso', note: 'Sweet strawberry with a cool, herbal shiso note.' },
-  { name: 'Plum Honey Ginger', note: 'Juicy plum, mellow honey, and a little ginger kick.' },
-  { name: 'Blood Orange Chamomile', note: 'Zesty blood orange softened with chamomile.' },
-  { name: 'Blackberry Sage', note: 'Dark blackberry with an earthy sage backbone.' },
-  { name: 'Mango Yuzu', note: 'Lush mango and bright, citrusy yuzu.' },
-  { name: 'Cherry Cola Spice', note: 'Cherry cola with a little warm baking spice.' },
+  { name: 'Apple Ume Ginger', note: 'Bright apple, tart ume, and a little ginger warmth.' },
+  { name: 'Watermelon Basil Lime', note: 'Juicy watermelon, fresh basil, and a clean lime finish.' },
+  { name: 'Strawberry Fig Leaf Almond', note: 'Ripe strawberry, green fig leaf, and a soft almond note.' },
+  { name: 'Cucumber Yuzu Mint', note: 'Cool cucumber, sharp yuzu, and a mint finish.' },
+  { name: 'Carrot Date Tahini', note: 'Sweet carrot, rich date, and a little sesame depth.' },
+  { name: 'Green Apple Shiso Lime', note: 'Crisp green apple, fresh shiso, and a bright lime edge.' },
+  { name: 'Cherry Cola Spice', note: 'Dark cherry, nostalgic cola, and a warm spice finish.' },
+  { name: 'Peach Chamomile Honey', note: 'Soft peach, calm chamomile, and a rounded honey finish.' },
+  { name: 'Grapefruit Fennel Salt', note: 'Bright grapefruit, sweet fennel, and a tiny salt finish.' },
+  { name: 'Concord Grape Verjus', note: 'Deep concord grape, tart verjus, and a clean wine-like finish.' },
 ]
 
-const COMPOSITION = [
-  ['carrot', 96], ['apple', 84], ['Cherry', 78], ['strawberry', 64],
-  ['grape', 90], ['spinach', 100], ['watermelon', 86], ['cucumber', 74],
+// two produce clusters flanking the CHEF-INSPIRED lockup (per mockup)
+const SCATTER = [
+  // left cluster: cherry (upper-left), watermelon (upper, right of cherry), grapes (lower-left)
+  { src: 'Illustrations/_red/Cherry.svg',     w: 84,  h: 126, css: { top: '34%', left: '2%' },   r: -8 },
+  { src: 'Illustrations/_red/watermelon.svg', w: 164, h: 132, css: { top: '28%', left: '13%' },  r: 7 },
+  { src: 'raw/grapes2.svg',                   w: 166, h: 170, css: { top: '59%', left: '7%' },   r: -5 },
+  // right cluster: strawberry (top), carrot bundle (center), apple (right of carrots, lower)
+  { src: 'raw/strawberry2.svg',               w: 78,  h: 140, css: { top: '18%', right: '16%' }, r: 9 },
+  { src: 'raw/carrots-bundle.svg',            w: 132, h: 210, css: { top: '46%', right: '13%' }, r: 8 },
+  { src: 'Illustrations/_red/apple.svg',      w: 108, h: 134, css: { top: '42%', right: '0%' },  r: 12 },
 ]
 
 export default function Ingredients() {
@@ -33,37 +40,30 @@ export default function Ingredients() {
 
   return (
     <Page page="ingredients">
-      {/* ===== HERO ===== */}
+      {/* ===== HERO — lockup flanked by two produce clusters ===== */}
       <section className="ing-hero" style={{ color: C }}>
-        <Reveal as="h1" v={riseBig} className="ing-hero__head">Chef-inspired.</Reveal>
-      </section>
-
-      {/* ===== COMPOSITION ===== */}
-      <section className="ing-comp" style={{ color: C }}>
-        <motion.div className="ing-comp__row" variants={stagger(0.07)} initial="hidden" whileInView="show" viewport={inView}>
-          {COMPOSITION.map(([name, h], k) => (
-            <motion.span key={k} variants={stickerPop} custom={k % 2 ? 6 : -6} style={{ display: 'inline-flex' }}>
-              <Ill src={`Illustrations/_red/${name}.svg`} w={h * 0.8} h={h} />
-            </motion.span>
-          ))}
-        </motion.div>
-        <Reveal as="p" className="ing-comp__cap serif">A pantry's worth of inspiration — not a candy aisle.</Reveal>
-      </section>
-
-      {/* ===== FLAVOR MATH ===== */}
-      <section className="ing-math" style={{ color: C }}>
-        <Reveal as="span" className="ing-eyebrow">Flavor math</Reveal>
-        <Reveal as="h2" v={riseBig} className="ing-math__head">Familiar anchor + specific twist = premium simplicity.</Reveal>
-        <Reveal as="p" className="ing-math__body">
-          The familiar ingredient gives you an easy way in. The twist makes it feel considered, culinary, and worth remembering.
-        </Reveal>
+        {SCATTER.map((p, k) => (
+          <motion.span
+            key={k}
+            className="ing-fruit"
+            style={p.css}
+            initial={{ opacity: 0, scale: 0.5, rotate: -18 }}
+            animate={{ opacity: 1, scale: 1, rotate: p.r }}
+            transition={{ type: 'spring', stiffness: 320, damping: 16, delay: k * 0.05 }}
+            whileHover={{ scale: 1.14, rotate: p.r + 7, transition: { type: 'spring', stiffness: 400, damping: 12 } }}
+          >
+            <Ill src={p.src} w={p.w} h={p.h} />
+          </motion.span>
+        ))}
+        <Reveal v={riseBig}><img className="ing-hero__lockup" src="raw/chef-inspired.svg" alt="Chef-inspired" /></Reveal>
+        <Reveal as="p" className="ing-hero__cap serif">A pantry's worth of inspiration — not a candy aisle.</Reveal>
       </section>
 
       {/* ===== FLAVOR SLIDESHOW ===== */}
       <section className="ing-flav" style={{ color: C }}>
         <Reveal as="span" className="ing-eyebrow">On the menu</Reveal>
         <Reveal as="h2" className="ing-flav__title">Flavor profiles</Reveal>
-        <Reveal as="p" className="ing-flav__sub">Ten chef-built flavors — each a familiar anchor with a specific twist. Click through the menu.</Reveal>
+        <Reveal as="p" className="ing-flav__sub">Ten chef-inspired flavors — each a familiar anchor with a specific twist. Click through the menu.</Reveal>
 
         <div className="ing-carousel">
           <button className="ing-arrow" onClick={() => setI((i - 1 + FLAVORS.length) % FLAVORS.length)} aria-label="Previous flavor">←</button>
@@ -95,7 +95,7 @@ export default function Ingredients() {
           ))}
         </div>
 
-        <span className="ing-eyebrow ing-menu__label">The full menu</span>
+        <span className="ing-eyebrow ing-menu__label">Flavors</span>
         <div className="ing-menu">
           {FLAVORS.map((fl, k) => (
             <button key={k} className={`ing-chip ${k === i ? 'is-on' : ''}`} onClick={() => setI(k)}>{fl.name}</button>

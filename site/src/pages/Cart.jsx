@@ -136,9 +136,9 @@ export default function Cart() {
             {/* Subscribe & save banner */}
             <motion.div className="cart-sub" variants={fadeUp}>
               <div className="cart-sub__copy">
-                <span className="cart-sub__title">Subscribe &amp; save 15%</span>
+                <span className="cart-sub__title">Make it the usual</span>
                 <span className="cart-sub__note">
-                  Ship on your schedule — skip, pause, or cancel anytime.
+                  Daily fiber works best as a habit. Ship on your schedule — skip, pause, or cancel anytime.
                 </span>
               </div>
               <button

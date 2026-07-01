@@ -41,6 +41,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
+  font-weight: 500;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

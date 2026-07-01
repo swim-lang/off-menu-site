@@ -9,16 +9,16 @@ const C = '#C11209'
 
 // All ten chews. Bag renders cycle through the 3 we have as stand-ins until real art lands.
 const CHEWS = [
-  { img: 'raw/3.png', kicker: 'Tart',  q: 'Apple',        name: 'Apple Ume Ginger',       note: 'Bright apple, tart ume, a little ginger.' },
-  { img: 'raw/1.png', kicker: 'Bright', q: 'Blueberry',    name: 'Blueberry Meyer Lemon',  note: 'Wild blueberry, bright Meyer lemon.' },
-  { img: 'raw/2.png', kicker: 'Cozy',  q: 'Pear',         name: 'Pear Cardamom',          note: 'Soft pear, warm cardamom.' },
-  { img: 'raw/3.png', kicker: 'Tart',  q: 'Pomegranate',  name: 'Pomegranate Hibiscus',   note: 'Tart pomegranate, floral hibiscus.' },
-  { img: 'raw/1.png', kicker: 'Bright', q: 'Strawberry',   name: 'Strawberry Shiso',       note: 'Ripe strawberry, cool shiso.' },
-  { img: 'raw/2.png', kicker: 'Juicy', q: 'Plum',         name: 'Plum Honey Ginger',      note: 'Juicy plum, honey, a ginger kick.' },
-  { img: 'raw/3.png', kicker: 'Zesty', q: 'Blood orange', name: 'Blood Orange Chamomile', note: 'Zesty blood orange, soft chamomile.' },
-  { img: 'raw/1.png', kicker: 'Dark',  q: 'Blackberry',   name: 'Blackberry Sage',        note: 'Dark blackberry, earthy sage.' },
-  { img: 'raw/2.png', kicker: 'Lush',  q: 'Mango',        name: 'Mango Yuzu',             note: 'Lush mango, bright yuzu.' },
-  { img: 'raw/3.png', kicker: 'Bold',  q: 'Cola',         name: 'Cherry Cola Spice',      note: 'Cherry cola, a little warm spice.' },
+  { img: 'raw/3.png', kicker: 'Tart',   q: 'Apple',       name: 'Apple Ume Ginger',           note: 'Bright apple, tart ume, a little ginger.' },
+  { img: 'raw/1.png', kicker: 'Fresh',  q: 'Watermelon',  name: 'Watermelon Basil Lime',      note: 'Juicy watermelon, basil, clean lime.' },
+  { img: 'raw/2.png', kicker: 'Bright', q: 'Strawberry',  name: 'Strawberry Fig Leaf Almond', note: 'Ripe strawberry, fig leaf, almond.' },
+  { img: 'raw/3.png', kicker: 'Cool',   q: 'Cucumber',    name: 'Cucumber Yuzu Mint',         note: 'Cool cucumber, yuzu, mint.' },
+  { img: 'raw/1.png', kicker: 'Rich',   q: 'Carrot',      name: 'Carrot Date Tahini',         note: 'Sweet carrot, date, tahini.' },
+  { img: 'raw/2.png', kicker: 'Green',  q: 'Apple',       name: 'Green Apple Shiso Lime',     note: 'Crisp apple, shiso, bright lime.' },
+  { img: 'raw/3.png', kicker: 'Bold',   q: 'Cola',        name: 'Cherry Cola Spice',          note: 'Cherry cola, warm spice.' },
+  { img: 'raw/1.png', kicker: 'Soft',   q: 'Peach',       name: 'Peach Chamomile Honey',      note: 'Soft peach, chamomile, honey.' },
+  { img: 'raw/2.png', kicker: 'Zesty',  q: 'Grapefruit',  name: 'Grapefruit Fennel Salt',     note: 'Grapefruit, fennel, tiny salt.' },
+  { img: 'raw/3.png', kicker: 'Punchy', q: 'Grape',       name: 'Concord Grape Verjus',       note: 'Concord grape, tart verjus.' },
 ]
 
 function Chew({ p }) {
@@ -44,7 +44,7 @@ export default function Shop() {
       <section className="shop-hero" style={{ color: C }}>
         <Reveal as="span" className="shop-eyebrow">The full lineup · daily fiber chews</Reveal>
         <Reveal><img className="shop-title" src="raw/pick-your-chew.svg" alt="Pick your chew" /></Reveal>
-        <Reveal as="p" className="shop-sub">Ten chef-built flavors. One soft chew a day. Pick your favorites — or grab the sampler and taste the whole menu.</Reveal>
+        <Reveal as="p" className="shop-sub">Ten chef-inspired flavors. One soft chew a day. Pick your favorites — or grab the sampler and taste the whole menu.</Reveal>
       </section>
 
       <motion.div className="shop-grid" variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={inView}>

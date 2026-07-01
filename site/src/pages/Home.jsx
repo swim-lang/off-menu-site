@@ -7,36 +7,36 @@ import Ill from '../components/Ill'
 import Seal from '../components/Seal'
 import Testimonials from '../components/Testimonials'
 import { fadeUp, riseBig, stagger, stickerPop, inView } from '../lib/motion'
-import { playBell, playScribble } from '../lib/sfx'
+import { playBellHit, playScribble } from '../lib/sfx'
 import './Home.css'
 
 const C = '#C11209'
 
 const TICKER = [
-  ['apple', 'Daily Fiber'], ['grape', 'Eat Your Chew'], ['strawberry', 'From The Kitchen'],
-  ['Cherry', 'Re-Plated'], ['watermelon', 'Chew On This'], ['carrot', 'Good For Your Gut'],
+  ['apple', 'Daily fiber'], ['grape', '2g fiber'], ['Cherry', 'Soft chews'],
+  ['strawberry', 'Chef-inspired flavor'], ['watermelon', 'No powder'], ['carrot', 'Good for your gut'],
 ]
 
 const PRODUCTS = [
-  { img: 'raw/3.png', kicker: 'Tart', q: 'Apple', name: 'Concord Verjus Grape', note: 'Crisp apple, ume, a little ginger.' },
-  { img: 'raw/2.png', kicker: 'Bright', q: 'Blueberry', name: 'Cherry Cola Spice', note: 'Wild blueberry, Meyer lemon.' },
-  { img: 'raw/1.png', kicker: 'Cozy', q: 'Pear', name: 'Strawberry Fig Leaf', note: 'Soft pear, warm cardamom.' },
+  { img: 'raw/3.png', kicker: 'Tart', q: 'Apple', name: 'Apple Ume Ginger', note: 'Bright apple, tart ume, a little ginger warmth.' },
+  { img: 'raw/2.png', kicker: 'Bold', q: 'Cola', name: 'Cherry Cola Spice', note: 'Dark cherry, nostalgic cola, warm spice.' },
+  { img: 'raw/1.png', kicker: 'Bright', q: 'Strawberry', name: 'Strawberry Fig Leaf', note: 'Ripe strawberry, green fig leaf, soft almond.' },
 ]
 
 const MYTHS = [
   { m: '“Fiber is for old people.”', r: "Most adults aren't getting enough fiber. It affects digestion, energy, fullness, gut health, and how you feel every day — not just when you're older." },
   { m: '“I eat pretty healthy, so I\'m probably getting enough.”', r: "Most people fall short of their daily fiber goal, even when they're eating well." },
   { m: '“Fiber supplements are gross.”', r: "We're with you. That's why we made one that doesn't taste like punishment." },
-  { m: '“I\'ll just eat more vegetables.”', r: "You should. But let's be honest — you probably won't eat enough every single day. That's where we come in." },
+  { m: '“I\'ll just eat more vegetables.”', r: "You should. But let's be honest — you probably won't eat enough every single day. That's where a small daily fiber habit can help." },
   { m: '“Fiber will make me bloated.”', r: "A lack of fiber can be part of the problem. Consistent daily fiber helps support a healthier digestive routine." },
-  { m: '“All fiber is the same.”', r: "Different fibers do different jobs — a steady daily habit supports digestion, fullness, and regularity in ways a one-off snack can't." },
+  { m: '“All fiber is the same.”', r: "Different fibers do different jobs — a steady daily habit can support digestion, fullness, and regularity over time." },
 ]
 
 const FIBER101 = [
-  { t: 'Soluble + insoluble', ill: 'Whisk', b: 'Two kinds of fiber, two jobs. Soluble fiber slows digestion and helps you feel full; insoluble fiber adds bulk and keeps things moving.' },
-  { t: 'Prebiotic fiber', ill: 'spinach', b: 'Some fibers act as prebiotics — food for the good bacteria in your gut microbiome, the crew behind smooth digestion.' },
-  { t: 'Regular, less bloated', ill: 'Walking', b: 'A steady fiber habit supports regularity and a calmer gut, so fewer days feel stuck, sluggish, or bloated.' },
-  { t: 'Full and steady', ill: 'apple', b: 'Fiber slows how fast you digest, so you stay full longer and your energy holds steadier between meals.' },
+  { t: 'Soluble + insoluble', ill: 'Whisk', b: 'Two kinds of fiber, two jobs. Soluble fiber can help slow digestion and support fullness. Insoluble fiber adds bulk and helps keep things moving.' },
+  { t: 'Prebiotic fiber', ill: 'spinach', b: 'Some fibers act as prebiotics, meaning they help feed the good bacteria in your gut microbiome.' },
+  { t: 'Regular, less bloated', ill: 'Walking', b: 'A steady fiber habit can support regularity and a calmer digestive routine, so fewer days feel stuck, sluggish, or bloated.' },
+  { t: 'Full and steady', ill: 'apple', b: 'Fiber can help you feel full longer, which is one reason it belongs in the everyday wellness conversation.' },
 ]
 
 const FACTS = [
@@ -131,17 +131,16 @@ export default function Home() {
       <section className="lead" style={{ '--c': C, color: C }}>
         <div className="lead__text">
           <Reveal as="span" className="lead__eyebrow">Sound familiar?</Reveal>
-          <Reveal as="h2" v={riseBig} className="lead__head">Bloated, sluggish, kitchen backed up?</Reveal>
+          <Reveal as="h2" v={riseBig} className="lead__head">Ever feel bloated after eating and wonder what your gut is trying to tell you?</Reveal>
           <Reveal as="p" className="lead__body">
-            It often comes back to one quiet culprit: fiber. Most of us get nowhere near enough, and our bodies keep
-            the receipts — bloating after meals, digestion that feels stuck one day and frantic the next, and energy
-            that dips when it shouldn't.
+            We have all tried to fix that heavy, sluggish feeling with more water, cleaner meals, another green
+            thing, or just pretending it will sort itself out.
           </Reveal>
           <Reveal as="p" className="lead__body">
-            Fiber is what keeps your gut moving, fed, and balanced. The fix isn't a dramatic cleanse or a daily
-            chore — it's a little more fiber, consistently, woven into an ordinary day.
+            Sometimes the simple answer is the one we overlook. A little more fiber, taken consistently, can help
+            support digestion, regularity, fullness, and the daily rhythm of your gut.
           </Reveal>
-          <Reveal as="p" className="lead__kicker serif">Small habit. Calmer gut.</Reveal>
+          <Reveal as="p" className="lead__kicker serif">Small habit. Better rhythm.</Reveal>
         </div>
         <motion.div className="lead__art" variants={stickerPop} initial="hidden" whileInView="show" viewport={inView} custom={-4}>
           <Ill src="Illustrations/Walking.svg" w={460} h={460} />
@@ -160,10 +159,10 @@ export default function Home() {
         >
           <span className="intro__crest serif">✶ Daily Fiber · Est. in the kitchen ✶</span>
           <span className="intro__eyebrow">Why Off Menu</span>
-          <h2 className="intro__head">A better way to take fiber.</h2>
+          <h2 className="intro__head">Fiber, made easier to come back to.</h2>
           <div className="intro__rule"><span className="intro__rule-dot" /></div>
-          <p className="intro__body">Most fiber supplements ask you to tolerate them. Powders. Scoops. Chalky citrus. Giant tubs with no respect for your counter space.</p>
-          <p className="intro__body">Off Menu starts with the thing your body actually needs — and treats it like something worth tasting.</p>
+          <p className="intro__body">Most fiber supplements make the habit feel like work. Powders, scoops, chalky citrus, and giant tubs with no respect for your counter space.</p>
+          <p className="intro__body">Off Menu takes a simpler route: 2g fiber in a soft chew with chef-inspired flavor, made to feel less like a chore and more like something you might actually remember.</p>
         </motion.div>
       </section>
 
@@ -223,8 +222,8 @@ export default function Home() {
         <Reveal as="span" className="f101__eyebrow">Fiber 101</Reveal>
         <Reveal as="h2" v={riseBig} className="f101__head">What good fiber actually does.</Reveal>
         <Reveal as="p" className="f101__intro">
-          Fiber is the part of plants your body can't fully break down — and that's exactly the point.
-          It's what keeps digestion moving, feeds your gut, and helps you feel full. Here's the quick version.
+          Fiber is the part of plants your body can't fully break down, and that's exactly the point.
+          It helps keep digestion moving, feeds your gut, and supports fullness. Here's the quick version.
         </Reveal>
         <motion.div className="f101__grid" variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={inView}>
           {FIBER101.map((c, i) => (
@@ -232,7 +231,7 @@ export default function Home() {
               className="f101__card"
               key={c.t}
               variants={fadeUp}
-              onMouseEnter={playBell}
+              onMouseEnter={playBellHit}
               whileHover={{ y: -8 }}
             >
               <div className="f101__top">
@@ -250,13 +249,13 @@ export default function Home() {
       <section className="story">
         <img className="story__bg" src="raw/story.jpg" alt="" />
         <div className="story__scrim" />
-        <Reveal as="h2" className="story__head">Made by people who take fiber very seriously.</Reveal>
+        <Reveal as="h2" className="story__head">Meet the founder behind the chew.</Reveal>
         <a className="story__btn">Learn more about us</a>
         <motion.div className="story__card" initial={{ opacity: 0, y: 20, rotate: 10 }} whileInView={{ opacity: 1, y: 0, rotate: 10 }} viewport={inView} transition={{ duration: 0.5 }}>
           <span className="story__card-lbl"><span className="story__dot" /> Now serving fiber from</span>
-          <span className="story__card-serif serif">Real fruit &amp; botanicals</span>
+          <span className="story__card-serif serif">Chef-inspired flavors</span>
           <div className="story__card-rule" />
-          <div className="story__card-fine"><span>Made Fresh</span><span>In Small Batches</span></div>
+          <div className="story__card-fine"><span>Daily Fiber</span><span>Soft Chews</span></div>
         </motion.div>
         <Seal className="story__seal story__seal--1" shape="burst" size={124} rotate={-9} label="Chef-led" color="#C11209" />
       </section>
@@ -290,7 +289,7 @@ export default function Home() {
         <div className="cta__body">
           <Reveal as="span" className="cta__pill u-skew">★ Chef's orders</Reveal>
           <Reveal v={riseBig}><img className="cta__head-img" src="raw/get-yours-today.svg" alt="Get yours today" /></Reveal>
-          <Reveal as="p" className="cta__sub">Join the list for the launch, early flavors, and the occasional chef's note.</Reveal>
+          <Reveal as="p" className="cta__sub">Join the list for launch access, first-batch flavors, and the occasional chef's note.</Reveal>
           <Reveal as="form" className="cta__form" onSubmit={(e) => e.preventDefault()}>
             <input type="email" placeholder="you@email.com" aria-label="Email" />
             <button className="btn" type="submit">Get on the list</button>

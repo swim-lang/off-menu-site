@@ -39,7 +39,7 @@ export default function About() {
             <Reveal v={riseBig}><img className="ab-hero__lockup" src="raw/fiber-deserved-better.svg" alt="Fiber deserved better" /></Reveal>
             <Reveal className="ab-hero__body">
               <p className="ab-lead">Off Menu started with a simple frustration: why does something so useful have to feel so joyless?</p>
-              <p className="ab-lead">Fiber is one of those daily essentials people know they should get more of — but the category has made it feel clinical, messy, and easy to ignore.</p>
+              <p className="ab-lead">Fiber is one of those daily essentials people know they should get more of, but the category has made it feel clinical, messy, and easy to ignore.</p>
               <p className="ab-lead">So we built a different kind of supplement brand — one that borrows from chefs, menus, flavor notes, and the small pleasure of eating something made with care.</p>
             </Reveal>
           </div>
@@ -67,7 +67,7 @@ export default function About() {
               <h2 className="ab-h2">If it goes in your mouth, flavor is part of the job.</h2>
             </Reveal>
             <Reveal className="ab-pov__copy">
-              <p className="ab-body">Supplements don't need to feel like punishment. And they definitely don't need to taste like a pharmacy aisle.</p>
+              <p className="ab-body">Supplements do not need to feel like punishment. And they definitely do not need to taste like a pharmacy aisle.</p>
               <p className="ab-body">Better habits happen when the experience is easier to repeat. The format matters. The flavor matters. The ritual matters.</p>
               <p className="ab-pull serif">Off Menu starts with daily fiber, but the bigger idea is simple: take the things your body needs and make them worth coming back to.</p>
             </Reveal>
@@ -81,7 +81,7 @@ export default function About() {
         <section className="ab-why">
           <Reveal as="p" className="ab-kicker ab-kicker--wide">Why Off Menu</Reveal>
           <Reveal v={riseBig}>
-            <p className="ab-why__quote serif">The best things are often the ones you had to know to ask for.</p>
+            <p className="ab-why__quote">The best things are often the ones you had to know to ask for.</p>
           </Reveal>
           <Reveal className="ab-why__body">
             <p className="ab-body ab-center">Off Menu is our way of bringing that feeling to daily nutrition — a little more special, a little more considered, and a lot less like the usual supplement routine.</p>

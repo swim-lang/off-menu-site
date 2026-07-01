@@ -39,7 +39,7 @@
 .nav__logo {
   position: absolute;
   left: 50%;
-  top: 22px;
+  top: 34px;
   transform: translateX(-50%);
   width: 348px;
   z-index: 2;

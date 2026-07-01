@@ -1,8 +1,12 @@
 .ing-eyebrow { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
 .serif { font-family: var(--serif); font-style: italic; }
 
-.ing-hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 80px 40px 56px; }
+.ing-hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; padding: 160px 40px 150px; overflow: hidden; }
 .ing-hero__head { font-size: clamp(40px, 6.5vw, 78px); line-height: 0.98; text-transform: uppercase; letter-spacing: -0.015em; max-width: 16ch; }
+.ing-hero__lockup { position: relative; z-index: 1; display: block; width: min(540px, 80vw); height: auto; margin-inline: auto; }
+.ing-hero__cap { position: relative; z-index: 1; font-size: clamp(18px, 2.4vw, 24px); line-height: 1.5; max-width: 620px; }
+.ing-fruit { position: absolute; z-index: 0; display: inline-flex; cursor: pointer; }
+.ing-fruit:hover { z-index: 2; }
 .ing-hero__sub { font-size: clamp(18px, 2.4vw, 24px); line-height: 1.5; max-width: 620px; }
 
 .ing-comp { display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 32px 40px 80px; }

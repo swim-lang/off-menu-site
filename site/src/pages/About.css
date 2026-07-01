@@ -153,13 +153,13 @@
   text-align: center;
 }
 .ab-why__quote {
-  margin: 16px 0 0;
-  max-width: 880px;
+  margin: 20px 0 0;
+  max-width: 1040px;
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
-  font-size: clamp(30px, 4.8vw, 46px);
-  line-height: 1.1;
+  font-size: clamp(46px, 7vw, 92px);
+  line-height: 1.04;
   text-align: center;
   color: var(--c, #D27400);
 }
