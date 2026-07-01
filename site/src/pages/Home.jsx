@@ -150,6 +150,20 @@ export default function Home() {
         </div>
       </div>
 
+      {/* PRODUCTS */}
+      <section id="products" className="products" style={{ '--c': C, color: C }}>
+        <Reveal as="div" className="products__head">
+          <img className="products__title" src="raw/pick-your-chew.svg" alt="Pick your chew" />
+          <span className="eyebrow">The lineup · daily fiber chews</span>
+        </Reveal>
+        {[0, 1].map((row) => (
+          <motion.div className="products__row" key={row} variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView}>
+            {PRODUCTS.map((p) => <Card key={p.name + row} p={p} />)}
+          </motion.div>
+        ))}
+        <Reveal><Link className="products__shop" to="/shop">Shop all 10 flavors →</Link></Reveal>
+      </section>
+
       {/* SOUND FAMILIAR — lead-in */}
       <section className="lead" style={{ '--c': C, color: C }}>
         <div className="lead__text">
@@ -187,20 +201,6 @@ export default function Home() {
           <p className="intro__body">Most fiber supplements make the habit feel like work. Powders, scoops, chalky citrus, and giant tubs with no respect for your counter space.</p>
           <p className="intro__body">Off Menu takes a simpler route: 2g fiber in a soft chew with chef-inspired flavor, made to feel less like a chore and more like something you might actually remember.</p>
         </motion.div>
-      </section>
-
-      {/* PRODUCTS */}
-      <section id="products" className="products" style={{ '--c': C, color: C }}>
-        <Reveal as="div" className="products__head">
-          <img className="products__title" src="raw/pick-your-chew.svg" alt="Pick your chew" />
-          <span className="eyebrow">The lineup · daily fiber chews</span>
-        </Reveal>
-        {[0, 1].map((row) => (
-          <motion.div className="products__row" key={row} variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView}>
-            {PRODUCTS.map((p) => <Card key={p.name + row} p={p} />)}
-          </motion.div>
-        ))}
-        <Reveal><Link className="products__shop" to="/shop">Shop all 10 flavors →</Link></Reveal>
       </section>
 
       {/* MADE FOR PEOPLE WHO — guest check */}
