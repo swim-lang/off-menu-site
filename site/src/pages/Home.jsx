@@ -196,7 +196,7 @@ export default function Home() {
         >
           <span className="intro__crest serif">✶ Daily Fiber · Est. in the kitchen ✶</span>
           <span className="intro__eyebrow">Why Off Menu</span>
-          <h2 className="intro__head">Fiber, made easier to come back to.</h2>
+          <h2 className="intro__head">No scoop. No shaker. Just chew.</h2>
           <div className="intro__rule"><span className="intro__rule-dot" /></div>
           <p className="intro__body">Most fiber supplements make the habit feel like work. Powders, scoops, chalky citrus, and giant tubs with no respect for your counter space.</p>
           <p className="intro__body">Off Menu takes a simpler route: 2g fiber in a soft chew with chef-inspired flavor, made to feel less like a chore and more like something you might actually remember.</p>

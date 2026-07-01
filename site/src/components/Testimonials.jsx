@@ -41,7 +41,7 @@ export default function Testimonials({ color = '#C11209' }) {
       <div className="vt-head">
         <Reveal as="span" className="vt-eyebrow">Word of mouth</Reveal>
         <Reveal as="h2" className="vt-title">Early notes from the first batch.</Reveal>
-        <Reveal as="p" className="vt-sub">First impressions from people who tried the chew.</Reveal>
+        <Reveal as="p" className="vt-sub">People are already talking.</Reveal>
         <div className="vt-arrows">
           <button className="vt-arrow" onClick={() => nudge(-1)} aria-label="Previous">←</button>
           <button className="vt-arrow" onClick={() => nudge(1)} aria-label="Next">→</button>
