@@ -171,7 +171,7 @@
 .pdp-subnote strong { color: var(--purple); font-weight: 700; }
 
 /* ---------- HONEST FIBER NOTE (in science) ---------- */
-.pdp-honest { max-width: 620px; margin: 4px auto 0; text-align: center; padding-top: 40px; border-top: 1.5px dashed rgba(105, 64, 120, 0.25); }
+.pdp-honest { max-width: 620px; margin: 48px auto 0; text-align: center; padding-top: 40px; border-top: 1.5px dashed rgba(105, 64, 120, 0.25); }
 .pdp-honest__title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--purple); }
 .pdp-honest__body { padding-top: 12px; font-weight: 500; font-size: 17px; line-height: 1.6; color: var(--ink); }
 
