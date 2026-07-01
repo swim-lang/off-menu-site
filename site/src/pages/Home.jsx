@@ -207,7 +207,13 @@ export default function Home() {
             <Reveal><span className="foryou__sticker">★ Table for one? Perfect.</span></Reveal>
           </div>
 
-          <motion.div className="foryou__ticket" variants={fadeUp} initial="hidden" whileInView="show" viewport={inView}>
+          <motion.div className="foryou__ticket"
+            initial={{ opacity: 0, y: 28, rotate: -2.5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: -2.5 }}
+            viewport={inView}
+            whileHover={{ y: -5, rotate: -3.4 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="foryou__tk-head">
               <div className="foryou__tk-row">
                 <span className="foryou__tk-title">Guest Check</span>

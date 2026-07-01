@@ -198,8 +198,8 @@
 .foryou__sticker { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; background: var(--c); color: #fff; padding: 11px 18px 12px; border-radius: 999px; transform: rotate(-4deg); box-shadow: 4px 4px 0 rgba(26,18,7,0.18); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; transition: transform 0.2s ease; }
 .foryou__sticker:hover { transform: rotate(-2deg) scale(1.04); }
 
-.foryou__ticket { width: 560px; flex-shrink: 0; background: #fff; border: 2.5px solid var(--c); border-radius: 6px; box-shadow: 8px 8px 0 var(--c); transform: rotate(-2.5deg); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.foryou__ticket:hover { transform: rotate(-2.5deg) translate(-2px, -4px); box-shadow: 12px 13px 0 var(--c); }
+.foryou__ticket { width: 560px; flex-shrink: 0; background: #fff; border: 2.5px solid var(--c); border-radius: 6px; box-shadow: 8px 8px 0 var(--c); overflow: hidden; transition: box-shadow 0.3s ease; }
+.foryou__ticket:hover { box-shadow: 13px 14px 0 var(--c); }
 .foryou__tk-head { padding: 32px 40px 20px; display: flex; flex-direction: column; gap: 6px; }
 .foryou__tk-row { display: flex; align-items: baseline; justify-content: space-between; }
 .foryou__tk-title { font-weight: 700; font-size: 26px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); }
