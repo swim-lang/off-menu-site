@@ -54,7 +54,7 @@
 .intro__body { max-width: 540px; font-size: 18px; line-height: 28px; color: var(--ink); }
 
 /* ===== PRODUCTS ===== */
-.products { display: flex; flex-direction: column; align-items: center; gap: 56px; padding: 16px 40px 157px; }
+.products { display: flex; flex-direction: column; align-items: center; gap: 56px; padding: 72px 40px 157px; }
 .products__head { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .products__title { width: min(475px, 84%); height: auto; }
 .products__row { display: flex; gap: 40px; justify-content: center; width: 100%; max-width: 1136px; }
