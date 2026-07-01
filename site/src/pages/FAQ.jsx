@@ -50,12 +50,20 @@ const PRODUCT = [
     q: 'Does it replace eating fiber-rich foods?',
     a: 'No. It is a supplement to support your daily fiber intake, meant to complement a balanced diet of fiber-rich foods, not replace it.',
   },
+  {
+    q: 'Is this medical advice?',
+    a: 'No. Off Menu is a dietary supplement, not medical advice or treatment. If you are pregnant, nursing, managing a medical condition, taking medication, or have questions about fiber, check with your healthcare provider.',
+  },
 ]
 
 const FLAVOR = [
   {
     q: 'Is it made with real fruit?',
     a: 'Our chef-inspired flavors are built around taste profiles. Flavor names may describe inspiration rather than whole-fruit ingredients, so always check the label for the full ingredient list.',
+  },
+  {
+    q: 'Do the flavors contain the actual fruits and ingredients named?',
+    a: 'Flavor names describe taste profiles. Some ingredients may come from natural flavors or other sources rather than whole fruits, vegetables, herbs, or spices. Always check the label for the full ingredient list.',
   },
   {
     q: 'Why chef-inspired flavors?',
