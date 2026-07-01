@@ -106,7 +106,7 @@
 .cn-input {
   width: 100%;
   padding: 13px 16px;
-  border: 2px solid color-mix(in srgb, currentColor 32%, #fff);
+  border: 2px solid color-mix(in srgb, var(--c) 32%, #fff);
   border-radius: 10px;
   background: #fff;
   font-family: var(--sans);
@@ -119,11 +119,11 @@
 }
 
 .cn-input::placeholder {
-  color: color-mix(in srgb, currentColor 55%, #fff);
+  color: color-mix(in srgb, var(--c) 55%, #fff);
 }
 
 .cn-input:focus {
-  border-color: currentColor;
+  border-color: var(--c);
 }
 
 .cn-textarea {
@@ -298,12 +298,12 @@
 .cn-note {
   margin: 0;
   padding-top: 18px;
-  border-top: 1.5px solid #E0E0E0;
+  border-top: 1.5px solid color-mix(in srgb, var(--c) 32%, #fff);
   font-family: var(--sans);
   font-weight: 500;
   font-size: 13px;
   line-height: 20px;
-  color: #8A8A8A;
+  color: color-mix(in srgb, var(--c) 72%, #000);
 }
 
 /* ---- Responsive ---- */
