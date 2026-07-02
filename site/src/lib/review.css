@@ -243,7 +243,9 @@ html[data-review-mode="comment"] [data-review-id]:hover {
 
 .review-panel-tabs button {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
   border: 0;
   border-radius: 0;
   border-right: 1.5px solid var(--rev-ink);
