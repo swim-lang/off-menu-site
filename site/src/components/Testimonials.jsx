@@ -40,8 +40,8 @@ export default function Testimonials({ color = '#C11209', reviewId }) {
     <section data-review-id={reviewId} className="vt" style={{ '--c': color, color }}>
       <div className="vt-head">
         <Reveal as="span" className="vt-eyebrow">Word of mouth</Reveal>
-        <Reveal as="h2" className="vt-title">Early notes from the first batch.</Reveal>
-        <Reveal as="p" className="vt-sub">People are already talking.</Reveal>
+        <Reveal as="h2" className="vt-title">People are already talking.</Reveal>
+        <Reveal as="p" className="vt-sub">Reviews</Reveal>
         <div className="vt-arrows">
           <button className="vt-arrow" onClick={() => nudge(-1)} aria-label="Previous">←</button>
           <button className="vt-arrow" onClick={() => nudge(1)} aria-label="Next">→</button>
