@@ -11,6 +11,8 @@
   background-position: center;
 }
 
+.nav__actions { display: inline-flex; align-items: center; gap: 12px; }
+
 .nav__chip {
   display: inline-flex;
   align-items: center;
