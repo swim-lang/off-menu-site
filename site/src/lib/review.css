@@ -7,7 +7,7 @@
   --rev-line: rgba(26, 18, 7, 0.16);
   position: relative;
   z-index: 9000;
-  font-family: var(--sans), system-ui, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .review-mode-choice {
@@ -46,12 +46,12 @@
 }
 
 .review-mode-card h2 {
-  margin: 16px 0;
-  font-family: var(--serif), Georgia, serif;
-  font-size: clamp(36px, 6vw, 60px);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -0.01em;
+  margin: 14px 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--rev-ink);
 }
 
@@ -62,7 +62,7 @@
 .review-popover small,
 .review-warning {
   margin: 0;
-  font-family: var(--sans), system-ui, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 500;
   font-size: 15px;
   line-height: 23px;
@@ -191,7 +191,7 @@ html[data-review-mode="comment"] [data-review-id]:hover {
   color: var(--rev-ink);
   border-radius: 8px;
   padding: 10px;
-  font: 500 15px/22px var(--sans), system-ui, sans-serif;
+  font: 500 15px/22px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .review-popover-actions,
@@ -294,6 +294,37 @@ html[data-review-mode="comment"] [data-review-id]:hover {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
+/* Comment pins — anchored to each commented section's box. */
+.review-pins {
+  position: fixed;
+  inset: 0;
+  z-index: 9001;
+  pointer-events: none;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.review-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: #c11209;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.review-pin:hover { transform: translate(-50%, -50%) scale(1.12); filter: brightness(1.06); }
 
 @media (max-width: 720px) {
   .review-mode-card { padding: 24px; box-shadow: 8px 8px 0 var(--rev-accent); }

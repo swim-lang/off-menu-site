@@ -38,10 +38,11 @@ export function initReview() {
   // Only activate for a shared ?review link or once a mode is in this session.
   if (!reviewRequested && !window.sessionStorage.getItem(REVIEW_MODE_KEY)) return
 
+  // A valid ?review=<mode> jumps straight in; a bare ?review always shows the
+  // Browse/Review chooser (ignores any stored mode); otherwise resume session.
+  const validParamMode = ['browse', 'comment', 'view'].includes(reviewParam) ? reviewParam : ''
   const state = {
-    mode: reviewRequested && ['browse', 'comment', 'view'].includes(reviewParam)
-      ? reviewParam
-      : window.sessionStorage.getItem(REVIEW_MODE_KEY) || '',
+    mode: validParamMode || (reviewRequested ? '' : window.sessionStorage.getItem(REVIEW_MODE_KEY) || ''),
     comments: [],
     activeTarget: null,
     panelOpen: false,
@@ -53,8 +54,13 @@ export function initReview() {
   const layer = document.createElement('div')
   layer.className = 'review-layer'
   document.body.appendChild(layer)
+  // Pins live in their own layer so they aren't wiped by render()'s innerHTML.
+  const pinLayer = document.createElement('div')
+  pinLayer.className = 'review-pins'
+  document.body.appendChild(pinLayer)
   let noticeTimer = 0
   let pendingJump = null
+  let pinRaf = 0
 
   // ---- routing helpers (hash-based) ----------------------------------------
   const currentRoute = () => {
@@ -129,6 +135,42 @@ export function initReview() {
       const hasComment = state.comments.some((c) => c.status !== 'resolved' && c.reviewId === node.dataset.reviewId)
       node.classList.toggle('has-review-comment', hasComment)
     })
+    renderPins()
+  }
+
+  // A numbered pin anchored to each commented section's box, tracking it on
+  // scroll/resize so you always see where each note lives. Click → open panel.
+  const renderPins = () => {
+    pinLayer.innerHTML = ''
+    if (state.mode !== 'browse' && state.mode !== 'comment') return
+    const counts = {}
+    openComments().forEach((c) => { counts[c.reviewId] = (counts[c.reviewId] || 0) + 1 })
+    document.querySelectorAll('[data-review-id]').forEach((node) => {
+      const n = counts[node.dataset.reviewId]
+      if (!n) return
+      const rect = node.getBoundingClientRect()
+      if (rect.bottom < 8 || rect.top > window.innerHeight - 8) return // off-screen
+      const pin = document.createElement('button')
+      pin.type = 'button'
+      pin.className = 'review-pin'
+      pin.textContent = String(n)
+      pin.title = `${n} comment${n > 1 ? 's' : ''} · ${node.dataset.reviewId}`
+      // Anchor to the section's top-left corner — clear of the right-side panel.
+      pin.style.left = `${Math.max(20, Math.min(window.innerWidth - 20, rect.left + 18))}px`
+      pin.style.top = `${Math.max(20, Math.min(window.innerHeight - 20, rect.top + 18))}px`
+      pin.addEventListener('click', () => {
+        state.panelOpen = true
+        state.commentTab = 'open'
+        render()
+        highlightCommentTarget(node.dataset.reviewId)
+      })
+      pinLayer.appendChild(pin)
+    })
+  }
+
+  const schedulePins = () => {
+    if (pinRaf) return
+    pinRaf = requestAnimationFrame(() => { pinRaf = 0; renderPins() })
   }
 
   const loadComments = async () => {
@@ -335,6 +377,7 @@ export function initReview() {
       window.sessionStorage.removeItem(REVIEW_MODE_KEY)
       document.documentElement.dataset.reviewMode = ''
       layer.remove()
+      pinLayer.remove()
       started = false
       return
     }
@@ -354,7 +397,7 @@ export function initReview() {
   // Click a section in comment mode → open the note popover.
   document.addEventListener('click', (event) => {
     if (state.mode !== 'comment') return
-    if (event.target.closest('.review-layer, .review-toolbar, .review-panel, .review-popover, .review-mode-choice')) return
+    if (event.target.closest('.review-layer, .review-pins, .review-toolbar, .review-panel, .review-popover, .review-mode-choice')) return
     const target = event.target.closest('[data-review-id]')
     if (!target) return
     event.preventDefault()
@@ -378,6 +421,10 @@ export function initReview() {
       completePendingJump()
     }, 60)
   })
+
+  // Keep pins glued to their sections as the page scrolls or resizes.
+  window.addEventListener('scroll', schedulePins, { passive: true })
+  window.addEventListener('resize', schedulePins)
 
   render()
   if (state.mode === 'browse' || state.mode === 'comment') loadComments()
