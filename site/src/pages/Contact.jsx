@@ -30,7 +30,7 @@ export default function Contact() {
   return (
     <Page page="contact">
       {/* HERO */}
-      <section className="cn-hero" style={{ color: C }}>
+      <section data-review-id="contact-hero" className="cn-hero" style={{ color: C }}>
         <Reveal as="span" className="cn-eyebrow">Contact · Support</Reveal>
         <Reveal as="h1" v={riseBig} className="cn-hero__head">
           Need help? <br />We&rsquo;ve got you.
@@ -42,7 +42,7 @@ export default function Contact() {
       </section>
 
       {/* BODY */}
-      <section className="cn-body" style={{ color: C }}>
+      <section data-review-id="contact-body" className="cn-body" style={{ color: C }}>
         <div className="cn-grid">
           {/* LEFT — form */}
           <Reveal as="div" className="cn-card">

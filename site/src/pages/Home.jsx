@@ -118,7 +118,7 @@ export default function Home() {
   return (
     <Page page="home">
       {/* HERO */}
-      <section className="hero" style={{ color: C }}>
+      <section data-review-id="home-hero" className="hero" style={{ color: C }}>
         <video className="hero__vid" src="Video/2.mp4" poster="raw/poster.jpg" autoPlay loop muted playsInline />
         <motion.img className="hero__tag" src="raw/Header-Tagline-rwhite.svg" alt="Fiber, re-plated"
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} />
@@ -136,7 +136,7 @@ export default function Home() {
       </section>
 
       {/* TICKER */}
-      <div className="ticker" style={{ '--c': C, color: C }}>
+      <div data-review-id="home-ticker" className="ticker" style={{ '--c': C, color: C }}>
         <div className="ticker__track">
           {[0, 1].map((dup) => (
             <div className="ticker__group" key={dup} aria-hidden={dup === 1}>
@@ -151,7 +151,7 @@ export default function Home() {
       </div>
 
       {/* PRODUCTS */}
-      <section id="products" className="products" style={{ '--c': C, color: C }}>
+      <section id="products" data-review-id="home-products" className="products" style={{ '--c': C, color: C }}>
         <Reveal as="div" className="products__head">
           <img className="products__title" src="raw/pick-your-chew.svg" alt="Pick your chew" />
           <span className="eyebrow">The lineup · daily fiber chews</span>
@@ -165,7 +165,7 @@ export default function Home() {
       </section>
 
       {/* SOUND FAMILIAR — lead-in */}
-      <section className="lead" style={{ '--c': C, color: C }}>
+      <section data-review-id="home-lead" className="lead" style={{ '--c': C, color: C }}>
         <div className="lead__text">
           <Reveal as="span" className="lead__eyebrow">Sound familiar?</Reveal>
           <Reveal as="h2" v={riseBig} className="lead__head">Ever feel fine in the morning, then weirdly puffy by lunch?</Reveal>
@@ -185,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* INTRO — vintage menu card */}
-      <section className="intro" style={{ '--c': C, color: C }}>
+      <section data-review-id="home-intro" className="intro" style={{ '--c': C, color: C }}>
         <motion.div
           className="intro__menu"
           variants={stickerPop}
@@ -204,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* MADE FOR PEOPLE WHO — guest check */}
-      <section className="foryou" style={{ '--c': C, color: C }}>
+      <section data-review-id="home-guest-check" className="foryou" style={{ '--c': C, color: C }}>
         <div className="foryou__inner">
           <div className="foryou__left">
             <Reveal as="span" className="foryou__eyebrow">Who it's for</Reveal>
@@ -259,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* WHY FIBER */}
-      <section className="why" style={{ color: C }}>
+      <section data-review-id="home-myths" className="why" style={{ color: C }}>
         <Reveal as="h2" v={riseBig} className="why__head">Not your grandma's fiber</Reveal>
         <div className="why__cols">
           <div className="why__divider" />
@@ -285,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* FIBER 101 */}
-      <section className="f101" style={{ color: C }}>
+      <section data-review-id="home-fiber101" className="f101" style={{ color: C }}>
         <Reveal as="span" className="f101__eyebrow">Fiber 101</Reveal>
         <Reveal as="h2" v={riseBig} className="f101__head">What good fiber actually does.</Reveal>
         <Reveal as="p" className="f101__intro">
@@ -313,7 +313,7 @@ export default function Home() {
       </section>
 
       {/* STORY */}
-      <section className="story">
+      <section data-review-id="home-story" className="story">
         <img className="story__bg" src="raw/story.jpg" alt="" />
         <div className="story__scrim" />
         <Reveal as="h2" className="story__head">Meet the founder behind the chew.</Reveal>
@@ -328,7 +328,7 @@ export default function Home() {
       </section>
 
       {/* FUN FACTS */}
-      <section className="facts" style={{ color: C }}>
+      <section data-review-id="home-fun-facts" className="facts" style={{ color: C }}>
         <div className="facts__grid">
           <Reveal className="facts__art"><img src="raw/chef-fun-facts.svg" alt="" style={{ width: 300, height: 'auto' }} /></Reveal>
           <div className="facts__module">
@@ -348,10 +348,10 @@ export default function Home() {
       </section>
 
       {/* VIDEO TESTIMONIALS */}
-      <Testimonials color={C} />
+      <Testimonials color={C} reviewId="home-testimonials" />
 
       {/* CTA */}
-      <section className="cta" style={{ '--c': C, color: C }}>
+      <section data-review-id="home-cta" className="cta" style={{ '--c': C, color: C }}>
         <div className="cta__hounds" style={{ backgroundImage: 'url(Pattern/_paper/PatternNEW-c11209.svg)' }} />
         <div className="cta__body">
           <Reveal as="span" className="cta__pill u-skew">★ Chef's orders</Reveal>

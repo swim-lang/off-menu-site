@@ -74,7 +74,7 @@ export default function Product() {
   return (
     <Page page="product">
       {/* ===== HERO / BUY BOX ===== */}
-      <section className="pdp-hero" style={{ color: C }}>
+      <section data-review-id="product-buybox" className="pdp-hero" style={{ color: C }}>
         <Reveal className="pdp-hero__media">
           <img className="pdp-hero__photo" src="raw/pdp-hero.jpg" alt="Concord Verjus Grape daily fiber chews" />
         </Reveal>
@@ -145,7 +145,7 @@ export default function Product() {
       </section>
 
       {/* ===== "FOR YOU IF" TICKER ===== */}
-      <section className="pdp-ticker" aria-label="This chew is for you if…">
+      <section data-review-id="product-ticker" className="pdp-ticker" aria-label="This chew is for you if…">
         <div className="pdp-ticker__track">
           {[0, 1].map((dup) => (
             <div className="pdp-ticker__group" key={dup} aria-hidden={dup === 1}>
@@ -165,7 +165,7 @@ export default function Product() {
       </section>
 
       {/* ===== THE SCIENCE — class with Chef Chewy ===== */}
-      <section className="pdp-science" style={{ color: C }}>
+      <section data-review-id="product-science" className="pdp-science" style={{ color: C }}>
         <div className="pdp-science__inner">
           <div className="pdp-science__head-wrap">
             <Reveal as="span" className="pdp-science__eyebrow">Fiber class with Chef Chewy</Reveal>
@@ -236,7 +236,7 @@ export default function Product() {
       </section>
 
       {/* ===== MADE FOR YOUR GUT ===== */}
-      <section className="pdp-made" style={{ color: C }}>
+      <section data-review-id="product-made" className="pdp-made" style={{ color: C }}>
         <div className="pdp-made__inner">
           <div className="pdp-made__text">
             <Reveal as="h2" v={riseBig} className="pdp-made__head">Made for the days you feel off.</Reveal>
@@ -261,7 +261,7 @@ export default function Product() {
       </section>
 
       {/* ===== RELATED ===== */}
-      <section className="pdp-related" style={{ color: C }}>
+      <section data-review-id="product-related" className="pdp-related" style={{ color: C }}>
         <Reveal as="span" className="pdp-related__eyebrow">More from the menu</Reveal>
         <motion.div
           className="pdp-related__grid"
@@ -291,10 +291,10 @@ export default function Product() {
       </section>
 
       {/* ===== VIDEO TESTIMONIALS ===== */}
-      <Testimonials color={C} />
+      <Testimonials color={C} reviewId="product-testimonials" />
 
       {/* ===== PRODUCT FAQ ===== */}
-      <section className="pdp-faq" style={{ color: C }}>
+      <section data-review-id="product-faq" className="pdp-faq" style={{ color: C }}>
         <Reveal as="span" className="pdp-faq__eyebrow">Good to know</Reveal>
         <Reveal as="h2" v={riseBig} className="pdp-faq__head">Questions, answered.</Reveal>
         <div className="pdp-faq__list">
@@ -331,7 +331,7 @@ export default function Product() {
       </section>
 
       {/* ===== REVIEWS ===== */}
-      <section className="pdp-reviews" style={{ color: C }}>
+      <section data-review-id="product-reviews" className="pdp-reviews" style={{ color: C }}>
         <Reveal as="h2" v={riseBig} className="pdp-reviews__head">Early notes on taste.</Reveal>
         <Reveal as="p" className="pdp-reviews__sub">First-batch feedback from people who tried the chew.</Reveal>
         <motion.div

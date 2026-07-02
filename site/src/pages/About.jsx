@@ -33,7 +33,7 @@ export default function About() {
       <div className="ab" style={{ color: C }}>
 
         {/* HERO — Our story */}
-        <section className="ab-hero">
+        <section data-review-id="about-hero" className="ab-hero">
           <div className="ab-hero__text">
             <Reveal as="p" className="ab-kicker">Our story</Reveal>
             <Reveal v={riseBig}><img className="ab-hero__lockup" src="raw/fiber-deserved-better.svg" alt="Fiber deserved better" /></Reveal>
@@ -54,7 +54,7 @@ export default function About() {
         </section>
 
         {/* POV — Our point of view */}
-        <section className="ab-pov">
+        <section data-review-id="about-pov" className="ab-pov">
           <Reveal className="ab-pov__art" v={fadeUp}>
             <div className="ab-illbox">
               <span className="ab-illbox__label">Illustration</span>
@@ -78,7 +78,7 @@ export default function About() {
         </section>
 
         {/* WHY OFF MENU — centered pull-quote */}
-        <section className="ab-why">
+        <section data-review-id="about-why" className="ab-why">
           <Reveal as="p" className="ab-kicker ab-kicker--wide">Why Off Menu</Reveal>
           <Reveal v={riseBig}>
             <p className="ab-why__quote">The best things are often the ones you had to know to ask for.</p>
@@ -92,7 +92,7 @@ export default function About() {
         </section>
 
         {/* CHEF CHEWY — house voice */}
-        <section className="ab-chef">
+        <section data-review-id="about-chef" className="ab-chef">
           <Reveal className="ab-chef__art" v={fadeUp}>
             <Ill src="Illustrations/Walking.svg" w={312} h={560} />
           </Reveal>

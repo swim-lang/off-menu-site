@@ -41,7 +41,7 @@ export default function Ingredients() {
   return (
     <Page page="ingredients">
       {/* ===== HERO — lockup flanked by two produce clusters ===== */}
-      <section className="ing-hero" style={{ color: C }}>
+      <section data-review-id="ingredients-hero" className="ing-hero" style={{ color: C }}>
         {SCATTER.map((p, k) => (
           <motion.span
             key={k}
@@ -60,7 +60,7 @@ export default function Ingredients() {
       </section>
 
       {/* ===== FLAVOR SLIDESHOW ===== */}
-      <section className="ing-flav" style={{ color: C }}>
+      <section data-review-id="ingredients-flavors" className="ing-flav" style={{ color: C }}>
         <Reveal as="span" className="ing-eyebrow">On the menu</Reveal>
         <Reveal as="h2" className="ing-flav__title">Flavor profiles</Reveal>
         <Reveal as="p" className="ing-flav__sub">Ten chef-inspired flavors — each a familiar anchor with a specific twist. Click through the menu.</Reveal>
@@ -104,7 +104,7 @@ export default function Ingredients() {
       </section>
 
       {/* ===== MORE MENU THAN CANDY AISLE — menu card ===== */}
-      <section className="ing-intro" style={{ '--c': C, color: C }}>
+      <section data-review-id="ingredients-menu-card" className="ing-intro" style={{ '--c': C, color: C }}>
         <Reveal className="ing-intro__wrap">
           <div className="ing-intro__menu">
             <span className="ing-intro__crest">✦ On the menu · Est. in the kitchen ✦</span>
@@ -117,7 +117,7 @@ export default function Ingredients() {
       </section>
 
       {/* ===== INGREDIENT / COMPARISON NOTES ===== */}
-      <section className="ing-note" style={{ color: C }}>
+      <section data-review-id="ingredients-notes" className="ing-note" style={{ color: C }}>
         <div className="ing-note__inner">
           <span className="ing-eyebrow" style={{ opacity: 0.7 }}>Ingredient note</span>
           <p>Flavor names describe taste profiles. They do not always mean the product contains whole fruits, vegetables, herbs, or spices named in the flavor. See the ingredients list for full details.</p>

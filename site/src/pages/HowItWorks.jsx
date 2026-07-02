@@ -41,7 +41,7 @@ export default function HowItWorks() {
   return (
     <Page page="howitworks">
       {/* HERO */}
-      <section className="hiw-hero" style={{ color: C }}>
+      <section data-review-id="howitworks-hero" className="hiw-hero" style={{ color: C }}>
         <Reveal v={riseBig}><img className="hiw-hero__lockup" src="raw/one-chew-lockup.svg" alt="One chew. Daily fiber." /></Reveal>
         <Reveal v={fadeUp}><img className="hiw-hero__whisk" src="raw/chef-whisk.svg" alt="" /></Reveal>
         <Reveal as="h1" v={riseBig} className="hiw-hero__head">Better odds you'll actually take it.</Reveal>
@@ -49,14 +49,14 @@ export default function HowItWorks() {
       </section>
 
       {/* ROUTE */}
-      <section className="hiw-route" style={{ color: C }}>
+      <section data-review-id="howitworks-steps" className="hiw-route" style={{ color: C }}>
         <div className="hiw-steps">
           {STEPS.map((s, k) => <Step key={s.n} s={s} i={k} />)}
         </div>
       </section>
 
       {/* FORMAT MENU */}
-      <section className="hiw-menu-sec" style={{ color: C }}>
+      <section data-review-id="howitworks-format-menu" className="hiw-menu-sec" style={{ color: C }}>
         <Reveal as="span" className="hiw-eyebrow">Why a chew</Reveal>
         <Reveal as="h2" v={riseBig} className="hiw-menu__head">Two formats, crossed off the menu.</Reveal>
         <Reveal as="p" className="hiw-menu__intro">The habit was hard because the format was bad. So we took the worst offenders off the menu and kept the one that fits into an actual day.</Reveal>
@@ -78,7 +78,7 @@ export default function HowItWorks() {
       </section>
 
       {/* SPLASH */}
-      <section className="hiw-splash" style={{ color: C }}>
+      <section data-review-id="howitworks-splash" className="hiw-splash" style={{ color: C }}>
         <Reveal as="span" className="hiw-eyebrow">The Off Menu rule</Reveal>
         <Reveal as="h2" v={riseBig} className="hiw-splash__head u-skew">Make the thing you should take taste like the thing you want.</Reveal>
         <Reveal v={fadeUp}><img className="hiw-splash__chef" src="raw/chef-chop.svg" alt="" /></Reveal>

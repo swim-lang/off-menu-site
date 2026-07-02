@@ -11,6 +11,7 @@ import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import About from './pages/About'
 import { installButtonSfx } from './lib/sfx'
+import { initReview } from './lib/review'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -19,7 +20,7 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  useEffect(() => { installButtonSfx() }, [])
+  useEffect(() => { installButtonSfx(); initReview() }, [])
   return (
     <>
       <ScrollToTop />

@@ -41,17 +41,17 @@ function Chew({ p }) {
 export default function Shop() {
   return (
     <Page page="shop">
-      <section className="shop-hero" style={{ color: C }}>
+      <section data-review-id="shop-hero" className="shop-hero" style={{ color: C }}>
         <Reveal as="span" className="shop-eyebrow">The full lineup · daily fiber chews</Reveal>
         <Reveal><img className="shop-title" src="raw/pick-your-chew.svg" alt="Pick your chew" /></Reveal>
         <Reveal as="p" className="shop-sub">Ten chef-inspired flavors. One soft chew a day. Pick your favorites — or grab the sampler and taste the whole menu.</Reveal>
       </section>
 
-      <motion.div className="shop-grid" variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={inView}>
+      <motion.div data-review-id="shop-grid" className="shop-grid" variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={inView}>
         {CHEWS.map((p) => <Chew key={p.name} p={p} />)}
       </motion.div>
 
-      <section className="shop-sampler" style={{ color: C }}>
+      <section data-review-id="shop-sampler" className="shop-sampler" style={{ color: C }}>
         <div className="shop-sampler__card">
           <span className="shop-eyebrow">Can't decide?</span>
           <h2 className="shop-sampler__head">Taste the whole menu.</h2>

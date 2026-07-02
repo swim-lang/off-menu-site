@@ -66,7 +66,7 @@ export default function Cart() {
   return (
     <Page page="cart">
       {/* ===== HEADER ART ROW ===== */}
-      <section className="cart-head" style={{ color: C }}>
+      <section data-review-id="cart-header" className="cart-head" style={{ color: C }}>
         <Reveal v={riseBig}>
           <img className="cart-head__lockup" src="raw/your-cart-lockup.svg" alt="Your cart" />
         </Reveal>
@@ -76,7 +76,7 @@ export default function Cart() {
       </section>
 
       {empty ? (
-        <section className="cart-empty" style={{ color: C }}>
+        <section data-review-id="cart-empty" className="cart-empty" style={{ color: C }}>
           <Reveal as="h2" className="cart-empty__title">Nothing on the menu yet.</Reveal>
           <Reveal as="p" className="cart-empty__sub">
             Your cart is empty. Go pick a flavor — your gut will thank you.
@@ -86,7 +86,7 @@ export default function Cart() {
           </Reveal>
         </section>
       ) : (
-        <section className="cart-body" style={{ color: C }}>
+        <section data-review-id="cart-body" className="cart-body" style={{ color: C }}>
           {/* ===== LEFT: LINE ITEMS ===== */}
           <motion.div
             className="cart-items"

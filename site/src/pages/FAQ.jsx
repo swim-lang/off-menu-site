@@ -145,7 +145,7 @@ export default function FAQ() {
   return (
     <Page page="faq">
       {/* HERO */}
-      <section className="faq-hero" style={{ color: C }}>
+      <section data-review-id="faq-hero" className="faq-hero" style={{ color: C }}>
         <Reveal as="span" className="faq-eyebrow">Help · FAQ</Reveal>
         <Reveal as="h1" v={riseBig} className="faq-hero__head">Frequently asked questions</Reveal>
         <Reveal as="p" className="faq-hero__sub">
@@ -154,7 +154,7 @@ export default function FAQ() {
       </section>
 
       {/* BODY */}
-      <section className="faq-body" style={{ color: C }}>
+      <section data-review-id="faq-body" className="faq-body" style={{ color: C }}>
         <div className="faq-grid">
           <div className="faq-col">
             <Accordion title="Product" items={PRODUCT} groupKey="p" open={openProduct} setOpen={setOpenProduct} />

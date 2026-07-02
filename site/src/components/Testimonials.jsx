@@ -14,7 +14,7 @@ const CLIPS = [
   { thumb: 'raw/story-bg.jpg',     handle: '@thechewcrew',     name: 'Mateo S.',  quote: 'Looks like deli candy — but make it fiber.', dur: '0:29' },
 ]
 
-export default function Testimonials({ color = '#C11209' }) {
+export default function Testimonials({ color = '#C11209', reviewId }) {
   const rowRef = useRef(null)
   const drag = useRef({ down: false, x: 0, left: 0, moved: false })
 
@@ -37,7 +37,7 @@ export default function Testimonials({ color = '#C11209' }) {
   const nudge = (dir) => rowRef.current.scrollBy({ left: dir * 360, behavior: 'smooth' })
 
   return (
-    <section className="vt" style={{ '--c': color, color }}>
+    <section data-review-id={reviewId} className="vt" style={{ '--c': color, color }}>
       <div className="vt-head">
         <Reveal as="span" className="vt-eyebrow">Word of mouth</Reveal>
         <Reveal as="h2" className="vt-title">Early notes from the first batch.</Reveal>

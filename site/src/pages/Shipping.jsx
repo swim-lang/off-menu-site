@@ -52,7 +52,7 @@ export default function Shipping() {
   return (
     <Page page="shipping">
       {/* PAGE HEADER */}
-      <section className="ship-header" style={{ color: C }}>
+      <section data-review-id="shipping-header" className="ship-header" style={{ color: C }}>
         <Reveal as="div" className="ship-eyebrow">Help · Off Menu policies</Reveal>
         <Reveal as="h1" v={riseBig} className="ship-title">Shipping &amp; Returns</Reveal>
         <Reveal as="p" className="ship-sub">
@@ -61,7 +61,7 @@ export default function Shipping() {
       </section>
 
       {/* REASSURANCE */}
-      <section className="ship-reassure" style={{ color: C }}>
+      <section data-review-id="shipping-reassure" className="ship-reassure" style={{ color: C }}>
         <Reveal className="ship-reassure__card">
           <h2 className="ship-reassure__title u-skew">Something off?</h2>
           <p className="ship-reassure__body">If your order arrives damaged, incorrect, or missing, send us a note. We'll take a look and help make it right.</p>
@@ -69,7 +69,7 @@ export default function Shipping() {
       </section>
 
       {/* CONTENT */}
-      <section className="ship-content" style={{ color: C }}>
+      <section data-review-id="shipping-content" className="ship-content" style={{ color: C }}>
         {/* Decorative vintage seals + fruit in the wide margins */}
         <div className="ship-decor" aria-hidden="true">
           <Seal className="ship-seal ship-seal--ships" shape="burst" size={132} rotate={7} label="Ships fresh" color={C} />
