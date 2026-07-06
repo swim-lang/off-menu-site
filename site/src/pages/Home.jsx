@@ -8,7 +8,7 @@ import Seal from '../components/Seal'
 import Testimonials from '../components/Testimonials'
 import CtaSignup from '../components/CtaSignup'
 import { fadeUp, riseBig, stagger, stickerPop, inView } from '../lib/motion'
-import { playBellHit, playScribble, playPencil } from '../lib/sfx'
+import { playBell, playScribble, playPencil } from '../lib/sfx'
 import './Home.css'
 
 const C = '#C11209'
@@ -42,7 +42,7 @@ const rowRise = {
 }
 
 const MYTHS = [
-  { m: '“Fiber is for old people.”', r: "Most adults aren't getting enough fiber. It affects digestion, energy, fullness, gut health, and how you feel every day, not just when you're older." },
+  { m: '“Fiber is no big deal.”', r: "Most adults aren't getting enough fiber. It affects digestion, energy, fullness, gut health, and how you feel every day, not just when you're older." },
   { m: '“I eat pretty healthy, so I\'m probably getting enough.”', r: "Most people fall short of their daily fiber goal, even when they're eating well." },
   { m: '“Fiber supplements are gross.”', r: "We're with you. That's why we made one that doesn't taste like punishment." },
   { m: '“I\'ll just eat more vegetables.”', r: "You should. But let's be honest, you probably won't eat enough every single day. That's where a small daily fiber habit can help." },
@@ -309,7 +309,7 @@ export default function Home() {
               className="f101__card"
               key={c.t}
               variants={fadeUp}
-              onMouseEnter={playBellHit}
+              onMouseEnter={playBell}
               whileHover={{ y: -8 }}
             >
               <div className="f101__top">
