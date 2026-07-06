@@ -40,7 +40,7 @@ const PRODUCT = [
   },
   {
     q: 'Can I take an extra serving?',
-    a: 'Stick to the serving size on the label. If you have questions about your routine, check in with your healthcare provider.',
+    a: 'One serving is plenty for most people. We made the chews so you can have more through the day if you like, and since everyone is different, take as much as feels right for you.',
   },
   {
     q: 'Is this a laxative?',
@@ -57,14 +57,6 @@ const PRODUCT = [
 ]
 
 const FLAVOR = [
-  {
-    q: 'Is it made with real fruit?',
-    a: 'Our chef-inspired flavors are built around taste profiles. Flavor names may describe inspiration rather than whole-fruit ingredients, so always check the label for the full ingredient list.',
-  },
-  {
-    q: 'Do the flavors contain the actual fruits and ingredients named?',
-    a: 'Flavor names describe taste profiles. Some ingredients may come from natural flavors or other sources rather than whole fruits, vegetables, herbs, or spices. Always check the label for the full ingredient list.',
-  },
   {
     q: 'Why chef-inspired flavors?',
     a: 'Function gets you to buy it. Flavor gets you to come back. We work on flavor like a kitchen would, so a daily habit feels like a treat.',
