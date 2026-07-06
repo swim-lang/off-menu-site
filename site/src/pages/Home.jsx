@@ -71,7 +71,7 @@ function Card({ p }) {
         <div className="card__meta">
           <span className="card__kicker">{p.kicker}</span>
           <span className="card__q serif">“{p.q}”</span>
-          <span className="card__kicker">30 CT</span>
+          <span className="card__kicker">60 CT</span>
         </div>
         <div className="card__name serif">{p.name}</div>
         <div className="card__note">{p.note}</div>

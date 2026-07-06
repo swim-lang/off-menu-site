@@ -8,7 +8,7 @@ import './Cart.css'
 
 const C = '#4C9E3C'
 
-const SUB_LINE = 'Daily fiber chews · Chef-led flavor · 30 ct'
+const SUB_LINE = 'Daily fiber chews · Chef-led flavor · 60 ct'
 const SHIP_THRESHOLD = 35
 const SUB_DISCOUNT = 0.15
 const TAX_RATE = 0.0825

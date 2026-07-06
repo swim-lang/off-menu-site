@@ -16,7 +16,7 @@ export default function Footer({ slug = 'red', color = '#C11209' }) {
       <div className="footer__pill">· Supports gut and digestive health ·</div>
 
       <p className="footer__fine">
-        Fiber soft chews · 30 per bag · Chef-inspired daily supplements. &nbsp;·&nbsp; © Off Menu. Re-plating daily supplements.
+        Fiber soft chews · 60 per bag · Chef-inspired daily supplements. &nbsp;·&nbsp; © Off Menu. Re-plating daily supplements.
       </p>
 
       <div className="footer__legal">

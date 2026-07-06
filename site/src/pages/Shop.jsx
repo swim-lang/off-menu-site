@@ -34,7 +34,7 @@ function Chew({ p }) {
         <div className="shop-card__meta">
           <span className="shop-card__kicker">{p.kicker}</span>
           <span className="shop-card__q serif">“{p.q}”</span>
-          <span className="shop-card__kicker">30 CT</span>
+          <span className="shop-card__kicker">60 CT</span>
         </div>
         <div className="shop-card__name serif">{p.name}</div>
         <div className="shop-card__note">{p.note}</div>

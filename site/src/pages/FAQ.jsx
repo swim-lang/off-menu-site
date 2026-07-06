@@ -75,8 +75,7 @@ const FLAVOR = [
   },
   {
     q: 'Is it vegan?',
-    a: 'We are still finalizing this. Full details will be confirmed on the label and here soon.',
-    tag: 'TBD',
+    a: 'Yes. Off Menu is vegan.',
   },
   {
     q: 'Is it gluten-free?',

@@ -10,14 +10,14 @@ import './Product.css'
 const C = '#694078'
 
 const PLANS = {
-  once: { label: 'One-time', sub: '30 chews · one bag', price: 24, badge: null },
+  once: { label: 'One-time', sub: '60 chews · one bag', price: 24, badge: null },
   sub: { label: 'Subscribe & save', sub: 'Ships monthly · skip or cancel anytime', price: 20, badge: 'Save 15%' },
 }
 
 const BULLETS = [
   'Secure checkout',
   'Ships in 3–5 business days',
-  '30 daily chews',
+  '60 daily chews',
   'Skip or cancel anytime',
   'Questions? support@offmenu.com',
 ]
@@ -273,7 +273,7 @@ export default function Product() {
               <div className="pdp-card__meta">
                 <span className="pdp-card__tag">{r.tag}</span>
                 <span className="pdp-card__quote serif">{r.quote}</span>
-                <span className="pdp-card__ct">30 CT</span>
+                <span className="pdp-card__ct">60 CT</span>
               </div>
               <h3 className="pdp-card__name serif">{r.name}</h3>
               <p className="pdp-card__note">{r.note}</p>
