@@ -12,6 +12,10 @@
 .shop-card { width: 270px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; text-align: center; color: var(--c); }
 .shop-card__photo { width: 270px; height: 463px; border-radius: 18px; overflow: hidden; }
 .shop-card__photo img { width: 100%; height: 100%; object-fit: cover; }
+/* Single-product launch view — one card, larger, centered. */
+.shop-grid--single { margin-top: 32px; }
+.shop-grid--single .shop-card { width: 330px; }
+.shop-grid--single .shop-card__photo { width: 330px; height: 566px; }
 .shop-card__meta { display: flex; align-items: baseline; justify-content: center; gap: 9px; padding-top: 18px; }
 .shop-card__kicker { font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
 .shop-card__q { font-size: 21px; }

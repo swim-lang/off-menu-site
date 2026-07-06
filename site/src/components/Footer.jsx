@@ -20,7 +20,6 @@ export default function Footer({ slug = 'red', color = '#C11209' }) {
       </p>
 
       <div className="footer__legal">
-        <span>Flavor names describe taste profiles. They do not always mean the product contains whole fruits, vegetables, herbs, or spices named in the flavor. See the ingredient list for full details.</span>
         <span>Fiber supports a balanced diet and daily routine. These statements have not been evaluated by the FDA.</span>
       </div>
     </footer>
