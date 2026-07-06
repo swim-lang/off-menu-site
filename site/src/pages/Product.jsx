@@ -59,10 +59,6 @@ const FAQS = [
   { q: 'When should I take it?', a: 'Any time that fits your routine. A lot of people pair it with breakfast, lunch, or an evening wind-down.' },
   { q: 'What does it taste like?', a: 'Concord grape with a little verjus. It is chef-developed for real flavor, not that chalky supplement thing.' },
   { q: 'Is this a candy?', a: 'No. It is a fiber supplement that happens to taste good.' },
-  {
-    q: 'Does it replace fruits and vegetables?',
-    a: 'No. It is a supplement to support a balanced diet, not a substitute for whole fruits and vegetables.',
-  },
 ]
 
 export default function Product() {

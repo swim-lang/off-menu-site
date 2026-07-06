@@ -317,8 +317,8 @@ export default function Home() {
       <section data-review-id="home-story" className="story">
         <img className="story__bg" src="raw/story.jpg" alt="" />
         <div className="story__scrim" />
-        <Reveal as="h2" className="story__head">Meet the founder behind the chew.</Reveal>
-        <a className="story__btn">Learn more about us</a>
+        <Reveal as="h2" className="story__head">The story behind the chew.</Reveal>
+        <Link className="story__btn" to="/about">Learn more about us</Link>
         <motion.div className="story__card" initial={{ opacity: 0, y: 20, rotate: 10 }} whileInView={{ opacity: 1, y: 0, rotate: 10 }} viewport={inView} transition={{ duration: 0.5 }}>
           <span className="story__card-lbl"><span className="story__dot" /> Now serving fiber from</span>
           <span className="story__card-serif serif">Chef-inspired flavors</span>
