@@ -16,11 +16,8 @@ export const CATALOG = {
   cherry: { id: 'cherry', name: 'Cherry Cola Spice', sub: SUB_LINE, price: 24, img: 'raw/2.png' },
 }
 
-// Seed the cart so the drawer opens with content to review; add-to-cart builds on it.
-const INITIAL = [
-  { ...CATALOG.verjus, qty: 2 },
-  { ...CATALOG.cherry, qty: 1 },
-]
+// Cart starts empty; it only holds what the shopper actually adds.
+const INITIAL = []
 
 const CartCtx = createContext(null)
 
