@@ -80,12 +80,17 @@ export function initReview() {
   const textQuote = (el) => (el.innerText || el.textContent || '')
     .replace(/\s+/g, ' ').trim().slice(0, 240)
 
+  const escapeHtml = (value) => String(value == null ? '' : value)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+
   // ---- Supabase row <-> comment mapping (matches the SQL schema) ------------
   const toComment = (row) => ({
     id: row.id, project: row.project, page: row.page, path: row.path,
     reviewId: row.review_id, selector: row.selector, textQuote: row.text_quote || '',
     comment: row.comment, status: row.status || 'open', viewport: row.viewport || null,
     createdAt: row.created_at, resolvedAt: row.resolved_at || null,
+    reply: row.reply || '', replyAt: row.reply_at || null, replyAck: !!row.reply_ack,
   })
   const toRow = (item) => ({
     id: item.id, project: item.project, page: item.page, path: item.path,
@@ -239,6 +244,46 @@ export function initReview() {
     }
   }
 
+  // Team reply to a client comment. Sets reply + resets reply_ack so the client
+  // has to review it. Re-replying (updating) also re-flags it for review.
+  const addReply = async (id, text) => {
+    const reply = (text || '').trim()
+    if (!reply) return
+    if (!HAS_SUPABASE) { showNotice('Supabase is required to reply.'); return }
+    try {
+      const replyAt = new Date().toISOString()
+      const rows = await request(`${REVIEW_TABLE}?id=eq.${encodeURIComponent(id)}&project=eq.${REVIEW_PROJECT}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ reply, reply_at: replyAt, reply_ack: false }),
+      })
+      const saved = rows[0] ? toComment(rows[0]) : null
+      state.comments = state.comments.map((c) => (c.id === id ? (saved || { ...c, reply, replyAt, replyAck: false }) : c))
+      showNotice('Reply sent — client will see it to review.')
+      render()
+    } catch (error) {
+      console.warn('Could not save reply.', error)
+      showNotice('Could not save reply. Has the reply column been added?')
+    }
+  }
+
+  // Client acknowledges they have read the team reply.
+  const acknowledgeReply = async (id) => {
+    if (!HAS_SUPABASE) { showNotice('Supabase is required.'); return }
+    try {
+      const rows = await request(`${REVIEW_TABLE}?id=eq.${encodeURIComponent(id)}&project=eq.${REVIEW_PROJECT}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ reply_ack: true }),
+      })
+      const saved = rows[0] ? toComment(rows[0]) : null
+      state.comments = state.comments.map((c) => (c.id === id ? (saved || { ...c, replyAck: true }) : c))
+      showNotice('Marked as reviewed.')
+      render()
+    } catch (error) {
+      console.warn('Could not acknowledge reply.', error)
+      showNotice('Could not update.')
+    }
+  }
+
   const saveComment = async (event) => {
     event.preventDefault()
     const textarea = layer.querySelector('[data-review-draft]')
@@ -339,10 +384,22 @@ export function initReview() {
       </div>
       <div class="review-panel-list">
         ${visibleComments().length ? visibleComments().map((item) => `
-          <article class="${item.status === 'resolved' ? 'is-resolved' : ''}">
-            <div class="review-panel-meta">${commentPageLabel(item)} · ${item.reviewId}</div>
-            <p>${item.comment}</p>
-            ${item.textQuote ? `<blockquote>${item.textQuote}</blockquote>` : ''}
+          <article class="${item.status === 'resolved' ? 'is-resolved' : ''} ${item.reply && !item.replyAck && item.status !== 'resolved' ? 'needs-review' : ''}">
+            <div class="review-panel-meta">${commentPageLabel(item)} · ${escapeHtml(item.reviewId)}${item.reply && !item.replyAck ? ' · <span class="review-flag">Awaiting client review</span>' : ''}</div>
+            <p>${escapeHtml(item.comment)}</p>
+            ${item.textQuote ? `<blockquote>${escapeHtml(item.textQuote)}</blockquote>` : ''}
+            ${item.reply ? `
+              <div class="review-reply ${item.replyAck ? 'is-ack' : 'is-pending'}">
+                <span class="review-reply-label">Reply from the team</span>
+                <p>${escapeHtml(item.reply)}</p>
+                ${item.replyAck
+                  ? '<span class="review-reply-status">✓ Reviewed by client</span>'
+                  : `<button type="button" data-review-ack="${item.id}">Mark as reviewed</button>`}
+              </div>` : ''}
+            <form class="review-reply-form" data-review-reply-form="${item.id}">
+              <textarea data-review-reply-input placeholder="${item.reply ? 'Update the reply…' : 'Reply to this comment…'}"></textarea>
+              <button type="submit">${item.reply ? 'Update reply' : 'Reply'}</button>
+            </form>
             <div class="review-panel-actions">
               <button type="button" data-review-jump="${item.id}">Jump</button>
               ${item.status !== 'resolved' ? `<button type="button" data-review-resolve="${item.id}">Resolve</button>` : ''}
@@ -388,11 +445,22 @@ export function initReview() {
       else showNotice('That comment could not be found.')
       return
     }
+    const ackButton = event.target.closest('[data-review-ack]')
+    if (ackButton) { acknowledgeReply(ackButton.dataset.reviewAck); return }
     const resolveButton = event.target.closest('[data-review-resolve]')
     if (resolveButton) resolveComment(resolveButton.dataset.reviewResolve)
   })
 
-  layer.addEventListener('submit', saveComment)
+  layer.addEventListener('submit', (event) => {
+    const replyForm = event.target.closest('[data-review-reply-form]')
+    if (replyForm) {
+      event.preventDefault()
+      const input = replyForm.querySelector('[data-review-reply-input]')
+      addReply(replyForm.dataset.reviewReplyForm, input ? input.value : '')
+      return
+    }
+    saveComment(event)
+  })
 
   // Click a section in comment mode → open the note popover.
   document.addEventListener('click', (event) => {

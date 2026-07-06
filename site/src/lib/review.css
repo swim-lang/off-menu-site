@@ -281,6 +281,19 @@ html[data-review-mode="comment"] [data-review-id]:hover {
   font-style: italic;
 }
 
+/* Team replies + client review acknowledgement */
+.review-panel article.needs-review { border-left: 3px solid var(--rev-accent); padding-left: 10px; }
+.review-flag { color: var(--rev-accent); font-weight: 700; }
+.review-reply { border: 1.5px solid var(--rev-line); border-radius: 10px; padding: 10px 12px; display: grid; gap: 6px; }
+.review-reply.is-pending { border-color: var(--rev-accent); background: rgba(193, 18, 9, 0.05); }
+.review-reply-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; opacity: 0.65; }
+.review-reply p { margin: 0; }
+.review-reply-status { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2e7d32; }
+.review-reply.is-pending button { justify-self: start; background: var(--rev-accent); border-color: var(--rev-accent); color: var(--rev-paper); }
+.review-reply-form { display: grid; gap: 8px; }
+.review-reply-form textarea { width: 100%; min-height: 52px; resize: vertical; border: 1.5px solid var(--rev-line); border-radius: 8px; padding: 8px 10px; font: inherit; color: var(--rev-ink); background: var(--rev-paper); }
+.review-reply-form button { justify-self: start; }
+
 .review-toast {
   position: fixed;
   left: 18px;
