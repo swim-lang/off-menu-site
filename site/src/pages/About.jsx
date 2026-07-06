@@ -40,7 +40,7 @@ export default function About() {
             <Reveal className="ab-hero__body">
               <p className="ab-lead">Off Menu started with a simple frustration: why does something so useful have to feel so joyless?</p>
               <p className="ab-lead">Fiber is one of those daily essentials people know they should get more of, but the category has made it feel clinical, messy, and easy to ignore.</p>
-              <p className="ab-lead">So we built a different kind of supplement brand — one that borrows from chefs, menus, flavor notes, and the small pleasure of eating something made with care.</p>
+              <p className="ab-lead">So we built a different kind of supplement brand, one that borrows from chefs, menus, flavor notes, and the small pleasure of eating something made with care.</p>
             </Reveal>
           </div>
           <Reveal className="ab-hero__art" v={fadeUp}>
@@ -84,7 +84,7 @@ export default function About() {
             <p className="ab-why__quote">The best things are often the ones you had to know to ask for.</p>
           </Reveal>
           <Reveal className="ab-why__body">
-            <p className="ab-body ab-center">Off Menu is our way of bringing that feeling to daily nutrition — a little more special, a little more considered, and a lot less like the usual supplement routine.</p>
+            <p className="ab-body ab-center">Off Menu is our way of bringing that feeling to daily nutrition. A little more special, a little more considered, and a lot less like the usual supplement routine.</p>
           </Reveal>
 
           <Seal className="ab-why__seal-batch" shape="scallop" size={132} rotate={8} label="Small batch" color={C} />
@@ -103,7 +103,7 @@ export default function About() {
             </Reveal>
             <Reveal className="ab-chef__copy">
               <p className="ab-body">Chef Chewy is the house voice of Off Menu.</p>
-              <p className="ab-body">He's a little judgmental, a little nostalgic, and very serious about taste. He's here to 86 the powder, roast the orange tub, and remind you to take the chew — without making it a whole wellness performance.</p>
+              <p className="ab-body">He's a little judgmental, a little nostalgic, and very serious about taste. He's here to 86 the powder, roast the orange tub, and remind you to take the chew, without making it a whole wellness performance.</p>
             </Reveal>
             <Reveal v={fadeUp}>
               <motion.div className="ab-says" whileHover={{ rotate: 0 }}>

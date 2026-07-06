@@ -56,14 +56,14 @@ export default function Ingredients() {
           </motion.span>
         ))}
         <Reveal v={riseBig}><img className="ing-hero__lockup" src="raw/chef-inspired.svg" alt="Chef-inspired" /></Reveal>
-        <Reveal as="p" className="ing-hero__cap serif">A pantry's worth of inspiration — not a candy aisle.</Reveal>
+        <Reveal as="p" className="ing-hero__cap serif">A pantry's worth of inspiration, not a candy aisle.</Reveal>
       </section>
 
       {/* ===== FLAVOR SLIDESHOW ===== */}
       <section data-review-id="ingredients-flavors" className="ing-flav" style={{ color: C }}>
         <Reveal as="span" className="ing-eyebrow">On the menu</Reveal>
         <Reveal as="h2" className="ing-flav__title">Flavor profiles</Reveal>
-        <Reveal as="p" className="ing-flav__sub">Ten chef-inspired flavors — each a familiar anchor with a specific twist. Click through the menu.</Reveal>
+        <Reveal as="p" className="ing-flav__sub">Ten chef-inspired flavors, each a familiar anchor with a specific twist. Click through the menu.</Reveal>
 
         <div className="ing-carousel">
           <button className="ing-arrow" onClick={() => setI((i - 1 + FLAVORS.length) % FLAVORS.length)} aria-label="Previous flavor">←</button>
@@ -111,7 +111,7 @@ export default function Ingredients() {
             <span className="ing-intro__eyebrow">Flavor, plated</span>
             <h2 className="ing-intro__head">More menu than candy aisle.</h2>
             <div className="ing-intro__rule"><span className="ing-intro__rule-dot" /></div>
-            <p className="ing-intro__body">Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to make fiber complicated — it's to make it taste like someone thought about it.</p>
+            <p className="ing-intro__body">Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to make fiber complicated. It's to make it taste like someone thought about it.</p>
           </div>
         </Reveal>
       </section>

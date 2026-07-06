@@ -39,12 +39,12 @@ const rowRise = {
 }
 
 const MYTHS = [
-  { m: '“Fiber is for old people.”', r: "Most adults aren't getting enough fiber. It affects digestion, energy, fullness, gut health, and how you feel every day — not just when you're older." },
+  { m: '“Fiber is for old people.”', r: "Most adults aren't getting enough fiber. It affects digestion, energy, fullness, gut health, and how you feel every day, not just when you're older." },
   { m: '“I eat pretty healthy, so I\'m probably getting enough.”', r: "Most people fall short of their daily fiber goal, even when they're eating well." },
   { m: '“Fiber supplements are gross.”', r: "We're with you. That's why we made one that doesn't taste like punishment." },
-  { m: '“I\'ll just eat more vegetables.”', r: "You should. But let's be honest — you probably won't eat enough every single day. That's where a small daily fiber habit can help." },
+  { m: '“I\'ll just eat more vegetables.”', r: "You should. But let's be honest, you probably won't eat enough every single day. That's where a small daily fiber habit can help." },
   { m: '“Fiber will make me bloated.”', r: "A lack of fiber can be part of the problem. Consistent daily fiber helps support a healthier digestive routine." },
-  { m: '“All fiber is the same.”', r: "Different fibers do different jobs — a steady daily habit can support digestion, fullness, and regularity over time." },
+  { m: '“All fiber is the same.”', r: "Different fibers do different jobs. A steady daily habit can support digestion, fullness, and regularity over time." },
 ]
 
 const FIBER101 = [
@@ -55,11 +55,11 @@ const FIBER101 = [
 ]
 
 const FACTS = [
-  { l: 'Fact 01 · Gut health', t: 'Your gut is home to about 100 trillion microbes — more than there are stars in the Milky Way.' },
+  { l: 'Fact 01 · Gut health', t: 'Your gut is home to about 100 trillion microbes, more than there are stars in the Milky Way.' },
   { l: 'Fact 02 · Immunity', t: 'Roughly 70% of your immune system lives in your gut.' },
-  { l: 'Fact 03 · Mood', t: "Your gut makes about 95% of your body's serotonin — the feel-good chemical." },
+  { l: 'Fact 03 · Mood', t: "Your gut makes about 95% of your body's serotonin, the feel-good chemical." },
   { l: 'Fact 04 · The gap', t: 'Most adults get only half the fiber they actually need each day.' },
-  { l: 'Fact 05 · Fuel', t: "Fiber feeds your good gut bacteria — they're the real chefs down there." },
+  { l: 'Fact 05 · Fuel', t: "Fiber feeds your good gut bacteria. They're the real chefs down there." },
 ]
 const FACT_ROT = [-2, 2.5, -3.5, 1.5, -1] // playful: each fact card sits at a different skew
 
@@ -210,7 +210,7 @@ export default function Home() {
           <div className="foryou__left">
             <Reveal as="span" className="foryou__eyebrow">Who it's for</Reveal>
             <Reveal as="h2" v={riseBig} className="foryou__head">Made for<br />people <em>who…</em></Reveal>
-            <Reveal as="p" className="foryou__support">No two guts are the same. But if any of these sound like you, pull up a stool — you're in the right place.</Reveal>
+            <Reveal as="p" className="foryou__support">No two guts are the same. But if any of these sound like you, pull up a stool. You're in the right place.</Reveal>
             <Reveal><span className="foryou__sticker">★ Table for one? Perfect.</span></Reveal>
           </div>
 
@@ -224,7 +224,7 @@ export default function Home() {
             <div className="foryou__tk-head">
               <div className="foryou__tk-row">
                 <span className="foryou__tk-title">Guest Check</span>
-                <span className="foryou__tk-table">Table — You</span>
+                <span className="foryou__tk-table">Table · You</span>
               </div>
               <span className="foryou__tk-sub">Off Menu · Daily Fiber · Order No. 010</span>
             </div>
@@ -253,7 +253,7 @@ export default function Home() {
                 <span className="foryou__total-l">Total</span>
                 <span className="foryou__total-r">1 daily chew</span>
               </div>
-              <span className="foryou__foot-note">Checked even one box? Consider that a yes — this one's for you.</span>
+              <span className="foryou__foot-note">Checked even one box? Consider that a yes. This one's for you.</span>
             </div>
           </motion.div>
         </div>

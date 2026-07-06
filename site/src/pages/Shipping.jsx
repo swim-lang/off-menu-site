@@ -56,7 +56,7 @@ export default function Shipping() {
         <Reveal as="div" className="ship-eyebrow">Help · Off Menu policies</Reveal>
         <Reveal as="h1" v={riseBig} className="ship-title">Shipping &amp; Returns</Reveal>
         <Reveal as="p" className="ship-sub">
-          Everything you need to know about getting your chews — and what to do if something's off.
+          Everything you need to know about getting your chews, and what to do if something's off.
         </Reveal>
       </section>
 

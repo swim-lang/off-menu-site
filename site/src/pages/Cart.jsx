@@ -46,7 +46,7 @@ export default function Cart() {
       setPromoError('')
     } else {
       setPromo(null)
-      setPromoError('That code isn’t valid — try OFFMENU10.')
+      setPromoError('That code isn’t valid. Try OFFMENU10.')
     }
   }
 
@@ -79,7 +79,7 @@ export default function Cart() {
         <section data-review-id="cart-empty" className="cart-empty" style={{ color: C }}>
           <Reveal as="h2" className="cart-empty__title">Nothing on the menu yet.</Reveal>
           <Reveal as="p" className="cart-empty__sub">
-            Your cart is empty. Go pick a flavor — your gut will thank you.
+            Your cart is empty. Go pick a flavor. Your gut will thank you.
           </Reveal>
           <Reveal as="a" className="cart-btn cart-btn--lg" href="/product">
             Shop the chews →
@@ -182,7 +182,7 @@ export default function Cart() {
             </motion.form>
             {promo && (
               <p className="cart-promo__msg cart-promo__msg--ok">
-                Code {promo.code} applied — {Math.round(promo.rate * 100)}% off.
+                Code {promo.code} applied. {Math.round(promo.rate * 100)}% off.
               </p>
             )}
             {promoError && <p className="cart-promo__msg cart-promo__msg--err">{promoError}</p>}

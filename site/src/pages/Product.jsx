@@ -45,9 +45,9 @@ const RELATED = [
 ]
 
 const REVIEWS = [
-  { quote: 'The first fiber I have ever wanted to eat. The grape one is genuinely dangerous.', who: '— Dana R.' },
-  { quote: 'I finally stopped pretending I was going to use the powder.', who: '— Marcus L.' },
-  { quote: 'Tastes like something I would buy for the flavor first. The fiber is the win.', who: '— Priya N.' },
+  { quote: 'The first fiber I have ever wanted to eat. The grape one is genuinely dangerous.', who: 'Dana R.' },
+  { quote: 'I finally stopped pretending I was going to use the powder.', who: 'Marcus L.' },
+  { quote: 'Tastes like something I would buy for the flavor first. The fiber is the win.', who: 'Priya N.' },
 ]
 
 const FAQS = [
@@ -114,7 +114,7 @@ export default function Product() {
 
           {plan === 'sub' && (
             <p className="pdp-subnote">
-              <strong>Make it the usual.</strong> Fiber works best when it becomes part of your routine — subscribe so the chews keep showing up before you have to think about it.
+              <strong>Make it the usual.</strong> Fiber works best when it becomes part of your routine. Subscribe so the chews keep showing up before you have to think about it.
             </p>
           )}
 
@@ -123,7 +123,7 @@ export default function Product() {
             type="button"
             whileTap={{ y: 7, boxShadow: `0 0 0 ${C}` }}
           >
-            Add to cart — ${price}
+            Add to cart · ${price}
           </motion.button>
 
           <Reveal as="ul" className="pdp-bullets">
@@ -224,8 +224,7 @@ export default function Product() {
         <Reveal className="pdp-honest">
           <h3 className="pdp-honest__title serif">A small daily fiber habit.</h3>
           <p className="pdp-honest__body">
-            Each chew adds 2g fiber to your day. It's not here to replace fruits, vegetables, grains, nuts, or seeds —
-            it's here to make getting a little more fiber feel easier, better-tasting, and more repeatable.
+            Each chew adds 2g fiber to your day. It's not here to replace fruits, vegetables, grains, nuts, or seeds. It's here to make getting a little more fiber feel easier, better-tasting, and more repeatable.
           </p>
         </Reveal>
 

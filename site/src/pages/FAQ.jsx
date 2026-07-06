@@ -12,7 +12,7 @@ const C = '#86335F'
 const PRODUCT = [
   {
     q: 'What is Off Menu Daily Fiber?',
-    a: 'A chef-led daily fiber soft chew, designed to support digestive health, regularity, fullness, and daily fiber intake — without powders, mixing, or capsules.',
+    a: 'A chef-led daily fiber soft chew, designed to support digestive health, regularity, fullness, and daily fiber intake, without powders, mixing, or capsules.',
   },
   {
     q: 'Who is it for?',
@@ -24,7 +24,7 @@ const PRODUCT = [
   },
   {
     q: 'How often should I take it?',
-    a: 'Take one chew daily as part of your routine. Consistency is what makes fiber work — the habit matters.',
+    a: 'Take one chew daily as part of your routine. Consistency is what makes fiber work. The habit matters.',
   },
   {
     q: 'When should I take it?',
@@ -44,7 +44,7 @@ const PRODUCT = [
   },
   {
     q: 'Is this a laxative?',
-    a: 'No. Off Menu is a daily fiber supplement designed to support digestive health and regularity — not a laxative.',
+    a: 'No. Off Menu is a daily fiber supplement designed to support digestive health and regularity, not a laxative.',
   },
   {
     q: 'Does it replace eating fiber-rich foods?',
@@ -167,7 +167,7 @@ export default function FAQ() {
             <Ill className="faq-rail__ill" src="Illustrations/_red/grape.svg" w={120} h={120} />
             <Reveal className="faq-card">
               <div className="faq-card__title serif">Still have questions?</div>
-              <p className="faq-card__sub">We're happy to help — drop us a note.</p>
+              <p className="faq-card__sub">We're happy to help. Drop us a note.</p>
               <button type="button" className="faq-card__btn">Contact us</button>
             </Reveal>
             <Ill className="faq-rail__ill" src="Illustrations/_red/carrot.svg" w={115} h={126} />

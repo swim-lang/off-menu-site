@@ -2,7 +2,7 @@
 .serif { font-family: var(--serif); font-style: italic; }
 
 .shop-hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 70px 40px 8px; }
-.shop-title { width: min(520px, 86%); height: auto; }
+.shop-title { width: clamp(300px, 46vw, 470px); height: auto; display: block; }
 .shop-sub { max-width: 560px; font-size: 18px; line-height: 1.5; color: var(--ink); padding-top: 6px; }
 
 .shop-grid {
@@ -21,7 +21,6 @@
 .shop-card__q { font-size: 21px; }
 .shop-card__name { font-size: 27px; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; padding-top: 7px; line-height: 1.05; }
 .shop-card__note { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding-top: 7px; color: var(--ink); }
-.shop-card__add { margin-top: 22px; }
 
 .shop-sampler { display: flex; justify-content: center; padding: 96px 40px 110px; }
 .shop-sampler__card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; max-width: 620px; }

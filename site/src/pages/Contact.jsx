@@ -51,7 +51,7 @@ export default function Contact() {
             {sent ? (
               <div className="cn-success" role="status">
                 <span className="cn-success__mark">✓</span>
-                <p className="cn-success__text">Thanks — we&rsquo;ll be in touch.</p>
+                <p className="cn-success__text">Thanks. We&rsquo;ll be in touch.</p>
               </div>
             ) : (
               <form className="cn-form" onSubmit={onSubmit}>

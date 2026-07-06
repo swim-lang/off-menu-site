@@ -11,7 +11,7 @@ const CLIPS = [
   { thumb: 'raw/cta-candy.jpg',    handle: '@snacksbysam',     name: 'Sam K.',    quote: 'Tastes like a treat, works like a supplement.', dur: '0:33' },
   { thumb: 'raw/sampler-photo.png',handle: '@themorningchew',  name: 'Devon L.',  quote: 'I stopped pretending I was going to use the powder.', dur: '1:04' },
   { thumb: 'raw/story-candy.png',  handle: '@dietitian.dana',  name: 'Dana P.',   quote: 'An easy daily habit people could actually keep.', dur: '0:48' },
-  { thumb: 'raw/story-bg.jpg',     handle: '@thechewcrew',     name: 'Mateo S.',  quote: 'Looks like deli candy — but make it fiber.', dur: '0:29' },
+  { thumb: 'raw/story-bg.jpg',     handle: '@thechewcrew',     name: 'Mateo S.',  quote: 'Looks like deli candy, but make it fiber.', dur: '0:29' },
 ]
 
 export default function Testimonials({ color = '#C11209', reviewId }) {
