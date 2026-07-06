@@ -31,11 +31,11 @@ const FORYOU = [
 ]
 
 const SCIENCE = [
-  { t: 'Digestion and regularity', b: 'Fiber helps support the daily rhythm of digestion, so things feel less stuck and more consistent.' },
-  { t: 'A fed gut microbiome', b: 'Some fibers act as food for the good bacteria in your gut, which is one reason fiber keeps showing up in the gut health conversation.' },
-  { t: 'Fullness and appetite', b: 'Fiber can help you feel fuller, which makes it a useful part of a daily routine instead of another random supplement.' },
-  { t: 'Steadier days', b: 'Fiber helps slow digestion, which can support a steadier feeling between meals.' },
-  { t: 'The long game', b: 'Fiber is not flashy. It is foundational, which is exactly why it deserves a better format.' },
+  { t: 'Stay regular', b: 'Fiber helps support the daily rhythm of digestion, so things feel less stuck and more consistent.' },
+  { t: 'Less bloating', b: 'Some fibers act as food for the good bacteria in your gut, which is one reason fiber keeps showing up in the gut health conversation.' },
+  { t: 'Fewer cravings', b: 'Fiber can help you feel fuller, which makes it a useful part of a daily routine instead of another random supplement.' },
+  { t: 'Steadier energy', b: 'Fiber helps slow digestion, which can support a steadier feeling between meals.' },
+  { t: 'Better over time', b: 'Fiber is not flashy. It is foundational, which is exactly why it deserves a better format.' },
 ]
 
 const RELATED = [
