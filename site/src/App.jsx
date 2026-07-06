@@ -10,6 +10,8 @@ import Shipping from './pages/Shipping'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import About from './pages/About'
+import CartDrawer from './components/CartDrawer'
+import { CartProvider } from './lib/cart'
 import { installButtonSfx } from './lib/sfx'
 import { initReview } from './lib/review'
 
@@ -22,7 +24,7 @@ function ScrollToTop() {
 export default function App() {
   useEffect(() => { installButtonSfx(); initReview() }, [])
   return (
-    <>
+    <CartProvider>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -36,6 +38,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
-    </>
+      <CartDrawer />
+    </CartProvider>
   )
 }

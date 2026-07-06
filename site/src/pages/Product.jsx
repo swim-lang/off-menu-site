@@ -5,6 +5,7 @@ import Reveal from '../components/Reveal'
 import Ill from '../components/Ill'
 import Testimonials from '../components/Testimonials'
 import { fadeUp, riseBig, stickerPop, stagger, inView } from '../lib/motion'
+import { useCart, CATALOG } from '../lib/cart'
 import './Product.css'
 
 const C = '#694078'
@@ -66,6 +67,15 @@ export default function Product() {
   const [openFaq, setOpenFaq] = useState(0)
   const [lesson, setLesson] = useState(0)
   const price = PLANS[plan].price
+  const { addItem, setSubscribe, open: openCart } = useCart()
+
+  // Add the flavor to the cart, match the cart's plan to the selected one, and
+  // slide the cart out (instead of navigating to a separate cart page).
+  const addToCart = () => {
+    addItem(CATALOG.verjus)
+    setSubscribe(plan === 'sub')
+    openCart()
+  }
 
   return (
     <Page page="product">
@@ -117,6 +127,7 @@ export default function Product() {
           <motion.button
             className="pdp-cart"
             type="button"
+            onClick={addToCart}
             whileTap={{ y: 7, boxShadow: `0 0 0 ${C}` }}
           >
             Add to cart · ${price}

@@ -1,65 +1,25 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Page from '../components/Page'
 import Reveal from '../components/Reveal'
 import Ill from '../components/Ill'
 import { fadeUp, riseBig, stagger, inView } from '../lib/motion'
+import { useCart, money, SHIP_THRESHOLD, SHIP_FLAT } from '../lib/cart'
 import './Cart.css'
 
 const C = '#4C9E3C'
 
-const SUB_LINE = 'Daily fiber chews · Chef-led flavor · 60 ct'
-const SHIP_THRESHOLD = 35
-const SUB_DISCOUNT = 0.15
-const TAX_RATE = 0.0825
-
-const INITIAL = [
-  { id: 'verjus', name: 'Concord Verjus Grape', sub: SUB_LINE, price: 24, qty: 2, img: 'raw/1.png' },
-  { id: 'cherry', name: 'Cherry Cola Spice', sub: SUB_LINE, price: 24, qty: 1, img: 'raw/2.png' },
-]
-
-// Valid promo codes → fractional discount
-const PROMOS = { OFFMENU10: 0.1, CHEWY15: 0.15 }
-
-const money = (n) => `$${n.toFixed(2)}`
-
 export default function Cart() {
-  const [items, setItems] = useState(INITIAL)
-  const [subscribe, setSubscribe] = useState(true)
+  // Shared with the slide-out drawer so both stay in sync.
+  const { items, subscribe, setSubscribe, promo, applyPromo, setQty, removeItem, totals } = useCart()
   const [promoInput, setPromoInput] = useState('')
-  const [promo, setPromo] = useState(null) // { code, rate } | null
   const [promoError, setPromoError] = useState('')
 
-  const setQty = (id, delta) =>
-    setItems((cur) =>
-      cur.map((it) => (it.id === id ? { ...it, qty: Math.max(1, it.qty + delta) } : it))
-    )
-
-  const removeItem = (id) => setItems((cur) => cur.filter((it) => it.id !== id))
-
-  const applyPromo = (e) => {
+  const onApplyPromo = (e) => {
     e.preventDefault()
-    const code = promoInput.trim().toUpperCase()
-    if (!code) return
-    if (PROMOS[code]) {
-      setPromo({ code, rate: PROMOS[code] })
-      setPromoError('')
-    } else {
-      setPromo(null)
-      setPromoError('That code isn’t valid. Try OFFMENU10.')
-    }
+    const res = applyPromo(promoInput)
+    setPromoError(res.ok ? '' : res.error)
   }
-
-  const totals = useMemo(() => {
-    const subtotal = items.reduce((sum, it) => sum + it.price * it.qty, 0)
-    const subDiscount = subscribe ? subtotal * SUB_DISCOUNT : 0
-    const promoDiscount = promo ? (subtotal - subDiscount) * promo.rate : 0
-    const taxable = subtotal - subDiscount - promoDiscount
-    const tax = taxable * TAX_RATE
-    const shipFree = subtotal >= SHIP_THRESHOLD
-    const total = taxable + tax
-    return { subtotal, subDiscount, promoDiscount, tax, total, shipFree }
-  }, [items, subscribe, promo])
 
   const empty = items.length === 0
 
@@ -167,7 +127,7 @@ export default function Cart() {
             </motion.div>
 
             {/* Promo code */}
-            <motion.form className="cart-promo" variants={fadeUp} onSubmit={applyPromo}>
+            <motion.form className="cart-promo" variants={fadeUp} onSubmit={onApplyPromo}>
               <input
                 className="cart-promo__input"
                 type="text"
@@ -234,7 +194,7 @@ export default function Cart() {
             <div className="cart-row">
               <span className="cart-row__label">Shipping</span>
               <span className="cart-row__val cart-row__val--accent">
-                {totals.shipFree ? 'Free over $35' : money(5.95)}
+                {totals.shipFree ? 'Free over $35' : money(SHIP_FLAT)}
               </span>
             </div>
 
