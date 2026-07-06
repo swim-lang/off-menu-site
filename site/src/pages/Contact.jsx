@@ -121,7 +121,7 @@ export default function Contact() {
             </div>
 
             <div className="cn-help">
-              <h3 className="cn-help__title">What we can help with</h3>
+              <h3 className="cn-help__title">Ask us about</h3>
               <Reveal v={stagger(0.05)} className="cn-chips">
                 {HELP_TOPICS.map((t) => (
                   <Reveal as="span" key={t} v={fadeUp} className="cn-chip">
