@@ -19,8 +19,23 @@ const HELP_TOPICS = [
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', order: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [photos, setPhotos] = useState([]) // [{ id, name, url }] — object-URL previews
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const addPhotos = (e) => {
+    const files = Array.from(e.target.files || []).filter((f) => f.type.startsWith('image/'))
+    setPhotos((prev) => [
+      ...prev,
+      ...files.map((file) => ({ id: `${Date.now()}-${Math.random().toString(16).slice(2)}`, name: file.name, url: URL.createObjectURL(file) })),
+    ])
+    e.target.value = '' // let the same file be picked again after removal
+  }
+  const removePhoto = (id) => setPhotos((prev) => {
+    const target = prev.find((p) => p.id === id)
+    if (target) URL.revokeObjectURL(target.url)
+    return prev.filter((p) => p.id !== id)
+  })
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -97,6 +112,25 @@ export default function Contact() {
                     placeholder="Tell us a little about what you need…"
                   />
                 </label>
+
+                <div className="cn-field">
+                  <span className="cn-label">Photos (helpful for returns or damage)</span>
+                  <label className="cn-upload">
+                    <input type="file" accept="image/*" multiple onChange={addPhotos} hidden />
+                    <span className="cn-upload__icon" aria-hidden="true">+</span>
+                    <span className="cn-upload__text">Add photos<em>Attach one or more images</em></span>
+                  </label>
+                  {photos.length > 0 && (
+                    <ul className="cn-thumbs">
+                      {photos.map((p) => (
+                        <li key={p.id} className="cn-thumb">
+                          <img src={p.url} alt={p.name} />
+                          <button type="button" className="cn-thumb__remove" onClick={() => removePhoto(p.id)} aria-label={`Remove ${p.name}`}>×</button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
 
                 <button className="cn-submit" type="submit">
                   Send message →
