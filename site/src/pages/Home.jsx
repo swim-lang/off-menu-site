@@ -259,6 +259,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* VIDEO TESTIMONIALS */}
+      <Testimonials color={C} reviewId="home-testimonials" />
+
       {/* WHY FIBER */}
       <section data-review-id="home-myths" className="why" style={{ color: C }}>
         <div className="why__top">
@@ -354,9 +357,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* VIDEO TESTIMONIALS */}
-      <Testimonials color={C} reviewId="home-testimonials" />
 
       {/* CTA */}
       <CtaSignup color={C} reviewId="home-cta" />
