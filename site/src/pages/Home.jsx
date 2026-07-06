@@ -61,7 +61,7 @@ const FACTS = [
   { l: 'Fact 01 · Gut health', t: 'Your gut is home to about 100 trillion microbes, more than there are stars in the Milky Way.' },
   { l: 'Fact 02 · Immunity', t: 'Roughly 70% of your immune system lives in your gut.' },
   { l: 'Fact 03 · Mood', t: "Your gut makes about 95% of your body's serotonin, the feel-good chemical." },
-  { l: 'Fact 04 · The gap', t: 'Most adults get only half the fiber they actually need each day.' },
+  { l: 'Fact 04 · The gap', t: 'Most people get less than half the fiber they need each day, and many barely a third.' },
   { l: 'Fact 05 · Fuel', t: "Fiber feeds your good gut bacteria. They're the real chefs down there." },
 ]
 const FACT_ROT = [-2, 2.5, -3.5, 1.5, -1] // playful: each fact card sits at a different skew
