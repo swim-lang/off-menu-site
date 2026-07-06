@@ -48,7 +48,7 @@ export default function Shop() {
     <Page page="shop">
       <section data-review-id="shop-hero" className="shop-hero" style={{ color: C }}>
         <Reveal as="span" className="shop-eyebrow">Daily fiber chews</Reveal>
-        <Reveal><img className="shop-title" src="raw/pick-your-chew.svg" alt="Pick your chew" /></Reveal>
+        <Reveal><img className="shop-title" src="raw/get-yours-today.svg" alt="Get yours today" /></Reveal>
         <Reveal as="p" className="shop-sub">One soft chew a day, chef-inspired flavor. This is where we're starting.</Reveal>
       </section>
 
@@ -56,7 +56,7 @@ export default function Shop() {
         <Chew p={LAUNCH} />
       </motion.div>
 
-      <CtaSignup color={C} reviewId="shop-cta" />
+      <CtaSignup color={C} reviewId="shop-cta" showHeadImg={false} />
     </Page>
   )
 }
