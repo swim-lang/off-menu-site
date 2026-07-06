@@ -6,6 +6,7 @@ import Reveal from '../components/Reveal'
 import Ill from '../components/Ill'
 import Seal from '../components/Seal'
 import Testimonials from '../components/Testimonials'
+import CtaSignup from '../components/CtaSignup'
 import { fadeUp, riseBig, stagger, stickerPop, inView } from '../lib/motion'
 import { playBellHit, playScribble, playPencil } from '../lib/sfx'
 import './Home.css'
@@ -351,19 +352,7 @@ export default function Home() {
       <Testimonials color={C} reviewId="home-testimonials" />
 
       {/* CTA */}
-      <section data-review-id="home-cta" className="cta" style={{ '--c': C, color: C }}>
-        <div className="cta__hounds" style={{ backgroundImage: 'url(Pattern/_paper/PatternNEW-c11209.svg)' }} />
-        <div className="cta__body">
-          <Reveal as="span" className="cta__pill u-skew">★ Chef's orders</Reveal>
-          <Reveal v={riseBig}><img className="cta__head-img" src="raw/get-yours-today.svg" alt="Get yours today" /></Reveal>
-          <Reveal as="p" className="cta__sub">Join the list for launch access, first-batch flavors, and the occasional chef's note.</Reveal>
-          <Reveal as="form" className="cta__form" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="you@email.com" aria-label="Email" />
-            <button className="btn" type="submit">Get on the list</button>
-          </Reveal>
-        </div>
-        <div className="cta__hounds" style={{ backgroundImage: 'url(Pattern/_paper/PatternNEW-c11209.svg)' }} />
-      </section>
+      <CtaSignup color={C} reviewId="home-cta" />
     </Page>
   )
 }

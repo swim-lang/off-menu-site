@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Page from '../components/Page'
 import Reveal from '../components/Reveal'
+import CtaSignup from '../components/CtaSignup'
 import { fadeUp, stagger, inView } from '../lib/motion'
 import './Shop.css'
 
@@ -51,14 +52,7 @@ export default function Shop() {
         {CHEWS.map((p) => <Chew key={p.name} p={p} />)}
       </motion.div>
 
-      <section data-review-id="shop-sampler" className="shop-sampler" style={{ color: C }}>
-        <div className="shop-sampler__card">
-          <span className="shop-eyebrow">Can't decide?</span>
-          <h2 className="shop-sampler__head">Taste the whole menu.</h2>
-          <p className="shop-sampler__body">All ten flavors, one box. The chef's orders — try everything before you commit.</p>
-          <a className="btn shop-sampler__btn">Shop the sampler</a>
-        </div>
-      </section>
+      <CtaSignup color={C} reviewId="shop-cta" />
     </Page>
   )
 }
