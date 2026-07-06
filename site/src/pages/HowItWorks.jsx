@@ -42,7 +42,7 @@ export default function HowItWorks() {
     <Page page="howitworks">
       {/* HERO */}
       <section data-review-id="howitworks-hero" className="hiw-hero" style={{ color: C }}>
-        <Reveal v={riseBig}><img className="hiw-hero__lockup" src="raw/one-chew-lockup.svg" alt="One chew. Daily fiber." /></Reveal>
+        <Reveal v={riseBig}><img className="hiw-hero__lockup" src="raw/two-chew-lockup.svg" alt="Two chews. Daily fiber." /></Reveal>
         <Reveal v={fadeUp}><img className="hiw-hero__whisk" src="raw/chef-whisk.svg" alt="" /></Reveal>
         <Reveal as="h1" v={riseBig} className="hiw-hero__head">Better odds you'll actually take it.</Reveal>
         <Reveal as="p" className="hiw-hero__sub">Fiber works best when it becomes a habit. So we made the habit easier, softer, and a lot more enjoyable to taste. Three small moves, on repeat.</Reveal>
