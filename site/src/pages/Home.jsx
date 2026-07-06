@@ -251,7 +251,7 @@ export default function Home() {
             <div className="foryou__tk-foot">
               <div className="foryou__total-row">
                 <span className="foryou__total-l">Total</span>
-                <span className="foryou__total-r">1 daily chew</span>
+                <span className="foryou__total-r">2 daily chews</span>
               </div>
               <span className="foryou__foot-note">Checked even one box? Consider that a yes. This one's for you.</span>
             </div>
