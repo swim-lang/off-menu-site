@@ -223,11 +223,6 @@ export default function Product() {
             Each chew adds 2g fiber to your day. It's not here to replace fruits, vegetables, grains, nuts, or seeds. It's here to make getting a little more fiber feel easier, better-tasting, and more repeatable.
           </p>
         </Reveal>
-
-        <Reveal as="p" className="pdp-science__fine">
-          These statements describe the role of dietary fiber generally and have not been evaluated by the FDA. Off Menu
-          is a supplement to a balanced diet, not a treatment, cure, or replacement for whole foods.
-        </Reveal>
       </section>
 
       {/* ===== MADE FOR YOUR GUT ===== */}
