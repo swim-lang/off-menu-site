@@ -80,8 +80,36 @@ export default function HowItWorks() {
       {/* SPLASH */}
       <section data-review-id="howitworks-splash" className="hiw-splash" style={{ color: C }}>
         <Reveal as="span" className="hiw-eyebrow">The Off Menu rule</Reveal>
-        <Reveal as="h2" v={riseBig} className="hiw-splash__head u-skew">Make the thing you should take taste like the thing you want.</Reveal>
-        <Reveal v={fadeUp}><img className="hiw-splash__chef" src="raw/chef-chop.svg" alt="" /></Reveal>
+        <Reveal as="h2" v={riseBig} className="hiw-splash__head u-skew">Make fiber taste like a treat.</Reveal>
+        <Reveal v={fadeUp}>
+          <video
+            className="hiw-splash__chef"
+            src="Video/chef-chop.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="Chef chopping ingredients"
+          />
+        </Reveal>
+
+        {/* Recolor the black line-art video to brand pink: luminance -> alpha, flat pink fill */}
+        <svg className="hiw-filter-def" aria-hidden="true" focusable="false">
+          <filter id="hiw-pinkify" x="0" y="0" width="100%" height="100%" colorInterpolationFilters="sRGB">
+            <feComponentTransfer>
+              <feFuncR type="linear" slope="2" intercept="-0.5" />
+              <feFuncG type="linear" slope="2" intercept="-0.5" />
+              <feFuncB type="linear" slope="2" intercept="-0.5" />
+            </feComponentTransfer>
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0.7686
+                      0 0 0 0 0.1804
+                      0 0 0 0 0.4157
+                      -0.3333 -0.3333 -0.3333 0 1"
+            />
+          </filter>
+        </svg>
       </section>
     </Page>
   )
