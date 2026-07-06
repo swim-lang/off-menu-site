@@ -109,7 +109,7 @@ export default function Ingredients() {
           <div className="ing-intro__menu">
             <span className="ing-intro__crest">✦ On the menu · Est. in the kitchen ✦</span>
             <span className="ing-intro__eyebrow">Flavor, plated</span>
-            <h2 className="ing-intro__head">More menu than candy aisle.</h2>
+            <h2 className="ing-intro__head">More menu <span className="ing-intro__gt">&gt;</span> candy aisle.</h2>
             <div className="ing-intro__rule"><span className="ing-intro__rule-dot" /></div>
             <p className="ing-intro__body">Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to make fiber complicated. It's to make it taste like someone thought about it.</p>
           </div>
