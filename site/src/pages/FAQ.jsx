@@ -100,7 +100,7 @@ function Accordion({ title, items, groupKey, open, setOpen }) {
           const isOpen = open === i
           return (
             <Reveal key={it.q} className="faq-item-wrap">
-              <div className={`faq-item ${isOpen ? 'is-open' : ''}`}>
+              <div data-review-id={`faq-${groupKey}-${i}`} className={`faq-item ${isOpen ? 'is-open' : ''}`}>
                 <button
                   type="button"
                   className="faq-q"
