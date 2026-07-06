@@ -261,7 +261,14 @@ export default function Home() {
 
       {/* WHY FIBER */}
       <section data-review-id="home-myths" className="why" style={{ color: C }}>
-        <Reveal as="h2" v={riseBig} className="why__head">Not your grandma's fiber</Reveal>
+        <div className="why__top">
+          <Reveal as="h2" v={riseBig} className="why__head">Not your grandma's fiber</Reveal>
+          <Reveal className="why__stat">
+            <span className="why__stat-num">95%</span>
+            <span className="why__stat-lead">of people don't get enough fiber.</span>
+            <span className="why__stat-sub">Most already know they should get more. Off Menu just makes it a chew you'll actually look forward to.</span>
+          </Reveal>
+        </div>
         <div className="why__cols">
           <div className="why__divider" />
           <div className="why__track">
