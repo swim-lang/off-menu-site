@@ -12,7 +12,7 @@ export const money = (n) => `$${n.toFixed(2)}`
 
 // Products that can be added to the cart (Add to cart on the PDP uses `verjus`).
 export const CATALOG = {
-  verjus: { id: 'verjus', name: 'Concord Verjus Grape', sub: SUB_LINE, price: 24, img: 'raw/1.png' },
+  verjus: { id: 'verjus', name: 'Concord Verjus Grape', sub: SUB_LINE, price: 24, img: 'raw/new-bag.png' },
   cherry: { id: 'cherry', name: 'Cherry Cola Spice', sub: SUB_LINE, price: 24, img: 'raw/2.png' },
 }
 
