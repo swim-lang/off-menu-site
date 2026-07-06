@@ -39,6 +39,7 @@ function Chew({ p }) {
         <div className="shop-card__name serif">{p.name}</div>
         <div className="shop-card__note">{p.note}</div>
       </Link>
+      <Link to="/cart" className="btn shop-card__add">Add to cart</Link>
     </motion.div>
   )
 }

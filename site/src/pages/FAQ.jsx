@@ -149,7 +149,7 @@ export default function FAQ() {
         <Reveal as="span" className="faq-eyebrow">Help · FAQ</Reveal>
         <Reveal as="h1" v={riseBig} className="faq-hero__head">Frequently asked questions</Reveal>
         <Reveal as="p" className="faq-hero__sub">
-          Everything about the chews, your routine, and what's inside. Still stuck? Reach us at support@offmenu.com.
+          Everything about the chews, your routine, and what's inside. Still stuck? Reach out directly to the chef at chefchewy@offmenu.health.
         </Reveal>
       </section>
 
