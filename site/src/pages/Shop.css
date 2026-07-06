@@ -7,7 +7,7 @@
 
 .shop-grid {
   display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 56px 40px; width: 100%; max-width: 1200px; margin: 48px auto 0; padding: 0 40px;
+  gap: 56px 40px; width: 100%; max-width: 1200px; margin: 48px auto 0; padding: 0 40px 104px;
 }
 .shop-card { width: 270px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; text-align: center; color: var(--c); }
 .shop-card__photo { width: 270px; height: 463px; border-radius: 18px; overflow: hidden; }
