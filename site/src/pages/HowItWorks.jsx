@@ -82,15 +82,16 @@ export default function HowItWorks() {
         <Reveal as="span" className="hiw-eyebrow">The Off Menu rule</Reveal>
         <Reveal as="h2" v={riseBig} className="hiw-splash__head u-skew">Make fiber taste like a treat.</Reveal>
         <Reveal v={fadeUp}>
-          <video
-            className="hiw-splash__chef"
-            src="Video/chef-chop.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-label="Chef chopping ingredients"
-          />
+          <div className="hiw-splash__chef">
+            <video
+              src="Video/chef-chop.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-label="Chef chopping ingredients"
+            />
+          </div>
         </Reveal>
 
         {/* Recolor the black line-art video to brand pink: luminance -> alpha, flat pink fill */}

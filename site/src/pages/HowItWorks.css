@@ -6,7 +6,9 @@
 .hiw-hero__whisk { width: min(380px, 76%); height: auto; margin-bottom: 28px; }
 .hiw-hero__head { font-size: clamp(26px, 3.4vw, 44px); line-height: 1.05; text-transform: uppercase; letter-spacing: -0.015em; max-width: 16ch; }
 .hiw-hero__sub { font-size: 18px; line-height: 1.5; color: var(--ink); max-width: 520px; }
-.hiw-splash__chef { display: block; width: min(360px, 78%); height: auto; margin-top: 36px; filter: url(#hiw-pinkify); }
+/* Window cropped tight to the chef; the video is zoomed so only he shows (no full-width counter line). */
+.hiw-splash__chef { position: relative; overflow: hidden; width: min(460px, 84vw); aspect-ratio: 270 / 365; margin: 32px auto 0; }
+.hiw-splash__chef video { position: absolute; width: 444%; max-width: none; height: auto; left: -165%; top: -52%; filter: url(#hiw-pinkify); }
 .hiw-filter-def { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
 
 .hiw-route { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 70px 40px 90px; }
