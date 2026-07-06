@@ -123,7 +123,7 @@ export default function Home() {
     <Page page="home">
       {/* HERO */}
       <section data-review-id="home-hero" className="hero" style={{ color: C }}>
-        <video className="hero__vid" src="Video/2.mp4" poster="raw/poster.jpg" autoPlay loop muted playsInline />
+        <video className="hero__vid" src="Video/8626671-uhd_3840_2160_25fps.mp4" poster="raw/poster.jpg" autoPlay loop muted playsInline />
         <motion.img className="hero__tag" src="raw/Header-Tagline-rwhite.svg" alt="Fiber, re-plated"
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} />
         <div className="hero__circle"><Seal shape="burst" size={140} rotate={0} label="New drop" color={C} /></div>

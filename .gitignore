@@ -17,5 +17,5 @@ _review/
 
 # unused stock videos (keep only the hero video the site uses)
 brand-assets/video/*.mp4
-!brand-assets/video/2.mp4
+!brand-assets/video/8626671-uhd_3840_2160_25fps.mp4
 .env*
