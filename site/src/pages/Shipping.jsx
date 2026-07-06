@@ -55,9 +55,6 @@ export default function Shipping() {
       <section data-review-id="shipping-header" className="ship-header" style={{ color: C }}>
         <Reveal as="div" className="ship-eyebrow">Help · Off Menu policies</Reveal>
         <Reveal as="h1" v={riseBig} className="ship-title">Shipping &amp; Returns</Reveal>
-        <Reveal as="p" className="ship-sub">
-          Everything you need to know about getting your chews, and what to do if something's off.
-        </Reveal>
       </section>
 
       {/* REASSURANCE */}
@@ -65,6 +62,7 @@ export default function Shipping() {
         <Reveal className="ship-reassure__card">
           <h2 className="ship-reassure__title u-skew">Something off?</h2>
           <p className="ship-reassure__body">If your order arrives damaged, incorrect, or missing, send us a note. We'll take a look and help make it right.</p>
+          <p className="ship-reassure__body">Reach out directly to the chef at <a href="mailto:chefchewy@offmenu.health" style={{ color: 'var(--c)', textDecoration: 'underline' }}>chefchewy@offmenu.health</a>.</p>
         </Reveal>
       </section>
 
