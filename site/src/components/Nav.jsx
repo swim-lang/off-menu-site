@@ -7,7 +7,7 @@ import './Nav.css'
 // Full-screen overlay menu — matches the Paper "Menu (overlay)" artboard exactly.
 // Always brand red (#C11209) regardless of which page opened it.
 const MENU = [
-  { title: 'Shop', items: [['Home', '/'], ['Buy now', '/shop'], ['Ingredients & flavors', '/ingredients']] },
+  { title: 'Shop', items: [['Home', '/'], ['Get now', '/shop'], ['Ingredients & flavors', '/ingredients']] },
   { title: 'Learn', items: [['How it works', '/how-it-works'], ['Our story', '/about']] },
   { title: 'Help', items: [['FAQ', '/faq'], ['Shipping & returns', '/shipping'], ['Support', '/contact']] },
 ]
@@ -25,7 +25,7 @@ export default function Nav({ slug = 'red', color = '#C11209' }) {
           Menu
         </button>
         <div className="nav__actions">
-          <Link to="/shop" className="nav__chip">Buy now</Link>
+          <Link to="/shop" className="nav__chip">Get now</Link>
           <Link to="/cart" className="nav__chip">Cart <span className="nav__count">(0)</span></Link>
         </div>
       </div>
