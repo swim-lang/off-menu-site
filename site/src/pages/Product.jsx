@@ -84,7 +84,7 @@ export default function Product() {
           </Reveal>
           <Reveal as="div" className="pdp-hero__price serif">${price}</Reveal>
           <Reveal as="p" className="pdp-hero__desc">
-            A chef-inspired soft chew with 2g fiber for the days your gut feels bloated, sluggish, or just a little
+            A chef-inspired soft chew with 2g fiber per serving for the days your gut feels bloated, sluggish, or just a little
             off. Less powder routine. More small daily habit you can actually stick with.
           </Reveal>
 
@@ -220,7 +220,7 @@ export default function Product() {
         <Reveal className="pdp-honest">
           <h3 className="pdp-honest__title serif">A small daily fiber habit.</h3>
           <p className="pdp-honest__body">
-            Each chew adds 2g fiber to your day. It's not here to replace fruits, vegetables, grains, nuts, or seeds. It's here to make getting a little more fiber feel easier, better-tasting, and more repeatable.
+            Each serving adds 2g fiber to your day. It's not here to replace fruits, vegetables, grains, nuts, or seeds. It's here to make getting a little more fiber feel easier, better-tasting, and more repeatable.
           </p>
         </Reveal>
       </section>

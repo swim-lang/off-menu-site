@@ -14,7 +14,7 @@ import './Home.css'
 const C = '#C11209'
 
 const TICKER = [
-  ['apple', 'Daily fiber'], ['grape', '2g fiber'], ['Cherry', 'Soft chews'],
+  ['apple', 'Daily fiber'], ['grape', '2g per serving'], ['Cherry', 'Soft chews'],
   ['strawberry', 'Chef-inspired flavor'], ['watermelon', 'No powder'], ['carrot', 'Good for your gut'],
 ]
 
@@ -160,10 +160,9 @@ export default function Home() {
           <img className="products__title" src="raw/get-yours-today.svg" alt="Get yours today" />
           <span className="eyebrow">Daily fiber chews</span>
         </Reveal>
-        <motion.div className="products__row" variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView}>
+        <motion.div className="products__row products__row--single" variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView}>
           <Card p={LAUNCH} />
         </motion.div>
-        <Reveal><Link className="products__shop" to="/shop">Shop now →</Link></Reveal>
       </section>
 
       {/* SOUND FAMILIAR — lead-in */}
@@ -201,7 +200,7 @@ export default function Home() {
           <h2 className="intro__head">No scoop. No shaker. Just chew.</h2>
           <div className="intro__rule"><span className="intro__rule-dot" /></div>
           <p className="intro__body">Most fiber supplements make the habit feel like work. Powders, scoops, chalky citrus, and giant tubs with no respect for your counter space.</p>
-          <p className="intro__body">Off Menu takes a simpler route: 2g fiber in a soft chew with chef-inspired flavor, made to feel less like a chore and more like something you might actually remember.</p>
+          <p className="intro__body">Off Menu takes a simpler route: a soft chew with 2g fiber per serving and chef-inspired flavor, made to feel less like a chore and more like something you might actually remember.</p>
         </motion.div>
       </section>
 
