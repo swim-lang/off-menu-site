@@ -111,7 +111,6 @@ export default function Ingredients() {
             <span className="ing-intro__eyebrow">Flavor, plated</span>
             <h2 className="ing-intro__head">Chef’s menu, not the candy aisle.</h2>
             <div className="ing-intro__rule"><span className="ing-intro__rule-dot" /></div>
-            <p className="ing-intro__body">Each flavor starts with something familiar, then adds a more specific culinary twist. The goal is not to make fiber complicated. It's to make it taste like someone thought about it.</p>
           </div>
         </Reveal>
       </section>
