@@ -3,13 +3,13 @@ import Page from '../components/Page'
 import Reveal from '../components/Reveal'
 import Ill from '../components/Ill'
 import { fadeUp, riseBig, inView } from '../lib/motion'
-import { playBellHit } from '../lib/sfx'
+import { playBell } from '../lib/sfx'
 import './HowItWorks.css'
 
 const C = '#C42E6A'
 
-// Every step plays the recorded bell hit on hover.
-const STEP_SOUNDS = [playBellHit, playBellHit, playBellHit]
+// Every step plays the synthesized "order up" bell on hover.
+const STEP_SOUNDS = [playBell, playBell, playBell]
 
 const STEPS = [
   { n: '01', kicker: 'Step', title: 'Take one chew daily.', body: 'No mixing, no measuring, no orange dust on your counter. Just unwrap, chew, and move on with your day.', ill: 'apple' },
