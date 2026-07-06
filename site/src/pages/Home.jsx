@@ -25,7 +25,7 @@ const PRODUCTS = [
 ]
 
 // The single flavor the client is launching with (matches the product page + shop).
-const LAUNCH = { img: 'raw/3.png', kicker: 'Punchy', q: 'Grape', name: 'Concord Grape Verjus', note: 'Concord grape, tart verjus.' }
+const LAUNCH = { img: 'raw/new-bag.png', kicker: 'Punchy', q: 'Grape', name: 'Concord Grape Verjus', note: 'Concord grape, tart verjus.' }
 
 const QUALIFIERS = [
   'Feel bloated after meals',

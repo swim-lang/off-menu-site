@@ -20,7 +20,7 @@ const CHEWS = [
   { img: 'raw/3.png', kicker: 'Bold',   q: 'Cola',        name: 'Cherry Cola Spice',          note: 'Cherry cola, warm spice.' },
   { img: 'raw/1.png', kicker: 'Soft',   q: 'Peach',       name: 'Peach Chamomile Honey',      note: 'Soft peach, chamomile, honey.' },
   { img: 'raw/2.png', kicker: 'Zesty',  q: 'Grapefruit',  name: 'Grapefruit Fennel Salt',     note: 'Grapefruit, fennel, tiny salt.' },
-  { img: 'raw/3.png', kicker: 'Punchy', q: 'Grape',       name: 'Concord Grape Verjus',       note: 'Concord grape, tart verjus.' },
+  { img: 'raw/new-bag.png', kicker: 'Punchy', q: 'Grape',       name: 'Concord Grape Verjus',       note: 'Concord grape, tart verjus.' },
 ]
 
 // The single flavor the client is launching with (matches the product page).
