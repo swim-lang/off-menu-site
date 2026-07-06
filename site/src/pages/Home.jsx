@@ -24,6 +24,9 @@ const PRODUCTS = [
   { img: 'raw/1.png', kicker: 'Bright', q: 'Strawberry', name: 'Strawberry Fig Leaf', note: 'Ripe strawberry, green fig leaf, soft almond.' },
 ]
 
+// The single flavor the client is launching with (matches the product page + shop).
+const LAUNCH = { img: 'raw/3.png', kicker: 'Punchy', q: 'Grape', name: 'Concord Grape Verjus', note: 'Concord grape, tart verjus.' }
+
 const QUALIFIERS = [
   'Feel bloated after meals',
   'Know they need more fiber but hate powder',
@@ -154,15 +157,13 @@ export default function Home() {
       {/* PRODUCTS */}
       <section id="products" data-review-id="home-products" className="products" style={{ '--c': C, color: C }}>
         <Reveal as="div" className="products__head">
-          <img className="products__title" src="raw/pick-your-chew.svg" alt="Pick your chew" />
-          <span className="eyebrow">The lineup · daily fiber chews</span>
+          <img className="products__title" src="raw/get-yours-today.svg" alt="Get yours today" />
+          <span className="eyebrow">Daily fiber chews</span>
         </Reveal>
-        {[0, 1].map((row) => (
-          <motion.div className="products__row" key={row} variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView}>
-            {PRODUCTS.map((p) => <Card key={p.name + row} p={p} />)}
-          </motion.div>
-        ))}
-        <Reveal><Link className="products__shop" to="/shop">Shop all 10 flavors →</Link></Reveal>
+        <motion.div className="products__row" variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView}>
+          <Card p={LAUNCH} />
+        </motion.div>
+        <Reveal><Link className="products__shop" to="/shop">Shop now →</Link></Reveal>
       </section>
 
       {/* SOUND FAMILIAR — lead-in */}
