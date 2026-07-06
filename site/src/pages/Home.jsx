@@ -297,7 +297,7 @@ export default function Home() {
         <Reveal as="span" className="f101__eyebrow">Fiber 101</Reveal>
         <Reveal as="h2" v={riseBig} className="f101__head">What good fiber actually does.</Reveal>
         <Reveal as="p" className="f101__intro">
-          Fiber is the part of plants your body can't fully break down, and that's exactly the point.
+          Fiber is the part of plants that keeps working as it moves through your system, and that's exactly the point.
           It helps keep digestion moving, feeds your gut, and supports fullness. Here's the quick version.
         </Reveal>
         <motion.div className="f101__grid" variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={inView}>
