@@ -250,6 +250,26 @@ export function initReview() {
     }
   }
 
+  // Reopen a resolved comment (e.g. resolved by accident). Returns it to Open,
+  // or Reviewed if it already has a reply.
+  const unresolveComment = async (id) => {
+    if (!HAS_SUPABASE) { showNotice('Supabase is required to reopen comments.'); return }
+    try {
+      const rows = await request(`${REVIEW_TABLE}?id=eq.${encodeURIComponent(id)}&project=eq.${REVIEW_PROJECT}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ status: 'open', resolved_at: null }),
+      })
+      const saved = rows[0] ? toComment(rows[0]) : null
+      state.comments = state.comments.map((c) => (c.id === id ? saved || { ...c, status: 'open', resolvedAt: null } : c))
+      markCommentedSections()
+      showNotice('Comment reopened.')
+      render()
+    } catch (error) {
+      console.warn('Could not reopen comment.', error)
+      showNotice('Could not reopen in Supabase.')
+    }
+  }
+
   // Team reply to a client comment. Sets reply + resets reply_ack so the client
   // has to review it. Re-replying (updating) also re-flags it for review.
   const addReply = async (id, text) => {
@@ -409,7 +429,9 @@ export function initReview() {
             </form>
             <div class="review-panel-actions">
               <button type="button" data-review-jump="${item.id}">Jump</button>
-              ${item.status !== 'resolved' ? `<button type="button" data-review-resolve="${item.id}">Resolve</button>` : ''}
+              ${item.status !== 'resolved'
+                ? `<button type="button" data-review-resolve="${item.id}">Resolve</button>`
+                : `<button type="button" data-review-unresolve="${item.id}">Reopen</button>`}
             </div>
           </article>`).join('') : `<p>No ${state.commentTab} comments yet.</p>`}
       </div>
@@ -455,7 +477,9 @@ export function initReview() {
     const ackButton = event.target.closest('[data-review-ack]')
     if (ackButton) { acknowledgeReply(ackButton.dataset.reviewAck); return }
     const resolveButton = event.target.closest('[data-review-resolve]')
-    if (resolveButton) resolveComment(resolveButton.dataset.reviewResolve)
+    if (resolveButton) { resolveComment(resolveButton.dataset.reviewResolve); return }
+    const unresolveButton = event.target.closest('[data-review-unresolve]')
+    if (unresolveButton) unresolveComment(unresolveButton.dataset.reviewUnresolve)
   })
 
   layer.addEventListener('submit', (event) => {
