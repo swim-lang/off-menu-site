@@ -116,8 +116,14 @@ export function initReview() {
   }
 
   const openComments = () => state.comments.filter((c) => c.status !== 'resolved')
+  const unrepliedComments = () => openComments().filter((c) => !c.reply)
+  const repliedComments = () => openComments().filter((c) => c.reply)
   const resolvedComments = () => state.comments.filter((c) => c.status === 'resolved')
-  const visibleComments = () => (state.commentTab === 'resolved' ? resolvedComments() : openComments())
+  const visibleComments = () => {
+    if (state.commentTab === 'resolved') return resolvedComments()
+    if (state.commentTab === 'reviewed') return repliedComments()
+    return unrepliedComments()
+  }
 
   const setMode = (mode) => {
     state.mode = mode
@@ -379,7 +385,8 @@ export function initReview() {
       </div>
       ${state.syncWarning ? `<p class="review-warning">${state.syncWarning}</p>` : ''}
       <div class="review-panel-tabs" role="tablist" aria-label="Comment status">
-        <button type="button" data-review-tab="open" class="${state.commentTab === 'open' ? 'active' : ''}">Open <span>${openComments().length}</span></button>
+        <button type="button" data-review-tab="open" class="${state.commentTab === 'open' ? 'active' : ''}">Open <span>${unrepliedComments().length}</span></button>
+        <button type="button" data-review-tab="reviewed" class="${state.commentTab === 'reviewed' ? 'active' : ''}">Reviewed <span>${repliedComments().length}</span></button>
         <button type="button" data-review-tab="resolved" class="${state.commentTab === 'resolved' ? 'active' : ''}">Resolved <span>${resolvedComments().length}</span></button>
       </div>
       <div class="review-panel-list">
@@ -404,7 +411,7 @@ export function initReview() {
               <button type="button" data-review-jump="${item.id}">Jump</button>
               ${item.status !== 'resolved' ? `<button type="button" data-review-resolve="${item.id}">Resolve</button>` : ''}
             </div>
-          </article>`).join('') : `<p>No ${state.commentTab === 'resolved' ? 'resolved' : 'open'} comments loaded yet.</p>`}
+          </article>`).join('') : `<p>No ${state.commentTab} comments yet.</p>`}
       </div>
     </aside>` : ''
 
