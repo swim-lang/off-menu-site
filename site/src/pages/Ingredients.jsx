@@ -115,18 +115,6 @@ export default function Ingredients() {
           </div>
         </Reveal>
       </section>
-
-      {/* ===== INGREDIENT / COMPARISON NOTES ===== */}
-      <section data-review-id="ingredients-notes" className="ing-note" style={{ color: C }}>
-        <div className="ing-note__inner">
-          <span className="ing-eyebrow" style={{ opacity: 0.7 }}>Ingredient note</span>
-          <p>Flavor names describe taste profiles. They do not always mean the product contains whole fruits, vegetables, herbs, or spices named in the flavor. See the ingredients list for full details.</p>
-        </div>
-        <div className="ing-note__inner">
-          <span className="ing-eyebrow" style={{ opacity: 0.7 }}>Fiber comparisons</span>
-          <p>Fiber comparisons are approximate and based on total dietary fiber per serving. They are meant to make the amount easier to picture, not suggest whole-food equivalency.</p>
-        </div>
-      </section>
     </Page>
   )
 }
