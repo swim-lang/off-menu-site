@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { asset } from '../lib/site'
-import { useCart } from '../lib/cart'
 import './Nav.css'
 
 // Full-screen overlay menu — matches the Paper "Menu (overlay)" artboard exactly.
@@ -16,7 +15,6 @@ const MENU = [
 export default function Nav({ slug = 'red', color = '#C11209' }) {
   const [open, setOpen] = useState(false)
   const loc = useLocation()
-  const { count, open: openCart } = useCart()
   useEffect(() => { setOpen(false) }, [loc.pathname])
 
   return (
@@ -28,7 +26,6 @@ export default function Nav({ slug = 'red', color = '#C11209' }) {
         </button>
         <div className="nav__actions">
           <Link to="/shop" className="nav__chip">Get now</Link>
-          <button type="button" className="nav__chip" onClick={openCart}>Cart <span className="nav__count">({count})</span></button>
         </div>
       </div>
 

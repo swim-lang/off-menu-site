@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart, money, SHIP_THRESHOLD, SHIP_FLAT } from '../lib/cart'
+import './cart-ui.css'
 import './CartDrawer.css'
 
 // Slide-out side cart. Opens when adding to cart (or via the nav cart chip),

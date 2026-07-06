@@ -5,7 +5,6 @@ import Ingredients from './pages/Ingredients'
 import Shop from './pages/Shop'
 import HowItWorks from './pages/HowItWorks'
 import Product from './pages/Product'
-import Cart from './pages/Cart'
 import Shipping from './pages/Shipping'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
@@ -36,7 +35,6 @@ export default function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<Cart />} />
       </Routes>
       <CartDrawer />
     </CartProvider>

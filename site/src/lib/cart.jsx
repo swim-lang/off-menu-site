@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useMemo, useCallback } from 'react'
 
-// ===== Cart pricing rules (shared by the slide-out drawer AND the /cart page) =====
+// ===== Cart pricing rules (used by the slide-out drawer) =====
 export const SUB_LINE = 'Daily fiber chews · Chef-led flavor · 60 ct'
 export const SHIP_THRESHOLD = 35
 export const SHIP_FLAT = 5.95
