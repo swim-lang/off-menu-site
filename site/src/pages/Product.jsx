@@ -8,7 +8,7 @@ import { fadeUp, riseBig, stickerPop, stagger, inView } from '../lib/motion'
 import { useCart, CATALOG } from '../lib/cart'
 import './Product.css'
 
-const C = '#694078'
+const C = '#A7241E'
 
 const PLANS = {
   once: { label: 'One-time', sub: '60 chews · one bag', price: 24, badge: null },

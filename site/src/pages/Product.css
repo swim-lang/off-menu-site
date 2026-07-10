@@ -1,4 +1,4 @@
-/* ===== Product PDP — Concord Verjus Grape (purple #694078) ===== */
+/* ===== Product PDP — Cherry Cola Spice (dark red #A7241E) ===== */
 .serif { font-family: var(--serif); font-style: italic; }
 
 /* ---------- HERO / BUY BOX ---------- */
@@ -70,7 +70,7 @@
 .pdp-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 999px; background: var(--c); }
 
 /* ---------- "FOR YOU IF" TICKER ---------- */
-.pdp-ticker { width: 100%; background: var(--purple); overflow: hidden; padding: 26px 0; border-top: 2px solid rgba(255,255,255,0.28); border-bottom: 2px solid rgba(255,255,255,0.28); }
+.pdp-ticker { width: 100%; background: var(--c); overflow: hidden; padding: 26px 0; border-top: 2px solid rgba(255,255,255,0.28); border-bottom: 2px solid rgba(255,255,255,0.28); }
 .pdp-ticker__track { display: flex; width: max-content; animation: pdp-ticker 46s linear infinite; }
 .pdp-ticker__group { display: flex; align-items: center; }
 .pdp-ticker__cell { display: inline-flex; align-items: center; gap: 24px; padding: 0 24px; }
@@ -170,11 +170,11 @@
 /* ---------- RESPONSIVE ---------- */
 /* ---------- SUBSCRIBE NOTE (in buy box) ---------- */
 .pdp-subnote { background: rgba(105, 64, 120, 0.06); border-radius: 10px; padding: 12px 15px; font-weight: 500; font-size: 14px; line-height: 1.5; color: #3A3040; }
-.pdp-subnote strong { color: var(--purple); font-weight: 700; }
+.pdp-subnote strong { color: var(--c); font-weight: 700; }
 
 /* ---------- HONEST FIBER NOTE (in science) ---------- */
 .pdp-honest { max-width: 620px; margin: 48px auto 0; text-align: center; padding-top: 40px; border-top: 1.5px dashed rgba(105, 64, 120, 0.25); }
-.pdp-honest__title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--purple); }
+.pdp-honest__title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--c); }
 .pdp-honest__body { padding-top: 12px; font-weight: 500; font-size: 17px; line-height: 1.6; color: var(--ink); }
 
 @media (max-width: 860px) {
