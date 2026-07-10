@@ -4,7 +4,7 @@ export const PAGES = {
   home:        { path: '/',             label: 'Home',                c: '#C11209', slug: 'red' },
   shop:        { path: '/shop',         label: 'Shop',                c: '#C11209', slug: 'red' },
   product:     { path: '/product',      label: 'Shop the chews',      c: '#A7241E', slug: 'darkred' },
-  ingredients: { path: '/ingredients',  label: 'Ingredients & flavors', c: '#72441E', slug: 'brown' },
+  ingredients: { path: '/ingredients',  label: 'Ingredients & flavors', c: '#6b2503', slug: 'brown' },
   howitworks:  { path: '/how-it-works', label: 'How it works',        c: '#C42E6A', slug: 'pink' },
   about:       { path: '/about',        label: 'Our story',           c: '#D27400', slug: 'orange' },
   faq:         { path: '/faq',          label: 'FAQ',                 c: '#86335F', slug: 'magenta' },

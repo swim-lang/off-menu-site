@@ -6,7 +6,7 @@ import Ill from '../components/Ill'
 import { fadeUp, riseBig, stagger, stickerPop, inView } from '../lib/motion'
 import './Ingredients.css'
 
-const C = '#72441E'
+const C = '#6b2503'
 
 const FLAVORS = [
   { name: 'Apple Ume Ginger', note: 'Bright apple, tart ume, and a little ginger warmth.' },
