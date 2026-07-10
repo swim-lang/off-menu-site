@@ -91,7 +91,7 @@
 .why__head { align-self: stretch; text-align: center; font-weight: 700; font-size: clamp(56px, 9vw, 120px); line-height: 1.04; text-transform: uppercase; letter-spacing: -0.01em; }
 .why__top { align-self: stretch; display: flex; flex-direction: column; align-items: center; gap: 40px; }
 .why__stat { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; max-width: 640px; }
-.why__stat-num { font-family: var(--serif); font-weight: 700; font-size: clamp(58px, 8vw, 100px); line-height: 0.9; color: var(--c); }
+.why__stat-num { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(58px, 8vw, 100px); line-height: 0.9; color: var(--c); }
 .why__stat-lead { font-weight: 700; font-size: clamp(19px, 2.4vw, 28px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; color: var(--c); }
 .why__stat-sub { font-weight: 500; font-size: 18px; line-height: 1.55; color: var(--ink); padding-top: 14px; max-width: 560px; }
 .why__cols { position: relative; display: flex; justify-content: center; width: 100%; max-width: 1000px; margin: 0 auto; padding-bottom: 130px; }
@@ -133,7 +133,7 @@
 /* ===== SOUND FAMILIAR — lead-in ===== */
 .lead { display: flex; flex-direction: column; gap: 52px; padding: 84px 80px 100px; }
 .lead__stat { display: flex; align-items: center; gap: clamp(22px, 3.5vw, 46px); padding-bottom: 48px; border-bottom: 2px solid color-mix(in srgb, var(--c) 22%, #fff); }
-.lead__stat-num { font-family: var(--serif); font-weight: 700; font-size: clamp(72px, 11vw, 132px); line-height: 0.82; color: var(--c); flex-shrink: 0; }
+.lead__stat-num { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(72px, 11vw, 132px); line-height: 0.82; color: var(--c); flex-shrink: 0; }
 .lead__stat-copy { display: flex; flex-direction: column; gap: 10px; }
 .lead__stat-lead { font-weight: 700; font-size: clamp(20px, 2.6vw, 30px); line-height: 1.08; text-transform: uppercase; letter-spacing: 0.01em; color: var(--c); }
 .lead__stat-sub { font-weight: 500; font-size: 18px; line-height: 1.55; color: var(--ink); max-width: 560px; }
@@ -198,7 +198,7 @@
 .foryou__inner { max-width: 1220px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 88px; }
 .foryou__left { width: 480px; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
 .foryou__eyebrow { font-weight: 500; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); }
-.foryou__head { font-family: var(--serif); font-weight: 500; font-size: 64px; line-height: 60px; letter-spacing: -0.015em; color: var(--c); }
+.foryou__head { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 64px; line-height: 60px; letter-spacing: -0.015em; color: var(--c); }
 .foryou__head em { font-style: italic; color: var(--c); }
 .foryou__support { font-weight: 500; font-size: 18px; line-height: 27px; color: #4A4038; max-width: 400px; }
 .foryou__sticker { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; background: var(--c); color: #fff; padding: 11px 18px 12px; border-radius: 999px; transform: rotate(-4deg); box-shadow: 4px 4px 0 rgba(26,18,7,0.18); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; transition: transform 0.2s ease; }

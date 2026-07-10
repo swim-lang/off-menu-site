@@ -23,6 +23,7 @@
 .cart-line__mid { display: flex; flex-direction: column; flex: 1 1 0%; gap: 8px; }
 .cart-line__name {
   font-family: var(--serif);
+  font-style: italic;
   font-weight: 500;
   font-size: 23px;
   line-height: 28px;

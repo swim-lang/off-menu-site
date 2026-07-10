@@ -156,7 +156,7 @@
   margin: 20px 0 0;
   max-width: 1040px;
   font-family: var(--serif);
-  font-style: normal;
+  font-style: italic;
   font-weight: 500;
   font-size: clamp(46px, 7vw, 92px);
   line-height: 1.04;
