@@ -3,11 +3,11 @@
   <defs>
     <style>
       .cls-1, .cls-2 {
-        fill: #72441E;
+        fill: #6b2503;
       }
 
       .cls-1, .cls-2, .cls-3 {
-        stroke: #72441E;
+        stroke: #6b2503;
         stroke-linejoin: round;
       }
 
