@@ -41,12 +41,12 @@ const SCIENCE = [
 
 const RELATED = [
   { img: 'raw/3.png', tag: 'Punchy', quote: '“Grape”', name: 'Concord Verjus Grape', note: 'Concord grape, a little verjus.' },
-  { img: 'raw/2.png', tag: 'Bold', quote: '“Cola”', name: 'Cherry Cola Spice', note: 'Cherry cola, a little spice.' },
+  { img: 'raw/2.png', tag: 'Fresh', quote: '“Watermelon”', name: 'Watermelon Basil Lime', note: 'Watermelon, basil, clean lime.' },
   { img: 'raw/1.png', tag: 'Bright', quote: '“Strawberry”', name: 'Strawberry Fig Leaf', note: 'Strawberry, fig leaf, almond.' },
 ]
 
 const REVIEWS = [
-  { quote: 'The first fiber I have ever wanted to eat. The grape one is genuinely dangerous.', who: 'Dana R.' },
+  { quote: 'The first fiber I have ever wanted to eat. The cherry cola one is genuinely dangerous.', who: 'Dana R.' },
   { quote: 'I finally stopped pretending I was going to use the powder.', who: 'Marcus L.' },
   { quote: 'Tastes like something I would buy for the flavor first. The fiber is the win.', who: 'Priya N.' },
 ]
@@ -58,7 +58,7 @@ const FAQS = [
   },
   { q: 'How do I take it?', a: 'Take one chew daily. No scoop, no shaker, no mixing. Just unwrap and eat.' },
   { q: 'When should I take it?', a: 'Any time that fits your routine. A lot of people pair it with breakfast, lunch, or an evening wind-down.' },
-  { q: 'What does it taste like?', a: 'Concord grape with a little verjus. It is chef-developed for real flavor, not that chalky supplement thing.' },
+  { q: 'What does it taste like?', a: 'Cherry cola with a warm spice finish. It is chef-developed for real flavor, not that chalky supplement thing.' },
   { q: 'Is this a candy?', a: 'No. It is a fiber supplement that happens to taste good.' },
 ]
 
@@ -72,7 +72,7 @@ export default function Product() {
   // Add the flavor to the cart, match the cart's plan to the selected one, and
   // slide the cart out (instead of navigating to a separate cart page).
   const addToCart = () => {
-    addItem(CATALOG.verjus)
+    addItem(CATALOG.cherrycola)
     setSubscribe(plan === 'sub')
     openCart()
   }
@@ -82,12 +82,12 @@ export default function Product() {
       {/* ===== HERO / BUY BOX ===== */}
       <section data-review-id="product-buybox" className="pdp-hero" style={{ color: C }}>
         <Reveal className="pdp-hero__media">
-          <img className="pdp-hero__photo" src="raw/pdp-hero.jpg" alt="Concord Verjus Grape daily fiber chews" />
+          <img className="pdp-hero__photo" src="raw/cherry-cola-bag.png" alt="Cherry Cola Spice daily fiber chews" />
         </Reveal>
 
         <div className="pdp-hero__info">
-          <Reveal as="span" className="pdp-pill">Punchy · Daily fiber soft chews</Reveal>
-          <Reveal as="h1" v={riseBig} className="pdp-hero__title serif">Concord Verjus Grape</Reveal>
+          <Reveal as="span" className="pdp-pill">Bold · Daily fiber soft chews</Reveal>
+          <Reveal as="h1" v={riseBig} className="pdp-hero__title serif">Cherry Cola Spice</Reveal>
           <Reveal as="div" className="pdp-hero__rating">
             <span className="pdp-stars">★★★★★</span>
             <span className="pdp-hero__rcount">4.9 · 1,204 reviews</span>
