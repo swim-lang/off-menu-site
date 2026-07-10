@@ -154,6 +154,15 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* Its own box so the chef's direct line stands apart from support */}
+            <div className="cn-chef">
+              <span className="cn-info__label">Talk to the chef directly</span>
+              <span className="cn-chef__note">Have something specific? Skip the queue and email the chef.</span>
+              <a className="cn-info__email cn-info__email--link" href="mailto:chefchewy@offmenu.health">
+                chefchewy@offmenu.health
+              </a>
+            </div>
+
             <div className="cn-help">
               <h3 className="cn-help__title">Ask us about</h3>
               <Reveal v={stagger(0.05)} className="cn-chips">

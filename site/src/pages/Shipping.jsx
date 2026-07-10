@@ -20,7 +20,7 @@ const SECTIONS = [
   {
     title: 'Returns',
     body: [
-      'We want you to feel good about your order. If something arrives damaged, incorrect, or missing, contact us at [support email] within [X] days of delivery.',
+      'We want you to feel good about your order. If something arrives damaged, incorrect, or missing, let us know within [X] days of delivery.',
       'Because Off Menu is an ingestible product, we may not be able to accept returns on opened bags. If you have an issue, reach out and we will do our best to help.',
     ],
   },
@@ -62,7 +62,7 @@ export default function Shipping() {
         <Reveal className="ship-reassure__card">
           <h2 className="ship-reassure__title u-skew">Something off?</h2>
           <p className="ship-reassure__body">If your order arrives damaged, incorrect, or missing, send us a note. We'll take a look and help make it right.</p>
-          <p className="ship-reassure__body">Reach out directly to the chef at <a href="mailto:chefchewy@offmenu.health" style={{ color: 'var(--c)', textDecoration: 'underline' }}>chefchewy@offmenu.health</a>.</p>
+          <a href="#/contact" className="ship-reassure__cta">Contact us</a>
         </Reveal>
       </section>
 

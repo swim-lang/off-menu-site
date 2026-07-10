@@ -54,7 +54,7 @@
 .intro__body { max-width: 540px; font-size: 18px; line-height: 28px; color: var(--ink); }
 
 /* ===== PRODUCTS ===== */
-.products { display: flex; flex-direction: column; align-items: center; gap: 56px; padding: 72px 40px 157px; }
+.products { display: flex; flex-direction: column; align-items: center; gap: 56px; padding: 72px 40px 104px; }
 .products__head { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .products__title { width: min(475px, 84%); height: auto; }
 .products__row { display: flex; gap: 40px; justify-content: center; width: 100%; max-width: 1136px; }
@@ -131,7 +131,13 @@
 .band { width: 100%; height: 292px; background-repeat: repeat; background-size: 760px auto; background-position: center; }
 
 /* ===== SOUND FAMILIAR — lead-in ===== */
-.lead { display: flex; align-items: flex-end; justify-content: space-between; gap: 60px; padding: 104px 80px 100px; }
+.lead { display: flex; flex-direction: column; gap: 52px; padding: 84px 80px 100px; }
+.lead__stat { display: flex; align-items: center; gap: clamp(22px, 3.5vw, 46px); padding-bottom: 48px; border-bottom: 2px solid color-mix(in srgb, var(--c) 22%, #fff); }
+.lead__stat-num { font-family: var(--serif); font-weight: 700; font-size: clamp(72px, 11vw, 132px); line-height: 0.82; color: var(--c); flex-shrink: 0; }
+.lead__stat-copy { display: flex; flex-direction: column; gap: 10px; }
+.lead__stat-lead { font-weight: 700; font-size: clamp(20px, 2.6vw, 30px); line-height: 1.08; text-transform: uppercase; letter-spacing: 0.01em; color: var(--c); }
+.lead__stat-sub { font-weight: 500; font-size: 18px; line-height: 1.55; color: var(--ink); max-width: 560px; }
+.lead__row { display: flex; align-items: flex-end; justify-content: space-between; gap: 60px; }
 .lead__text { max-width: 600px; }
 .lead__eyebrow { display: block; font-family: var(--sans); font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
 .lead__head { font-size: clamp(36px, 5vw, 62px); line-height: 1.02; text-transform: uppercase; letter-spacing: -0.015em; padding: 14px 0 4px; }
@@ -232,4 +238,6 @@
   .foryou__head { font-size: 54px; line-height: 52px; }
   .foryou__support { max-width: 460px; }
   .foryou__ticket { width: 100%; max-width: 480px; }
+  .lead__row { flex-direction: column; align-items: flex-start; gap: 40px; }
+  .lead__stat { flex-direction: column; align-items: flex-start; gap: 8px; padding-bottom: 36px; }
 }

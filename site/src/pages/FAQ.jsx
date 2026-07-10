@@ -16,7 +16,7 @@ const PRODUCT = [
   },
   {
     q: 'Who is it for?',
-    a: 'Anyone looking for an easy, repeatable way to add a little fiber to their daily routine without powders, mixing, or capsules.',
+    a: 'Anyone looking for an easy, repeatable way to add fiber to their daily routine without powders, mixing, or capsules.',
   },
   {
     q: 'How much fiber does it have?',
@@ -24,7 +24,7 @@ const PRODUCT = [
   },
   {
     q: 'How often should I take it?',
-    a: 'Take one chew daily as part of your routine. Consistency is what makes fiber work. The habit matters.',
+    a: 'Take two chews daily as part of your routine. Consistency is what makes fiber work. The habit matters.',
   },
   {
     q: 'When should I take it?',
@@ -140,7 +140,7 @@ export default function FAQ() {
         <Reveal as="span" className="faq-eyebrow">Help · FAQ</Reveal>
         <Reveal as="h1" v={riseBig} className="faq-hero__head">Frequently asked questions</Reveal>
         <Reveal as="p" className="faq-hero__sub">
-          Everything about the chews, your routine, and what's inside. Still stuck? Reach out directly to the chef at chefchewy@offmenu.health.
+          Everything about the chews, your routine, and what's inside.
         </Reveal>
       </section>
 

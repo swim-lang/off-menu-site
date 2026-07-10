@@ -49,7 +49,7 @@ export default function Shop() {
       <section data-review-id="shop-hero" className="shop-hero" style={{ color: C }}>
         <Reveal as="span" className="shop-eyebrow">Daily fiber chews</Reveal>
         <Reveal><img className="shop-title" src="raw/get-yours-today.svg" alt="Get yours today" /></Reveal>
-        <Reveal as="p" className="shop-sub">One soft chew a day, chef-inspired flavor. This is where we're starting.</Reveal>
+        <Reveal as="p" className="shop-sub">Two soft chews a day, chef-inspired flavor. Have them together or spread them through your day, whatever fits. This is where we're starting.</Reveal>
       </section>
 
       <motion.div data-review-id="shop-grid" className="shop-grid shop-grid--single" variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={inView}>

@@ -12,7 +12,7 @@ const C = '#C42E6A'
 const STEP_SOUNDS = [playBell, playBell, playBell]
 
 const STEPS = [
-  { n: '01', kicker: 'Step', title: 'Take one chew daily.', body: 'No mixing, no measuring, no orange dust on your counter. Just unwrap, chew, and move on with your day.', ill: 'apple' },
+  { n: '01', kicker: 'Step', title: 'Take two chews daily.', body: 'No mixing, no measuring, no orange dust on your counter. Just unwrap, chew, and move on with your day.', ill: 'apple' },
   { n: '02', kicker: 'Step', title: 'Add a little fiber.', body: 'Each serving gives you 2g fiber to help support digestive health, regularity, and fullness as part of your daily routine.', ill: 'spinach' },
   { n: '03', kicker: 'Step', title: 'Come back tomorrow.', body: 'That is the whole point. A supplement does not matter much if you hate taking it, so we made fiber easier to repeat.', ill: 'grape' },
 ]

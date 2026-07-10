@@ -15,6 +15,27 @@
 .ship-reassure__card { max-width: 620px; text-align: center; background: #fff; border: 2.5px solid var(--c); border-radius: 18px; box-shadow: 6px 7px 0 var(--c); padding: 30px 40px 34px; display: flex; flex-direction: column; gap: 10px; }
 .ship-reassure__title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--c); }
 .ship-reassure__body { font-weight: 500; font-size: 16px; line-height: 1.55; color: #221F20; }
+.ship-reassure__cta {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 14px 32px;
+  border: 2px solid var(--c);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--c);
+  box-shadow: 0 6px 0 var(--c);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.ship-reassure__cta:hover { transform: translateY(6px); box-shadow: 0 0 0 var(--c); }
 
 .ship-eyebrow {
   font-family: var(--sans);

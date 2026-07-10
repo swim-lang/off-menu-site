@@ -165,24 +165,33 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* SOUND FAMILIAR — lead-in */}
+      {/* SOUND FAMILIAR — lead-in (opens with the 95% problem-stat, moved up per client) */}
       <section data-review-id="home-lead" className="lead" style={{ '--c': C, color: C }}>
-        <div className="lead__text">
-          <Reveal as="span" className="lead__eyebrow">Sound familiar?</Reveal>
-          <Reveal as="h2" v={riseBig} className="lead__head">Ever feel fine in the morning, then weirdly puffy by lunch?</Reveal>
-          <Reveal as="p" className="lead__body">
-            We have all tried to solve that heavy, bloated feeling with more water, cleaner meals, another green
-            thing, or just pretending our jeans did not fit differently two hours ago.
-          </Reveal>
-          <Reveal as="p" className="lead__body">
-            Sometimes the simple answer is the one we overlook. A little more fiber, taken consistently, can help
-            support digestion, regularity, fullness, and the daily rhythm of how you feel after eating.
-          </Reveal>
-          <Reveal as="p" className="lead__kicker serif">Small habit. Less bloat.</Reveal>
+        <Reveal className="lead__stat">
+          <span className="lead__stat-num">95%</span>
+          <span className="lead__stat-copy">
+            <span className="lead__stat-lead">of people don't get enough fiber.</span>
+            <span className="lead__stat-sub">Most already know they should get more. Off Menu just makes it a chew you'll actually look forward to.</span>
+          </span>
+        </Reveal>
+        <div className="lead__row">
+          <div className="lead__text">
+            <Reveal as="span" className="lead__eyebrow">Sound familiar?</Reveal>
+            <Reveal as="h2" v={riseBig} className="lead__head">Ever feel fine in the morning, then weirdly puffy by lunch?</Reveal>
+            <Reveal as="p" className="lead__body">
+              We have all tried to solve that heavy, bloated feeling with more water, cleaner meals, another green
+              thing, or just pretending our jeans did not fit differently two hours ago.
+            </Reveal>
+            <Reveal as="p" className="lead__body">
+              Sometimes the simple answer is the one we overlook. A little more fiber, taken consistently, can help
+              support digestion, regularity, fullness, and the daily rhythm of how you feel after eating.
+            </Reveal>
+            <Reveal as="p" className="lead__kicker serif">Small habit. Less bloat.</Reveal>
+          </div>
+          <motion.div className="lead__art" variants={stickerPop} initial="hidden" whileInView="show" viewport={inView} custom={-4}>
+            <Ill src="Illustrations/Walking.svg" w={460} h={460} />
+          </motion.div>
         </div>
-        <motion.div className="lead__art" variants={stickerPop} initial="hidden" whileInView="show" viewport={inView} custom={-4}>
-          <Ill src="Illustrations/Walking.svg" w={460} h={460} />
-        </motion.div>
       </section>
 
       {/* INTRO — vintage menu card */}
@@ -266,11 +275,6 @@ export default function Home() {
       <section data-review-id="home-myths" className="why" style={{ color: C }}>
         <div className="why__top">
           <Reveal as="h2" v={riseBig} className="why__head">Not your grandma's fiber</Reveal>
-          <Reveal className="why__stat">
-            <span className="why__stat-num">95%</span>
-            <span className="why__stat-lead">of people don't get enough fiber.</span>
-            <span className="why__stat-sub">Most already know they should get more. Off Menu just makes it a chew you'll actually look forward to.</span>
-          </Reveal>
         </div>
         <div className="why__cols">
           <div className="why__divider" />
@@ -328,7 +332,7 @@ export default function Home() {
         <img className="story__bg" src="raw/story.jpg" alt="" />
         <div className="story__scrim" />
         <Reveal as="h2" className="story__head">The story behind the chew.</Reveal>
-        <Link className="story__btn" to="/about">Learn more about us</Link>
+        <Link className="story__btn" to="/about">Discover the story</Link>
         <motion.div className="story__card" initial={{ opacity: 0, y: 20, rotate: 10 }} whileInView={{ opacity: 1, y: 0, rotate: 10 }} viewport={inView} transition={{ duration: 0.5 }}>
           <span className="story__card-lbl"><span className="story__dot" /> Now serving fiber from</span>
           <span className="story__card-serif serif">Chef-inspired flavors</span>
