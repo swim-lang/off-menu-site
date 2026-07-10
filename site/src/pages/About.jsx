@@ -6,7 +6,7 @@ import Seal from '../components/Seal'
 import { fadeUp, riseBig, stickerPop, inView } from '../lib/motion'
 import './About.css'
 
-const C = '#D27400'
+const C = '#ff4801'
 
 // Reusable rounded pill sticker: white fill, C border + text, C offset shadow,
 // pops in like a hand-applied sticker and sits absolutely in the margin.

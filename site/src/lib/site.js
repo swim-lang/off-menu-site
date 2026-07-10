@@ -6,7 +6,7 @@ export const PAGES = {
   product:     { path: '/product',      label: 'Shop the chews',      c: '#A7241E', slug: 'darkred' },
   ingredients: { path: '/ingredients',  label: 'Ingredients & flavors', c: '#6b2503', slug: 'brown' },
   howitworks:  { path: '/how-it-works', label: 'How it works',        c: '#C42E6A', slug: 'pink' },
-  about:       { path: '/about',        label: 'Our story',           c: '#D27400', slug: 'orange' },
+  about:       { path: '/about',        label: 'Our story',           c: '#ff4801', slug: 'orange' },
   faq:         { path: '/faq',          label: 'FAQ',                 c: '#86335F', slug: 'magenta' },
   shipping:    { path: '/shipping',     label: 'Shipping & returns',  c: '#1F33B9', slug: 'blue' },
   contact:     { path: '/contact',      label: 'Contact & support',   c: '#1F5F68', slug: 'teal' },
