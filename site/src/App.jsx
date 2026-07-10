@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Ingredients from './pages/Ingredients'
-import Shop from './pages/Shop'
 import HowItWorks from './pages/HowItWorks'
 import Product from './pages/Product'
 import Shipping from './pages/Shipping'
@@ -27,7 +26,8 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
+        {/* Get now / shop is now the single product page; redirect any old /shop links */}
+        <Route path="/shop" element={<Navigate to="/product" replace />} />
         <Route path="/product" element={<Product />} />
         <Route path="/ingredients" element={<Ingredients />} />
         <Route path="/how-it-works" element={<HowItWorks />} />

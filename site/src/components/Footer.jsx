@@ -6,7 +6,7 @@ export default function Footer({ slug = 'red', color = '#C11209' }) {
   return (
     <footer className="footer" style={{ '--c': color, color }}>
       <nav className="footer__links">
-        {[['Home', '/'], ['Get now', '/shop'], ['Ingredients & flavors', '/ingredients'], ['How it works', '/how-it-works'], ['Our story', '/about'], ['FAQ', '/faq'], ['Shipping & returns', '/shipping'], ['Support', '/contact']].map(([label, to]) => (
+        {[['Home', '/'], ['Get now', '/product'], ['Ingredients & flavors', '/ingredients'], ['How it works', '/how-it-works'], ['Our story', '/about'], ['FAQ', '/faq'], ['Shipping & returns', '/shipping'], ['Support', '/contact']].map(([label, to]) => (
           <Link key={to + label} to={to} className="footer__link">{label}</Link>
         ))}
       </nav>
