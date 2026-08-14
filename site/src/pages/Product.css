@@ -204,8 +204,9 @@
   .pdp-hero__media { min-height: 380px; }
   .pdp-hero__photo { padding: 26px 20px; }              /* bigger bag */
   .pdp-hero__info { padding: 40px 22px; }
-  /* Science: tighter padding to match other sections + arrow nav instead of tiny number tabs */
-  .pdp-science { padding: 40px 22px 48px; }
+  /* Consistent section padding + heading size across the whole page */
+  .pdp-science, .pdp-made, .pdp-reviews, .pdp-faq { padding: 44px 22px; }
+  .pdp-made__head, .pdp-science__head, .pdp-reviews__head, .pdp-faq__head { font-size: 34px; }
   .pdp-science__viewer { padding: 26px 22px 30px; }
   .pdp-science__tabs { display: none; }
   .pdp-science__nav { display: flex; }
@@ -215,4 +216,7 @@
   .pdp-science__b { font-size: 16px; }
   .pdp-review__quote { font-size: 16px; }
   .pdp-faq__a { font-size: 14px; }
+  /* Questions, answered — centered */
+  .pdp-faq__head, .pdp-faq__eyebrow { text-align: center; }
+  .pdp-faq__head { padding-bottom: 24px; }
 }
