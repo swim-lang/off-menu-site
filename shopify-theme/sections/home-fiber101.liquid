@@ -12,7 +12,7 @@
     {%- for i in (0..3) -%}
       <div class="f101__card" data-reveal data-sfx-bell>
         <div class="f101__top">
-          <span class="f101__badge">{% render 'ill', src: f101_ills[i] | append: '.svg', w: 40, h: 40 %}</span>
+          <span class="f101__badge">{% render 'f101-icon', name: f101_ills[i] %}</span>
           <span class="f101__num serif">{{ f101_nums[i] }}</span>
         </div>
         <span class="f101__term">{{ f101_terms[i] }}</span>
@@ -32,6 +32,7 @@
   .f101__card:hover { box-shadow: 0 13px 0 var(--c); }
   .f101__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
   .f101__badge { width: 60px; height: 60px; border-radius: 999px; background: #fff; border: 2px solid var(--c); box-shadow: 0 4px 0 var(--c); display: flex; align-items: center; justify-content: center; color: var(--c); transform: rotate(-5deg); transition: transform 0.18s ease; }
+  .f101__badge svg { width: 40px; height: 40px; display: block; }
   .f101__card:hover .f101__badge { transform: rotate(4deg); }
   .f101__num { font-style: italic; font-size: 34px; line-height: 1; color: var(--c); opacity: 0.32; }
   .f101__term { font-weight: 700; font-size: 19px; line-height: 1.1; text-transform: uppercase; letter-spacing: -0.01em; }
