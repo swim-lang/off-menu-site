@@ -52,11 +52,13 @@
 @media (max-width: 640px) {
   .intro { padding: 44px 14px 52px; }
   .intro__crest { display: none; }
-  .intro__menu { transform: none !important; align-items: flex-start; padding: 28px 20px 32px; }
+  .intro__menu { transform: none !important; align-items: flex-start !important; padding: 20px 18px 22px !important; gap: 11px !important; }
   .intro__menu, .intro__eyebrow, .intro__head, .intro__body { text-align: left !important; }
   .intro__eyebrow, .intro__rule { align-self: flex-start; }
   .foryou__ticket { transform: none !important; }
   .foryou__check path { stroke-dashoffset: 0 !important; }
+  .foryou__ctext { font-size: 14px !important; line-height: 1.35 !important; }
+  .foryou__tk-rows { padding: 20px 22px !important; gap: 14px !important; }
   .facts__card { transform: none !important; }
 }
 .intro__menu {
