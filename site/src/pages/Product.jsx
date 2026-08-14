@@ -261,36 +261,6 @@ export default function Product() {
         </div>
       </section>
 
-      {/* ===== RELATED ===== */}
-      <section data-review-id="product-related" className="pdp-related" style={{ color: C }}>
-        <Reveal as="span" className="pdp-related__eyebrow">More from the menu</Reveal>
-        <motion.div
-          className="pdp-related__grid"
-          variants={stagger(0.08)}
-          initial="hidden"
-          whileInView="show"
-          viewport={inView}
-        >
-          {RELATED.map((r) => (
-            <motion.a key={r.name} className="pdp-card" variants={fadeUp} href="#">
-              <div className="pdp-card__media">
-                <img src={r.img} alt={r.name} className="pdp-card__img" />
-              </div>
-              <div className="pdp-card__meta">
-                <span className="pdp-card__tag">{r.tag}</span>
-                <span className="pdp-card__quote serif">{r.quote}</span>
-                <span className="pdp-card__ct">60 CT</span>
-              </div>
-              <h3 className="pdp-card__name serif">{r.name}</h3>
-              <p className="pdp-card__note">{r.note}</p>
-            </motion.a>
-          ))}
-        </motion.div>
-        <Reveal className="pdp-related__cta-wrap">
-          <a href="#" className="pdp-btn pdp-btn--wide">Shop all 10 flavors →</a>
-        </Reveal>
-      </section>
-
       {/* ===== VIDEO TESTIMONIALS ===== */}
       <Testimonials color={C} reviewId="product-testimonials" />
 

@@ -49,12 +49,15 @@ export default function Nav({ slug = 'red', color = '#C11209' }) {
                     <motion.div key={label}
                       initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.08 + gi * 0.05 + li * 0.05, ease: [0.22, 1, 0.36, 1] }}>
-                      <Link className="menu__link" to={to} onClick={() => setOpen(false)}>{label}</Link>
+                      <Link className={`menu__link${to === '/product' ? ' menu__link--get' : ''}`} to={to} onClick={() => setOpen(false)}>{label}</Link>
                     </motion.div>
                   ))}
                 </div>
               ))}
             </div>
+
+            {/* Mobile-only prominent Get now at the very bottom */}
+            <Link className="menu__getnow" to="/product" onClick={() => setOpen(false)}>Get now →</Link>
 
             <motion.img className="menu__lockup" src="raw/eat-your-chew.svg" alt="Eat your chew"
               initial={{ opacity: 0, scale: 0.9, rotate: -3 }} animate={{ opacity: 1, scale: 1, rotate: 0 }}

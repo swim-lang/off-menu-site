@@ -191,3 +191,15 @@
   .pdp-card { max-width: 340px; width: 100%; }
   .pdp-reviews__grid { flex-direction: column; }
 }
+
+@media (max-width: 640px) {
+  .pdp-hero__media { min-height: 380px; }
+  .pdp-hero__photo { padding: 26px 20px; }              /* bigger bag */
+  .pdp-hero__info { padding: 40px 22px; }
+  .pdp-made__art > span { width: 200px !important; height: 169px !important; }  /* smaller tummy */
+  /* Smaller body copy (match home) */
+  .pdp-hero__desc, .pdp-made__body, .pdp-science__intro, .pdp-honest__body { font-size: 15px; }
+  .pdp-science__b { font-size: 16px; }
+  .pdp-review__quote { font-size: 16px; }
+  .pdp-faq__a { font-size: 14px; }
+}
