@@ -19,7 +19,7 @@
   endif
   assign fsize = size | times: 0.115
 -%}
-<div class="seal {{ class }}" style="width:{{ size }}px;height:{{ size }}px;{% if color %}color:{{ color }};{% endif %}transform:rotate({{ rotate }}deg);position:relative;flex-shrink:0;">
+<div class="seal {{ class }}" style="width:{{ size }}px;height:{{ size }}px;{% if color %}color:{{ color }};{% endif %}transform:rotate({{ rotate }}deg);flex-shrink:0;">
   <svg viewBox="0 0 {{ vb }} {{ vb }}" width="{{ size }}" height="{{ size }}" style="position:absolute;inset:0;overflow:visible;">
     <path d="{{ d }}" fill="currentColor" transform="translate(4,5)"></path>
     <path d="{{ d }}" fill="#fff" stroke="currentColor" stroke-width="4" stroke-linejoin="round"></path>
