@@ -19,7 +19,8 @@
         <span class="hiw-step__label">Step {{ words[i] }}</span>
         <span class="hiw-kicker">Step</span>
         <span class="hiw-num" data-reveal="big">{{ nums[i] }}</span>
-        {% render 'ill', src: ills[i] | append: '.svg', w: 98, h: 114, class: 'hiw-step__ill' %}
+        {%- assign step_ill_src = ills[i] | append: '.svg' -%}
+        {% render 'ill', src: step_ill_src, w: 98, h: 114, class: 'hiw-step__ill' %}
         <h3 class="hiw-step__title">{{ titles[i] }}</h3>
         <p class="hiw-step__body">{{ bodies[i] }}</p>
       </div>
