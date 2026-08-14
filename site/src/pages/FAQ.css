@@ -167,3 +167,16 @@
   .faq-grid { flex-direction: column; gap: 48px; }
   .faq-rail { order: 2; flex-basis: auto; width: 100%; max-width: 360px; margin: 0 auto; }
 }
+
+@media (max-width: 640px) {
+  /* Consistent body copy sizing */
+  .faq-hero__sub { font-size: 15px; }
+  /* Simplify the rail: only the carrot + "Still have questions?" card,
+     carrot sits directly under the questions, card below it */
+  .faq-seal { display: none; }
+  .faq-rail__ill--apple,
+  .faq-rail__ill--grape { display: none !important; }  /* beat Ill's inline display */
+  .faq-rail { gap: 28px; }
+  .faq-rail__ill--carrot { order: 1; }
+  .faq-card { order: 2; }
+}

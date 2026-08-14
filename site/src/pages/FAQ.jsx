@@ -154,14 +154,14 @@ export default function FAQ() {
 
           <aside className="faq-rail">
             <Seal shape="scallop" size={168} label="Off Menu" color={C} className="faq-seal" />
-            <Ill className="faq-rail__ill" src="Illustrations/_red/apple.svg" w={96} h={126} />
-            <Ill className="faq-rail__ill" src="Illustrations/_red/grape.svg" w={120} h={120} />
+            <Ill className="faq-rail__ill faq-rail__ill--apple" src="Illustrations/_red/apple.svg" w={96} h={126} />
+            <Ill className="faq-rail__ill faq-rail__ill--grape" src="Illustrations/_red/grape.svg" w={120} h={120} />
             <Reveal className="faq-card">
               <div className="faq-card__title serif">Still have questions?</div>
               <p className="faq-card__sub">We're happy to help. Drop us a note.</p>
               <button type="button" className="faq-card__btn">Contact us</button>
             </Reveal>
-            <Ill className="faq-rail__ill" src="Illustrations/_red/carrot.svg" w={115} h={126} />
+            <Ill className="faq-rail__ill faq-rail__ill--carrot" src="Illustrations/_red/carrot.svg" w={115} h={126} />
           </aside>
         </div>
       </section>
