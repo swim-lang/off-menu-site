@@ -31,13 +31,13 @@
           {%- comment -%} Mobile: tap-to-flip card (myth → truth). Desktop: .why__flip is display:contents so the two cells lay out side by side as before. {%- endcomment -%}
           <div class="why__flip" role="button" tabindex="0" aria-pressed="false" data-why-flip>
             <div class="why__cell why__cell--myth why__face">
-              <div class="why__sticker why__sticker--myth" style="transform: rotate({{ myth_rot[i] }}deg);">
+              <div class="why__sticker why__sticker--myth" data-sfx-scribble style="transform: rotate({{ myth_rot[i] }}deg);">
                 <span class="why__myth-q serif">{{ myths[i] }}</span>
               </div>
               <span class="why__flip-hint" aria-hidden="true">Tap to reveal &#8635;</span>
             </div>
             <div class="why__cell why__cell--real why__face why__face--back">
-              <div class="why__sticker why__sticker--real" style="transform: rotate({{ real_rot[i] }}deg);">
+              <div class="why__sticker why__sticker--real" data-sfx-scribble style="transform: rotate({{ real_rot[i] }}deg);">
                 <p class="why__real-t">{{ reals[i] }}</p>
               </div>
             </div>
