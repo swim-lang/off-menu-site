@@ -187,6 +187,9 @@
   .pdp-ticker__lead { font-size: 19px; }
   .pdp-made__inner { flex-direction: column; gap: 32px; }
   .pdp-made__art { order: -1; }
+  .pdp-science__inner { flex-direction: column; gap: 30px; }
+  .pdp-science__head-wrap { flex: none; max-width: none; width: 100%; }
+  .pdp-science__viewer { width: 100%; min-height: auto; }
   .pdp-related__grid { flex-direction: column; align-items: center; }
   .pdp-card { max-width: 340px; width: 100%; }
   .pdp-reviews__grid { flex-direction: column; }
