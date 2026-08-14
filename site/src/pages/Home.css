@@ -138,6 +138,20 @@
 .why__cell { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; }
 .why__cell--myth { padding: 0 140px 0 16px; }
 .why__cell--real { padding: 0 16px 0 140px; }
+
+/* Mobile: stack myth over reality, drop the center logo track (kills the horizontal overflow) */
+@media (max-width: 640px) {
+  .why { padding: 60px 22px 0; gap: 52px; }
+  .why__cols { padding-bottom: 36px; }
+  .why__track, .why__divider, .why__connector { display: none; }
+  .why__col { gap: 36px; }
+  .why__mr { gap: 22px; }
+  .why__pair { flex-direction: column; gap: 8px; align-items: stretch; }
+  .why__pair--head { display: none; }
+  .why__cell { align-items: flex-start; text-align: left; }
+  .why__cell--myth, .why__cell--real { padding: 16px 18px; border: 2px solid var(--c); border-radius: 14px; }
+  .why__cell--myth { background: color-mix(in srgb, var(--c) 6%, #fff); }
+}
 .why__sticker { background: #fff; border: 2px solid var(--c); border-radius: 16px; padding: 18px 24px; box-shadow: 4px 4px 0 var(--c); max-width: 280px; }
 .why__myth-q { font-family: var(--serif); font-style: italic; font-size: clamp(19px, 2.1vw, 25px); line-height: 1.25; }
 .why__real-t { font-size: 15px; line-height: 1.5; color: var(--c); }
@@ -160,6 +174,11 @@
 .lead__body { font-size: 19px; line-height: 30px; color: var(--ink); padding-top: 16px; }
 .lead__kicker { font-style: italic; font-size: 27px; line-height: 1.1; color: var(--c); padding-top: 24px; }
 .lead__art { flex-shrink: 0; }
+@media (max-width: 640px) {
+  .lead { padding: 52px 22px 60px; gap: 34px; }
+  .lead__art { align-self: center; flex-shrink: 1; }
+  .lead__art > span { width: 190px !important; height: 190px !important; }
+}
 
 /* ===== FIBER 101 ===== */
 .f101 { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 104px 40px 110px; border-bottom: 2px solid var(--c); }
