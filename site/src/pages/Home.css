@@ -139,18 +139,34 @@
 .why__cell--myth { padding: 0 140px 0 16px; }
 .why__cell--real { padding: 0 16px 0 140px; }
 
-/* Mobile: stack myth over reality, drop the center logo track (kills the horizontal overflow) */
+/* Desktop: the flip wrapper is transparent so the two cells lay out as before. */
+.why__flip { display: contents; }
+.why__flip-hint { display: none; }
+
+/* Mobile: each myth is a tap-to-flip card (myth → reveal truth). No skew, no center track. */
 @media (max-width: 640px) {
-  .why { padding: 60px 22px 0; gap: 52px; }
-  .why__cols { padding-bottom: 36px; }
+  .why { padding: 56px 22px 0; gap: 46px; }
+  .why__head { font-size: clamp(36px, 10vw, 52px); }
+  .why__cols { padding-bottom: 30px; }
   .why__track, .why__divider, .why__connector { display: none; }
-  .why__col { gap: 36px; }
-  .why__mr { gap: 22px; }
-  .why__pair { flex-direction: column; gap: 8px; align-items: stretch; }
-  .why__pair--head { display: none; }
-  .why__cell { align-items: flex-start; text-align: left; }
-  .why__cell--myth, .why__cell--real { padding: 16px 18px; border: 2px solid var(--c); border-radius: 14px; }
-  .why__cell--myth { background: color-mix(in srgb, var(--c) 6%, #fff); }
+  .why__col { gap: 28px; }
+  .why__mr { gap: 16px; }
+  .why__pair.why__pair--head { display: none; }
+
+  .why__pair { display: block; perspective: 1400px; }
+  .why__flip { display: block; position: relative; min-height: 180px; transform-style: preserve-3d; transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1); cursor: pointer; }
+  .why__flip.is-flipped { transform: rotateY(180deg); }
+  .why__face {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+    min-height: 180px; padding: 22px 20px; box-sizing: border-box; text-align: center;
+    border: 2px solid var(--c); border-radius: 16px; background: #fff;
+    -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  }
+  .why__face--back { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform: rotateY(180deg); background: color-mix(in srgb, var(--c) 8%, #fff); }
+  .why__sticker { transform: none !important; border: none !important; background: none !important; box-shadow: none !important; padding: 0 !important; }
+  .why__myth-q { font-size: 20px; line-height: 1.2; }
+  .why__real-t { font-size: 15px; line-height: 1.45; }
+  .why__flip-hint { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: color-mix(in srgb, var(--c) 55%, #fff); }
 }
 .why__sticker { background: #fff; border: 2px solid var(--c); border-radius: 16px; padding: 18px 24px; box-shadow: 4px 4px 0 var(--c); max-width: 280px; }
 .why__myth-q { font-family: var(--serif); font-style: italic; font-size: clamp(19px, 2.1vw, 25px); line-height: 1.25; }
@@ -178,6 +194,14 @@
   .lead { padding: 52px 22px 60px; gap: 34px; }
   .lead__art { align-self: center; flex-shrink: 1; }
   .lead__art > span { width: 190px !important; height: 190px !important; }
+  /* Smaller, calmer body copy on mobile (−2–3px) */
+  .lead__body { font-size: 16px; line-height: 1.5; }
+  .lead__stat-sub { font-size: 16px; }
+  .intro__body { font-size: 15px; line-height: 1.55; }
+  .why__stat-sub { font-size: 15px; }
+  .f101__intro { font-size: 15px; }
+  .f101__body { font-size: 13px; }
+  .foryou__foot-note { font-size: 12px; }
 }
 
 /* ===== FIBER 101 ===== */

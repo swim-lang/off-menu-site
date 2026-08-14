@@ -63,6 +63,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .seal { position: relative; } /* default; pages can override to position: absolute via their own class */
 .u-upper { text-transform: uppercase; }
 .u-skew { display: inline-block; transform: skewX(-9deg); }
+/* Mobile: no skewed type — straight-on for legibility (small badges keep their tilt). */
+@media (max-width: 640px) { .u-skew { transform: none; } }
 
 /* Eyebrows / small labels use the serif face site-wide. Scoped under .page-shell
    so it outranks the per-page eyebrow rules (some set font-family: var(--sans)). */

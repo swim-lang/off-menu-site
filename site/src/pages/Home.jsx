@@ -86,16 +86,29 @@ function Card({ p }) {
 const MYTH_ROT = [-3, 2.4, -2.2, 3, -2.6, 2]
 const REAL_ROT = [2.6, -2.2, 3, -2.6, 2, -3]
 function MythRow({ pair, i }) {
+  // On mobile the pair is a tap-to-flip card (myth → reveal the truth). On desktop
+  // the .why__flip wrapper is display:contents, so the two cells lay out as before.
+  const [flipped, setFlipped] = useState(false)
   return (
     <Reveal className="why__pair">
-      <div className="why__cell why__cell--myth">
-        <div className="why__sticker why__sticker--myth" onMouseEnter={playScribble} style={{ transform: `rotate(${MYTH_ROT[i % MYTH_ROT.length]}deg)` }}>
-          <span className="why__myth-q serif">{pair.m}</span>
+      <div
+        className={`why__flip${flipped ? ' is-flipped' : ''}`}
+        onClick={() => setFlipped((f) => !f)}
+        role="button"
+        tabIndex={0}
+        aria-pressed={flipped}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFlipped((f) => !f) } }}
+      >
+        <div className="why__cell why__cell--myth why__face">
+          <div className="why__sticker why__sticker--myth" onMouseEnter={playScribble} style={{ transform: `rotate(${MYTH_ROT[i % MYTH_ROT.length]}deg)` }}>
+            <span className="why__myth-q serif">{pair.m}</span>
+          </div>
+          <span className="why__flip-hint" aria-hidden="true">Tap to reveal ↺</span>
         </div>
-      </div>
-      <div className="why__cell why__cell--real">
-        <div className="why__sticker why__sticker--real" onMouseEnter={playScribble} style={{ transform: `rotate(${REAL_ROT[i % REAL_ROT.length]}deg)` }}>
-          <p className="why__real-t">{pair.r}</p>
+        <div className="why__cell why__cell--real why__face why__face--back">
+          <div className="why__sticker why__sticker--real" onMouseEnter={playScribble} style={{ transform: `rotate(${REAL_ROT[i % REAL_ROT.length]}deg)` }}>
+            <p className="why__real-t">{pair.r}</p>
+          </div>
         </div>
       </div>
       <svg className="why__connector" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"

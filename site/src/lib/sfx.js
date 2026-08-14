@@ -291,6 +291,8 @@ const SFX_SEL =
 let _sfxHovered = null
 export function installButtonSfx() {
   if (typeof document === 'undefined' || document.__sfxInstalled) return
+  // Desktop only — no sound on touch / mobile devices.
+  if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
   document.__sfxInstalled = true
 
   // Browsers block audio until a real user gesture (hovering doesn't count), so
