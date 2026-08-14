@@ -105,13 +105,17 @@
   .menu__lockup { width: 300px; left: 32px; bottom: 70px; }
 }
 
-/* Mobile menu: flat list of links, no category titles, clear close X */
+/* Mobile menu: fit the whole thing on one screen (no scroll). Flex column —
+   top row pinned, links fill the middle and center. Flat list, clear close X. */
 @media (max-width: 640px) {
-  .menu__top { padding: 16px 18px 0; }
-  .menu__logo { width: 146px; }
-  .menu__close { padding: 8px 14px; font-size: 13px; }
-  .menu__groups { flex-direction: column; align-items: center; gap: 12px; padding: 46px 24px 0; }
-  .menu__col { gap: 12px; width: 100%; align-items: center; }
+  .menu { display: flex; flex-direction: column; }
+  .menu__top { padding: 16px 18px 0; flex-shrink: 0; }
+  .menu__logo { width: 138px; }
+  .menu__close { padding: 8px 14px; font-size: 12px; }
+  .menu__close span { font-size: 16px; }
+  .menu__groups { flex: 1 1 auto; flex-direction: column; align-items: center; justify-content: center; gap: 11px; padding: 16px 24px; }
+  .menu__col { gap: 11px; width: 100%; align-items: center; }
   .menu__title { display: none; }
-  .menu__lockup, .menu__mark { display: none; }
+  .menu__link { width: min(280px, 82%); font-size: 17px; padding: 12px 20px; box-shadow: 0 5px 0 #C11209; }
+  .menu__lockup, .menu__mark, .menu__hounds { display: none; }
 }
