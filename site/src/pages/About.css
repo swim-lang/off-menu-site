@@ -228,3 +228,25 @@
     display: none;
   }
 }
+
+@media (max-width: 640px) {
+  /* Consistent body copy sizing (match the rest of the site) */
+  .ab-body, .ab-lead { font-size: 15px; line-height: 1.6; }
+  .ab-pull { font-size: 16px; line-height: 1.55; }
+  .ab-says__quote { font-size: 22px; line-height: 28px; }
+
+  /* Center the hero ("Our story") */
+  .ab-hero__text { align-items: center; text-align: center; }
+  .ab-hero__body { align-items: center; text-align: center; }
+  .ab-hero__lockup { margin-inline: auto; }
+
+  /* Drop every pill sticker on mobile (kept on desktop) */
+  .ab-hero__pill, .ab-pov__pill, .ab-chef__pill { display: none; }
+
+  /* Smaller illustrations — the standing/walking chef is oversized on mobile */
+  .ab-hero__art span { width: 168px !important; height: 316px !important; }
+  .ab-chef__art span { width: 168px !important; height: 301px !important; }
+
+  /* Remove the "Illustration to be added" placeholder for now */
+  .ab-pov__art, .ab-illbox { display: none; }
+}
