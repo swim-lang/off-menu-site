@@ -310,6 +310,22 @@
     display: none;
   }
 }
+
+@media (max-width: 640px) {
+  .ab-body, .ab-lead { font-size: 15px; line-height: 1.6; }
+  .ab-pull { font-size: 16px; line-height: 1.55; }
+  .ab-says__quote { font-size: 22px; line-height: 28px; }
+  .ab-hero .ab-kicker { display: none; }
+  .ab-hero__text { align-items: center; text-align: center; }
+  .ab-hero__body { align-items: center; text-align: center; }
+  .ab-hero__lockup { margin-inline: auto; }
+  .ab-hero__pill, .ab-pov__pill, .ab-chef__pill { display: none; }
+  .ab-hero__art span { width: 168px !important; height: 316px !important; }
+  .ab-chef__art span { width: 168px !important; height: 301px !important; }
+  .ab-pov__art, .ab-illbox { display: none; }
+  .ab-why { padding-bottom: 16px; }
+  .ab-chef { padding-top: 32px; }
+}
 {% endstylesheet %}
 
 {% schema %}

@@ -13,8 +13,10 @@
     {%- assign bodies = "No mixing, no measuring, no orange dust on your counter. Just unwrap, chew, and move on with your day.|Each serving gives you 2g fiber to help support digestive health, regularity, and fullness as part of your daily routine.|That is the whole point. A supplement does not matter much if you hate taking it, so we made fiber easier to repeat." | split: "|" -%}
     {%- assign ills = "apple|spinach|grape" | split: "|" -%}
     {%- assign nums = "01|02|03" | split: "|" -%}
+    {%- assign words = "One|Two|Three" | split: "|" -%}
     {%- for i in (0..2) -%}
       <div class="hiw-step" data-reveal>
+        <span class="hiw-step__label">Step {{ words[i] }}</span>
         <span class="hiw-kicker">Step</span>
         <span class="hiw-num" data-reveal="big">{{ nums[i] }}</span>
         {% render 'ill', src: ills[i] | append: '.svg', w: 98, h: 114, class: 'hiw-step__ill' %}
@@ -86,6 +88,7 @@
   .hiw-step:hover .hiw-step__ill { transform: scale(1.09) rotate(-3deg); }
   .hiw-num { display: block; font-weight: 700; font-size: clamp(120px, 13vw, 176px); line-height: 0.82; letter-spacing: -0.02em; }
   .hiw-kicker { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .hiw-step__label { display: none; }
   .hiw-step__title { font-size: clamp(22px, 2.4vw, 28px); text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; padding-top: 4px; }
   .hiw-step__body { font-size: 15px; line-height: 1.6; color: var(--ink); }
   .hiw-menu-sec { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 64px 56px 88px; }
@@ -109,6 +112,25 @@
   .hiw-splash { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 50px 40px 88px; }
   .hiw-splash__head { font-size: clamp(34px, 5.5vw, 58px); line-height: 1.04; text-transform: uppercase; letter-spacing: -0.01em; max-width: 18ch; }
   @media (max-width: 860px) { .hiw-steps { grid-template-columns: 1fr; max-width: 420px; } }
+  @media (max-width: 640px) {
+    .hiw-hero__sub, .hiw-menu__intro { font-size: 15px; line-height: 1.55; }
+    .hiw-step__body { font-size: 14px; }
+    .hiw-step { padding: 22px 24px 26px; gap: 6px; }
+    .hiw-kicker, .hiw-num { display: none; }
+    .hiw-step__label { display: block; font-weight: 700; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; }
+    .hiw-step__ill { width: 60px !important; height: 70px !important; }
+    .hiw-step__title { font-size: 22px; padding-top: 2px; }
+    .hiw-menu-sec { padding: 44px 16px 60px; }
+    .hiw-card { padding: 26px 18px 30px; }
+    .hiw-card::before { inset: 8px; }
+    .hiw-card__title { font-size: 18px; }
+    .hiw-row { padding: 12px 0; gap: 10px; }
+    .hiw-item { font-size: 16px; }
+    .hiw-desc { font-size: 12px; }
+    .hiw-item--big { font-size: 21px; }
+    .hiw-desc--on { font-size: 12px; }
+    .hiw-tag { font-size: 12px; letter-spacing: 0.08em; padding: 9px 14px; }
+  }
 {% endstylesheet %}
 
 {% schema %}

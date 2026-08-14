@@ -33,6 +33,13 @@
   .footer__pill { background: var(--c); color: #fff; border-radius: 999px; padding: clamp(12px, 1.4vw, 18px) clamp(28px, 5vw, 64px); font-weight: 700; font-size: clamp(16px, 2.8vw, 30px); letter-spacing: 0.02em; text-transform: uppercase; color: #fff; }
   .footer__fine { font-size: 13px; letter-spacing: 0.02em; opacity: 0.9; max-width: 760px; color: var(--c); }
   .footer__legal { display: flex; flex-direction: column; gap: 8px; max-width: 720px; font-size: 11.5px; line-height: 1.5; letter-spacing: 0.01em; opacity: 0.55; color: var(--c); }
+  @media (max-width: 640px) {
+    .footer { padding: 44px 22px 40px; gap: 22px; }
+    .footer__logo { order: -2; max-width: 236px; }
+    .footer__links { order: -1; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 10px; }
+    .footer__link { border: 2px solid var(--c); border-radius: 999px; padding: 13px 20px; text-align: center; box-shadow: 0 4px 0 var(--c); }
+    .footer__pill { font-size: 13px; padding: 10px 20px; white-space: nowrap; }
+  }
 {% endstylesheet %}
 
 {% schema %}

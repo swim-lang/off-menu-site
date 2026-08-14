@@ -28,6 +28,14 @@
   .intro__rule::before, .intro__rule::after { content: ''; flex: 1; height: 1.5px; background: var(--c); }
   .intro__rule-dot { flex: 0 0 auto; width: 8px; height: 8px; background: var(--c); transform: rotate(45deg); }
   .intro__body { max-width: 540px; font-size: 18px; line-height: 28px; color: var(--ink); }
+  @media (max-width: 640px) {
+    .intro { padding: 44px 14px 52px; }
+    .intro__crest { display: none; }
+    .intro__menu { transform: none !important; align-items: flex-start !important; padding: 20px 18px 22px !important; gap: 11px !important; }
+    .intro__menu, .intro__eyebrow, .intro__head, .intro__body { text-align: left !important; }
+    .intro__eyebrow, .intro__rule { align-self: flex-start; }
+    .intro__body { font-size: 15px; line-height: 1.55; }
+  }
 {% endstylesheet %}
 
 {% schema %}

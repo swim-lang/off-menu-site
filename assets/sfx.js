@@ -68,6 +68,7 @@
   var _hovered = null;
 
   function install() {
+    if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     if (document.__sfxInstalled) return;
     document.__sfxInstalled = true;
     var unlock = function () {
