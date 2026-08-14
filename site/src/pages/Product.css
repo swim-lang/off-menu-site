@@ -202,10 +202,10 @@
 }
 
 @media (max-width: 640px) {
-  .pdp-hero { padding-top: 18px; }                      /* breathing room under the header */
-  .pdp-hero__media { min-height: 380px; }
-  .pdp-hero__photo { padding: 26px 20px; }              /* bigger bag */
-  .pdp-hero__info { padding: 40px 22px; }
+  .pdp-hero { padding-top: 34px; }                      /* more space under the header */
+  .pdp-hero__media { min-height: 340px; }
+  .pdp-hero__photo { padding: 18px 18px; }              /* bigger bag */
+  .pdp-hero__info { padding: 12px 22px 44px; align-items: center; text-align: center; }  /* less gap + centered */
   /* Consistent section padding + heading size across the whole page */
   .pdp-science, .pdp-made, .pdp-reviews, .pdp-faq { padding: 44px 22px; }
   .pdp-made__head, .pdp-science__head, .pdp-reviews__head, .pdp-faq__head { font-size: 34px; }
