@@ -25,6 +25,7 @@
 .hiw-kicker { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; }
 .hiw-step__title { font-size: clamp(22px, 2.4vw, 28px); text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; padding-top: 4px; }
 .hiw-step__body { font-size: 15px; line-height: 1.6; color: var(--ink); }
+.hiw-step__label { display: none; }  /* mobile-only compact "Step One" label */
 
 /* FORMAT MENU */
 .hiw-menu-sec { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 64px 56px 88px; }
@@ -57,12 +58,13 @@
   /* Consistent paragraph copy sizing (match other pages) */
   .hiw-hero__sub, .hiw-menu__intro { font-size: 15px; line-height: 1.55; }
   .hiw-step__body { font-size: 14px; }
-  /* Shorter step cards: smaller number + illustration, tighter padding
-     (desktop keeps the big number contrast) */
-  .hiw-step { padding: 26px 24px 30px; gap: 8px; }
-  .hiw-num { font-size: 60px; }
-  .hiw-step__ill { width: 66px !important; height: 77px !important; }
-  .hiw-step__title { padding-top: 2px; }
+  /* Much shorter step cards: drop the big number, use a one-line "Step One"
+     label instead; smaller illustration + tighter padding (desktop unchanged) */
+  .hiw-step { padding: 22px 24px 26px; gap: 6px; }
+  .hiw-kicker, .hiw-num { display: none; }
+  .hiw-step__label { display: block; font-weight: 700; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .hiw-step__ill { width: 60px !important; height: 70px !important; }
+  .hiw-step__title { font-size: 22px; padding-top: 2px; }
   /* Format menu — wider card (less section side padding) + smaller text so rows fit */
   .hiw-menu-sec { padding: 44px 16px 60px; }
   .hiw-card { padding: 26px 18px 30px; }

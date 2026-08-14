@@ -12,14 +12,16 @@ const C = '#C42E6A'
 const STEP_SOUNDS = [playBell, playBell, playBell]
 
 const STEPS = [
-  { n: '01', kicker: 'Step', title: 'Take two chews daily.', body: 'No mixing, no measuring, no orange dust on your counter. Just unwrap, chew, and move on with your day.', ill: 'apple' },
-  { n: '02', kicker: 'Step', title: 'Add a little fiber.', body: 'Each serving gives you 2g fiber to help support digestive health, regularity, and fullness as part of your daily routine.', ill: 'spinach' },
-  { n: '03', kicker: 'Step', title: 'Come back tomorrow.', body: 'That is the whole point. A supplement does not matter much if you hate taking it, so we made fiber easier to repeat.', ill: 'grape' },
+  { n: '01', word: 'One', kicker: 'Step', title: 'Take two chews daily.', body: 'No mixing, no measuring, no orange dust on your counter. Just unwrap, chew, and move on with your day.', ill: 'apple' },
+  { n: '02', word: 'Two', kicker: 'Step', title: 'Add a little fiber.', body: 'Each serving gives you 2g fiber to help support digestive health, regularity, and fullness as part of your daily routine.', ill: 'spinach' },
+  { n: '03', word: 'Three', kicker: 'Step', title: 'Come back tomorrow.', body: 'That is the whole point. A supplement does not matter much if you hate taking it, so we made fiber easier to repeat.', ill: 'grape' },
 ]
 
 function Step({ s, i }) {
   return (
     <motion.div className="hiw-step" variants={fadeUp} initial="hidden" whileInView="show" viewport={inView} whileHover={{ y: -8 }} onMouseEnter={() => STEP_SOUNDS[i % STEP_SOUNDS.length]()}>
+      {/* Mobile-only compact label: "Step One" on one line, no big number */}
+      <span className="hiw-step__label">{s.kicker} {s.word}</span>
       <span className="hiw-kicker">{s.kicker}</span>
       <motion.span
         className="hiw-num"
