@@ -50,10 +50,11 @@
 .intro { display: flex; justify-content: center; padding: 78px 48px 84px; }
 /* Mobile: straighten big tilted items (Framer-set rotations need !important), left-align intro, show guest-check checks without hover */
 @media (max-width: 640px) {
-  .intro { padding: 46px 22px 54px; }
-  .intro__menu { transform: none !important; align-items: flex-start; padding: 30px 24px 34px; }
-  .intro__menu, .intro__crest, .intro__eyebrow, .intro__head, .intro__body { text-align: left; }
-  .intro__rule { align-self: flex-start; }
+  .intro { padding: 44px 14px 52px; }
+  .intro__crest { display: none; }
+  .intro__menu { transform: none !important; align-items: flex-start; padding: 28px 20px 32px; }
+  .intro__menu, .intro__eyebrow, .intro__head, .intro__body { text-align: left !important; }
+  .intro__eyebrow, .intro__rule { align-self: flex-start; }
   .foryou__ticket { transform: none !important; }
   .foryou__check path { stroke-dashoffset: 0 !important; }
   .facts__card { transform: none !important; }
@@ -249,9 +250,10 @@
 /* Mobile: simplify — drop the blinking card + seal, center headline + CTA */
 @media (max-width: 640px) {
   .story { height: 440px; }
-  .story__card, .story__seal { display: none; }
+  .story__card { display: none; }
   .story__head { left: 22px; right: 22px; width: auto; max-width: none; bottom: 126px; text-align: center; font-size: clamp(28px, 7.5vw, 38px); }
   .story__btn { left: 0; right: 0; margin-inline: auto; width: fit-content; bottom: 60px; }
+  .story__seal--1 { top: 26px; right: 20px; }
 }
 
 /* ===== FUN FACTS ===== */

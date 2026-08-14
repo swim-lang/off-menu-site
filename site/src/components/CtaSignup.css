@@ -8,3 +8,11 @@
 .cta__form { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; padding-top: 30px; }
 .cta__form input { width: 300px; border: 2px solid var(--c); border-radius: 999px; padding: 16px 26px; font-family: var(--sans); font-size: 16px; color: var(--c); }
 .cta__form input::placeholder { color: var(--c); opacity: 0.55; }
+
+/* Mobile: full-width stacked email input + button */
+@media (max-width: 640px) {
+  .cta__body { padding: 56px 22px; }
+  .cta__form { flex-direction: column; flex-wrap: nowrap; width: 100%; gap: 12px; }
+  .cta__form input { width: 100%; box-sizing: border-box; }
+  .cta__form .btn { width: 100%; }
+}
