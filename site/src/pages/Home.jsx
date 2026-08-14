@@ -362,6 +362,7 @@ export default function Home() {
           <div className="facts__module">
             <span className="facts__kicker serif">Did you know?</span>
             <h2 className="facts__head">Chef Chewy's<br />Fun Facts</h2>
+            <img className="facts__art--mobile" src="raw/chef-fun-facts.svg" alt="" />
             <motion.div className="facts__card" key={fi} style={{ transform: `rotate(${FACT_ROT[fi]}deg)` }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
               <span className="facts__label">{f.l}</span>
               <span className="facts__text serif">{f.t}</span>
