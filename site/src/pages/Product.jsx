@@ -81,17 +81,20 @@ export default function Product() {
     <Page page="product">
       {/* ===== HERO / BUY BOX ===== */}
       <section data-review-id="product-buybox" className="pdp-hero" style={{ color: C }}>
-        <Reveal className="pdp-hero__media">
-          <img className="pdp-hero__photo" src="raw/cherry-cola-bag.png" alt="Cherry Cola Spice daily fiber chews" />
-        </Reveal>
-
-        <div className="pdp-hero__info">
+        <div className="pdp-hero__head">
           <Reveal as="span" className="pdp-pill">Bold · Daily fiber soft chews</Reveal>
           <Reveal as="h1" v={riseBig} className="pdp-hero__title serif">Cherry Cola Spice</Reveal>
           <Reveal as="div" className="pdp-hero__rating">
             <span className="pdp-stars">★★★★★</span>
             <span className="pdp-hero__rcount">4.9 · 1,204 reviews</span>
           </Reveal>
+        </div>
+
+        <Reveal className="pdp-hero__media">
+          <img className="pdp-hero__photo" src="raw/cherry-cola-bag.png" alt="Cherry Cola Spice daily fiber chews" />
+        </Reveal>
+
+        <div className="pdp-hero__info">
           <Reveal as="div" className="pdp-hero__price serif">${price}</Reveal>
           <Reveal as="p" className="pdp-hero__desc">
             A chef-inspired soft chew with 2g fiber per serving for the days your gut feels bloated, sluggish, or just a little
