@@ -48,6 +48,16 @@
 
 /* ===== INTRO ===== */
 .intro { display: flex; justify-content: center; padding: 78px 48px 84px; }
+/* Mobile: straighten big tilted items (Framer-set rotations need !important), left-align intro, show guest-check checks without hover */
+@media (max-width: 640px) {
+  .intro { padding: 46px 22px 54px; }
+  .intro__menu { transform: none !important; align-items: flex-start; padding: 30px 24px 34px; }
+  .intro__menu, .intro__crest, .intro__eyebrow, .intro__head, .intro__body { text-align: left; }
+  .intro__rule { align-self: flex-start; }
+  .foryou__ticket { transform: none !important; }
+  .foryou__check path { stroke-dashoffset: 0 !important; }
+  .facts__card { transform: none !important; }
+}
 .intro__menu {
   position: relative; max-width: 700px; background: #fff; border: 2px solid var(--c); border-radius: 6px;
   box-shadow: 0 12px 0 var(--c); padding: 48px 60px 52px; transform: rotate(-1deg);
