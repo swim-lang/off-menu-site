@@ -1,0 +1,36 @@
+{%- comment -%}
+  Vintage seal/sticker. Params: shape (burst|scallop|star), size, rotate, label, color, class.
+  White face, colored outline + offset-shadow twin. Recolors with the passed color or --c.
+{%- endcomment -%}
+{%- liquid
+  assign shape = shape | default: 'burst'
+  assign size = size | default: 130
+  assign rotate = rotate | default: 0
+  assign vb = 200
+  if shape == 'scallop'
+    assign vb = 222
+  endif
+  assign d = 'M 100.0 4.0 L 114.0 29.4 L 136.7 11.3 L 140.0 40.1 L 167.9 32.1 L 159.9 60.0 L 188.7 63.3 L 170.6 86.0 L 196.0 100.0 L 170.6 114.0 L 188.7 136.7 L 159.9 140.0 L 167.9 167.9 L 140.0 159.9 L 136.7 188.7 L 114.0 170.6 L 100.0 196.0 L 86.0 170.6 L 63.3 188.7 L 60.0 159.9 L 32.1 167.9 L 40.1 140.0 L 11.3 136.7 L 29.4 114.0 L 4.0 100.0 L 29.4 86.0 L 11.3 63.3 L 40.1 60.0 L 32.1 32.1 L 60.0 40.1 L 63.3 11.3 L 86.0 29.4 Z'
+  if shape == 'star'
+    assign d = 'M 100.0 4.0 L 123.5 67.6 L 191.3 70.3 L 138.0 112.4 L 156.4 177.7 L 100.0 140.0 L 43.6 177.7 L 62.0 112.4 L 8.7 70.3 L 76.5 67.6 Z'
+  endif
+  if shape == 'scallop'
+    assign d = 'M 111.0 23.0 A 21.1 21.1 0 0 1 151.9 33.1 A 21.1 21.1 0 0 1 183.4 61.0 A 21.1 21.1 0 0 1 198.4 100.4 A 21.1 21.1 0 0 1 193.3 142.2 A 21.1 21.1 0 0 1 169.4 176.9 A 21.1 21.1 0 0 1 132.1 196.4 A 21.1 21.1 0 0 1 89.9 196.4 A 21.1 21.1 0 0 1 52.6 176.9 A 21.1 21.1 0 0 1 28.7 142.2 A 21.1 21.1 0 0 1 23.6 100.4 A 21.1 21.1 0 0 1 38.6 61.0 A 21.1 21.1 0 0 1 70.1 33.1 A 21.1 21.1 0 0 1 111.0 23.0 Z'
+  endif
+  assign fsize = size | times: 0.115
+-%}
+<div class="seal {{ class }}" style="width:{{ size }}px;height:{{ size }}px;{% if color %}color:{{ color }};{% endif %}transform:rotate({{ rotate }}deg);position:relative;flex-shrink:0;">
+  <svg viewBox="0 0 {{ vb }} {{ vb }}" width="{{ size }}" height="{{ size }}" style="position:absolute;inset:0;overflow:visible;">
+    <path d="{{ d }}" fill="currentColor" transform="translate(4,5)"></path>
+    <path d="{{ d }}" fill="#fff" stroke="currentColor" stroke-width="4" stroke-linejoin="round"></path>
+  </svg>
+  {%- if label -%}
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 18%;">
+      {%- assign words = label | split: ' ' -%}
+      {%- for w in words -%}
+        <span style="font-weight:700;font-size:{{ fsize }}px;line-height:1.05;text-transform:uppercase;letter-spacing:0.02em;text-align:center;">{{ w }}</span>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+{%- assign shape = nil -%}{%- assign size = nil -%}{%- assign rotate = nil -%}{%- assign label = nil -%}{%- assign color = nil -%}{%- assign class = nil -%}

@@ -1,0 +1,551 @@
+{%- comment -%} Contact / Support — ported from React Contact.jsx. Color (--c = teal) set by the template. {%- endcomment -%}
+
+{%- assign help_topics = 'Order status,Shipping,Returns or refunds,Subscription changes,Product questions,Ingredient questions,Wholesale or press' | split: ',' -%}
+
+{% comment %} HERO {% endcomment %}
+<section class="cn-hero">
+  <span class="cn-eyebrow" data-reveal>Contact &middot; Support</span>
+  <h1 class="cn-hero__head" data-reveal="big">
+    Need help? <br />We&rsquo;ve got you.
+  </h1>
+  <p class="cn-hero__sub" data-reveal>
+    Questions about your order, subscription, shipping, ingredients, or daily
+    fiber routine? Send us a note and we&rsquo;ll get back to you.
+  </p>
+</section>
+
+{% comment %} BODY {% endcomment %}
+<section class="cn-body">
+  <div class="cn-grid">
+    {% comment %} LEFT — form {% endcomment %}
+    <div class="cn-card" data-reveal>
+      <h2 class="cn-card__title">Send us a note</h2>
+
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <div class="cn-success" role="status">
+            <span class="cn-success__mark">&#10003;</span>
+            <p class="cn-success__text">Thanks. We&rsquo;ll be in touch.</p>
+          </div>
+        {% else %}
+          {% if form.errors %}
+            <p class="cn-error">{{ form.errors | default_errors }}</p>
+          {% endif %}
+
+          <div class="cn-form">
+            <label class="cn-field">
+              <span class="cn-label">Name</span>
+              <input
+                class="cn-input"
+                type="text"
+                name="contact[Name]"
+                placeholder="Your name"
+              />
+            </label>
+
+            <label class="cn-field">
+              <span class="cn-label">Email</span>
+              <input
+                class="cn-input"
+                type="email"
+                name="contact[email]"
+                placeholder="you@email.com"
+              />
+            </label>
+
+            <label class="cn-field">
+              <span class="cn-label">Order number (if applicable)</span>
+              <input
+                class="cn-input"
+                type="text"
+                name="contact[Order number]"
+                placeholder="#OM-00000"
+              />
+            </label>
+
+            <label class="cn-field">
+              <span class="cn-label">What can we help with?</span>
+              <textarea
+                class="cn-input cn-textarea"
+                name="contact[body]"
+                placeholder="Tell us a little about what you need&hellip;"
+              ></textarea>
+            </label>
+
+            {% comment %} Photo upload (cn-upload / cn-thumbs) removed — Shopify's contact form does not support file uploads. {% endcomment %}
+
+            <button class="cn-submit" type="submit">
+              Send message &rarr;
+            </button>
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+
+    {% comment %} RIGHT — info {% endcomment %}
+    <div class="cn-aside" data-reveal>
+      <div class="cn-info">
+        <div class="cn-info__block">
+          <span class="cn-info__label">Email us</span>
+          <span class="cn-info__email">support@offmenu.com</span>
+        </div>
+        <div class="cn-info__block">
+          <span class="cn-info__label">Response time</span>
+          <span class="cn-info__value">
+            We typically respond within 1&ndash;2 business days.
+          </span>
+        </div>
+      </div>
+
+      {% comment %} Its own box so the chef's direct line stands apart from support {% endcomment %}
+      <div class="cn-chef">
+        <span class="cn-info__label">Talk to the chef directly</span>
+        <span class="cn-chef__note">Have something specific? Skip the queue and email the chef.</span>
+        <a class="cn-info__email cn-info__email--link" href="mailto:chefchewy@offmenu.health">
+          chefchewy@offmenu.health
+        </a>
+      </div>
+
+      <div class="cn-help">
+        <h3 class="cn-help__title">Ask us about</h3>
+        <div class="cn-chips">
+          {% for topic in help_topics %}
+            <span class="cn-chip">{{ topic }}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <p class="cn-note">
+        For medical questions, please speak with your healthcare provider. We
+        can help with product information, but we can&rsquo;t provide medical
+        advice.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+/* Contact / Support — color-on-white (teal #1F5F68, matches houndstooth + logo) */
+
+.cn-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 144px 48px 40px;
+  background: #fff;
+  text-align: center;
+}
+
+.cn-eyebrow {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.cn-hero__head {
+  margin: 16px 0 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.cn-hero__sub {
+  margin: 18px 0 0;
+  max-width: 560px;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 26px;
+  color: #221F20;
+}
+
+/* ---- Body ---- */
+.cn-body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 48px 90px;
+  background: #fff;
+}
+
+.cn-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+  max-width: 1080px;
+}
+
+/* ---- Form card ---- */
+.cn-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 600px;
+  flex-shrink: 0;
+  padding: 32px;
+  border: 2px solid currentColor;
+  border-radius: 18px;
+}
+
+.cn-card__title {
+  margin: 0 0 6px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.cn-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cn-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.cn-label {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.cn-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 2px solid color-mix(in srgb, var(--c) 32%, #fff);
+  border-radius: 10px;
+  background: #fff;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #221F20;
+  outline: none;
+  transition: border-color 0.18s ease;
+}
+
+.cn-input::placeholder {
+  color: color-mix(in srgb, var(--c) 55%, #fff);
+}
+
+.cn-input:focus {
+  border-color: var(--c);
+}
+
+.cn-textarea {
+  height: 120px;
+  resize: vertical;
+  padding-top: 14px;
+}
+
+/* Multi-image upload (returns / damage photos) */
+.cn-upload {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 16px;
+  border: 2px dashed color-mix(in srgb, var(--c) 40%, #fff);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+.cn-upload:hover { border-color: var(--c); background: color-mix(in srgb, var(--c) 5%, #fff); }
+.cn-upload__icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--c);
+  border-radius: 999px;
+  color: var(--c);
+  font-size: 20px;
+  line-height: 1;
+}
+.cn-upload__text { display: flex; flex-direction: column; font-family: var(--sans); font-weight: 700; font-size: 14px; color: var(--c); }
+.cn-upload__text em { font-style: normal; font-weight: 500; font-size: 12px; opacity: 0.65; }
+
+.cn-thumbs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; padding: 0; list-style: none; }
+.cn-thumb {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1.5px solid color-mix(in srgb, var(--c) 32%, #fff);
+}
+.cn-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cn-thumb__remove {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+.cn-thumb__remove:hover { background: rgba(0, 0, 0, 0.82); }
+
+.cn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  padding: 16px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 6px 0 currentColor;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: currentColor;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.cn-submit:hover {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 currentColor;
+}
+
+.cn-submit:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 currentColor;
+}
+
+/* ---- Success state ---- */
+.cn-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 240px;
+  text-align: center;
+}
+
+.cn-success__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  font-size: 24px;
+  color: currentColor;
+}
+
+.cn-success__text {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: currentColor;
+}
+
+/* ---- Aside ---- */
+.cn-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  width: 432px;
+  flex-shrink: 0;
+}
+
+.cn-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px 26px;
+  border: 2px solid currentColor;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.cn-info__block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cn-info__label {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.cn-info__email {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 26px;
+  color: currentColor;
+}
+
+.cn-info__value {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #221F20;
+}
+
+.cn-info__email--link {
+  display: inline-block;
+  width: fit-content;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity 0.14s ease;
+}
+.cn-info__email--link:hover { opacity: 0.7; }
+
+/* Separate "talk to the chef" box, sits under the support info box */
+.cn-chef {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 24px 26px;
+  border: 2px solid currentColor;
+  border-radius: 16px;
+  background: color-mix(in srgb, currentColor 6%, #fff);
+}
+.cn-chef__note {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #221F20;
+}
+
+/* ---- Help chips ---- */
+.cn-help {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cn-help__title {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.cn-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cn-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 3px 0 currentColor;
+  cursor: default;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: currentColor;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.cn-chip:hover {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 currentColor;
+}
+
+/* ---- Note ---- */
+.cn-note {
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1.5px solid color-mix(in srgb, var(--c) 32%, #fff);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+  color: color-mix(in srgb, var(--c) 72%, #000);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+  .cn-hero {
+    padding: 112px 24px 32px;
+  }
+  .cn-hero__head {
+    font-size: 40px;
+  }
+  .cn-body {
+    padding: 24px 24px 64px;
+  }
+  .cn-grid {
+    flex-direction: column;
+    gap: 28px;
+  }
+  .cn-card,
+  .cn-aside {
+    width: 100%;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": [],
+  "presets": [{ "name": "Contact" }]
+}
+{% endschema %}

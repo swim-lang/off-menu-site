@@ -1,0 +1,56 @@
+<section class="hero" style="color: var(--c);">
+  <video class="hero__vid" src="{{ settings.hero_video_url }}" poster="{{ 'poster.jpg' | asset_url }}" autoplay loop muted playsinline></video>
+
+  <img class="hero__tag" src="{{ 'Header-Tagline-rwhite.svg' | asset_url }}" alt="Fiber, re-plated">
+
+  <div class="hero__circle" aria-hidden="true">
+    {% render 'seal', shape: 'burst', size: 140, label: 'New drop' %}
+  </div>
+
+  <div class="hero__stickers">
+    <span class="hero__sticker">Chef-led flavor</span>
+    <span class="hero__sticker">2g fiber per serving</span>
+    <span class="hero__sticker">60 soft chews</span>
+  </div>
+
+  <div class="hero__cta-group">
+    <div class="hero__btns">
+      <a class="hero__btn hero__btn--primary" href="#products">Order the chews &rarr;</a>
+      <a class="hero__btn" href="{{ routes.root_url }}pages/how-it-works">See how it works &rarr;</a>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .hero { position: relative; height: 710px; overflow: hidden; }
+  .hero__vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero__tag { position: absolute; left: 80px; top: 150px; width: 433px; max-width: 48%; height: auto; z-index: 2; }
+  .hero__circle { position: absolute; top: 64px; right: 60px; z-index: 3; transform: rotate(13deg); }
+  .hero__circle:hover { animation: hero-spin 1.6s linear infinite; }
+  @keyframes hero-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .hero__burst { display: flex; align-items: center; justify-content: center; text-align: center; width: 140px; height: 140px; background: var(--c); color: #fff; font-weight: 700; font-size: 20px; letter-spacing: 0.02em; text-transform: uppercase; border-radius: 999px; box-shadow: 0 0 0 6px #fff, 0 0 0 8px var(--c); }
+  .hero__stickers { position: absolute; top: 224px; right: 44px; z-index: 3; display: flex; flex-direction: column; align-items: flex-end; gap: 13px; }
+  .hero__sticker { background: #fff; border: 2px solid var(--c); color: var(--c); border-radius: 999px; padding: 11px 20px; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; box-shadow: 4px 4px 0 var(--c); }
+  .hero__cta-group { position: absolute; left: 80px; bottom: 60px; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hero__btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero__btn { background: #fff; border: 2px solid var(--c); border-radius: 999px; padding: 18px 30px; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--c); box-shadow: 0 7px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .hero__btn--primary { padding: 18px 34px; }
+  .hero__btn:hover { transform: translateY(7px); box-shadow: 0 0 0 var(--c); }
+  @media (max-width: 640px) {
+    .hero { height: 600px; }
+    .hero__tag { left: 22px; top: 92px; width: 60%; max-width: 230px; }
+    .hero__circle { top: 20px; right: 14px; transform: scale(0.7) rotate(13deg); transform-origin: top right; }
+    .hero__stickers { display: none; }
+    .hero__cta-group { left: 22px; right: 22px; bottom: 34px; gap: 12px; }
+    .hero__btns { flex-direction: column; width: 100%; gap: 12px; }
+    .hero__btn, .hero__btn--primary { width: 100%; justify-content: center; padding: 16px 22px; font-size: 15px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Home hero",
+  "settings": [],
+  "presets": [{ "name": "Home hero" }]
+}
+{% endschema %}

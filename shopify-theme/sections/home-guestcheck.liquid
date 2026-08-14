@@ -1,0 +1,91 @@
+{%- comment -%} Made for people who — guest check. Ported from Home.jsx (foryou). Base color red. {%- endcomment -%}
+
+<section class="foryou" style="--c: var(--red); color: var(--red);">
+  <div class="foryou__inner">
+    <div class="foryou__left">
+      <span class="foryou__eyebrow" data-reveal>Who it's for</span>
+      <h2 class="foryou__head" data-reveal="big">Made for<br>people <em>who&hellip;</em></h2>
+      <p class="foryou__support" data-reveal>No two guts are the same. But if any of these sound like you, pull up a stool. You're in the right place.</p>
+      <div data-reveal><span class="foryou__sticker">&#9733; Table for one? Perfect.</span></div>
+    </div>
+
+    <div class="foryou__ticket" style="transform: rotate(2.5deg);">
+      <div class="foryou__tk-head">
+        <div class="foryou__tk-row">
+          <span class="foryou__tk-title">Guest Check</span>
+          <span class="foryou__tk-table">Table &middot; You</span>
+        </div>
+        <span class="foryou__tk-sub">Off Menu &middot; Daily Fiber &middot; Order No. 010</span>
+      </div>
+      <div class="foryou__tear"></div>
+      <div class="foryou__tk-rows">
+        {%- assign qualifiers = "Feel bloated after meals|Know they need more fiber but hate powder|Want a daily habit that does not feel like homework|Prefer flavor over chalky obligation|Want something easy to keep on the counter, in a bag, or at work" | split: "|" -%}
+        {%- for q in qualifiers -%}
+          <div class="foryou__crow">
+            <span class="foryou__box">
+              <svg class="foryou__check" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path pathLength="1" d="M5 21 C 7.5 24, 10 27.5, 14 32.5 C 22 19, 33 5, 50 -9" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+            <span class="foryou__ctext">{{ q }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="foryou__tear"></div>
+      <div class="foryou__tk-foot">
+        <div class="foryou__total-row">
+          <span class="foryou__total-l">Total</span>
+          <span class="foryou__total-r">2 daily chews</span>
+        </div>
+        <span class="foryou__foot-note">Checked even one box? Consider that a yes. This one's for you.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .foryou { background: #fff; padding: 116px 40px; }
+  .foryou__inner { max-width: 1220px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 88px; }
+  .foryou__left { width: 480px; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+  .foryou__eyebrow { font-weight: 500; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); }
+  .foryou__head { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 64px; line-height: 60px; letter-spacing: -0.015em; color: var(--c); }
+  .foryou__head em { font-style: italic; color: var(--c); }
+  .foryou__support { font-weight: 500; font-size: 18px; line-height: 27px; color: #4A4038; max-width: 400px; }
+  .foryou__sticker { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; background: var(--c); color: #fff; padding: 11px 18px 12px; border-radius: 999px; transform: rotate(-4deg); box-shadow: 4px 4px 0 rgba(26,18,7,0.18); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; transition: transform 0.2s ease; }
+  .foryou__sticker:hover { transform: rotate(-2deg) scale(1.04); }
+
+  .foryou__ticket { width: 560px; flex-shrink: 0; background: #fff; border: 2.5px solid var(--c); border-radius: 6px; box-shadow: 8px 8px 0 var(--c); overflow: hidden; transition: box-shadow 0.3s ease; }
+  .foryou__ticket:hover { box-shadow: 13px 14px 0 var(--c); }
+  .foryou__tk-head { padding: 32px 40px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .foryou__tk-row { display: flex; align-items: baseline; justify-content: space-between; }
+  .foryou__tk-title { font-weight: 700; font-size: 26px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); }
+  .foryou__tk-table { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 20px; color: var(--c); }
+  .foryou__tk-sub { font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6E635A; }
+  .foryou__tear { height: 0; border-top: 2px dashed rgba(193, 18, 9, 0.53); }
+  .foryou__tk-rows { padding: 26px 40px; display: flex; flex-direction: column; gap: 22px; }
+  .foryou__crow { display: flex; align-items: flex-start; gap: 16px; cursor: pointer; }
+  .foryou__box { position: relative; width: 26px; height: 26px; flex-shrink: 0; border: 2.5px solid var(--c); border-radius: 5px; transition: background 0.2s ease; }
+  .foryou__crow:hover .foryou__box { background: rgba(193, 18, 9, 0.08); }
+  .foryou__check { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px; transform: translate(-50%, -50%); overflow: visible; pointer-events: none; }
+  .foryou__check path { stroke: var(--c); fill: none; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 0.5s ease; }
+  .foryou__crow.is-checked .foryou__check path { stroke-dashoffset: 0; }
+  .foryou__crow:hover .foryou__check path { stroke-dashoffset: 0; }
+  .foryou__ctext { font-weight: 500; font-size: 20px; line-height: 26px; color: var(--c); }
+  .foryou__tk-foot { padding: 22px 40px 32px; display: flex; flex-direction: column; gap: 10px; }
+  .foryou__total-row { display: flex; align-items: baseline; justify-content: space-between; }
+  .foryou__total-l { font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); }
+  .foryou__total-r { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 24px; color: var(--c); }
+  .foryou__foot-note { font-weight: 500; font-size: 14px; line-height: 19px; color: #6E635A; }
+  @media (prefers-reduced-motion: reduce) { .foryou__check path { transition: none; } }
+  @media (max-width: 1000px) {
+    .foryou__inner { flex-direction: column; gap: 48px; }
+    .foryou__left { width: 100%; max-width: 480px; align-items: center; text-align: center; }
+    .foryou__head { font-size: 54px; line-height: 52px; }
+    .foryou__support { max-width: 460px; }
+    .foryou__ticket { width: 100%; max-width: 480px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Guest check", "settings": [], "presets": [{ "name": "Guest check" }] }
+{% endschema %}

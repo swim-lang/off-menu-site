@@ -1,0 +1,35 @@
+{%- comment -%} Intro — vintage menu card. Ported from Home.jsx (intro). Base color red. {%- endcomment -%}
+
+<section class="intro" style="--c: var(--red); color: var(--red);">
+  <div class="intro__menu">
+    <span class="intro__crest serif">&#10038; Daily Fiber &middot; Est. in the kitchen &#10038;</span>
+    <span class="intro__eyebrow">Why Off Menu</span>
+    <h2 class="intro__head">No scoop. No shaker. Just chew.</h2>
+    <div class="intro__rule"><span class="intro__rule-dot"></span></div>
+    <p class="intro__body">Most fiber supplements make the habit feel like work. Powders, scoops, chalky citrus, and giant tubs with no respect for your counter space.</p>
+    <p class="intro__body">Off Menu takes a simpler route: a soft chew with 2g fiber per serving and chef-inspired flavor, made to feel less like a chore and more like something you might actually remember.</p>
+  </div>
+</section>
+
+{% stylesheet %}
+  .intro { display: flex; justify-content: center; padding: 78px 48px 84px; }
+  .intro__menu {
+    position: relative; max-width: 700px; background: #fff; border: 2px solid var(--c); border-radius: 6px;
+    box-shadow: 0 12px 0 var(--c); padding: 48px 60px 52px; transform: rotate(-1deg);
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+  }
+  .intro__menu:hover { transform: rotate(-1deg) translateY(7px); box-shadow: 0 5px 0 var(--c); }
+  .intro__menu::before { content: ''; position: absolute; inset: 9px; border: 1px solid var(--c); border-radius: 3px; pointer-events: none; }
+  .intro__crest { font-family: var(--serif); font-style: italic; font-size: 15px; letter-spacing: 0.05em; color: var(--c); }
+  .intro__eyebrow { display: block; font-family: var(--sans); font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .intro__head { font-size: clamp(32px, 4.2vw, 46px); line-height: 1.04; text-transform: uppercase; letter-spacing: -0.01em; max-width: 520px; }
+  .intro__rule { display: flex; align-items: center; gap: 10px; width: 180px; margin: 4px 0 2px; }
+  .intro__rule::before, .intro__rule::after { content: ''; flex: 1; height: 1.5px; background: var(--c); }
+  .intro__rule-dot { flex: 0 0 auto; width: 8px; height: 8px; background: var(--c); transform: rotate(45deg); }
+  .intro__body { max-width: 540px; font-size: 18px; line-height: 28px; color: var(--ink); }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Intro", "settings": [], "presets": [{ "name": "Intro" }] }
+{% endschema %}

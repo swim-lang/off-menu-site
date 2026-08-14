@@ -1,0 +1,326 @@
+{%- comment -%} Product PDP — ported from Product.jsx/.css. Buy box wired to Shopify; color (dark red) from template body class. {%- endcomment -%}
+{%- assign variant = product.selected_or_first_available_variant -%}
+{%- assign plan_group = product.selling_plan_groups | first -%}
+{%- if plan_group -%}{%- assign sp = plan_group.selling_plans | first -%}{%- endif -%}
+
+<div id="pdp-{{ section.id }}">
+  <!-- HERO / BUY BOX -->
+  <section class="pdp-hero" style="color: var(--c);">
+    <div class="pdp-hero__media">
+      <img class="pdp-hero__photo" src="{% if product.featured_image %}{{ product.featured_image | image_url: width: 1000 }}{% else %}{{ 'cherry-cola-bag.png' | asset_url }}{% endif %}" alt="{{ product.title | escape }}" width="500" height="760">
+    </div>
+    <div class="pdp-hero__info">
+      <span class="pdp-pill" data-reveal>Bold &middot; Daily fiber soft chews</span>
+      <h1 class="pdp-hero__title serif" data-reveal="big">{{ product.title | default: 'Cherry Cola Spice' }}</h1>
+      <div class="pdp-hero__rating" data-reveal><span class="pdp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="pdp-hero__rcount">4.9 &middot; 1,204 reviews</span></div>
+      <div class="pdp-hero__price serif" data-reveal>{{ product.price | money }}</div>
+      <p class="pdp-hero__desc" data-reveal>{% if product.description != blank %}{{ product.description | strip_html }}{% else %}A chef-inspired soft chew with 2g fiber per serving for the days your gut feels bloated, sluggish, or just a little off. Less powder routine. More small daily habit you can actually stick with.{% endif %}</p>
+
+      {% form 'product', product, data-product-form: '', class: 'pdp-buy' %}
+        <input type="hidden" name="id" value="{{ variant.id }}">
+        <input type="hidden" name="selling_plan" value="" data-selling-plan>
+        <div class="pdp-plans" data-reveal data-plans>
+          <button type="button" class="pdp-plan is-on" data-plan="">
+            <div class="pdp-plan__left"><div class="pdp-plan__head"><span class="pdp-plan__label">One-time</span></div><span class="pdp-plan__sub serif">60 chews &middot; one bag</span></div>
+            <span class="pdp-plan__price">{{ product.price | money }}</span>
+          </button>
+          {%- if sp -%}
+            {%- assign alloc = variant.selling_plan_allocations | where: 'selling_plan_id', sp.id | first -%}
+            <button type="button" class="pdp-plan" data-plan="{{ sp.id }}">
+              <div class="pdp-plan__left"><div class="pdp-plan__head"><span class="pdp-plan__label">Subscribe &amp; save</span><span class="pdp-plan__badge">Save 15%</span></div><span class="pdp-plan__sub serif">{{ sp.name }}</span></div>
+              <span class="pdp-plan__price">{% if alloc %}{{ alloc.per_delivery_price | money }}{% else %}{{ product.price | money }}{% endif %}</span>
+            </button>
+          {%- endif -%}
+        </div>
+        <button type="submit" name="add" class="pdp-cart"{% unless variant.available %} disabled{% endunless %}>{% if variant.available %}Add to cart &middot; {{ product.price | money }}{% else %}Sold out{% endif %}</button>
+      {% endform %}
+
+      <ul class="pdp-bullets" data-reveal>
+        <li class="pdp-bullet"><span class="pdp-dot"></span>Secure checkout</li>
+        <li class="pdp-bullet"><span class="pdp-dot"></span>Ships in 3&ndash;5 business days</li>
+        <li class="pdp-bullet"><span class="pdp-dot"></span>60 daily chews</li>
+        <li class="pdp-bullet"><span class="pdp-dot"></span>Skip or cancel anytime</li>
+        <li class="pdp-bullet"><span class="pdp-dot"></span>Questions? <a class="pdp-bullet__email" href="mailto:support@offmenu.com">support@offmenu.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- "FOR YOU IF" TICKER -->
+  <section class="pdp-ticker" aria-label="This chew is for you if…">
+    <div class="pdp-ticker__track">
+      {%- assign foryou = "You feel bloated, sluggish, or off after meals|You want more fiber but hate powders|You want something easier than mixing, measuring, or remembering another capsule|You care about taste as much as the habit|You want a small daily step that is easy to repeat" | split: "|" -%}
+      {%- for dup in (1..2) -%}
+        <div class="pdp-ticker__group"{% if forloop.last %} aria-hidden="true"{% endif %}>
+          <span class="pdp-ticker__cell pdp-ticker__cell--lead"><span class="pdp-ticker__star" aria-hidden="true">&#10022;</span><span class="pdp-ticker__lead serif">This chew is for you if&hellip;</span></span>
+          {%- for t in foryou -%}<span class="pdp-ticker__cell"><span class="pdp-ticker__star" aria-hidden="true">&#10022;</span><span class="pdp-ticker__txt">{{ t }}</span></span>{%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <!-- THE SCIENCE -->
+  <section class="pdp-science" style="color: var(--c);">
+    <div class="pdp-science__inner">
+      <div class="pdp-science__head-wrap">
+        <span class="pdp-science__eyebrow" data-reveal>Fiber class with Chef Chewy</span>
+        <h2 class="pdp-science__head" data-reveal="big">Fiber, demystified.</h2>
+        <p class="pdp-science__intro" data-reveal>Fiber is one of those simple things that can make a real difference when you take it consistently. Most of us do not get enough, and that can show up as bloating, sluggish digestion, and feeling off after meals.</p>
+        <div class="pdp-science__chef" data-reveal>
+          {% render 'ill', src: 'Arms-Crossed.svg', w: 150, h: 228, class: 'pdp-science__chef-img' %}
+          <div class="pdp-science__bubble"><span class="pdp-science__bubble-name serif">Chef Chewy</span><p class="pdp-science__bubble-text">Pull up a stool. We'll keep this simple.</p></div>
+        </div>
+      </div>
+      <div class="pdp-science__viewer" data-science>
+        {%- assign sci_t = "Stay regular|Less bloating|Fewer cravings|Steadier energy|Better over time" | split: "|" -%}
+        {%- assign sci_b = "Fiber helps support the daily rhythm of digestion, so things feel less stuck and more consistent.|Some fibers act as food for the good bacteria in your gut, which is one reason fiber keeps showing up in the gut health conversation.|Fiber can help you feel fuller, which makes it a useful part of a daily routine instead of another random supplement.|Fiber helps slow digestion, which can support a steadier feeling between meals.|Fiber is not flashy. It is foundational, which is exactly why it deserves a better format." | split: "|" -%}
+        <div class="pdp-science__tabs">
+          {%- for i in (1..5) -%}<button type="button" class="pdp-science__tab{% if forloop.first %} is-on{% endif %}" data-sci-tab="{{ forloop.index0 }}" aria-label="Lesson {{ forloop.index }}">{{ forloop.index }}</button>{%- endfor -%}
+        </div>
+        <div class="pdp-science__panel">
+          {%- for t in sci_t -%}
+            <div class="pdp-science__slide" data-sci-slide="{{ forloop.index0 }}"{% unless forloop.first %} hidden{% endunless %}>
+              <span class="pdp-science__num serif">{{ forloop.index | prepend: '0' }}</span>
+              <h3 class="pdp-science__t">{{ t }}</h3>
+              <p class="pdp-science__b">{{ sci_b[forloop.index0] }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+    <div class="pdp-honest" data-reveal>
+      <h3 class="pdp-honest__title serif">A small daily fiber habit.</h3>
+      <p class="pdp-honest__body">Each serving adds 2g fiber to your day. It's not here to replace fruits, vegetables, grains, nuts, or seeds. It's here to make getting a little more fiber feel easier, better-tasting, and more repeatable.</p>
+    </div>
+  </section>
+
+  <!-- MADE FOR YOUR GUT -->
+  <section class="pdp-made" style="color: var(--c);">
+    <div class="pdp-made__inner">
+      <div class="pdp-made__text">
+        <h2 class="pdp-made__head" data-reveal="big">Made for the days you feel off.</h2>
+        <p class="pdp-made__body" data-reveal>Bloating, sluggish digestion, and that heavy after-meal feeling are easy to ignore until they become part of your routine. Off Menu makes fiber easier to work into the day with chef-inspired flavor, a soft chew format, and none of the powder drama.</p>
+        <p class="pdp-made__serif serif" data-reveal>A little easier on the gut. A lot easier to take.</p>
+      </div>
+      <div class="pdp-made__art" data-reveal>{% render 'ill', src: 'tummy.svg', w: 360, h: 304 %}</div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="pdp-related" style="color: var(--c);">
+    <span class="pdp-related__eyebrow" data-reveal>More from the menu</span>
+    <div class="pdp-related__grid">
+      {%- assign r_img = "3.png|2.png|1.png" | split: "|" -%}
+      {%- assign r_tag = "Punchy|Fresh|Bright" | split: "|" -%}
+      {%- assign r_q = "Grape|Watermelon|Strawberry" | split: "|" -%}
+      {%- assign r_name = "Concord Verjus Grape|Watermelon Basil Lime|Strawberry Fig Leaf" | split: "|" -%}
+      {%- assign r_note = "Concord grape, a little verjus.|Watermelon, basil, clean lime.|Strawberry, fig leaf, almond." | split: "|" -%}
+      {%- for i in (0..2) -%}
+        <a class="pdp-card" data-reveal href="{{ routes.all_products_collection_url }}">
+          <div class="pdp-card__media"><img src="{{ r_img[i] | asset_url }}" alt="{{ r_name[i] }}" class="pdp-card__img"></div>
+          <div class="pdp-card__meta"><span class="pdp-card__tag">{{ r_tag[i] }}</span><span class="pdp-card__quote serif">&ldquo;{{ r_q[i] }}&rdquo;</span><span class="pdp-card__ct">60 CT</span></div>
+          <h3 class="pdp-card__name serif">{{ r_name[i] }}</h3>
+          <p class="pdp-card__note">{{ r_note[i] }}</p>
+        </a>
+      {%- endfor -%}
+    </div>
+    <div class="pdp-related__cta-wrap" data-reveal><a href="{{ routes.all_products_collection_url }}" class="pdp-btn pdp-btn--wide">Shop all 10 flavors &rarr;</a></div>
+  </section>
+
+  <!-- PRODUCT FAQ -->
+  <section class="pdp-faq" style="color: var(--c);">
+    <span class="pdp-faq__eyebrow" data-reveal>Good to know</span>
+    <h2 class="pdp-faq__head" data-reveal="big">Questions, answered.</h2>
+    <div class="pdp-faq__list" data-pdp-faq>
+      {%- assign fq = "What is it?|How do I take it?|When should I take it?|What does it taste like?|Is this a candy?" | split: "|" -%}
+      {%- assign fa = "Off Menu Daily Fiber is a soft chew supplement with 2g fiber per serving, made to help support digestive health, regularity, and fullness as part of your daily routine.|Take two chews daily. No scoop, no shaker, no mixing. Just unwrap and eat.|Any time that fits your routine. A lot of people pair it with breakfast, lunch, or an evening wind-down.|Cherry cola with a warm spice finish. It is chef-developed for real flavor, not that chalky supplement thing.|No. It is a fiber supplement that happens to taste good." | split: "|" -%}
+      {%- for q in fq -%}
+        <div class="pdp-faq__item{% if forloop.first %} is-open{% endif %}">
+          <button class="pdp-faq__q" type="button" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"><span>{{ q }}</span><span class="pdp-faq__sign">{% if forloop.first %}&minus;{% else %}+{% endif %}</span></button>
+          <div class="pdp-faq__a-wrap"><p class="pdp-faq__a">{{ fa[forloop.index0] }}</p></div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="pdp-reviews" style="color: var(--c);">
+    <h2 class="pdp-reviews__head" data-reveal="big">Early notes on taste.</h2>
+    <p class="pdp-reviews__sub" data-reveal>First-batch feedback from people who tried the chew.</p>
+    <div class="pdp-reviews__grid">
+      {%- assign rv_q = "The first fiber I have ever wanted to eat. The cherry cola one is genuinely dangerous.|I finally stopped pretending I was going to use the powder.|Tastes like something I would buy for the flavor first. The fiber is the win." | split: "|" -%}
+      {%- assign rv_w = "Dana R.|Marcus L.|Priya N." | split: "|" -%}
+      {%- for q in rv_q -%}
+        <div class="pdp-review" data-reveal><span class="pdp-stars pdp-stars--sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p class="pdp-review__quote serif">"{{ q }}"</p><span class="pdp-review__who">{{ rv_w[forloop.index0] }}</span></div>
+      {%- endfor -%}
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('pdp-{{ section.id }}');
+  if(!root) return;
+  // Plan toggle
+  var planWrap = root.querySelector('[data-plans]');
+  var spInput = root.querySelector('[data-selling-plan]');
+  var addBtn = root.querySelector('.pdp-cart');
+  if(planWrap){
+    planWrap.addEventListener('click', function(e){
+      var b = e.target.closest('[data-plan]'); if(!b) return;
+      planWrap.querySelectorAll('.pdp-plan').forEach(function(p){ p.classList.remove('is-on'); });
+      b.classList.add('is-on');
+      if(spInput) spInput.value = b.getAttribute('data-plan') || '';
+      var price = b.querySelector('.pdp-plan__price');
+      if(addBtn && price && addBtn.textContent.indexOf('Sold') === -1){ addBtn.textContent = 'Add to cart · ' + price.textContent.trim(); }
+    });
+  }
+  // Science tabs
+  var sci = root.querySelector('[data-science]');
+  if(sci){
+    sci.addEventListener('click', function(e){
+      var t = e.target.closest('[data-sci-tab]'); if(!t) return;
+      var idx = t.getAttribute('data-sci-tab');
+      sci.querySelectorAll('[data-sci-tab]').forEach(function(x){ x.classList.toggle('is-on', x===t); });
+      sci.querySelectorAll('[data-sci-slide]').forEach(function(s){ s.hidden = s.getAttribute('data-sci-slide') !== idx; });
+    });
+  }
+  // FAQ accordion
+  var faq = root.querySelector('[data-pdp-faq]');
+  if(faq){
+    faq.addEventListener('click', function(e){
+      var q = e.target.closest('.pdp-faq__q'); if(!q) return;
+      var item = q.closest('.pdp-faq__item');
+      var open = item.classList.toggle('is-open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      q.querySelector('.pdp-faq__sign').innerHTML = open ? '−' : '+';
+    });
+  }
+})();
+</script>
+
+{% stylesheet %}
+  .pdp-hero { display: flex; width: 100%; background: #fff; align-items: stretch; }
+  .pdp-hero__media { position: relative; width: 50%; flex-shrink: 0; min-height: 760px; background: #fff; }
+  .pdp-hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 116px 92px; box-sizing: border-box; }
+  .pdp-hero__info { width: 50%; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 64px 72px; }
+  .pdp-pill { display: inline-flex; align-items: center; border: 2px solid var(--c); border-radius: 999px; padding: 6px 16px; font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .pdp-hero__title { font-style: italic; font-family: var(--serif); font-weight: 500; font-size: clamp(40px, 5vw, 58px); line-height: 0.97; padding-top: 18px; }
+  .pdp-hero__rating { display: flex; align-items: center; gap: 10px; padding-top: 14px; }
+  .pdp-stars { font-family: var(--sans); letter-spacing: 2px; font-size: 16px; }
+  .pdp-stars--sm { font-size: 14px; }
+  .pdp-hero__rcount { color: var(--ink); font-weight: 500; font-size: 15px; }
+  .pdp-hero__price { font-style: italic; font-family: var(--serif); font-weight: 500; font-size: 34px; line-height: 1.25; padding-top: 14px; }
+  .pdp-hero__desc { max-width: 430px; color: var(--ink); font-weight: 500; font-size: 17px; line-height: 1.55; padding-top: 14px; }
+  .pdp-buy { width: 100%; }
+  .pdp-plans { display: flex; flex-direction: column; width: 100%; max-width: 576px; gap: 12px; padding-top: 26px; }
+  .pdp-plan { display: flex; align-items: center; justify-content: space-between; text-align: left; width: 100%; border: 2px solid var(--c); border-radius: 14px; padding: 16px 20px; background: #fff; transition: box-shadow 0.15s ease, transform 0.15s ease; }
+  .pdp-plan:hover { transform: translateY(-2px); }
+  .pdp-plan.is-on { box-shadow: inset 0 0 0 2px var(--c); }
+  .pdp-plan__left { display: flex; flex-direction: column; gap: 3px; }
+  .pdp-plan__head { display: flex; align-items: center; gap: 8px; }
+  .pdp-plan__label { font-weight: 500; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--c); }
+  .pdp-plan__badge { background: var(--c); color: #fff; border-radius: 999px; padding: 4px 10px; font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .pdp-plan__sub { font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 14px; }
+  .pdp-plan__price { font-weight: 500; font-size: 18px; color: var(--c); }
+  .pdp-cart { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 576px; margin-top: 20px; border: 2px solid var(--c); border-radius: 999px; padding: 18px 30px; background: #fff; color: var(--c); font-weight: 500; font-size: 16px; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 7px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .pdp-cart:hover { transform: translateY(7px); box-shadow: 0 0 0 var(--c); }
+  .pdp-cart[disabled] { opacity: 0.5; box-shadow: none; }
+  .pdp-bullets { display: flex; flex-wrap: wrap; width: 100%; max-width: 576px; gap: 14px 20px; padding-top: 28px; }
+  .pdp-bullet { display: flex; align-items: center; gap: 10px; width: 260px; font-weight: 500; font-size: 13px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--c); }
+  .pdp-bullet__email { text-transform: none; letter-spacing: 0; color: inherit; text-decoration: underline; text-underline-offset: 2px; padding-left: 4px; }
+  .pdp-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 999px; background: var(--c); }
+  .pdp-ticker { width: 100%; background: var(--c); overflow: hidden; padding: 26px 0; border-top: 2px solid rgba(255,255,255,0.28); border-bottom: 2px solid rgba(255,255,255,0.28); }
+  .pdp-ticker__track { display: flex; width: max-content; animation: pdp-ticker 46s linear infinite; }
+  .pdp-ticker__group { display: flex; align-items: center; }
+  .pdp-ticker__cell { display: inline-flex; align-items: center; gap: 24px; padding: 0 24px; }
+  .pdp-ticker__star { color: #fff; opacity: 1; font-size: 15px; }
+  .pdp-ticker__txt { font-weight: 500; font-size: 20px; letter-spacing: 0.01em; color: #fff; white-space: nowrap; }
+  .pdp-ticker__lead { font-weight: 600; font-size: 22px; color: #fff; white-space: nowrap; }
+  @keyframes pdp-ticker { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .pdp-ticker__track { animation-play-state: paused; } }
+  .pdp-made { display: flex; justify-content: center; background: #fff; border-bottom: 2px solid var(--c); padding: 84px 48px; }
+  .pdp-made__inner { display: flex; align-items: center; gap: 56px; width: 100%; max-width: 980px; }
+  .pdp-made__text { flex: 1.2; }
+  .pdp-made__head { font-weight: 700; font-size: clamp(44px, 6.5vw, 80px); line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; }
+  .pdp-made__body { max-width: 46ch; padding-top: 18px; color: var(--ink); font-weight: 500; font-size: 17px; line-height: 1.55; }
+  .pdp-made__serif { font-style: italic; font-family: var(--serif); font-weight: 500; padding-top: 20px; font-size: 24px; line-height: 1.25; }
+  .pdp-made__art { flex: 0.8; display: flex; justify-content: center; }
+  .pdp-science { display: flex; flex-direction: column; align-items: center; background: #fff; border-bottom: 2px solid var(--c); padding: 92px 56px 86px; }
+  .pdp-science__inner { display: flex; gap: 72px; width: 100%; max-width: 1160px; align-items: flex-start; }
+  .pdp-science__head-wrap { flex: 0 0 44%; max-width: 470px; text-align: left; }
+  .pdp-science__eyebrow { font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .pdp-science__head { font-weight: 700; font-size: clamp(42px, 5.4vw, 66px); line-height: 1; letter-spacing: -0.015em; text-transform: uppercase; padding-top: 14px; }
+  .pdp-science__intro { color: var(--ink); font-size: 17px; line-height: 1.6; padding-top: 18px; }
+  .pdp-science__chef { display: flex; align-items: flex-end; gap: 16px; margin-top: 36px; }
+  .pdp-science__chef-img { flex: 0 0 auto; }
+  .pdp-science__bubble { position: relative; background: #fff; border: 2px solid var(--c); border-radius: 16px; padding: 13px 17px; box-shadow: 0 4px 0 var(--c); margin-bottom: 18px; }
+  .pdp-science__bubble::after { content: ''; position: absolute; left: -8px; bottom: 16px; width: 13px; height: 13px; background: #fff; border-left: 2px solid var(--c); border-bottom: 2px solid var(--c); transform: rotate(45deg); }
+  .pdp-science__bubble-name { display: block; font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--c); }
+  .pdp-science__bubble-text { font-size: 14px; line-height: 1.4; color: var(--ink); padding-top: 3px; }
+  .pdp-science__viewer { flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 460px; border: 2px solid var(--c); border-radius: 26px; padding: 40px 40px 48px; background: color-mix(in srgb, var(--c) 5%, #fff); }
+  .pdp-science__tabs { display: flex; gap: 10px; }
+  .pdp-science__tab { width: 50px; height: 50px; border-radius: 999px; border: 2px solid var(--c); background: #fff; color: var(--c); font-family: var(--serif); font-style: italic; font-size: 21px; box-shadow: 0 4px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease; }
+  .pdp-science__tab:hover { transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
+  .pdp-science__tab.is-on { background: var(--c); color: #fff; transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
+  .pdp-science__num { display: block; font-style: italic; font-size: clamp(76px, 9vw, 120px); line-height: 0.78; color: var(--c); }
+  .pdp-science__t { font-weight: 700; font-size: clamp(24px, 3vw, 34px); line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; padding-top: 14px; }
+  .pdp-science__b { color: var(--ink); font-size: 18px; line-height: 1.6; padding-top: 12px; max-width: 46ch; }
+  .pdp-related { display: flex; flex-direction: column; align-items: center; background: #fff; padding: 78px 48px 90px; gap: 38px; }
+  .pdp-related__eyebrow { font-weight: 500; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .pdp-related__grid { display: flex; align-items: flex-start; justify-content: center; width: 100%; max-width: 1100px; gap: 30px; }
+  .pdp-card { display: flex; flex-direction: column; align-items: flex-start; flex: 1; max-width: 270px; transition: transform 0.16s ease; }
+  .pdp-card:hover { transform: translateY(-6px); }
+  .pdp-card__media { display: flex; align-items: center; justify-content: center; width: 100%; height: 360px; }
+  .pdp-card__img { width: auto; max-height: 340px; object-fit: contain; }
+  .pdp-card__meta { display: flex; align-items: baseline; flex-wrap: wrap; padding-top: 14px; gap: 9px; }
+  .pdp-card__tag { font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pdp-card__quote { font-family: var(--serif); font-style: italic; font-size: 21px; }
+  .pdp-card__ct { font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pdp-card__name { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 26px; line-height: 1.2; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; padding-top: 6px; }
+  .pdp-card:hover .pdp-card__name { text-decoration-color: var(--c); }
+  .pdp-card__note { font-weight: 500; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; padding-top: 6px; }
+  .pdp-related__cta-wrap { display: flex; justify-content: center; width: 100%; }
+  .pdp-btn { display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--c); border-radius: 999px; padding: 16px 36px; background: #fff; color: var(--c); font-weight: 500; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 7px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .pdp-btn:hover { transform: translateY(7px); box-shadow: 0 0 0 var(--c); }
+  .pdp-btn--wide { width: 100%; max-width: 1100px; }
+  .pdp-reviews { display: flex; flex-direction: column; align-items: center; text-align: center; background: #fff; border-bottom: 2px solid var(--c); padding: 80px 48px; }
+  .pdp-reviews__head { font-weight: 700; font-size: clamp(34px, 4.4vw, 44px); line-height: 1; text-transform: uppercase; }
+  .pdp-reviews__sub { padding-top: 10px; font-weight: 500; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .pdp-reviews__grid { display: flex; width: 100%; max-width: 1200px; padding-top: 36px; gap: 18px; }
+  .pdp-review { flex: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: left; border: 2px solid var(--c); border-radius: 16px; padding: 24px; transition: transform 0.16s ease; }
+  .pdp-review:hover { transform: translateY(-5px); }
+  .pdp-review__quote { font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 18px; line-height: 1.4; padding: 12px 0; }
+  .pdp-review__who { font-weight: 500; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .pdp-faq { display: flex; flex-direction: column; align-items: center; background: #fff; padding: 80px 48px 88px; }
+  .pdp-faq__eyebrow { font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; padding-bottom: 16px; }
+  .pdp-faq__head { font-weight: 700; font-size: clamp(28px, 4vw, 36px); line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; padding-bottom: 36px; }
+  .pdp-faq__list { display: flex; flex-direction: column; width: 100%; max-width: 760px; gap: 12px; }
+  .pdp-faq__item { border: 2px solid var(--c); border-radius: 14px; overflow: hidden; }
+  .pdp-faq__q { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 22px 24px; text-align: left; font-weight: 700; font-size: 18px; letter-spacing: -0.005em; color: var(--c); }
+  .pdp-faq__sign { flex-shrink: 0; font-weight: 700; font-size: 24px; line-height: 1; }
+  .pdp-faq__a-wrap { overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
+  .pdp-faq__item.is-open .pdp-faq__a-wrap { max-height: 320px; }
+  .pdp-faq__a { padding: 0 24px 22px; max-width: 660px; color: var(--ink); font-weight: 500; font-size: 15px; line-height: 1.6; }
+  .pdp-subnote { background: rgba(105, 64, 120, 0.06); border-radius: 10px; padding: 12px 15px; font-weight: 500; font-size: 14px; line-height: 1.5; color: #3A3040; }
+  .pdp-honest { max-width: 620px; margin: 48px auto 0; text-align: center; padding-top: 40px; border-top: 1.5px dashed rgba(167, 36, 30, 0.25); }
+  .pdp-honest__title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--c); }
+  .pdp-honest__body { padding-top: 12px; font-weight: 500; font-size: 17px; line-height: 1.6; color: var(--ink); }
+  @media (max-width: 860px) {
+    .pdp-hero { flex-direction: column; }
+    .pdp-hero__media { width: 100%; min-height: 420px; }
+    .pdp-hero__photo { padding: 40px; }
+    .pdp-hero__info { width: 100%; padding: 48px 28px; }
+    .pdp-plans, .pdp-cart, .pdp-bullets { max-width: 100%; }
+    .pdp-bullet { width: 100%; }
+    .pdp-science__inner { flex-direction: column; gap: 40px; }
+    .pdp-made__inner { flex-direction: column; gap: 32px; }
+    .pdp-made__art { order: -1; }
+    .pdp-related__grid { flex-direction: column; align-items: center; }
+    .pdp-card { max-width: 340px; width: 100%; }
+    .pdp-reviews__grid { flex-direction: column; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Product", "settings": [], "blocks": [], "presets": [] }
+{% endschema %}

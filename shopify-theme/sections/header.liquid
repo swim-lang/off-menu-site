@@ -1,0 +1,88 @@
+{%- capture slug -%}{% render 'page-slug' %}{%- endcapture -%}
+
+<header class="nav">
+  <div class="nav__band" style="background-image: url({{ 'PatternNEW-' | append: slug | append: '.svg' | asset_url }});">
+    <button class="nav__chip nav__menu" type="button" data-menu-open aria-label="Open menu">
+      <span class="nav__burger"><i></i><i></i><i></i></span>
+      Menu
+    </button>
+    <div class="nav__actions">
+      <a href="{{ settings.featured_product_url | default: routes.all_products_collection_url }}" class="nav__chip">Get now</a>
+    </div>
+  </div>
+
+  <a href="{{ routes.root_url }}" class="nav__logo" aria-label="Off Menu home">
+    <img src="{{ 'Logo-clean-' | append: slug | append: '.svg' | asset_url }}" alt="{{ shop.name }}" width="348" height="86">
+  </a>
+
+  {%- comment -%} Full-screen overlay menu — always red, matches the design {%- endcomment -%}
+  <div class="menu" data-menu hidden>
+    <div class="menu__top">
+      <img class="menu__logo" src="{{ 'Logo-clean-red.svg' | asset_url }}" alt="{{ shop.name }}">
+      <button class="menu__close" type="button" data-menu-close><span>&times;</span> Close</button>
+    </div>
+
+    <div class="menu__groups">
+      <div class="menu__col">
+        <span class="menu__title">Shop</span>
+        <a class="menu__link" href="{{ routes.root_url }}">Home</a>
+        <a class="menu__link" href="{{ settings.featured_product_url | default: routes.all_products_collection_url }}">Get now</a>
+      </div>
+      <div class="menu__col">
+        <span class="menu__title">Learn</span>
+        <a class="menu__link" href="{{ routes.root_url }}pages/how-it-works">How it works</a>
+        <a class="menu__link" href="{{ routes.root_url }}pages/about">Our story</a>
+      </div>
+      <div class="menu__col">
+        <span class="menu__title">Help</span>
+        <a class="menu__link" href="{{ routes.root_url }}pages/faq">FAQ</a>
+        <a class="menu__link" href="{{ routes.root_url }}pages/shipping">Shipping &amp; returns</a>
+        <a class="menu__link" href="{{ routes.root_url }}pages/contact">Support</a>
+      </div>
+    </div>
+
+    <img class="menu__lockup" src="{{ 'eat-your-chew.svg' | asset_url }}" alt="Eat your chew">
+    <img class="menu__mark" src="{{ 'Dude-c11209.svg' | asset_url }}" alt="">
+    <div class="menu__hounds" style="background-image: url({{ 'PatternNEW-c11209.svg' | asset_url }});"></div>
+  </div>
+</header>
+
+{% stylesheet %}
+  .nav { position: relative; z-index: 50; }
+  .nav__band { display: flex; align-items: center; justify-content: space-between; height: 92px; padding: 0 28px; background-repeat: no-repeat; background-size: cover; background-position: center; }
+  .nav__actions { display: inline-flex; align-items: center; gap: 12px; }
+  .nav__chip { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--c); border: 2px solid var(--c); border-radius: 999px; padding: 11px 22px; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; box-shadow: 0 4px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .nav__chip:hover { transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
+  .nav__burger { display: inline-flex; flex-direction: column; gap: 3px; width: 16px; }
+  .nav__burger i { height: 2px; background: var(--c); border-radius: 2px; }
+  .nav__logo { position: absolute; left: 50%; top: 34px; transform: translateX(-50%); width: 348px; z-index: 2; }
+  .nav__logo img { width: 100%; height: auto; }
+  @media (max-width: 640px) {
+    .nav__band { height: 58px; padding: 0 14px; }
+    .nav__actions { display: none; }
+    .nav__menu { padding: 9px 15px; font-size: 13px; box-shadow: 0 3px 0 var(--c); }
+    .nav__logo { width: 150px; top: 26px; }
+  }
+
+  .menu { position: fixed; inset: 0; z-index: 100; background: #fff; overflow: hidden; --c: #c11209; }
+  .menu[hidden] { display: none; }
+  .menu__top { display: flex; align-items: center; justify-content: space-between; padding: 34px 56px 0; }
+  .menu__logo { width: 210px; height: auto; }
+  .menu__close { display: inline-flex; align-items: center; gap: 9px; background: #fff; color: #c11209; border: 2px solid #c11209; border-radius: 999px; padding: 10px 20px; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: 0 5px 0 #c11209; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .menu__close span { font-size: 18px; line-height: 1; }
+  .menu__close:hover { transform: translateY(5px); box-shadow: 0 0 0 #c11209; }
+  .menu__groups { display: flex; align-items: flex-start; justify-content: center; gap: 72px; padding-top: 80px; }
+  .menu__col { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .menu__title { font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #c11209; opacity: 0.55; padding-bottom: 10px; text-align: center; }
+  .menu__link { display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; width: 300px; box-sizing: border-box; font-weight: 700; font-size: 20px; line-height: 1; text-transform: uppercase; letter-spacing: -0.01em; color: #c11209; background: #fff; border: 2px solid #c11209; border-radius: 999px; padding: 14px 24px; box-shadow: 0 6px 0 #c11209; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .menu__link:hover { transform: translateY(6px); box-shadow: 0 0 0 #c11209; }
+  .menu__lockup { position: absolute; left: 56px; bottom: 96px; width: 486px; height: auto; }
+  .menu__mark { position: absolute; right: 64px; bottom: 78px; width: 120px; height: auto; animation: menu-spin 14s linear infinite; }
+  @keyframes menu-spin { to { transform: rotate(360deg); } }
+  .menu__hounds { position: absolute; left: 0; bottom: 0; width: 100%; height: 40px; background-repeat: no-repeat; background-size: cover; background-position: center; }
+  @media (max-width: 900px) { .menu__groups { flex-direction: column; gap: 36px; padding: 64px 56px 0; } .menu__lockup { width: 300px; left: 32px; bottom: 70px; } }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Header", "settings": [] }
+{% endschema %}

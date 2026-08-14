@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#c11209">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- else -%}
+      <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}">
+    {%- endif -%}
+
+    <title>{{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+    {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+
+    {{ content_for_header }}
+
+    {%- comment -%} Brand fonts served from the theme assets {%- endcomment -%}
+    <style>
+      @font-face { font-family:'Control Upright'; src:url('{{ "ControlUpright-Regular.otf" | asset_url }}') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Control Upright'; src:url('{{ "ControlUpright-Medium.otf" | asset_url }}') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Control Upright'; src:url('{{ "ControlUpright-Bold.otf" | asset_url }}') format('opentype'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Sita Serif'; src:url('{{ "SitaSerif-Medium.otf" | asset_url }}') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Sita Serif'; src:url('{{ "SitaSerif-MediumItalic.otf" | asset_url }}') format('opentype'); font-weight:500; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Sita Serif'; src:url('{{ "SitaSerif-Bold.otf" | asset_url }}') format('opentype'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Sita Serif'; src:url('{{ "SitaSerif-BoldItalic.otf" | asset_url }}') format('opentype'); font-weight:700; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Sita Serif'; src:url('{{ "SitaSerif-Italic.otf" | asset_url }}') format('opentype'); font-weight:400; font-style:italic; font-display:swap; }
+    </style>
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
+    {% section 'header' %}
+
+    <main id="MainContent" class="page-shell" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+    {% render 'cart-drawer' %}
+
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    <script src="{{ 'sfx.js' | asset_url }}" defer></script>
+  </body>
+</html>

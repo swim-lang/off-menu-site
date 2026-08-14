@@ -1,0 +1,77 @@
+{%- comment -%}
+  Slide-out cart shell. The panel body is populated from Shopify's cart in the
+  cart-integration phase (fetch /cart.js, render lines, wire /cart/change.js +
+  /cart/add.js, checkout button -> /checkout). Matches the React CartDrawer.
+{%- endcomment -%}
+<div class="cd" data-cart-drawer hidden role="dialog" aria-modal="true" aria-label="Your cart">
+  <button type="button" class="cd__overlay" data-cart-close aria-label="Close cart"></button>
+  <aside class="cd__panel">
+    <div class="cd__head">
+      <span class="cd__title">Your Cart</span>
+      <button type="button" class="cd__close" data-cart-close aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cd__scroll" data-cart-body>
+      {%- comment -%} Rendered client-side from /cart.js {%- endcomment -%}
+    </div>
+    <div class="cd__foot">
+      <div class="cart-row cart-row--total cd__total"><span class="cart-total__label">Total</span><span class="cart-total__val" data-cart-total>$0.00</span></div>
+      <a href="{{ routes.cart_url }}/checkout" class="cart-btn cart-btn--checkout">Secure Checkout &rarr;</a>
+      <ul class="cd__trust">
+        <li><span class="cart-trust__dot">&bull;</span> Secure checkout</li>
+        <li><span class="cart-trust__dot">&bull;</span> Skip or cancel anytime</li>
+        <li><span class="cart-trust__dot">&bull;</span> 30-day money-back</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+{% stylesheet %}
+  .cd { position: fixed; inset: 0; z-index: 200; --c: #4c9e3c; }
+  .cd[hidden] { display: none; }
+  .cd__overlay { position: absolute; inset: 0; width: 100%; height: 100%; border: none; padding: 0; background: rgba(20,22,18,0.62); backdrop-filter: blur(1.5px); cursor: pointer; }
+  .cd__panel { position: absolute; top: 0; right: 0; height: 100%; width: min(468px, 100vw); display: flex; flex-direction: column; background: #fff; box-shadow: -12px 0 40px rgba(20,22,18,0.18); animation: cd-in 0.36s cubic-bezier(0.22,1,0.36,1); }
+  @keyframes cd-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+  .cd__head { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding: 22px 24px 16px; border-bottom: 2px solid #d9ead2; }
+  .cd__title { font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--c); }
+  .cd__close { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 999px; border: 2px solid var(--c); background: #fff; color: var(--c); font-size: 18px; }
+  .cd__scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 16px 24px 20px; }
+  .cd__foot { flex-shrink: 0; padding: 16px 24px 22px; border-top: 2px solid #d9ead2; background: #fff; }
+  .cart-btn--checkout { display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px; background: #fff; border: 2px solid var(--c); border-radius: 999px; color: var(--c); font-family: var(--sans); font-weight: 500; font-size: 16px; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: 0 7px 0 var(--c); }
+  .cd__total { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px; }
+  .cart-total__label { font-family: var(--sans); font-weight: 700; font-size: 18px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--c); }
+  .cart-total__val { font-family: var(--sans); font-weight: 700; font-size: 24px; color: var(--c); }
+  .cd__trust { display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: center; padding-top: 16px; list-style: none; }
+  .cd__trust li { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-weight: 500; font-size: 12px; color: var(--ink); }
+  .cart-trust__dot { color: var(--c); font-size: 11px; }
+  .cd__empty { flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 14px; padding: 40px 32px; }
+  .cart-empty__title { font-family: var(--sans); font-weight: 700; text-transform: uppercase; font-size: clamp(26px, 7vw, 34px); color: var(--c); line-height: 1; }
+  .cart-empty__sub { font-family: var(--sans); font-size: 16px; color: var(--ink); }
+  /* line items */
+  .cart-line { display: flex; align-items: center; gap: 14px; padding: 14px; border: 2px solid #d9ead2; border-radius: 14px; background: #fff; }
+  .cart-line__img { width: 66px; height: 112px; flex-shrink: 0; background-size: contain; background-position: 50%; background-repeat: no-repeat; }
+  .cart-line__mid { display: flex; flex-direction: column; flex: 1 1 0%; gap: 8px; }
+  .cart-line__name { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 20px; line-height: 25px; color: var(--c); }
+  .cart-line__sub { font-family: var(--sans); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); }
+  .cart-stepper { display: flex; align-items: center; width: fit-content; margin-top: 4px; border: 2px solid var(--c); border-radius: 999px; overflow: hidden; }
+  .cart-stepper__btn { display: flex; align-items: center; justify-content: center; width: 38px; height: 34px; flex-shrink: 0; font-weight: 500; font-size: 18px; color: var(--c); background: #fff; }
+  .cart-stepper__btn:first-child { border-right: 2px solid var(--c); }
+  .cart-stepper__btn:last-child { border-left: 2px solid var(--c); }
+  .cart-stepper__btn:hover { background: var(--c); color: #fff; }
+  .cart-stepper__val { display: flex; align-items: center; justify-content: center; width: 42px; height: 34px; flex-shrink: 0; font-weight: 500; font-size: 15px; color: var(--ink); }
+  .cart-line__end { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; align-self: stretch; height: 112px; }
+  .cart-line__price { font-family: var(--sans); font-weight: 500; font-size: 20px; color: var(--c); }
+  .cart-line__remove { font-family: var(--sans); font-weight: 500; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; background: none; }
+  .cart-line__remove:hover { color: var(--c); }
+  /* ship banner + summary */
+  .cart-ship { display: flex; flex-direction: column; gap: 10px; padding: 13px 15px; background: color-mix(in srgb, var(--c) 9%, #fff); border-radius: 10px; }
+  .cart-ship--done { background: color-mix(in srgb, var(--c) 13%, #fff); }
+  .cart-ship__msg { font-weight: 500; font-size: 13.5px; line-height: 1.45; color: color-mix(in srgb, var(--c) 78%, #000); }
+  .cart-ship__msg strong { color: var(--c); font-weight: 700; }
+  .cart-ship__bar { height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--c) 20%, #fff); overflow: hidden; }
+  .cart-ship__bar span { display: block; height: 100%; border-radius: 999px; background: var(--c); transition: width 0.45s ease; }
+  .cd__summary { display: flex; flex-direction: column; padding-top: 6px; border-top: 2px solid #d9ead2; }
+  .cd__summary .cart-row:first-child { padding-top: 12px; }
+  .cart-row { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; }
+  .cart-row__label, .cart-row__val { font-family: var(--sans); font-weight: 500; font-size: 15px; color: var(--ink); }
+  .cart-row__val--accent { color: var(--c); }
+{% endstylesheet %}

@@ -1,0 +1,93 @@
+{%- comment -%} Why fiber — myth vs reality. Ported from Home.jsx (why). Base color red. {%- endcomment -%}
+
+<section class="why" style="--c: var(--red); color: var(--red);">
+  <div class="why__top">
+    <h2 class="why__head" data-reveal="big">Not your grandma's fiber</h2>
+  </div>
+  <div class="why__cols">
+    <div class="why__divider"></div>
+    <div class="why__track">
+      <div class="why__mark-circle">{% render 'ill', src: 'Mark.svg', w: 92, h: 92 %}</div>
+    </div>
+    <div class="why__mr">
+      <div class="why__pair why__pair--head">
+        <div class="why__cell why__cell--myth">
+          <span class="why__kicker serif">They say</span>
+          <span class="why__col-title">Myth</span>
+          <span class="why__thumb">{% render 'ill', src: 'thumb.svg', w: 26, h: 26, style: 'transform: rotate(180deg);' %}</span>
+        </div>
+        <div class="why__cell why__cell--real">
+          <span class="why__kicker serif">The truth</span>
+          <span class="why__col-title">Reality</span>
+          <span class="why__thumb">{% render 'ill', src: 'thumb.svg', w: 26, h: 26 %}</span>
+        </div>
+      </div>
+      {%- assign myths = "&ldquo;Fiber is no big deal.&rdquo;|&ldquo;I eat pretty healthy, so I'm probably getting enough.&rdquo;|&ldquo;Fiber supplements are gross.&rdquo;|&ldquo;I'll just eat more vegetables.&rdquo;|&ldquo;Fiber will make me bloated.&rdquo;|&ldquo;All fiber is the same.&rdquo;" | split: "|" -%}
+      {%- assign reals = "Most adults aren't getting enough fiber. It affects digestion, energy, fullness, gut health, and how you feel every day, not just when you're older.|Most people fall short of their daily fiber goal, even when they're eating well.|We're with you. That's why we made one that doesn't taste like punishment.|You should. But let's be honest, you probably won't eat enough every single day. That's where a small daily fiber habit can help.|A lack of fiber can be part of the problem. Consistent daily fiber helps support a healthier digestive routine.|Different fibers do different jobs. A steady daily habit can support digestion, fullness, and regularity over time." | split: "|" -%}
+      {%- assign myth_rot = "-3|2.4|-2.2|3|-2.6|2" | split: "|" -%}
+      {%- assign real_rot = "2.6|-2.2|3|-2.6|2|-3" | split: "|" -%}
+      {%- for i in (0..5) -%}
+        <div class="why__pair" data-reveal>
+          <div class="why__cell why__cell--myth">
+            <div class="why__sticker why__sticker--myth" style="transform: rotate({{ myth_rot[i] }}deg);">
+              <span class="why__myth-q serif">{{ myths[i] }}</span>
+            </div>
+          </div>
+          <div class="why__cell why__cell--real">
+            <div class="why__sticker why__sticker--real" style="transform: rotate({{ real_rot[i] }}deg);">
+              <p class="why__real-t">{{ reals[i] }}</p>
+            </div>
+          </div>
+          {%- assign flip = i | modulo: 2 -%}
+          <svg class="why__connector" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"{% if flip == 1 %} style="transform: scaleY(-1);"{% endif %}>
+            <path d="M 320 62 C 400 26, 458 26, 494 52 C 522 71, 502 98, 479 83 C 456 68, 494 42, 532 58 C 582 78, 612 64, 680 56" />
+          </svg>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .why { display: flex; flex-direction: column; align-items: center; padding: 120px 40px 0 90px; gap: 120px; }
+  .why__head { align-self: stretch; text-align: center; font-weight: 700; font-size: clamp(56px, 9vw, 120px); line-height: 1.04; text-transform: uppercase; letter-spacing: -0.01em; }
+  .why__top { align-self: stretch; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+  .why__stat { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; max-width: 640px; }
+  .why__stat-num { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(58px, 8vw, 100px); line-height: 0.9; color: var(--c); }
+  .why__stat-lead { font-weight: 700; font-size: clamp(19px, 2.4vw, 28px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; color: var(--c); }
+  .why__stat-sub { font-weight: 500; font-size: 18px; line-height: 1.55; color: var(--ink); padding-top: 14px; max-width: 560px; }
+  .why__cols { position: relative; display: flex; justify-content: center; width: 100%; max-width: 1000px; margin: 0 auto; padding-bottom: 130px; }
+  .why__col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 120px; }
+  .why__col-head { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .why__kicker { font-size: 18px; }
+  .why__col-title { font-weight: 700; font-size: 30px; text-transform: uppercase; letter-spacing: -0.01em; }
+  .why__item { display: flex; flex-direction: column; align-items: center; max-width: 240px; gap: 9px; text-align: center; }
+  .why__item-title { font-weight: 700; font-size: 17px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .why__item-body { font-size: 14px; line-height: 1.4; color: var(--ink); }
+  .why__divider { position: absolute; left: 50%; top: 0; bottom: 0; width: 0; border-left: 2px dashed var(--c); }
+  .why__track { position: absolute; left: 50%; top: 0; bottom: 0; transform: translateX(-50%); width: 150px; display: flex; justify-content: center; pointer-events: none; z-index: 3; }
+  .why__mark-circle { position: sticky; top: calc(50vh - 75px); width: 150px; height: 150px; border-radius: 999px; background: #fff; border: 2px solid var(--c); display: flex; align-items: center; justify-content: center; }
+  .why__mr { display: flex; flex-direction: column; width: 100%; gap: 60px; }
+  .why__pair { display: flex; align-items: center; width: 100%; position: relative; }
+  .why__cell { position: relative; z-index: 1; }
+  .why__connector { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; color: var(--c); opacity: 0; transition: opacity 0.22s ease; }
+  .why__connector path { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-dasharray: 6 9; stroke-linecap: round; }
+  @keyframes why-draw-lr { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes why-draw-rl { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+  .why__pair:has(.why__sticker--myth:hover) .why__connector { opacity: 1; animation: why-draw-lr 0.6s ease forwards; }
+  .why__pair:has(.why__sticker--real:hover) .why__connector { opacity: 1; animation: why-draw-rl 0.6s ease forwards; }
+  .why__sticker { cursor: pointer; }
+  .why__pair--head { margin-bottom: 6px; }
+  .why__cell { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; }
+  .why__cell--myth { padding: 0 140px 0 16px; }
+  .why__cell--real { padding: 0 16px 0 140px; }
+  .why__sticker { background: #fff; border: 2px solid var(--c); border-radius: 16px; padding: 18px 24px; box-shadow: 4px 4px 0 var(--c); max-width: 280px; }
+  .why__myth-q { font-family: var(--serif); font-style: italic; font-size: clamp(19px, 2.1vw, 25px); line-height: 1.25; }
+  .why__real-t { font-size: 15px; line-height: 1.5; color: var(--c); }
+  .why__thumb { margin-top: 12px; width: 52px; height: 52px; border-radius: 999px; background: #fff; border: 2px solid var(--c); box-shadow: 0 4px 0 var(--c); display: flex; align-items: center; justify-content: center; transform: rotate(-5deg); }
+  @media (max-width: 1000px) { .why { padding-left: 40px; } }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Myths", "settings": [], "presets": [{ "name": "Myths" }] }
+{% endschema %}

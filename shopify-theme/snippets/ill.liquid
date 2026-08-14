@@ -1,0 +1,8 @@
+{%- comment -%}
+  Recolorable illustration via CSS mask (paints currentColor in the SVG silhouette).
+  Longhand mask props for cross-browser/Shopify-CDN reliability.
+  Params: src (asset filename), w, h, class, style
+{%- endcomment -%}
+{%- assign ill_url = src | asset_url -%}
+<span class="{{ class }}" style="display:inline-block;width:{{ w }}px;height:{{ h }}px;background-color:currentColor;-webkit-mask-image:url({{ ill_url }});mask-image:url({{ ill_url }});-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;{{ style }}"></span>
+{%- assign src = nil -%}{%- assign w = nil -%}{%- assign h = nil -%}{%- assign class = nil -%}{%- assign style = nil -%}

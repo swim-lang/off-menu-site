@@ -49,6 +49,23 @@
 }
 .nav__logo img { width: 100%; height: auto; }
 
+/* ===== Mobile header: small centered logo + just the menu button ===== */
+@media (max-width: 640px) {
+  /* Simple white bar: logo left (vertically centered), menu button right. No houndstooth, no overlap. */
+  .nav__band {
+    height: 62px;
+    padding: 0 16px;
+    justify-content: flex-end;
+    background-image: none !important;
+    background-color: #fff !important;
+    border-bottom: 1px solid rgba(34, 31, 32, 0.10);
+  }
+  .nav__actions { display: none; }
+  .nav__menu { padding: 9px 17px; font-size: 13px; box-shadow: 0 3px 0 var(--c); }
+  .nav__menu .nav__burger { display: none; }   /* just "Menu", no hamburger lines */
+  .nav__logo { left: 16px; top: 50%; transform: translateY(-50%); width: 146px; }
+}
+
 /* ===== Full-screen overlay menu (always #C11209, matches Paper exactly) ===== */
 .menu {
   position: fixed; inset: 0; z-index: 100;
@@ -86,4 +103,15 @@
 @media (max-width: 900px) {
   .menu__groups { flex-direction: column; gap: 36px; padding: 64px 56px 0; }
   .menu__lockup { width: 300px; left: 32px; bottom: 70px; }
+}
+
+/* Mobile menu: flat list of links, no category titles, clear close X */
+@media (max-width: 640px) {
+  .menu__top { padding: 16px 18px 0; }
+  .menu__logo { width: 146px; }
+  .menu__close { padding: 8px 14px; font-size: 13px; }
+  .menu__groups { flex-direction: column; align-items: center; gap: 12px; padding: 46px 24px 0; }
+  .menu__col { gap: 12px; width: 100%; align-items: center; }
+  .menu__title { display: none; }
+  .menu__lockup, .menu__mark { display: none; }
 }

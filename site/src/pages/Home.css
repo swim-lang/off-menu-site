@@ -23,9 +23,20 @@
 .hero__stickers { position: absolute; top: 224px; right: 44px; z-index: 3; display: flex; flex-direction: column; align-items: flex-end; gap: 13px; }
 .hero__sticker { background: #fff; border: 2px solid #C11209; color: #C11209; border-radius: 999px; padding: 11px 20px; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; box-shadow: 4px 4px 0 #C11209; }
 .hero__btns { display: flex; gap: 14px; flex-wrap: wrap; }
-.hero__btn { background: #fff; border: 2px solid #C11209; border-radius: 999px; padding: 18px 30px; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; color: #C11209; box-shadow: 0 7px 0 #C11209; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.hero__btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #fff; border: 2px solid #C11209; border-radius: 999px; padding: 18px 30px; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; color: #C11209; box-shadow: 0 7px 0 #C11209; transition: transform 0.12s ease, box-shadow 0.12s ease; }
 .hero__btn--primary { padding: 18px 34px; }
 .hero__btn:hover { transform: translateY(7px); box-shadow: 0 0 0 #C11209; }
+
+/* ===== Mobile hero: stack cleanly, no overlap ===== */
+@media (max-width: 640px) {
+  .hero { height: 600px; }
+  .hero__tag { left: 0; right: 0; margin-inline: auto; top: 26%; width: 72%; max-width: 285px; }
+  .hero__circle { display: none; }   /* New Drop removed on mobile */
+  .hero__stickers { display: none; }
+  .hero__cta-group { left: 22px; right: 22px; bottom: 34px; gap: 12px; }
+  .hero__btns { flex-direction: column; width: 100%; gap: 12px; }
+  .hero__btn, .hero__btn--primary { width: 100%; justify-content: space-between; padding: 16px 24px; font-size: 15px; }
+}
 
 /* ===== TICKER ===== */
 .ticker { border-top: 2px solid var(--c); border-bottom: 6px solid var(--c); background: #fff; overflow: hidden; padding: 16px 0; }
@@ -64,6 +75,11 @@
 /* Single-product launch view — one slightly larger card, matching the shop page. */
 .products__row--single .card { width: 330px; }
 .products__row--single .card__photo { width: 330px; height: 566px; }
+@media (max-width: 640px) {
+  .products { padding: 56px 22px 72px; gap: 40px; }
+  .products__row--single .card { width: 218px; }
+  .products__row--single .card__photo { width: 218px; height: 374px; }
+}
 .card__meta { display: flex; align-items: baseline; justify-content: center; gap: 9px; padding-top: 18px; }
 .card__kicker { font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
 .card__q { font-size: 21px; }

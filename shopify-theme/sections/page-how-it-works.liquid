@@ -1,0 +1,116 @@
+{%- comment -%} How It Works — ported from HowItWorks.jsx/.css. Page color (pink) set by template body class. {%- endcomment -%}
+
+<section class="hiw-hero" style="color: var(--c);">
+  <div data-reveal="big"><img class="hiw-hero__lockup" src="{{ 'two-chew-lockup.svg' | asset_url }}" alt="Two chews. Daily fiber."></div>
+  <div data-reveal><img class="hiw-hero__whisk" src="{{ 'chef-whisk.svg' | asset_url }}" alt=""></div>
+  <h1 class="hiw-hero__head" data-reveal="big">Better odds you'll actually take it.</h1>
+  <p class="hiw-hero__sub" data-reveal>Fiber works best when it becomes a habit. So we made the habit easier, softer, and a lot more enjoyable to taste. Three small moves, on repeat.</p>
+</section>
+
+<section class="hiw-route" style="color: var(--c);">
+  <div class="hiw-steps">
+    {%- assign titles = "Take two chews daily.|Add a little fiber.|Come back tomorrow." | split: "|" -%}
+    {%- assign bodies = "No mixing, no measuring, no orange dust on your counter. Just unwrap, chew, and move on with your day.|Each serving gives you 2g fiber to help support digestive health, regularity, and fullness as part of your daily routine.|That is the whole point. A supplement does not matter much if you hate taking it, so we made fiber easier to repeat." | split: "|" -%}
+    {%- assign ills = "apple|spinach|grape" | split: "|" -%}
+    {%- assign nums = "01|02|03" | split: "|" -%}
+    {%- for i in (0..2) -%}
+      <div class="hiw-step" data-reveal>
+        <span class="hiw-kicker">Step</span>
+        <span class="hiw-num" data-reveal="big">{{ nums[i] }}</span>
+        {% render 'ill', src: ills[i] | append: '.svg', w: 98, h: 114, class: 'hiw-step__ill' %}
+        <h3 class="hiw-step__title">{{ titles[i] }}</h3>
+        <p class="hiw-step__body">{{ bodies[i] }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<section class="hiw-menu-sec" style="color: var(--c);">
+  <span class="hiw-eyebrow" data-reveal>Why a chew</span>
+  <h2 class="hiw-menu__head" data-reveal="big">Two formats, crossed off the menu.</h2>
+  <p class="hiw-menu__intro" data-reveal>The habit was hard because the format was bad. So we took the worst offenders off the menu and kept the one that fits into an actual day.</p>
+  <div class="hiw-card" data-reveal>
+    <div class="hiw-card__title serif">&#10022; The Format Menu &#10022;</div>
+    <div class="hiw-rule"></div>
+    <div class="hiw-row hiw-row--off"><span class="hiw-item">Powder</span><span class="hiw-dots"></span><span class="hiw-desc">Messy, dusty, easy to skip &#10005;</span></div>
+    <div class="hiw-row hiw-row--off"><span class="hiw-item">Capsule</span><span class="hiw-dots"></span><span class="hiw-desc">Clinical, easy to dread &#10005;</span></div>
+    <div class="hiw-rule"></div>
+    <div class="hiw-row hiw-row--special">
+      <span class="hiw-tag">&#9733; Today's Special &#9733;</span>
+      <div class="hiw-special-item">
+        <span class="hiw-item hiw-item--big">Soft chew</span>
+        <span class="hiw-dots"></span>
+        <span class="hiw-desc hiw-desc--on">Easy, portable, satisfying &#10003;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hiw-splash" style="color: var(--c);">
+  <span class="hiw-eyebrow" data-reveal>The Off Menu rule</span>
+  <h2 class="hiw-splash__head u-skew" data-reveal="big">Make fiber taste like a treat.</h2>
+  <div data-reveal>
+    <div class="hiw-splash__chef">
+      <video src="{{ settings.chef_video_url }}" autoplay loop muted playsinline aria-label="Chef chopping ingredients"></video>
+    </div>
+  </div>
+
+  {%- comment -%} Recolor the black line-art video to brand pink {%- endcomment -%}
+  <svg class="hiw-filter-def" aria-hidden="true" focusable="false">
+    <filter id="hiw-pinkify" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="2" intercept="-0.5"></feFuncR>
+        <feFuncG type="linear" slope="2" intercept="-0.5"></feFuncG>
+        <feFuncB type="linear" slope="2" intercept="-0.5"></feFuncB>
+      </feComponentTransfer>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.7686  0 0 0 0 0.1804  0 0 0 0 0.4157  -0.3333 -0.3333 -0.3333 0 1"></feColorMatrix>
+    </filter>
+  </svg>
+</section>
+
+{% stylesheet %}
+  .hiw-eyebrow { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .hiw-hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 84px 40px 60px; }
+  .hiw-hero__lockup { width: min(740px, 85%); height: auto; display: block; margin-inline: auto; margin-bottom: 28px; }
+  .hiw-hero__whisk { width: min(380px, 76%); height: auto; margin-bottom: 28px; }
+  .hiw-hero__head { font-size: clamp(26px, 3.4vw, 44px); line-height: 1.05; text-transform: uppercase; letter-spacing: -0.015em; max-width: 16ch; }
+  .hiw-hero__sub { font-size: 18px; line-height: 1.5; color: var(--ink); max-width: 520px; }
+  .hiw-splash__chef { position: relative; overflow: hidden; width: min(500px, 86vw); aspect-ratio: 1 / 1; margin: 24px auto 0; }
+  .hiw-splash__chef video { position: absolute; width: 254%; max-width: none; height: auto; left: -71.7%; top: -26%; filter: url(#hiw-pinkify); }
+  .hiw-filter-def { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+  .hiw-route { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 70px 40px 90px; }
+  .hiw-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; width: 100%; max-width: 1080px; margin-top: 60px; }
+  .hiw-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; background: #fff; border: 2px solid var(--c); border-radius: 20px; padding: 44px 32px 48px; box-shadow: 0 8px 0 var(--c); transition: box-shadow 0.16s ease; }
+  .hiw-step:hover { box-shadow: 0 16px 0 var(--c); }
+  .hiw-step__ill { margin: 6px 0 8px; transition: transform 0.18s ease; }
+  .hiw-step:hover .hiw-step__ill { transform: scale(1.09) rotate(-3deg); }
+  .hiw-num { display: block; font-weight: 700; font-size: clamp(120px, 13vw, 176px); line-height: 0.82; letter-spacing: -0.02em; }
+  .hiw-kicker { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .hiw-step__title { font-size: clamp(22px, 2.4vw, 28px); text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; padding-top: 4px; }
+  .hiw-step__body { font-size: 15px; line-height: 1.6; color: var(--ink); }
+  .hiw-menu-sec { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 64px 56px 88px; }
+  .hiw-menu__head { font-size: clamp(34px, 5.5vw, 56px); line-height: 1.05; text-transform: uppercase; letter-spacing: -0.01em; max-width: 16ch; }
+  .hiw-menu__intro { font-size: 18px; line-height: 1.5; color: var(--ink); max-width: 600px; padding-top: 16px; }
+  .hiw-card { position: relative; width: 100%; max-width: 1200px; margin-top: 46px; border: 2px solid var(--c); border-radius: 14px; padding: 50px 60px 56px; background: #fff; box-shadow: 0 24px 56px -18px rgba(20, 16, 10, 0.3); }
+  .hiw-card::before { content: ''; position: absolute; inset: 11px; border: 1px solid var(--c); border-radius: 8px; pointer-events: none; }
+  .hiw-card__title { text-align: center; font-size: 24px; padding-bottom: 12px; }
+  .hiw-rule { height: 0; border-top: 1px solid var(--c); margin: 8px 0; }
+  .hiw-row { display: flex; align-items: flex-end; gap: 14px; padding: 16px 0; }
+  .hiw-item { font-weight: 700; font-size: 22px; white-space: nowrap; }
+  .hiw-row--off .hiw-item { color: var(--ink); text-decoration: line-through; text-decoration-color: var(--c); text-decoration-thickness: 3px; }
+  .hiw-row--off .hiw-desc { color: var(--ink); }
+  .hiw-dots { flex: 1; border-bottom: 2px dotted var(--c); margin-bottom: 6px; }
+  .hiw-desc { font-size: 15px; font-weight: 500; white-space: nowrap; }
+  .hiw-row--special { flex-direction: column; align-items: stretch; gap: 16px; padding-top: 22px; }
+  .hiw-special-item { display: flex; align-items: flex-end; gap: 14px; }
+  .hiw-tag { display: block; width: 100%; text-align: center; background: var(--c); color: #fff; border: 2px solid var(--c); border-radius: 999px; padding: 11px 18px; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .hiw-item--big { font-size: 30px; }
+  .hiw-desc--on { font-weight: 700; font-size: 16px; }
+  .hiw-splash { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 50px 40px 88px; }
+  .hiw-splash__head { font-size: clamp(34px, 5.5vw, 58px); line-height: 1.04; text-transform: uppercase; letter-spacing: -0.01em; max-width: 18ch; }
+  @media (max-width: 860px) { .hiw-steps { grid-template-columns: 1fr; max-width: 420px; } }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "How it works", "settings": [], "presets": [{ "name": "How it works" }] }
+{% endschema %}

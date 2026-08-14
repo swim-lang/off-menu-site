@@ -133,8 +133,8 @@ export default function Home() {
         <motion.div className="hero__cta-group"
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18, duration: 0.6 }}>
           <div className="hero__btns">
-            <a className="hero__btn hero__btn--primary" href="#products">Order the chews →</a>
-            <a className="hero__btn" href="/#/how-it-works">See how it works →</a>
+            <a className="hero__btn hero__btn--primary" href="#products"><span>Order the chews</span><span className="hero__btn-arr" aria-hidden="true">→</span></a>
+            <a className="hero__btn" href="/#/how-it-works"><span>See how it works</span><span className="hero__btn-arr" aria-hidden="true">→</span></a>
           </div>
         </motion.div>
       </section>

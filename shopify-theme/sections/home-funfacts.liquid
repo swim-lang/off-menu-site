@@ -1,0 +1,71 @@
+{%- comment -%} Fun facts — Chef Chewy carousel. Ported from Home.jsx (facts). Base color red. {%- endcomment -%}
+
+<section class="facts" id="funfacts-{{ section.id }}" style="--c: var(--red); color: var(--red);">
+  <div class="facts__grid">
+    <div class="facts__art" data-reveal><img src="{{ 'chef-fun-facts.svg' | asset_url }}" alt="" style="width: 300px; height: auto;"></div>
+    <div class="facts__module">
+      <span class="facts__kicker serif">Did you know?</span>
+      <h2 class="facts__head">Chef Chewy's<br>Fun Facts</h2>
+
+      {%- assign fact_labels = "Fact 01 &middot; Gut health|Fact 02 &middot; Immunity|Fact 03 &middot; Mood|Fact 04 &middot; The gap|Fact 05 &middot; Fuel" | split: "|" -%}
+      {%- assign fact_texts = "Your gut is home to about 100 trillion microbes, more than there are stars in the Milky Way.|Roughly 70% of your immune system lives in your gut.|Your gut makes about 95% of your body's serotonin, the feel-good chemical.|Most people get less than half the fiber they need each day, and many barely a third.|Fiber feeds your good gut bacteria. They're the real chefs down there." | split: "|" -%}
+      {%- assign fact_rot = "-2|2.5|-3.5|1.5|-1" | split: "|" -%}
+      {%- for i in (0..4) -%}
+        <div class="facts__card{% if i == 0 %} is-active{% endif %}" style="transform: rotate({{ fact_rot[i] }}deg);">
+          <span class="facts__label">{{ fact_labels[i] }}</span>
+          <span class="facts__text serif">{{ fact_texts[i] }}</span>
+        </div>
+      {%- endfor -%}
+
+      <div class="facts__controls">
+        <button class="facts__arrow" data-facts-prev aria-label="Previous fact">&larr;</button>
+        <button class="facts__arrow" data-facts-next aria-label="Next fact">&rarr;</button>
+        <span class="facts__counter">01 / 05</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('funfacts-{{ section.id }}');
+    if (!root) return;
+    var cards = root.querySelectorAll('.facts__card');
+    var counter = root.querySelector('.facts__counter');
+    var prev = root.querySelector('[data-facts-prev]');
+    var next = root.querySelector('[data-facts-next]');
+    var total = cards.length;
+    var idx = 0;
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function show(n) {
+      idx = (n + total) % total;
+      for (var i = 0; i < total; i++) { cards[i].classList.toggle('is-active', i === idx); }
+      if (counter) counter.textContent = pad(idx + 1) + ' / ' + pad(total);
+    }
+    if (prev) prev.addEventListener('click', function () { show(idx - 1); });
+    if (next) next.addEventListener('click', function () { show(idx + 1); });
+    show(0);
+  })();
+</script>
+
+{% stylesheet %}
+  .facts { display: flex; flex-direction: column; align-items: center; padding: 129px 40px 159px; border-bottom: 2px solid var(--c); }
+  .facts__grid { display: flex; align-items: center; justify-content: space-between; gap: 64px; width: 100%; max-width: 1050px; }
+  .facts__art { flex: 0.62; display: flex; align-items: center; justify-content: center; }
+  .facts__module { display: flex; flex-direction: column; align-items: flex-start; }
+  .facts__kicker { font-size: 22px; }
+  .facts__head { font-weight: 700; font-size: 46px; line-height: 1.0; text-transform: uppercase; letter-spacing: -0.01em; padding-top: 8px; }
+  .facts__card { max-width: 500px; margin-top: 26px; border: 2px solid var(--c); border-radius: 16px; box-shadow: 6px 6px 0 var(--c); background: #fff; padding: 26px 30px; display: flex; flex-direction: column; gap: 12px; transform: rotate(-1.5deg); }
+  .facts__card:not(.is-active) { display: none; }
+  .facts__label { font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .facts__text { font-size: 23px; line-height: 1.4; }
+  .facts__controls { display: flex; align-items: center; gap: 16px; margin-top: 26px; }
+  .facts__arrow { width: 52px; height: 52px; border-radius: 999px; border: 2px solid var(--c); background: #fff; color: var(--c); box-shadow: 0 4px 0 var(--c); font-size: 20px; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .facts__arrow:hover { transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
+  .facts__counter { font-weight: 500; font-size: 15px; letter-spacing: 0.08em; }
+  @media (max-width: 1000px) { .facts__grid { flex-direction: column; gap: 40px; } }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Fun facts", "settings": [], "presets": [{ "name": "Fun facts" }] }
+{% endschema %}

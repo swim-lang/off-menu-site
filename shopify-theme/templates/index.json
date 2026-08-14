@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "hero": { "type": "home-hero", "settings": {} },
+    "ticker": { "type": "home-ticker", "settings": {} },
+    "products": { "type": "home-products", "settings": {} },
+    "lead": { "type": "home-lead", "settings": {} },
+    "intro": { "type": "home-intro", "settings": {} },
+    "guestcheck": { "type": "home-guestcheck", "settings": {} },
+    "myths": { "type": "home-myths", "settings": {} },
+    "fiber101": { "type": "home-fiber101", "settings": {} },
+    "story": { "type": "home-story", "settings": {} },
+    "funfacts": { "type": "home-funfacts", "settings": {} }
+  },
+  "order": ["hero", "ticker", "products", "lead", "intro", "guestcheck", "myths", "fiber101", "story", "funfacts"]
+}

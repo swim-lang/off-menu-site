@@ -1,0 +1,92 @@
+/* ===== Off Menu — global base (ported from the React app's index.css) ===== */
+
+:root {
+  --paper: #ffffff;
+  --ink: #221f20;
+
+  --red: #c11209;
+  --brand-red: #b12a1d;
+  --darkred: #a7241e;
+  --purple: #694078;
+  --blue: #1f33b9;
+  --green: #4c9e3c;
+  --teal: #1f5f68;
+  --magenta: #86335f;
+  --pink: #c42e6a;
+  --orange: #ff4801;
+  --brown: #6b2503;
+
+  /* active page/section color; overridden per template + per section */
+  --c: var(--red);
+
+  --sans: 'Control Upright', system-ui, sans-serif;
+  --serif: 'Sita Serif', Georgia, serif;
+
+  --maxw: 1200px;
+}
+
+/* ===== Reset / base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img, svg, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+h1, h2, h3, h4, p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* ===== Per-template brand color (mirrors the React PAGES map) ===== */
+body { --c: var(--red); }
+body.template-product { --c: var(--darkred); }
+body.template-page-about { --c: var(--orange); }
+body.template-page-faq { --c: var(--magenta); }
+body.template-page-shipping { --c: var(--blue); }
+body.template-page-contact { --c: var(--teal); }
+body.template-page-how-it-works { --c: var(--pink); }
+body.template-page-ingredients { --c: var(--brown); }
+
+/* ===== Vintage arrow cursor (per-page color, white outline) ===== */
+body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='30' viewBox='0 0 22 30'%3E%3Cpath d='M4 3L4 24L9.2 19L13 27L16 25.7L12.2 18L18.5 18Z' fill='%23c11209' stroke='%23ffffff' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto; }
+body.template-product { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='30' viewBox='0 0 22 30'%3E%3Cpath d='M4 3L4 24L9.2 19L13 27L16 25.7L12.2 18L18.5 18Z' fill='%23a7241e' stroke='%23ffffff' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto; }
+body.template-page-about { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='30' viewBox='0 0 22 30'%3E%3Cpath d='M4 3L4 24L9.2 19L13 27L16 25.7L12.2 18L18.5 18Z' fill='%23ff4801' stroke='%23ffffff' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto; }
+body.template-page-faq { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='30' viewBox='0 0 22 30'%3E%3Cpath d='M4 3L4 24L9.2 19L13 27L16 25.7L12.2 18L18.5 18Z' fill='%2386335f' stroke='%23ffffff' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto; }
+body.template-page-shipping { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='30' viewBox='0 0 22 30'%3E%3Cpath d='M4 3L4 24L9.2 19L13 27L16 25.7L12.2 18L18.5 18Z' fill='%231f33b9' stroke='%23ffffff' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto; }
+body.template-page-contact { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='30' viewBox='0 0 22 30'%3E%3Cpath d='M4 3L4 24L9.2 19L13 27L16 25.7L12.2 18L18.5 18Z' fill='%231f5f68' stroke='%23ffffff' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto; }
+body.template-page-how-it-works { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='30' viewBox='0 0 22 30'%3E%3Cpath d='M4 3L4 24L9.2 19L13 27L16 25.7L12.2 18L18.5 18Z' fill='%23c42e6a' stroke='%23ffffff' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto; }
+body.template-page-ingredients { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='30' viewBox='0 0 22 30'%3E%3Cpath d='M4 3L4 24L9.2 19L13 27L16 25.7L12.2 18L18.5 18Z' fill='%236b2503' stroke='%23ffffff' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto; }
+body *:not(input):not(textarea) { cursor: inherit; }
+input:not([type="submit"]):not([type="button"]), textarea { cursor: text; }
+
+/* ===== Shared helpers ===== */
+.u-upper { text-transform: uppercase; }
+.u-skew { display: inline-block; transform: skewX(-9deg); }
+.serif { font-family: var(--serif); font-style: italic; }
+
+/* Eyebrows / small labels: serif italic, title case, no kerning (site-wide) */
+.page-shell [class*="eyebrow"], .page-shell .ab-kicker,
+.page-shell .facts__kicker, .page-shell .why__kicker { font-family: var(--serif); font-style: italic; text-transform: capitalize; letter-spacing: normal; }
+
+.shopify-section { position: relative; }
+
+/* Page content defaults to the page brand color (so `currentColor` in ported
+   sections resolves to --c, like the React sections' inline color did).
+   Body copy sets its own --ink color explicitly, so it's unaffected. */
+.page-shell { color: var(--c); }
+
+/* ===== Scroll reveal (replaces Framer Motion fadeUp / riseBig) ===== */
+[data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+[data-reveal="big"] { transform: translateY(60px); }
+[data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; } }
+.seal { display: inline-flex; }
