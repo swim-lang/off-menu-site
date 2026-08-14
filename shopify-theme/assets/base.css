@@ -71,6 +71,8 @@ input:not([type="submit"]):not([type="button"]), textarea { cursor: text; }
 /* ===== Shared helpers ===== */
 .u-upper { text-transform: uppercase; }
 .u-skew { display: inline-block; transform: skewX(-9deg); }
+/* Mobile: no skewed type — straight-on for legibility (small badges keep their tilt). */
+@media (max-width: 640px) { .u-skew { transform: none; } }
 .serif { font-family: var(--serif); font-style: italic; }
 
 /* Eyebrows / small labels: serif italic, title case, no kerning (site-wide) */

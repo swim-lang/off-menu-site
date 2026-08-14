@@ -40,6 +40,13 @@
     .lead__row { flex-direction: column; align-items: flex-start; gap: 40px; }
     .lead__stat { flex-direction: column; align-items: flex-start; gap: 8px; padding-bottom: 36px; }
   }
+  @media (max-width: 640px) {
+    .lead { padding: 52px 22px 60px; gap: 34px; }
+    .lead__art { align-self: center; flex-shrink: 1; }
+    .lead__art > span { width: 190px !important; height: 190px !important; }
+    .lead__body { font-size: 16px; line-height: 1.5; }
+    .lead__stat-sub { font-size: 16px; }
+  }
 {% endstylesheet %}
 
 {% schema %}

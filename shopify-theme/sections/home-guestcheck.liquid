@@ -84,6 +84,13 @@
     .foryou__support { max-width: 460px; }
     .foryou__ticket { width: 100%; max-width: 480px; }
   }
+  @media (max-width: 640px) {
+    .foryou__ticket { transform: none !important; }
+    .foryou__check path { stroke-dashoffset: 0 !important; }
+    .foryou__ctext { font-size: 14px !important; line-height: 1.35 !important; }
+    .foryou__tk-rows { padding: 20px 22px !important; gap: 14px !important; }
+    .foryou__foot-note { font-size: 12px; }
+  }
 {% endstylesheet %}
 
 {% schema %}

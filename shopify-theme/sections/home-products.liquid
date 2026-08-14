@@ -39,6 +39,11 @@
   .card__note { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding-top: 7px; }
   .products__shop { display: inline-flex; align-items: center; gap: 10px; border: 2px solid var(--c); border-radius: 999px; padding: 20px 40px; box-shadow: 0 7px 0 var(--c); background: #fff; color: var(--c); font-family: var(--sans); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; transition: transform 0.12s ease, box-shadow 0.12s ease; }
   .products__shop:hover { transform: translateY(7px); box-shadow: 0 0 0 var(--c); }
+  @media (max-width: 640px) {
+    .products { padding: 56px 22px 72px; gap: 40px; }
+    .products__row--single .card { width: 218px; }
+    .products__row--single .card__photo { width: 218px; height: 374px; }
+  }
 {% endstylesheet %}
 
 {% schema %}

@@ -6,6 +6,7 @@
     <div class="facts__module">
       <span class="facts__kicker serif">Did you know?</span>
       <h2 class="facts__head">Chef Chewy's<br>Fun Facts</h2>
+      <img class="facts__art--mobile" src="{{ 'chef-fun-facts.svg' | asset_url }}" alt="">
 
       {%- assign fact_labels = "Fact 01 &middot; Gut health|Fact 02 &middot; Immunity|Fact 03 &middot; Mood|Fact 04 &middot; The gap|Fact 05 &middot; Fuel" | split: "|" -%}
       {%- assign fact_texts = "Your gut is home to about 100 trillion microbes, more than there are stars in the Milky Way.|Roughly 70% of your immune system lives in your gut.|Your gut makes about 95% of your body's serotonin, the feel-good chemical.|Most people get less than half the fiber they need each day, and many barely a third.|Fiber feeds your good gut bacteria. They're the real chefs down there." | split: "|" -%}
@@ -52,6 +53,7 @@
   .facts { display: flex; flex-direction: column; align-items: center; padding: 129px 40px 159px; border-bottom: 2px solid var(--c); }
   .facts__grid { display: flex; align-items: center; justify-content: space-between; gap: 64px; width: 100%; max-width: 1050px; }
   .facts__art { flex: 0.62; display: flex; align-items: center; justify-content: center; }
+  .facts__art--mobile { display: none; }
   .facts__module { display: flex; flex-direction: column; align-items: flex-start; }
   .facts__kicker { font-size: 22px; }
   .facts__head { font-weight: 700; font-size: 46px; line-height: 1.0; text-transform: uppercase; letter-spacing: -0.01em; padding-top: 8px; }
@@ -64,6 +66,17 @@
   .facts__arrow:hover { transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
   .facts__counter { font-weight: 500; font-size: 15px; letter-spacing: 0.08em; }
   @media (max-width: 1000px) { .facts__grid { flex-direction: column; gap: 40px; } }
+  @media (max-width: 640px) {
+    .facts { padding: 56px 22px 60px; }
+    .facts__grid { flex-direction: column; gap: 0; }
+    .facts__art { display: none; }
+    .facts__module { align-items: center; text-align: center; width: 100%; }
+    .facts__head { font-size: 34px; }
+    .facts__kicker { font-size: 18px; }
+    .facts__art--mobile { display: block; width: 118px; height: auto; margin: 14px 0 2px; }
+    .facts__card { transform: none !important; max-width: 100%; padding: 22px 22px; }
+    .facts__text { font-size: 18px; line-height: 1.45; }
+  }
 {% endstylesheet %}
 
 {% schema %}

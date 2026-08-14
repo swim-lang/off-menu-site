@@ -178,14 +178,14 @@
 
     <aside class="faq-rail">
       {% render 'seal', shape:'scallop', size:168, label:'Off Menu', class:'faq-seal' %}
-      {% render 'ill', src:'apple.svg', w:96, h:126, class:'faq-rail__ill' %}
-      {% render 'ill', src:'grape.svg', w:120, h:120, class:'faq-rail__ill' %}
+      {% render 'ill', src:'apple.svg', w:96, h:126, class:'faq-rail__ill faq-rail__ill--apple' %}
+      {% render 'ill', src:'grape.svg', w:120, h:120, class:'faq-rail__ill faq-rail__ill--grape' %}
       <div class="faq-card" data-reveal>
         <div class="faq-card__title serif">Still have questions?</div>
         <p class="faq-card__sub">We're happy to help. Drop us a note.</p>
         <a href="{{ routes.root_url }}pages/contact" class="faq-card__btn">Contact us</a>
       </div>
-      {% render 'ill', src:'Carrot.svg', w:115, h:126, class:'faq-rail__ill' %}
+      {% render 'ill', src:'Carrot.svg', w:115, h:126, class:'faq-rail__ill faq-rail__ill--carrot' %}
     </aside>
   </div>
 </section>
@@ -364,6 +364,16 @@
 /* Accordion open/close animation (replaces Framer height animation) */
 .faq-a-wrap { overflow: hidden; max-height: 0; transition: max-height .34s ease; }
 .faq-item.is-open .faq-a-wrap { max-height: 400px; }
+
+@media (max-width: 640px) {
+  .faq-hero__sub { font-size: 15px; }
+  .faq-seal { display: none; }
+  .faq-rail__ill--apple,
+  .faq-rail__ill--grape { display: none !important; }
+  .faq-rail { gap: 28px; }
+  .faq-rail__ill--carrot { order: 1; }
+  .faq-card { order: 2; }
+}
 {% endstylesheet %}
 
 <script>
