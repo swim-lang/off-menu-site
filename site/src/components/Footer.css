@@ -33,7 +33,7 @@
 /* Mobile: logo first, page links become stacked full-width buttons, pill on one line */
 @media (max-width: 640px) {
   .footer { padding: 44px 22px 40px; gap: 22px; }
-  .footer__logo { order: -2; max-width: 236px; }
+  .footer__logo { order: -2; width: 100%; max-width: none; }  /* full width, same as the link buttons */
   .footer__links { order: -1; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 10px; }
   .footer__link { border: 2px solid var(--c); border-radius: 999px; padding: 13px 20px; text-align: center; box-shadow: 0 4px 0 var(--c); }
   .footer__pill { font-size: 13px; padding: 10px 20px; white-space: nowrap; }
