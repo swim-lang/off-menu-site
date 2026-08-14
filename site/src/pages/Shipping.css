@@ -210,3 +210,11 @@
   /* hide margin decor on narrow screens — no room beside the column */
   .ship-decor { display: none; }
 }
+
+@media (max-width: 640px) {
+  /* Consistent body copy sizing (match the rest of the site) */
+  .ship-section__body,
+  .ship-list__text,
+  .ship-list__bullet { font-size: 15px; line-height: 1.6; }
+  .ship-reassure__body { font-size: 15px; }
+}
