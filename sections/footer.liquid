@@ -1,0 +1,40 @@
+{%- capture slug -%}{% render 'page-slug' %}{%- endcapture -%}
+
+<footer class="footer">
+  <nav class="footer__links">
+    <a class="footer__link" href="{{ routes.root_url }}">Home</a>
+    <a class="footer__link" href="{{ settings.featured_product_url | default: routes.all_products_collection_url }}">Get now</a>
+    <a class="footer__link" href="{{ routes.root_url }}pages/how-it-works">How it works</a>
+    <a class="footer__link" href="{{ routes.root_url }}pages/about">Our story</a>
+    <a class="footer__link" href="{{ routes.root_url }}pages/faq">FAQ</a>
+    <a class="footer__link" href="{{ routes.root_url }}pages/shipping">Shipping &amp; returns</a>
+    <a class="footer__link" href="{{ routes.root_url }}pages/contact">Support</a>
+  </nav>
+
+  <img class="footer__logo" src="{{ 'Logo-clean-' | append: slug | append: '.svg' | asset_url }}" alt="{{ shop.name }}">
+
+  <div class="footer__pill">&middot; Supports gut and digestive health &middot;</div>
+
+  <p class="footer__fine">
+    Fiber soft chews &middot; 60 per bag &middot; Chef-inspired daily supplements. &nbsp;&middot;&nbsp; &copy; {{ 'now' | date: '%Y' }} Off Menu. Re-plating daily supplements.
+  </p>
+
+  <div class="footer__legal">
+    <span>Fiber supports a balanced diet and daily routine. These statements have not been evaluated by the FDA.</span>
+  </div>
+</footer>
+
+{% stylesheet %}
+  .footer { display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 60px 40px 52px; background: #fff; border-top: 2px solid var(--c); text-align: center; }
+  .footer__links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 24px; width: 100%; max-width: 1360px; }
+  .footer__link { font-weight: 700; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--c); transition: opacity 0.15s ease; }
+  .footer__link:hover { opacity: 0.6; }
+  .footer__logo { width: 100%; max-width: 1360px; height: auto; }
+  .footer__pill { background: var(--c); color: #fff; border-radius: 999px; padding: clamp(12px, 1.4vw, 18px) clamp(28px, 5vw, 64px); font-weight: 700; font-size: clamp(16px, 2.8vw, 30px); letter-spacing: 0.02em; text-transform: uppercase; color: #fff; }
+  .footer__fine { font-size: 13px; letter-spacing: 0.02em; opacity: 0.9; max-width: 760px; color: var(--c); }
+  .footer__legal { display: flex; flex-direction: column; gap: 8px; max-width: 720px; font-size: 11.5px; line-height: 1.5; letter-spacing: 0.01em; opacity: 0.55; color: var(--c); }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Footer", "settings": [] }
+{% endschema %}

@@ -1,0 +1,23 @@
+{%- comment -%}
+  Echoes the asset color slug for the current template, matching the React PAGES map.
+  Usage: {% capture slug %}{% render 'page-slug' %}{% endcapture %}
+{%- endcomment -%}
+{%- liquid
+  assign slug = 'red'
+  if template.name == 'product'
+    assign slug = 'darkred'
+  elsif template.suffix == 'about'
+    assign slug = 'orange'
+  elsif template.suffix == 'faq'
+    assign slug = 'magenta'
+  elsif template.suffix == 'shipping'
+    assign slug = 'blue'
+  elsif template.suffix == 'contact'
+    assign slug = 'teal'
+  elsif template.suffix == 'how-it-works'
+    assign slug = 'pink'
+  elsif template.suffix == 'ingredients'
+    assign slug = 'brown'
+  endif
+  echo slug
+-%}

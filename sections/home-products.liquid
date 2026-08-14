@@ -1,0 +1,46 @@
+{%- comment -%} Products — ported from Home.jsx (LAUNCH single-card). Base color red. {%- endcomment -%}
+
+<section id="products" class="products" style="--c: var(--red); color: var(--red);">
+  <div class="products__head" data-reveal>
+    <img class="products__title" src="{{ 'get-yours-today.svg' | asset_url }}" alt="Get yours today">
+    <span class="eyebrow">Daily fiber chews</span>
+  </div>
+  <div class="products__row products__row--single">
+    <div class="card" data-reveal>
+      <a class="card__link" href="{{ settings.featured_product_url | default: routes.all_products_collection_url }}" aria-label="Cherry Cola Spice">
+        <div class="card__photo"><img src="{{ 'cherry-cola-bag.png' | asset_url }}" alt="Cherry Cola Spice"></div>
+        <div class="card__meta">
+          <span class="card__kicker">Bold</span>
+          <span class="card__q serif">&ldquo;Cola&rdquo;</span>
+          <span class="card__kicker">60 CT</span>
+        </div>
+        <div class="card__name serif">Cherry Cola Spice</div>
+        <div class="card__note">Dark cherry, nostalgic cola, warm spice.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .eyebrow { display: block; font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c); }
+  .products { display: flex; flex-direction: column; align-items: center; gap: 56px; padding: 72px 40px 104px; }
+  .products__head { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .products__title { width: min(475px, 84%); height: auto; }
+  .products__row { display: flex; gap: 40px; justify-content: center; width: 100%; max-width: 1136px; }
+  .card { width: 270px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .card__photo { width: 270px; height: 463px; border-radius: 18px; overflow: hidden; }
+  .card__photo img { width: 100%; height: 100%; object-fit: cover; }
+  .products__row--single .card { width: 330px; }
+  .products__row--single .card__photo { width: 330px; height: 566px; }
+  .card__meta { display: flex; align-items: baseline; justify-content: center; gap: 9px; padding-top: 18px; }
+  .card__kicker { font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .card__q { font-size: 21px; }
+  .card__name { font-size: 27px; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; padding-top: 7px; line-height: 1.05; }
+  .card__note { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding-top: 7px; }
+  .products__shop { display: inline-flex; align-items: center; gap: 10px; border: 2px solid var(--c); border-radius: 999px; padding: 20px 40px; box-shadow: 0 7px 0 var(--c); background: #fff; color: var(--c); font-family: var(--sans); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+  .products__shop:hover { transform: translateY(7px); box-shadow: 0 0 0 var(--c); }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Products", "settings": [], "presets": [{ "name": "Products" }] }
+{% endschema %}

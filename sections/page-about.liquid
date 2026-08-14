@@ -1,0 +1,321 @@
+<div class="ab">
+
+  {%- comment -%} HERO — Our story {%- endcomment -%}
+  <section class="ab-hero">
+    <div class="ab-hero__text">
+      <p class="ab-kicker" data-reveal>Our story</p>
+      <img class="ab-hero__lockup" src="{{ 'fiber-deserved-better.svg' | asset_url }}" alt="Fiber deserved better" data-reveal="big" />
+      <div class="ab-hero__body" data-reveal>
+        <p class="ab-lead">Off Menu started with a simple frustration: why does something so useful have to feel so joyless?</p>
+        <p class="ab-lead">Fiber is one of those daily essentials people know they should get more of, but the category has made it feel clinical, messy, and easy to ignore.</p>
+        <p class="ab-lead">So we built a different kind of supplement brand, one that borrows from chefs, menus, flavor notes, and the small pleasure of eating something made with care.</p>
+      </div>
+    </div>
+    <div class="ab-hero__art" data-reveal>
+      {% render 'ill', src: 'Standing.svg', w: 330, h: 620 %}
+    </div>
+
+    {%- comment -%} margin stickers {%- endcomment -%}
+    <span class="ab-pill ab-hero__pill" style="transform:rotate(6deg)">No chalk, ever</span>
+    {% render 'seal', shape: 'burst', size: 124, rotate: -8, label: 'Re-plated', class: 'ab-hero__seal-replated' %}
+    {% render 'seal', shape: 'scallop', size: 122, rotate: -8, label: 'Small batch', class: 'ab-hero__seal-batch' %}
+  </section>
+
+  {%- comment -%} POV — Our point of view {%- endcomment -%}
+  <section class="ab-pov">
+    <div class="ab-pov__art" data-reveal>
+      <div class="ab-illbox">
+        <span class="ab-illbox__label">Illustration</span>
+        <span class="ab-illbox__sub serif">to be added</span>
+      </div>
+    </div>
+    <div class="ab-pov__text">
+      <p class="ab-kicker ab-kicker--wide" data-reveal>Our point of view</p>
+      <h2 class="ab-h2" data-reveal="big">If it goes in your mouth, flavor is part of the job.</h2>
+      <div class="ab-pov__copy" data-reveal>
+        <p class="ab-body">Supplements do not need to feel like punishment. And they definitely do not need to taste like a pharmacy aisle.</p>
+        <p class="ab-body">Better habits happen when the experience is easier to repeat. The format matters. The flavor matters. The ritual matters.</p>
+        <p class="ab-pull serif">Off Menu starts with daily fiber, but the bigger idea is simple: take the things your body needs and make them worth coming back to.</p>
+      </div>
+    </div>
+
+    <span class="ab-pill ab-pov__pill" style="transform:rotate(7deg)">Taste matters</span>
+    {% render 'seal', shape: 'burst', size: 120, rotate: -10, label: 'If you know you know', class: 'ab-pov__seal' %}
+  </section>
+
+  {%- comment -%} WHY OFF MENU — centered pull-quote {%- endcomment -%}
+  <section class="ab-why">
+    <p class="ab-kicker ab-kicker--wide" data-reveal>Why Off Menu</p>
+    <p class="ab-why__quote" data-reveal="big">The best things are often the ones you had to know to ask for.</p>
+    <div class="ab-why__body" data-reveal>
+      <p class="ab-body ab-center">Off Menu is our way of bringing that feeling to daily nutrition. A little more special, a little more considered, and a lot less like the usual supplement routine.</p>
+    </div>
+
+    {% render 'seal', shape: 'scallop', size: 132, rotate: 8, label: 'Small batch', class: 'ab-why__seal-batch' %}
+    <span class="ab-pill ab-why__pill" style="transform:rotate(-8deg)">86 the powder</span>
+  </section>
+
+  {%- comment -%} CHEF CHEWY — house voice {%- endcomment -%}
+  <section class="ab-chef">
+    <div class="ab-chef__art" data-reveal>
+      {% render 'ill', src: 'Walking.svg', w: 312, h: 560 %}
+    </div>
+    <div class="ab-chef__text">
+      <p class="ab-kicker ab-kicker--wide" data-reveal>Meet the house voice</p>
+      <h2 class="ab-h2 ab-h2--big" data-reveal="big">Chef Chewy</h2>
+      <div class="ab-chef__copy" data-reveal>
+        <p class="ab-body">Chef Chewy is the house voice of Off Menu.</p>
+        <p class="ab-body">He's a little judgmental, a little nostalgic, and very serious about taste. He's here to 86 the powder, roast the orange tub, and remind you to take the chew, without making it a whole wellness performance.</p>
+      </div>
+      <div class="ab-says" data-reveal>
+        <span class="ab-says__label">Chef says</span>
+        <span class="ab-says__quote serif">You're welcome. Now chew.</span>
+      </div>
+    </div>
+
+    <span class="ab-pill ab-chef__pill" style="transform:rotate(6deg)">★ Chef-led</span>
+    {% render 'seal', shape: 'burst', size: 120, rotate: -11, label: 'Eat your chew', class: 'ab-chef__seal' %}
+  </section>
+
+</div>
+
+{% stylesheet %}
+/* About / Our Story — color-on-white (orange #ff4801). White bg, C illustrations,
+   headings & borders; ink body. Pills/seals = white fill + C border/text + C shadow. */
+
+.ab {
+  --ink: #221F20;
+  background: #fff;
+}
+
+.ab section {
+  position: relative;
+  background: #fff;
+  overflow: visible;
+}
+
+/* ---- shared type ---- */
+.ab-kicker {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--c, #ff4801);
+  margin: 0;
+}
+.ab-kicker--wide { letter-spacing: 0.18em; }
+
+.ab-h2 {
+  margin: 14px 0 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(30px, 4.6vw, 40px);
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+  text-transform: uppercase;
+  color: var(--c, #ff4801);
+}
+.ab-h2--big { font-size: clamp(40px, 6vw, 56px); line-height: 1; margin-top: 12px; }
+
+.ab-body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--ink);
+}
+.ab-lead { margin: 0; font-family: var(--sans); font-weight: 500; font-size: 17px; line-height: 27px; color: var(--ink); }
+.ab-pull {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 27px;
+  color: var(--c, #ff4801);
+}
+.ab-center { text-align: center; }
+
+/* ---- pill sticker ---- */
+.ab-pill {
+  position: absolute;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid var(--c, #ff4801);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--c, #ff4801);
+  padding: 10px 18px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--c, #ff4801);
+  white-space: nowrap;
+  z-index: 4;
+}
+
+/* =================== HERO =================== */
+.ab-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  padding: 120px 64px 64px;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.ab-hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  width: 660px;
+  flex-shrink: 0;
+}
+.ab-hero__lockup { display: block; width: min(460px, 100%); height: auto; padding-top: 16px; }
+.ab-hero__body { display: flex; flex-direction: column; gap: 14px; max-width: 560px; padding-top: 24px; }
+.ab-hero__art { flex: 1 1 0; display: flex; align-items: center; justify-content: center; color: var(--c, #ff4801); }
+
+.ab-hero__pill { left: 56%; top: 70%; transform: rotate(6deg); }
+.ab-hero__seal-replated { position: absolute; left: 50%; top: 32%; z-index: 4; }
+.ab-hero__seal-batch { position: absolute; right: 60px; top: 100px; z-index: 4; }
+
+/* =================== POV =================== */
+.ab-pov {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  padding: 88px 64px;
+}
+.ab-pov__art { flex: 0.8 1 0; display: flex; align-items: center; justify-content: center; }
+.ab-illbox {
+  width: 300px;
+  height: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px dashed var(--c, #ff4801);
+  border-radius: 18px;
+}
+.ab-illbox__label {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c, #ff4801);
+}
+.ab-illbox__sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 14px; color: #C79A6E; }
+
+.ab-pov__text { display: flex; flex-direction: column; align-items: flex-start; width: 620px; flex-shrink: 0; }
+.ab-pov__copy { display: flex; flex-direction: column; gap: 13px; max-width: 540px; padding-top: 22px; }
+.ab-pov__copy .ab-pull { margin-top: 5px; }
+
+.ab-pov__pill { left: 27%; top: 84px; transform: rotate(7deg); }
+.ab-pov__seal { position: absolute; left: 6%; bottom: 64px; z-index: 4; }
+
+/* =================== WHY OFF MENU =================== */
+.ab-why {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 88px 64px;
+  text-align: center;
+}
+.ab-why__quote {
+  margin: 20px 0 0;
+  max-width: 1040px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(46px, 7vw, 92px);
+  line-height: 1.04;
+  text-align: center;
+  color: var(--c, #ff4801);
+}
+.ab-why__body { max-width: 640px; padding-top: 22px; }
+
+.ab-why__seal-batch { position: absolute; right: 5%; top: 22px; z-index: 4; }
+.ab-why__pill { left: 64px; top: 40px; transform: rotate(-8deg); }
+
+/* =================== CHEF CHEWY =================== */
+.ab-chef {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 72px;
+  padding: 84px 64px;
+}
+.ab-chef__art { flex: 0.8 1 0; display: flex; align-items: center; justify-content: center; color: var(--c, #ff4801); }
+.ab-chef__text { display: flex; flex-direction: column; align-items: flex-start; width: 600px; flex-shrink: 0; }
+.ab-chef__copy { display: flex; flex-direction: column; gap: 13px; max-width: 520px; padding-top: 22px; }
+
+.ab-says {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 26px;
+  padding: 18px 24px;
+  background: #fff;
+  border: 2px solid var(--c, #ff4801);
+  border-radius: 14px;
+  box-shadow: 5px 5px 0 var(--c, #ff4801);
+  transform: rotate(-1.5deg);
+}
+.ab-says__label {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: var(--c, #ff4801);
+}
+.ab-says__quote { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 26px; line-height: 32px; color: var(--c, #ff4801); }
+
+.ab-chef__pill { right: 96px; top: 110px; transform: rotate(6deg); }
+.ab-chef__seal { position: absolute; left: 96px; bottom: 64px; z-index: 4; }
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 860px) {
+  .ab-hero, .ab-pov, .ab-chef {
+    flex-direction: column;
+    gap: 40px;
+    padding: 72px 24px;
+  }
+  .ab-hero { padding-top: 96px; }
+  .ab-hero__text, .ab-pov__text, .ab-chef__text { width: 100%; }
+  .ab-hero__logo { width: 100%; }
+  .ab-pov { flex-direction: column-reverse; }
+  .ab-why { padding: 72px 24px; }
+
+  /* float stickers back into view, scaled down, non-overlapping */
+  .ab-hero__pill, .ab-pov__pill, .ab-chef__pill { position: static; display: inline-flex; margin-top: 8px; }
+  .ab-hero__seal-replated, .ab-hero__seal-batch,
+  .ab-pov__seal, .ab-why__seal-batch, .ab-why__pill,
+  .ab-chef__seal {
+    display: none;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Our story",
+  "settings": [],
+  "presets": [{ "name": "Our story" }]
+}
+{% endschema %}

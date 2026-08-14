@@ -1,0 +1,30 @@
+{%- comment -%} Ticker — ported from Home.jsx (TICKER). Base color red. {%- endcomment -%}
+
+<div class="ticker" style="--c: var(--red); color: var(--red);">
+  <div class="ticker__track">
+    {%- assign ticker_icons = "apple|grape|Cherry|strawberry|watermelon|Carrot" | split: "|" -%}
+    {%- assign ticker_txts = "Daily fiber|2g per serving|Soft chews|Chef-inspired flavor|No powder|Good for your gut" | split: "|" -%}
+    {%- for dup in (0..1) -%}
+      <div class="ticker__group"{% if dup == 1 %} aria-hidden="true"{% endif %}>
+        {%- for i in (0..5) -%}
+          <span class="ticker__item">
+            {% render 'ill', src: ticker_icons[i] | append: '.svg', w: 30, h: 30 %}<span class="ticker__txt">{{ ticker_txts[i] }}</span>
+          </span>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .ticker { border-top: 2px solid var(--c); border-bottom: 6px solid var(--c); background: #fff; overflow: hidden; padding: 16px 0; }
+  .ticker__track { display: flex; width: max-content; animation: ticker 26s linear infinite; }
+  .ticker__group { display: flex; }
+  .ticker__item { display: inline-flex; align-items: center; gap: 14px; padding: 0 28px; }
+  .ticker__txt { font-weight: 700; font-size: 20px; text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap; }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Ticker", "settings": [], "presets": [{ "name": "Ticker" }] }
+{% endschema %}

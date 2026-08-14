@@ -1,0 +1,47 @@
+{%- comment -%} Sound familiar — lead-in. Ported from Home.jsx (lead). Base color red. {%- endcomment -%}
+
+<section class="lead" style="--c: var(--red); color: var(--red);">
+  <div class="lead__stat" data-reveal>
+    <span class="lead__stat-num">95%</span>
+    <span class="lead__stat-copy">
+      <span class="lead__stat-lead">of people don't get enough fiber.</span>
+      <span class="lead__stat-sub">Most already know they should get more. Off Menu just makes it a chew you'll actually look forward to.</span>
+    </span>
+  </div>
+  <div class="lead__row">
+    <div class="lead__text">
+      <span class="lead__eyebrow" data-reveal>Sound familiar?</span>
+      <h2 class="lead__head" data-reveal="big">Ever feel fine in the morning, then weirdly puffy by lunch?</h2>
+      <p class="lead__body" data-reveal>We have all tried to solve that heavy, bloated feeling with more water, cleaner meals, another green thing, or just pretending our jeans did not fit differently two hours ago.</p>
+      <p class="lead__body" data-reveal>Sometimes the simple answer is the one we overlook. A little more fiber, taken consistently, can help support digestion, regularity, fullness, and the daily rhythm of how you feel after eating.</p>
+      <p class="lead__kicker serif" data-reveal>Small habit. Less bloat.</p>
+    </div>
+    <div class="lead__art">
+      {% render 'ill', src: 'Walking.svg', w: 460, h: 460 %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .lead { display: flex; flex-direction: column; gap: 52px; padding: 84px 80px 100px; }
+  .lead__stat { display: flex; align-items: center; gap: clamp(22px, 3.5vw, 46px); padding-bottom: 48px; border-bottom: 2px solid color-mix(in srgb, var(--c) 22%, #fff); }
+  .lead__stat-num { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(72px, 11vw, 132px); line-height: 0.82; color: var(--c); flex-shrink: 0; }
+  .lead__stat-copy { display: flex; flex-direction: column; gap: 10px; }
+  .lead__stat-lead { font-weight: 700; font-size: clamp(20px, 2.6vw, 30px); line-height: 1.08; text-transform: uppercase; letter-spacing: 0.01em; color: var(--c); }
+  .lead__stat-sub { font-weight: 500; font-size: 18px; line-height: 1.55; color: var(--ink); max-width: 560px; }
+  .lead__row { display: flex; align-items: flex-end; justify-content: space-between; gap: 60px; }
+  .lead__text { max-width: 600px; }
+  .lead__eyebrow { display: block; font-family: var(--sans); font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .lead__head { font-size: clamp(36px, 5vw, 62px); line-height: 1.02; text-transform: uppercase; letter-spacing: -0.015em; padding: 14px 0 4px; }
+  .lead__body { font-size: 19px; line-height: 30px; color: var(--ink); padding-top: 16px; }
+  .lead__kicker { font-style: italic; font-size: 27px; line-height: 1.1; color: var(--c); padding-top: 24px; }
+  .lead__art { flex-shrink: 0; }
+  @media (max-width: 1000px) {
+    .lead__row { flex-direction: column; align-items: flex-start; gap: 40px; }
+    .lead__stat { flex-direction: column; align-items: flex-start; gap: 8px; padding-bottom: 36px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Lead", "settings": [], "presets": [{ "name": "Lead" }] }
+{% endschema %}

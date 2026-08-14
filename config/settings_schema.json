@@ -1,0 +1,42 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Off Menu",
+    "theme_version": "1.0.0",
+    "theme_author": "Anchovies",
+    "theme_documentation_url": "https://off-menu-anchovies.vercel.app",
+    "theme_support_url": "https://off-menu-anchovies.vercel.app"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "url",
+        "id": "featured_product_url",
+        "label": "Featured product (\"Get now\") link",
+        "info": "Point this at the launch product, e.g. /products/cherry-cola-spice"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "header",
+        "content": "Videos (hosted in Settings → Files)"
+      },
+      {
+        "type": "text",
+        "id": "hero_video_url",
+        "label": "Home hero video URL",
+        "default": "https://cdn.shopify.com/videos/c/o/v/6692731bfc054a6dbec5c8bcd7ebfad5.mp4"
+      },
+      {
+        "type": "text",
+        "id": "chef_video_url",
+        "label": "Chef-chop video URL (How It Works)",
+        "default": "https://cdn.shopify.com/videos/c/o/v/aa6a9fd0a1db4988961e782cd1250e79.mp4"
+      }
+    ]
+  }
+]

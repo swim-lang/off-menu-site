@@ -1,0 +1,9 @@
+<div class="page-shell" style="padding:120px 40px;max-width:820px;margin:0 auto;text-align:center;color:var(--c)">
+  <h1 class="serif" style="font-size:clamp(34px,5vw,56px);text-transform:uppercase">Your cart</h1>
+  {% if cart.item_count == 0 %}
+    <p style="margin-top:20px">Nothing on the menu yet.</p>
+    <a class="nav__chip" style="margin-top:20px;display:inline-flex" href="{{ routes.all_products_collection_url }}">Shop the chews &rarr;</a>
+  {% else %}
+    <a class="nav__chip" style="margin-top:20px;display:inline-flex" href="{{ routes.cart_url }}/checkout">Secure checkout &rarr;</a>
+  {% endif %}
+</div>
