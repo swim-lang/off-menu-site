@@ -52,3 +52,26 @@
 @media (max-width: 860px) {
   .hiw-steps { grid-template-columns: 1fr; max-width: 420px; }
 }
+
+@media (max-width: 640px) {
+  /* Consistent paragraph copy sizing (match other pages) */
+  .hiw-hero__sub, .hiw-menu__intro { font-size: 15px; line-height: 1.55; }
+  .hiw-step__body { font-size: 14px; }
+  /* Shorter step cards: smaller number + illustration, tighter padding
+     (desktop keeps the big number contrast) */
+  .hiw-step { padding: 26px 24px 30px; gap: 8px; }
+  .hiw-num { font-size: 60px; }
+  .hiw-step__ill { width: 66px !important; height: 77px !important; }
+  .hiw-step__title { padding-top: 2px; }
+  /* Format menu — wider card (less section side padding) + smaller text so rows fit */
+  .hiw-menu-sec { padding: 44px 16px 60px; }
+  .hiw-card { padding: 26px 18px 30px; }
+  .hiw-card::before { inset: 8px; }
+  .hiw-card__title { font-size: 18px; }
+  .hiw-row { padding: 12px 0; gap: 10px; }
+  .hiw-item { font-size: 16px; }
+  .hiw-desc { font-size: 12px; }
+  .hiw-item--big { font-size: 21px; }
+  .hiw-desc--on { font-size: 12px; }
+  .hiw-tag { font-size: 12px; letter-spacing: 0.08em; padding: 9px 14px; }
+}
