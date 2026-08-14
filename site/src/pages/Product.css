@@ -112,6 +112,10 @@
 .pdp-science__tab:hover { transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
 .pdp-science__tab.is-on { background: var(--c); color: #fff; transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
 .pdp-science__panel { /* content sits at the bottom of the box via the viewer's space-between */ }
+.pdp-science__nav { display: none; align-items: center; gap: 14px; margin-top: 22px; }
+.pdp-science__arrow { width: 50px; height: 50px; border-radius: 999px; border: 2px solid var(--c); background: #fff; color: var(--c); font-size: 20px; box-shadow: 0 4px 0 var(--c); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.pdp-science__arrow:active { transform: translateY(4px); box-shadow: 0 0 0 var(--c); }
+.pdp-science__count { font-weight: 700; font-size: 15px; letter-spacing: 0.08em; color: var(--c); }
 .pdp-science__num { display: block; font-style: italic; font-size: clamp(76px, 9vw, 120px); line-height: 0.78; color: var(--c); }
 .pdp-science__t { font-weight: 700; font-size: clamp(24px, 3vw, 34px); line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; padding-top: 14px; }
 .pdp-science__b { color: var(--ink); font-size: 18px; line-height: 1.6; padding-top: 12px; max-width: 46ch; }
@@ -196,9 +200,15 @@
 }
 
 @media (max-width: 640px) {
+  .pdp-hero { padding-top: 18px; }                      /* breathing room under the header */
   .pdp-hero__media { min-height: 380px; }
   .pdp-hero__photo { padding: 26px 20px; }              /* bigger bag */
   .pdp-hero__info { padding: 40px 22px; }
+  /* Science: tighter padding to match other sections + arrow nav instead of tiny number tabs */
+  .pdp-science { padding: 40px 22px 48px; }
+  .pdp-science__viewer { padding: 26px 22px 30px; }
+  .pdp-science__tabs { display: none; }
+  .pdp-science__nav { display: flex; }
   .pdp-made__art > span { width: 200px !important; height: 169px !important; }  /* smaller tummy */
   /* Smaller body copy (match home) */
   .pdp-hero__desc, .pdp-made__body, .pdp-science__intro, .pdp-honest__body { font-size: 15px; }

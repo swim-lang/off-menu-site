@@ -225,6 +225,11 @@ export default function Product() {
                 <p className="pdp-science__b">{SCIENCE[lesson].b}</p>
               </motion.div>
             </AnimatePresence>
+            <div className="pdp-science__nav">
+              <button type="button" className="pdp-science__arrow" onClick={() => setLesson((lesson - 1 + SCIENCE.length) % SCIENCE.length)} aria-label="Previous lesson">←</button>
+              <button type="button" className="pdp-science__arrow" onClick={() => setLesson((lesson + 1) % SCIENCE.length)} aria-label="Next lesson">→</button>
+              <span className="pdp-science__count">{String(lesson + 1).padStart(2, '0')} / {String(SCIENCE.length).padStart(2, '0')}</span>
+            </div>
           </div>
         </div>
 
