@@ -1,0 +1,3 @@
+# Videos are hosted in Shopify Files (CDN URLs in settings_data.json), never as theme assets.
+assets/*.mp4
+*.DS_Store

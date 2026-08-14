@@ -56,10 +56,7 @@ export default function About() {
         {/* POV — Our point of view */}
         <section data-review-id="about-pov" className="ab-pov">
           <Reveal className="ab-pov__art" v={fadeUp}>
-            <div className="ab-illbox">
-              <span className="ab-illbox__label">Illustration</span>
-              <span className="ab-illbox__sub serif">to be added</span>
-            </div>
+            <Ill src="Illustrations/_red/watermelon.svg" w={340} h={273} style={{ transform: 'rotate(-6deg)' }} />
           </Reveal>
           <div className="ab-pov__text">
             <Reveal as="p" className="ab-kicker ab-kicker--wide">Our point of view</Reveal>

@@ -102,7 +102,7 @@
 .ab-hero__body { display: flex; flex-direction: column; gap: 14px; max-width: 560px; padding-top: 24px; }
 .ab-hero__art { flex: 1 1 0; display: flex; align-items: center; justify-content: center; color: var(--c, #ff4801); }
 
-.ab-hero__pill { left: 56%; top: 70%; transform: rotate(6deg); }
+.ab-hero__pill { right: 64px; top: 264px; left: auto; transform: rotate(6deg); }  /* right margin, clear of the chef */
 .ab-hero__seal-replated { position: absolute; left: 50%; top: 32%; z-index: 4; }
 .ab-hero__seal-batch { position: absolute; right: 60px; top: 100px; z-index: 4; }
 

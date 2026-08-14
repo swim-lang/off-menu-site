@@ -91,4 +91,4 @@ input:not([type="submit"]):not([type="button"]), textarea { cursor: text; }
 [data-reveal="big"] { transform: translateY(60px); }
 [data-reveal].is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; } }
-.seal { display: inline-flex; }
+.seal { display: inline-flex; position: relative; }  /* pages override to absolute via their own class */
